@@ -1,0 +1,40 @@
+\footnotesize
+\begin{tikzpicture}[scale=1.5]
+\draw[dashed](-2,0)--(5.5,0);
+\draw[dashed,very thick](-.5,-.25)rectangle++(.5,.5)(.25,-.25)rectangle++(.5,.5);
+\draw[very thick](-.5,-.4)rectangle++(1.25,.8)(.75,-.25)rectangle++(.25,.5);
+\draw[rounded corners=1.5mm,very thick](1,-.25)to(1.3,-.6)to(1.7,-.6)to(2,-.8)to(2.5,-.8)to(2.5,-1)to(3.5,-1);
+\draw[rounded corners=1.5mm,very thick](1,.25)to(1.3,.6)to(1.7,.6)to(2,.8)to(2.5,.8);
+\draw[very thick](2.5,-.9)--(2.5,.8)--++(1,0)--(3.5,-1);
+\draw[very thick,rounded corners=3mm](3.8,-.6)rectangle(4.2,.4);
+\draw[very thick](3.5,.8)to
+[rounded corners=6mm](4.5,.8)to
+[rounded corners=6mm](5,0)to
+[rounded corners=1.5mm](4.7,-.6)to(4.9,-.8)to(4.7,-1)to
+[rounded corners=1.5mm](4.5,-.8)to
+[rounded corners=4.5mm](4,-1)to(3.5,-.8);
+\draw[very thick](3.8,.8)--(3.9,.9)--(4,.9)--(4.1,.8);
+\draw[|<->|](-1.5,0)--(-1.5,.8)node[midway,fill=white]{$A$};
+\draw[|<->|](-1,0)--(-1,.4)node[midway,fill=white]{$D$};
+\draw[|<->|](-.5,-1.5)--++(1.25,0)node[midway,fill=white]{$C$};
+\draw[|<->|](.75,-1.5)--++(4.25,0)node[midway,fill=white]{$B$};
+\begin{scope}[xshift=6cm,yshift=-1.5cm]
+\newcommand{\Bolt}{
+\draw[fill=white](-\a,-\a)rectangle(\a,\a);
+\draw(-.7*\a,-2.5*\a)rectangle(.7*\a,\a);
+\draw(-1.4*\a,\a)rectangle(0,1.8*\a);
+\draw(0,\a)rectangle(1.4*\a,1.8*\a);
+\draw(-1.4*\a,-\a)rectangle(0,-1.8*\a);
+\draw(0,-\a)rectangle(1.4*\a,-1.8*\a);
+}
+\def\a{.4}\def\b{2}
+\draw[pattern=north west lines](0,0)--(2.5,0)arc(0:90:.4)--(.4,.4)--(.4,2.5)arc(0:90:.4)--cycle;
+\begin{scope}[xshift=1.3cm,yshift=2mm,scale=.5,rotate=180]
+\Bolt
+\end{scope}
+\begin{scope}[xshift=2mm,yshift=2cm,scale=.5,rotate=90]
+\Bolt
+\end{scope}
+\draw[|<->|](2,2)--(2,.7)node[midway,fill=white]{$E$};
+\end{scope}
+\end{tikzpicture}

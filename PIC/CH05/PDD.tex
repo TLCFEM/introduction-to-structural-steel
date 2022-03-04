@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+\begin{scope}
+\node at(-1,0){(a)};
+\draw(0,-.6)rectangle(6,.6);
+\begin{scope}[xshift=8cm]
+\draw[very thick,fill=black!10](0,.6)--++(6,0)--++(-3,-.4)--cycle;
+\draw[dashed](2,-.1)--++(2,0)node[right=4mm]{$M_y$};
+\draw[dashed](2,-.6)--++(2,0)node[right=4mm]{$M_p$};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=-2cm]
+\node at(-1,0){(b)};
+\draw(0,-.6)rectangle(6,.6);
+\draw(3,-.6)node[fill,circle,inner sep=0,minimum size=1mm]{};
+\draw(3,.6)node[fill,circle,inner sep=0,minimum size=1mm]{};
+\begin{scope}[xshift=8cm]
+\draw[very thick,fill=black!10](0,.6)--++(6,0)--++(-3,-.7)--cycle;
+\draw[dashed](2,-.1)--++(2,0)node[right=4mm]{$M_y$};
+\draw[dashed](2,-.6)--++(2,0)node[right=4mm]{$M_p$};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=-4cm]
+\node at(-1,0){(c)};
+\draw(0,-.6)rectangle(6,.6);
+\draw[pattern=north west lines](2,.6)--++(2,0)--++(-1,-.2)--cycle;
+\draw[pattern=north west lines](2,-.6)--++(2,0)--++(-1,.2)--cycle;
+\begin{scope}[xshift=8cm]
+\draw[very thick,fill=black!10](0,.6)--++(6,0)--++(-3,-.9)--cycle;
+\draw[dashed](2,-.1)--++(2,0)node[right=4mm]{$M_y$};
+\draw[dashed](2,-.6)--++(2,0)node[right=4mm]{$M_p$};
+\end{scope}
+\end{scope}
+\begin{scope}[yshift=-6cm]
+\node at(-1,0){(d)};
+\draw(0,-.6)rectangle(6,.6);
+\draw[pattern=north west lines](1.5,.6)--++(3,0)--++(-1.5,-.6)--cycle;
+\draw[pattern=north west lines](1.5,-.6)--++(3,0)--++(-1.5,.6)--cycle;
+\begin{scope}[xshift=8cm]
+\draw[very thick,fill=black!10](0,.6)--++(6,0)--++(-3,-1.2)--cycle;
+\draw[dashed](2,-.1)--++(2,0)node[right=4mm]{$M_y$};
+\draw[dashed](2,-.6)--++(2,0)node[right=4mm]{$M_p$};
+\end{scope}
+\end{scope}
+\end{tikzpicture}

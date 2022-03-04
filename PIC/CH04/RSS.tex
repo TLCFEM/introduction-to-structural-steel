@@ -1,0 +1,23 @@
+\footnotesize
+\begin{tikzpicture}[>=latex]
+\begin{axis}[
+width=10cm,
+height=5.5cm,
+xtick=\empty,
+ytick=\empty,
+axis x line=center,
+axis y line=center,
+xlabel={strain},
+ylabel={stress},
+xlabel style={right},
+ylabel style={left},
+xmin=0,xmax=4.5,ymin=0,ymax=2]
+\addplot[line width=.8mm,mark=none]coordinates{
+(0,0)
+(.3,1.5)
+(3.5,1.5)
+}node[align=left,above,pos=1]{ideal response\\without residual stress};
+\addplot[line width=.8mm,color=cc0066,domain=0:3.5,samples=100]{1.5*(x/.3/(1+(x/.3)^2)^0.5)}node[align=left,below,pos=1]{response with\\residual stress};
+\draw[<-](axis cs:.3,1)--++(.5,-.5)--++(.5,0)node[right]{$E$ decreases gradually};
+\end{axis}
+\end{tikzpicture}

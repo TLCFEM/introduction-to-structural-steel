@@ -1,0 +1,15 @@
+\begin{tikzpicture}[domain=0:10][x=2cm]
+\draw[thick,->](0,0)--(10,0)node[right]{$\eta{}L$};
+\draw[thick,->](0,)--(0,5);
+\foreach\x in{.5,1.5,2.5}\draw[dashed, thick,red](\x*pi,-1)--++(0,6);
+\draw[ultra thick,color=cc0066]plot[domain=0:.438*pi](\x,{tan(\x r)});
+\foreach\x in{.5,1.5}\draw[ultra thick,color=cc0066]plot[domain=(\x+.25)*pi:(\x+.938)*pi] (\x,{tan(\x r)});
+\draw[ultra thick,color=0066cc]plot[domain=0:5](\x,\x);
+\node[below right]at(0,0){$0$};
+\node[below right]at(pi/2,0){$\frac{\pi}{2}$};
+\node[below right]at(pi,0){$\pi$};
+\node[below right]at(3*pi/2,0){$\frac{3\pi}{2}$};
+\node[below right]at(2*pi,0){$2\pi$};
+\node[below right]at(5*pi/2,0){$\frac{5\pi}{2}$};
+\node[circle,fill=red]at(4.49340945790906,4.49340945790906){};
+\end{tikzpicture}

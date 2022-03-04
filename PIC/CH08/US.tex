@@ -1,0 +1,20 @@
+\footnotesize
+\begin{tikzpicture}
+\begin{axis}[
+width=10cm,height=7cm,
+axis x line=middle,
+axis y line=middle,
+xlabel=$\Delta_i$,
+ylabel=$R_i$,
+ytick=\empty,
+xtick=\empty,
+xmin=-1,
+ymin=-.1,
+xmax=12,
+ymax=1.2,
+]
+\addplot[domain=0:8.6,samples=100,line width=.8mm]{(1-exp(-.394*x))^.55}node[midway,above=2mm,rotate=15]{exponential \eqsref{eq:ri}};
+\addplot[dashed,domain=0:8.6,samples=2,line width=.8mm]{(1/8.6*x}node[midway,below=2mm,rotate=38]{linear \eqsref{eq:ri_linear}};
+\draw[cc0066,dashed](axis cs:8.6,.981)node{\LARGE\texttimes}--(axis cs:8.6,0)node[below]{$\Delta_{max}=\SI{8.6}{\mm}$};
+\end{axis}
+\end{tikzpicture}

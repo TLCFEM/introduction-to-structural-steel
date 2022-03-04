@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+\CoorOrigin{0,0}[u][x]{1.5}
+\HingeSupport{0,0}
+\draw[dashed,|-|](1,2.5)--++(-1,0)node[fill=white,above=1mm]{$u(x)$};
+\draw[line width=1mm](0,0)node[circle,inner sep=0,minimum size=2mm,fill=white,draw,line width=.6mm]{}to[out=60,in=-100](1,2.5);
+\setstructmech{convention=direction}
+\NodalForce{1,4.5}[N][-P][M]
+\end{tikzpicture}

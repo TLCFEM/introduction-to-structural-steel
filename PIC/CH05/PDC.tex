@@ -1,0 +1,25 @@
+\footnotesize
+\begin{tikzpicture}[>=latex]
+\begin{axis}[
+declare function={normal(\x)=1.5*(\x/.3/(1+(\x/.3)^4)^0.25);},
+width=10cm,
+height=6cm,
+xtick=\empty,
+ytick=\empty,
+axis x line=center,
+axis y line=center,
+xlabel={curvature},
+ylabel={moment},
+xlabel style={below right},
+ylabel style={above left},
+xmin=-.5,xmax=4,ymin=0,ymax=2]
+\addplot[line width=.6mm,domain=0:3,samples=100]{normal(x)};
+\draw[dashed](axis cs:2,1.5)--(axis cs:0,1.5)node[left]{$M_p$};
+\draw[dashed](axis cs:.2,{normal(.2)})--(axis cs:0,{normal(.2)})node[left]{$M_y$};
+\draw(.1,{normal(.1)})node[fill=cc0066,circle,inner sep=0,minimum size=2mm]{}node[right=2mm,fill=white]{(a)};
+\draw(.2,{normal(.2)})node[fill=cc0066,circle,inner sep=0,minimum size=2mm]{}node[right=2mm,fill=white]{(b)};
+\draw(.3,{normal(.3)})node[fill=cc0066,circle,inner sep=0,minimum size=2mm]{}node[right=2mm,fill=white]{(c)};
+\draw(1,{normal(1)})node[fill=cc0066,circle,inner sep=0,minimum size=2mm]{}node[right=2mm,fill=white]{(d)};
+\draw[dashed](.4,{normal(.4)})to[out=30,in=185](3.5,1.7)node[fill=white]{if hardening};
+\end{axis}
+\end{tikzpicture}

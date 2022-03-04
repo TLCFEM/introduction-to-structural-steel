@@ -1,0 +1,32 @@
+\footnotesize
+\begin{tikzpicture}[scale=.8]
+\newcommand{\Base}[2]{\draw[#1](-1,-1.5)--++(2,0)(-1,1.5)--++(2,0)(0,-1.5)--++(0,3);
+\node[inner sep=0,minimum size=0]at(0,-2.5){#2};}
+\begin{scope}
+\Base{dashed}{Flexural}
+\begin{scope}[yshift=-.4cm]
+\Base{line width=1.2mm}{}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=5cm]
+\Base{dashed}{Lateral}
+\begin{scope}[xshift=.6cm]
+\Base{line width=1.2mm}{}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=10cm]
+\Base{dashed}{Torsional}
+\begin{scope}[rotate=-30]
+\Base{line width=1.2mm}{}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=15cm]
+\Base{dashed}{FLT}
+\begin{scope}[xshift=.6cm,yshift=-.4cm,rotate=-30]
+\Base{line width=1.2mm}{}
+\end{scope}
+\end{scope}
+\node at(2.5,0){\Huge$+$};
+\node at(7.5,0){\Huge$+$};
+\node at(12.5,0){\Huge$=$};
+\end{tikzpicture}

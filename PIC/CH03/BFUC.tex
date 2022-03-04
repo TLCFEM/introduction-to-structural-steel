@@ -1,0 +1,38 @@
+
+\begin{tikzpicture}[ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw[dashed](7,-.07)rectangle(-7,.07);
+\draw[very thick](7,-1)--pic{ext}++(0,2)--++(-14,0)--pic{ext}++(0,-2)--cycle;
+\begin{scope}[rotate around={45:(0,0)}]
+\draw[->,ultra thick](7.5,0)--++(2,0)node[above]{$G$, $Q$, $W$};
+\draw[dashed](3,-.07)rectangle(7,.07);
+\draw[very thick](3,-1)--++(4,0)--pic{ext}++(0,2)--++(-4,0)--cycle;
+\end{scope}
+\begin{scope}[rotate around={135:(0,0)}]
+\draw[dashed](3,-.07)rectangle(7,.07);
+\draw[very thick](3,-1)--++(4,0)--pic{ext}++(0,2)--++(-4,0)--cycle;
+\end{scope}
+\draw[very thick,fill=exmpbg,fill opacity=.8](5,-1)--++(0,4)--++(-2,2)--++(-6,0)--++(-2,-2)--++(0,-4)--cycle;
+\foreach\x in{-4,-2,0,2,4}{
+\foreach\y in{-.5,.5}\node at(\x,\y)[circle,draw]{};
+}
+\begin{scope}[rotate around={45:(0,0)}]
+\node at(3.5,-.5)[circle,draw]{};
+\node at(3.5,.5)[circle,draw]{};
+\node at(4.3,-.5)[circle,draw]{};
+\node at(4.3,.5)[circle,draw]{};
+\node at(5.1,-.5)[circle,draw]{};
+\node at(5.1,.5)[circle,draw]{};
+\draw[ultra thick,cc0066](4.3,0)circle(2.2cm);
+\end{scope}
+\begin{scope}[rotate around={135:(0,0)}]
+\node at(3.5,-.5)[circle,draw]{};
+\node at(3.5,.5)[circle,draw]{};
+\node at(4.3,-.5)[circle,draw]{};
+\node at(4.3,.5)[circle,draw]{};
+\node at(5.1,-.5)[circle,draw]{};
+\node at(5.1,.5)[circle,draw]{};
+\end{scope}
+\end{tikzpicture}

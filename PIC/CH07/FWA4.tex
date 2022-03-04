@@ -1,0 +1,16 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(2,-1)--(2,1)--(-1,2)--(-1,-2)--cycle;
+\draw[<-](0,1)--++(1,.5)--++(2,0)node[fill=exmpbg]{\SI{10}{\mm} plate};
+\draw[fill=exmpbg](0,-.75)rectangle(4,.75);
+\draw[<-](2.5,.5)--++(1,.5)--++(2,0)node[fill=exmpbg]{150\texttimes100\texttimes10UA};
+\draw(0,-.6)--(4,-.6);
+\draw(4,0)pic{ext};
+\draw(-1,0)pic{ext};
+\draw[|<->|](5,-.75)--++(0,1.5)node[midway,fill=exmpbg]{\SI{150}{\mm}};
+\draw[|<->|](6,-.75)--++(0,.5)node[midway,fill=exmpbg,right=2mm]{$y=\SI{48.1}{\mm}$};
+\draw[dashed](-.2,-.25)--++(7,0)node[above=1mm]{N.A.};
+\end{tikzpicture}

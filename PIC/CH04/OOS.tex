@@ -1,0 +1,29 @@
+\footnotesize
+\begin{tikzpicture}[>=latex]
+\begin{axis}[
+width=10cm,
+height=6cm,
+xtick=\empty,
+ytick=\empty,
+axis x line=center,
+axis y line=center,
+xlabel={$\lambda$},
+ylabel={$f$},
+xlabel style={right},
+ylabel style={left},
+xmin=0,xmax=4.5,ymin=0,ymax=1.7]
+\addplot[dashed,line width=.4mm,color=black,mark=none,domain=0:.8]{1.5625};
+\addplot[dashed,samples=40,line width=.4mm,color=black,mark=none,domain=.8:4]{1/x/x};
+\addplot[name path=A,line width=1mm,color=black,mark=none,domain=0:.4]{1.234567901};
+\draw[name path=B,line width=1mm](.4,1.234567901)to[out=0,in=125.3594196](1.2,.8*.6944);
+\addplot[name path=C,samples=40,line width=1mm,color=black,mark=none,domain=1.2:4]{.8/x/x*(6.8-x)/5.6};
+\addplot[dashed,very thick,mark=none,domain=0:1.5]{1.234567901};
+\addplot[name path=D,domain=0:.4]{0};
+\addplot[name path=E,domain=.4:1.2]{0};
+\addplot[name path=F,domain=1.2:4]{0};
+\addplot[00cc66,opacity=.3]fill between[of=A and D];
+\addplot[00cc66,opacity=.3]fill between[of=B and E];
+\addplot[00cc66,opacity=.3]fill between[of=C and F];
+\node[align=center]at(.5,.6){safe\\region};
+\end{axis}
+\end{tikzpicture}

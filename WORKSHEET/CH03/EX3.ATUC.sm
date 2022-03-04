@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Studio Desktop" version="0.99.7822.147"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="96">
+    <identity>
+      <id>ff6725d9-2ace-4aa2-907f-4dae753cd09b</id>
+      <revision>7</revision>
+    </identity>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>true</significantDigitsMode>
+      <roundingMode>0</roundingMode>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="false" viewMode="2" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true">
+      <paper id="0" orientation="Portrait" width="850" height="1100" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Studio Desktop" version="0.99.7822.147" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.11.7822.147" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="TextRegion" version="1.11.7822.147" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="0" top="0" width="465" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">Axial Tension Example --- Slender UC</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="45" width="107" height="40" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">L</e>
+          <e type="operand">8</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="342" top="45" width="114" height="40" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">ϕ</e>
+          <e type="operand">0.9</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="81" width="155" height="40" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">G</e>
+          <e type="operand">880</e>
+          <e type="operand" style="unit">kN</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="342" top="90" width="184" height="50" color="#000000" fontSize="20">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>assume</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">f.y</e>
+          <e type="operand">280</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="117" width="171" height="40" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">Q</e>
+          <e type="operand">1200</e>
+          <e type="operand" style="unit">kN</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="171" width="428" height="50" color="#000000" fontSize="20">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>factored tension force</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">N.ts</e>
+          <e type="operand">1.2</e>
+          <e type="operand">G</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1.5</e>
+          <e type="operand">Q</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kN</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2856</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="252" width="195" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">LRFD requires:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="297" width="133" height="50" color="#000000" fontSize="20">
+      <math optimize="2">
+        <input>
+          <e type="operand">N.ts</e>
+          <e type="operand">ϕN.t</e>
+          <e type="operator" args="2">≤</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="351" width="91" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">Hence</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="396" width="360" height="93" color="#000000" fontSize="20">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>minimum cross sectional area</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">A.gmin</e>
+          <e type="operand">N.ts</e>
+          <e type="operand">ϕ</e>
+          <e type="operand">f.y</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">11330</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="522" width="195" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">Try 250UC89.5</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="558" width="220" height="75" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">A.g</e>
+          <e type="operand">11400</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="270" top="585" width="192" height="50" color="#ff0000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">A.g</e>
+          <e type="operand">A.gmin</e>
+          <e type="operator" args="2">&gt;</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="648" width="184" height="50" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">r.y</e>
+          <e type="operand">65.2</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="270" top="648" width="135" height="50" color="#000000" fontSize="20">
+      <math optimize="2">
+        <input>
+          <e type="operand">r.min</e>
+          <e type="operand">r.y</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="711" width="90" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">Check</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="756" width="185" height="83" color="#000000" fontSize="20">
+      <math>
+        <description active="true" position="Top" lang="eng">
+          <content>
+            <p>smaller than 300, okay</p>
+          </content>
+        </description>
+        <input>
+          <e type="operand">L</e>
+          <e type="operand">r.min</e>
+          <e type="operator" args="2">/</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">122.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="864" width="81" height="38" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">Since</p>
+        </content>
+      </text>
+    </region>
+    <region left="90" top="864" width="184" height="50" color="#000000" fontSize="20">
+      <math>
+        <input>
+          <e type="operand">t.f</e>
+          <e type="operand">17.3</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="909" width="740" height="68" color="#000000" fontSize="20">
+      <text lang="eng" fontFamily="Arial" fontSize="10">
+        <content>
+          <p style="font-size: 20px;">According to AS/NZS 3679.1&amp;2:2016 Table 14, the assumed yield stress is correct for Grade 300 steel.</p>
+        </content>
+      </text>
+    </region>
+  </regions>
+</worksheet>

@@ -1,0 +1,11 @@
+\footnotesize
+\begin{tikzpicture}
+\draw(2,0)rectangle(6,3);
+\node[draw,circle,minimum size=3mm]at(5,2.5){};
+\node[draw,circle,minimum size=3mm]at(4,1){};
+\draw[dashed,cc0066,thick](5,3)--(5,2.5)--(4,1)--(4,0);
+\draw[|<->|](3.5,1)--++(0,1.5)node[midway,fill=white]{$s_g$};
+\draw[|<->|](4,.5)--++(1,0)node[midway,fill=white]{$s_p$};
+\draw[->](6.5,1.5)--++(1,0)node[right=3mm]{$N^*$};
+\draw[->](1.5,1.5)--++(-1,0)node[left=3mm]{$N^*$};
+\end{tikzpicture}

@@ -1,0 +1,22 @@
+\footnotesize
+\begin{tikzpicture}[scale=1.4,x=1cm,y=1cm,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(1.5,-1.5)rectangle(-1,1.5);
+\draw[fill=exmpbg](0,-1)rectangle(3,1);
+\draw(3,0)pic{ext};
+\draw(-1,0)pic{ext};
+\setstructmech{convention=direction}
+\NodalForce{5,0}[N^*][N][N]
+\NodalForce{-1.5,0}[-N^*][N][N]
+\draw[line width=1.2mm](1.5,-1)-|(0,1)--++(1.5,0);
+\draw[|<->|](0,-2)--(1.5,-2)node[midway,fill=exmpbg]{\SI{150}{\mm}};
+\draw[|<->|](-.5,-1)--++(0,2)node[midway,fill=exmpbg,rotate=90]{\SI{200}{\mm}};
+\draw[<-](1,-1.1)--(2,-1.4);
+\draw[<-](1,.9)--(2,-1.4);
+\draw[<-](.1,0)--(2,-1.4);
+\draw(2,-1.4)--++(1,0)--++(-.3,-.3)--++(0,.3)node[below left=1mm and 2mm]{\num{10}};
+\draw[<-](2.5,.5)--++(1,.5)--++(1,0)node[fill=exmpbg]{PL12\texttimes200};
+\draw[<-](.5,1.3)--++(1,.5)--++(1,0)node[fill=exmpbg]{PL20\texttimes300};
+\end{tikzpicture}

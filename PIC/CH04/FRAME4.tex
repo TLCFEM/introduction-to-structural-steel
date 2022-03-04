@@ -1,0 +1,26 @@
+\footnotesize
+\begin{tikzpicture}[scale=.4]
+\begin{scope}
+\FixedSupport{0,0}{1.5}{2}
+\FixedSupport{10,0}{1.5}{2}
+\FixedSupport{20,0}{1.5}{2}
+\FixedSupport{30,0}{1.5}{2}
+\draw[line width=1mm](0,0)node[joint,fill=exmpbg]{}--++(0,5)--++(10,0)--++(10,0)--++(10,0)--++(0,-5)node[joint,fill=exmpbg]{}(10,0)node[joint,fill=exmpbg]{}--++(0,5)(20,0)node[joint,fill=exmpbg]{}--++(0,5);
+\node at(9.5,5)[joint,fill=exmpbg]{};
+\node at(10.5,5)[joint,fill=exmpbg]{};
+\node at(19.5,5)[joint,fill=exmpbg]{};
+\node at(20.5,5)[joint,fill=exmpbg]{};
+\draw[|<->|](0,-2)--++(10,0)node[midway,fill=exmpbg]{\SI{10}{\meter}};
+\draw[|<->|](10,-2)--++(10,0)node[midway,fill=exmpbg]{\SI{10}{\meter}};
+\draw[|<->|](20,-2)--++(10,0)node[midway,fill=exmpbg]{\SI{10}{\meter}};
+\draw[|<->|](-2,0)--++(0,5)node[midway,fill=exmpbg]{\SI{5}{\meter}};
+\setstructmech{convention=direction}
+\NodalForce{0,9}[N][-\SI{1500}{\kn}][N][2]
+\NodalForce{10,9}[N][-\SI{1900}{\kn}][N][2]
+\NodalForce{20,9}[N][-\SI{1900}{\kn}][N][2]
+\NodalForce{30,9}[N][-\SI{1500}{\kn}][N][2]
+\node at(5,4){610UB101};
+\node at(15,4){610UB101};
+\node at(25,4){610UB101};
+\end{scope}
+\end{tikzpicture}

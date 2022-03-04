@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+\def\a{.3}
+\FixedSupport[-90]{0,\a}{1.5}
+\draw[very thick](0,0)rectangle(3,2*\a);
+\NodalForce{5,\a}[G][N][N]
+\NodalForce{7,\a}[Q][N][N]
+\end{tikzpicture}

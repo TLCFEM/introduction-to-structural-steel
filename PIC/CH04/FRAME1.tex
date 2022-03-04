@@ -1,0 +1,12 @@
+\footnotesize
+\begin{tikzpicture}[scale=.6]
+\HingeSupport{0,0}{1.5}
+\HingeSupport{7,0}{1.5}
+\draw[line width=1mm](0,0)node[draw,circle,line width=.6mm,inner sep=0,minimum size=2.5mm,fill=exmpbg]{}--++(0,5)--++(7,0)--++(0,-5)node[draw,circle,line width=.6mm,inner sep=0,minimum size=2.5mm,fill=exmpbg]{};
+\draw[|<->|](0,-1)--++(7,0)node[midway,fill=exmpbg]{\SI{7}{\meter}};
+\draw[|<->|](-1,0)--++(0,5)node[midway,fill=exmpbg]{\SI{5}{\meter}};
+\setstructmech{convention=direction}
+\NodalForce{0,7}[N][-P][N]
+\NodalForce{7,7}[N][-P][N]
+\node[align=left]at(3.5,2.5){Beam: 360UB56.7\\Column: 530UB82.0};
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+\footnotesize
+\begin{tikzpicture}[scale=.4]
+\begin{scope}
+\draw[line width=1mm,line join=round](0,0)coordinate(A)--++(0,6)coordinate(B)--++(8,0)coordinate(C)--++(0,-6)coordinate(D);
+\draw[line width=1mm,line join=round](B)--++(30:6)coordinate(F)--++(0,-6)coordinate(E);
+\draw[line width=1mm,line join=round](C)--++(30:6)coordinate(G)--++(0,-6)coordinate(H);
+\draw[|<->|](0,-2)--++(8,0)node[midway,fill=exmpbg]{\SI{6}{\meter}};
+\draw[|<->|](-2,0)--++(0,6)node[midway,fill=exmpbg]{\SI{4.5}{\meter}};
+\draw[line width=1mm,line join=round](G)--(F);
+\draw[line width=.4mm,line join=round](A)--(F)(B)--(E)(C)--(H)(D)--(G);
+\FixedSupport{A}{1.5}{3}
+\FixedSupport{D}{1.5}{3}
+\FixedSupport{E}{1.5}{3}
+\FixedSupport{H}{1.5}{3}
+\node[joint,fill=exmpbg]at(A){};
+\node[joint,fill=exmpbg]at(D){};
+\node[joint,fill=exmpbg]at(E){};
+\node[joint,fill=exmpbg]at(H){};
+\draw[|<->|](10,-1)--++(30:6)node[midway,fill=exmpbg]{\SI{6}{\meter}};
+\end{scope}
+\end{tikzpicture}

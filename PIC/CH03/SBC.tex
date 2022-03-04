@@ -1,0 +1,22 @@
+\footnotesize
+\begin{tikzpicture}[scale=1.4,x=1cm,y=1cm,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw[very thick](0,0)--++(0,2.3)--++(2.5,0)--pic{ext}++(0,-2.3)--cycle;
+\draw(.7,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[left=2mm]{$E$};
+\draw(.7,1.15)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[left=2mm]{$D$};
+\draw(.7,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[left=2mm]{$C$};
+\draw(1.4,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[right=2mm]{$F$};
+\draw(1.4,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[right=2mm]{$B$};
+\draw(1.4,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(1.4,2.3)node{\textbar}node[above right=1mm]{$A$};
+\draw[|<->|](.7,-.25)--++(.7,0)node[midway,fill=exmpbg]{\num{70}};
+\draw[|<->|](-.5,0)--++(0,.5)node[midway,fill=exmpbg]{\num{50}};
+\draw[|<->|](-.5,.5)--++(0,.65)node[midway,fill=exmpbg]{\num{65}};
+\draw[|<->|](-.5,1.15)--++(0,.65)node[midway,fill=exmpbg]{\num{65}};
+\draw[|<->|](-.5,1.8)--++(0,.5)node[midway,fill=exmpbg]{\num{50}};
+\draw[very thick](2,0)|-(-1,-.4)|-(2,2.7)--++(0,-.4);
+\draw[dashed](2,0)--++(0,2.3);
+\NodalForce{5,1.15}[N^*][N][N]
+\end{tikzpicture}

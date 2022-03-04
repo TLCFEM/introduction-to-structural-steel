@@ -1,0 +1,23 @@
+\footnotesize\begin{tikzpicture}
+\def\a{.2}
+\def\b{.7}
+\def\c{1}
+\def\d{12}
+\def\e{12.25}
+\def\f{12.5}
+\draw(\a/2,1)--+(0,1.5)node[fill=white,anchor=south west]{extraction};
+\draw(\a/2+\b/2,1)--+(0,1)node[fill=white,anchor=south west]{manufacture};
+\draw(\b/2+\c/2,1)--+(0,.5)node[fill=white,anchor=south west]{construction};
+\draw(\c/2+\d/2,1)--+(0,.5)node[fill=white,anchor=south west]{use and refurbishment};
+\draw(\d/2+\e/2,1)--+(0,1.5)node[fill=white,anchor=south west]{demolition};
+\draw(\e/2+\f/2,1)--+(0,.5)node[fill=white,anchor=south west,align=left]{disposal including\\reuse and recycling};
+\draw[fill=green!80](0,0)rectangle(\a,1);
+\draw[fill=blue!80](\a,0)rectangle(\b,1);
+\draw[fill=purple!80](\b,0)rectangle(\c,1);
+\draw[fill=orange!80](\c,0)rectangle(\d,1);
+\draw[fill=cyan!80](\d,0)rectangle(\e,1);
+\draw[fill=red!80](\e,0)rectangle(\f,1);
+\draw[|-|](0,-.2)--(\c,-.2)node[below=.5cm,align=center,midway]{Embodied\\Energy};
+\draw[|-|](\c,-.2)--(\d,-.2)node[below=.5cm,align=center,midway]{Operational\\Energy};
+\draw[|-|](\d,-.2)--(\f,-.2)node[below=.5cm,align=center,midway]{End of Life\\Energy};
+\end{tikzpicture}

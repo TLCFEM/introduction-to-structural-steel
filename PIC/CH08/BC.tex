@@ -1,0 +1,18 @@
+\footnotesize
+\begin{tikzpicture}
+\draw(-1,-1)--++(4,0)--++(2,1)--++(0,3)-|cycle;
+\foreach\x in{0,2}{
+\foreach\y in{0,1,2}{
+\draw(\x,\y)node[circle,inner sep=0pt,minimum size=4mm,line width=.4mm,draw]{};}}
+\draw(2,3.2)|-++(-.2,.2)(2,-1.2)|-++(-.2,-.2)node[below]{critical location};
+\draw[->,line width=.8mm](3.5,4)node[above=1mm]{$P^*$}--++(0,-1);
+\draw[pattern=north east lines](6,-1)rectangle(6.4,3);
+\draw[fill=white](6,-.2)rectangle(6.4,.2);
+\draw[fill=white](6,1-.2)rectangle(6.4,1.2);
+\draw[fill=white](6,2-.2)rectangle(6.4,2.2);
+\draw[|<->|](6,3.2)--++(.4,0)node[midway,above=2mm]{$t_i$};
+\draw[|<->|](6.8,2.2)--(6.8,3)node[midway,fill=white]{$d_i$};
+\draw[dashed](12,-1)rectangle(13,3)node[above]{$\tau_{avg}$};
+\draw[fill=black!20](9,-1)node[below=2mm,align=center]{bending\\normal stress}|-++(1.5,4)node[above]{$\sigma$}--++(-3,-4)--cycle;
+\draw[fill=black!20](12,-1)node[below=2mm,align=center]{shear\\shear stress}--++(0,4)to[out=-25,in=90](13.5,1)node[right=3mm,rotate=90,anchor=center]{$\tau_{max}\approx1.5\tau_{avg}$}to[out=-90,in=25]cycle;
+\end{tikzpicture}

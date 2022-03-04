@@ -1,0 +1,24 @@
+\footnotesize
+\begin{tikzpicture}
+\newcommand\gauss[2]{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}
+\begin{axis}[
+height=7cm,
+width=14cm,
+xmin=0.67,
+xmax=0.75,
+xlabel=strength,
+ylabel=number,
+xticklabels={},
+yticklabels={},
+]
+\addplot[
+black,
+fill=lightgray,
+hist,
+hist/bins=20,
+] table[y=true-error,] {PIC/CH01/ERROR};
+\addplot[domain={0.67:0.75},yscale=4.25,samples=150] {\gauss{0.71}{0.00944}};
+\draw[<-,very thick,cc0066](axis cs:.71,0)--(axis cs:.71,100)node[fill=white]{$f_{y,average}$};
+\draw[<-,very thick,cc0066](axis cs:.69,0)--(axis cs:.69,100)node[fill=white]{$f_{y,nomial}$};
+\end{axis}
+\end{tikzpicture}

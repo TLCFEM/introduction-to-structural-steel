@@ -1,0 +1,1224 @@
+\chapter{Compression Members}
+Compression members include columns, truss members, braces, etc. Unlike tension members, their compressive strength is affected by multiple factors which are summarised below. They usually have more stocky sections than tension members to prevent premature strength loss due to buckling.
+\begin{figure}[H]
+\centering\input{PIC/CH04/CM}
+\end{figure}
+\section{Factors Affecting Compressive Strength}
+\subsection{Elastic Buckling}
+Consider the elastic member buckling in axial compression below.
+\begin{figure}[H]
+\centering\footnotesize
+\begin{subfigure}[b]{.49\linewidth}
+\centering
+\includegraphics[height=6cm]{PIC/CH04/BUCKLING}
+\end{subfigure}
+\begin{subfigure}[b]{.49\linewidth}
+\centering\input{PIC/CH04/EB}
+\end{subfigure}
+\caption{Elastic buckling of a pinned--pinned column}
+\end{figure}
+
+From the free body diagram, the deflection $u(x)$ of an elastic column of length $L$ under axial load $P$ is related to the bending moment $M$ such that
+\begin{gather*}
+Pu=M\qquad\longrightarrow\qquad{}M=-EI\dfrac{\md{^2u}}{\md{x^2}}\qquad\longrightarrow\qquad{}EI\dfrac{\md{^2u}}{\md{x^2}}+Pu=0.
+\end{gather*}
+This is a homogeneous second order ODE. Techniques learnt in \textit{EMTH 210} and \textit{ENCN 304} can be applied to solve it subject to different boundary conditions. The general solution can be found as
+\begin{gather*}
+u(x)=A\cos\left(\eta{}x\right)+B\sin\left(\eta{}x\right)
+\end{gather*}
+where $\eta=\sqrt{\dfrac{P}{EI}}$ (the conventional $\lambda$ is retained to define other quantity), $A$ and $B$ are two constants.
+
+For pinned--pinned member, $u(0)=u(L)=0$, $\eta$ can be found as
+\begin{gather*}
+\eta=\dfrac{n\pi}{L}
+\end{gather*}
+with $n=0,1,2,3,\cdots$. Thus,
+\begin{gather*}
+P_n=\dfrac{n^2\pi^2EI}{L^2}.
+\end{gather*}
+\begin{figure}[H]
+\centering
+\includegraphics[width=12cm]{PIC/CH04/BMODE}
+\caption{First three modes of buckling loads (\href{https://en.wikipedia.org/wiki/Euler\%27s_critical_load}{\url{https://en.wikipedia.org/wiki/Euler\%27s_critical_load}})}
+\end{figure}
+
+For non-trivial solution, the buckling load $P_{cr}$ would be the lowest possible load, which is
+\begin{gather*}
+P_{cr}=P_1=\dfrac{\pi^2EI}{L^2}.
+\end{gather*}
+For other boundary conditions, similar procedures can be carried out.
+
+In general, the buckling strength $N_{om}$ of a column is expressed as
+\begin{gather*}
+N_{om}=P_{cr}=\dfrac{\pi^2EI}{\left(k_eL\right)^2}==\dfrac{\pi^2EI}{L_e^2},
+\end{gather*}
+where $k_e$ is the effective length factor with can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length. It is the distance between buckling points of inflection for a flexural member. The following are a few examples.
+\begin{figure}[H]
+\footnotesize\centering
+\input{PIC/CH04/KE}
+\end{figure}
+
+Dividing $N_{om}$ by cross section area, we define buckling stress $f_{om}$ as
+\begin{gather*}
+f_{om}=\dfrac{N_{om}}{A}=\underbrace{E}_\text{material}\cdot\underbrace{\dfrac{I}{A}}_\text{section}\cdot\underbrace{\dfrac{\pi^2}{\left(k_eL\right)^2}}_\text{length}.
+\end{gather*}
+Noting that the radius of gyration $r$ is defined as $r=\sqrt{I/A}$, then
+\begin{gather*}
+f_{om}=\dfrac{\pi^2E}{\left(k_eL/r\right)^2}.
+\end{gather*}
+Given elastic modulus $E$ is a constant, $f_{om}$ is essentially a function of $k_eL/r$, we define the slenderness ratio $\lambda$ as
+\begin{gather*}
+\lambda=\dfrac{k_eL}{r},
+\end{gather*}
+so that
+\begin{gather*}
+f_{om}=\dfrac{\pi^2E}{\lambda^2}.
+\end{gather*}
+\begin{exmp}Theoretical Buckling
+
+Find the theoretical buckling load of a column with bottom end fixed and top end pinned. The length of column is $L$. The flexural rigidity is $EI$.
+\begin{figure}[H]
+\footnotesize
+\input{PIC/CH04/EB2}
+\end{figure}
+\end{exmp}
+\begin{solution}
+The problem is equivalent to find the particular solution for the ODE
+\begin{gather*}
+EI\dfrac{\md{^2u}}{\md{x^2}}+Pu=0.
+\end{gather*}
+subjected to boundary conditions
+\begin{align*}
+u(0)&=0,\qquad\longrightarrow\qquad\text{displacement is zero at top,}\\
+u(L)&=0,\qquad\longrightarrow\qquad\text{displacement is zero at bottom,}\\
+\dfrac{\md{^2u}}{\md{x^2}}(0)&=0,\qquad\longrightarrow\qquad\text{moment is zero at top,}\\
+\dfrac{\md{u}}{\md{x}}(L)&=0,\qquad\longrightarrow\qquad\text{rotation is zero at bottom}.
+\end{align*}
+The critical load $P$ is the smallest value of the solved solution.
+
+Since in this particular problem, second order derivative appears in BC, more advanced techniques (casting to a fourth order ODE) are needed to find the general solution, which can eventually be expressed as
+\begin{gather*}
+u(x)=A\cos\left(\eta{}x\right)+B\sin\left(\eta{}x\right)+Cx+D.
+\end{gather*}
+Using $u(0)=0$ and $\dfrac{\md{^2u}}{\md{x^2}}(0)=0$,
+\begin{gather*}
+u(0)=A+D=0,\qquad\longrightarrow\qquad{}A=-D,\\
+\dfrac{\md{^2u}}{\md{x^2}}(0)=-A\eta^2=0,\qquad\longrightarrow\qquad{}A=D=0.
+\end{gather*}
+Since $\eta\neq0$ for non-trivial solution. The general solution after apply two BCs can be expressed as
+\begin{gather*}
+u(x)=B\sin\left(\eta{}x\right)+Cx.
+\end{gather*}
+Now apply $\dfrac{\md{u}}{\md{x}}(L)=0$,
+\begin{gather*}
+\dfrac{\md{u}}{\md{x}}(L)=B\eta\cos\left(\eta{}L\right)+C=0,\qquad\longrightarrow\qquad{}C=-B\eta\cos\left(\eta{}L\right).
+\end{gather*}
+Apply the last BC,
+\begin{gather*}
+u(L)=B\sin\left(\eta{}L\right)+CL=0,\qquad\longrightarrow\qquad{}B\left(\sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)\right)=0.
+\end{gather*}
+In order to solve for non-trivial solution, $B$ cannot be zero otherwise all $A$, $B$, $C$ and $D$ would be zeros, leads to trivial solution. Thus,
+\begin{gather*}
+\sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)=0,\qquad\longrightarrow\qquad{}
+\tan\left(\eta{}L\right)=\eta{}L.
+\end{gather*}
+This is a transcendental equation. The approximate solution can be found via numerical, analytical approximations, or graphical methods.
+\begin{figure}[H]
+\centering\input{PIC/CH04/EB3}
+\end{figure}
+The first non-trivial solution is $\eta{}L\approx4.4934$. This gives
+\begin{gather*}
+P_{cr}=\dfrac{4.4934^2EI}{L^2}=\dfrac{\pi^2EI}{\left(0.699L\right)^2},\qquad\longrightarrow\qquad{}k_e=0.699.
+\end{gather*}
+
+For this case, $k_e$ is often taken as \num{0.7}.
+\end{solution}
+
+For elastic material, the critical stress $f_{cr}$ is simply $f_{om}$, which approaches infinity when $\lambda$ approaches zero (i.e., very short columns). If one plots $f_{cr}$ with regard to $\lambda$, the following graph can be obtained.
+\begin{figure}[H]
+\centering\input{PIC/CH04/PC}
+\caption{Theoretical governing region for $f_{cr}$ for elastic material}
+\end{figure}
+\subsection{Compressive Strength}
+However, for real life situations, no matter how small $\lambda$ is, a $f_{om}$ greater than yield strength $f_y$ is meaningless. The yield strength $f_y$ is often considered as a material property that does not vary with $\lambda$. The critical stress $f_{cr}$ shall be the minimum of $f_y$ and $f_{om}$. If one draws $f_{cr}$ against $\lambda$, the following graph can be obtained. It affects short members.
+\begin{figure}[H]
+\centering\input{PIC/CH04/CS}
+\caption{Theoretical governing region for $f_{cr}$}
+\end{figure}
+\subsection{Local Buckling}
+Section can buckle under complex stress conditions. The buckling of web/flanges would further reduce section compression capacity. If often depends on flange/web slenderness ($b_f/t_f$ and $d/t_w$). It affects short members.
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=8cm]{PIC/CH04/LB}
+%\caption{Local buckling modes of I sections}
+%\end{figure}
+\begin{figure}[H]
+\centering\input{PIC/CH04/LB}
+\caption{Governing region considering local buckling}
+\end{figure}
+\subsection{Residual Stress}
+All members contain residual stresses due to uneven cooling. These result in earlier yielding
+and a reduction in elastic modulus.
+
+Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$. Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$, when $E$ decreases, $f_{om}$ would decease accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
+\begin{figure}[H]
+\centering\input{PIC/CH04/RSS}
+\end{figure}
+The effect is most significant on members of moderate slenderness, where the strength is reduced.
+\begin{figure}[H]
+\centering\input{PIC/CH04/RS}
+\caption{Governing region considering residual stress}
+\end{figure}
+\subsection{Initial Out-of-Straightness and Eccentrical Loading}
+An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum out-of-straightness camber of $L/1000$. The eccentricity introduces non-zero section moment ever if the member is axially loaded. This additional moment would lower theoretical critical buckling force.For straight members, the loading behaviour follows $O\rightarrow{}A\rightarrow{}B$ but the actual behaviour due to eccentricity is the dashed line.
+
+\begin{figure}[H]
+\centering
+\includegraphics{PIC/CH04/OOS}
+\caption{Effect of initial out-of-straightness on column behaviour}
+\end{figure}
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/EL}
+\caption{Eccentrical loading}
+\end{figure}
+The eccentrical loading has a similar effect to out-of-straightness and thus can be taken into account in a similar way. Both out-of-straightness and eccentrical loading affect slender members in a similar way.
+\begin{figure}[H]
+\centering\input{PIC/CH04/OOS}
+\caption{Governing region considering initial OOS and eccentric loading}
+\end{figure}
+\section{Strength Design Concept}
+The LRFD equation for columns has a similar form \NZSSTEEL{\S~6.1} to that of tension members.
+\begin{gather}
+N^*\leqslant\phi{}N_c=\phi{}\alpha_cN_s,
+\end{gather}
+where
+\begin{conditions}
+\phi&strength reduction factor, \num{0.9}\\
+N_s&nominal section capacity\\
+N_c&nominal member capacity
+\end{conditions}
+The design member strength $\phi{}N_c$ requires calculation of the section capacity $N_s$, and the member slenderness factor $\alpha_c$.
+\subsection{Section Capacity}
+The nominal section capacity $N_s$ is determined as:
+\begin{gather}
+N_s=k_fA_nf_y,
+\end{gather}
+where
+\begin{conditions}
+k_f&form factor\\
+A_n&net area\\
+f_y&yield stress
+\end{conditions}
+
+The form factor $k_f$ accounts for local buckling. It is defined to be the ratio between the effective area $A_e$ and gross area $A_g$.
+\begin{gather*}
+k_f=\dfrac{A_e}{A_g},
+\end{gather*}
+where $A_e=\sum{}b_{e,i}t_i$ and $b_{e,i}$ and $t_i$ are the effective width and thickness of each \textbf{individual} element. For a flat plate with thickness of $t$ and \textbf{clear} width of $b$ (outstand from the face of the supporting plate element,
+or between the faces of the supporting plate elements), the effective width $b_e$ can be computed as
+\begin{gather}
+b_e=\min\left(b,~\lambda_{ey}t\sqrt{\dfrac{\SI{250}{\mpa}}{f_y}}\right),
+\end{gather}
+in which $\lambda_{ey}$ is the yield slenderness limit. For an I-section, values of $b_i$ and $t_i$ are shown below. There are 7 elements in total, 4 belong to flange which are one-edge supported while 1 belongs to web which is both-edge supported. Note the corresponding $b_{e,i}$ may be smaller than the physical length $b_i$.
+\begin{figure}[H]
+\centering\input{PIC/CH04/BE}
+\caption{Five flat elements in a typical I section}
+\end{figure}
+
+If the slenderness for any element, $\lambda_{e,i}$, exceeds the yield limit $\lambda_{ey,i}$, the excess width is neglected when calculated the effective width $b_{e,i}$ for that element. Some universal beam sections have $k_f$ values slightly less than one. For flat plates, \NZSSTEEL{Table 6.2.4} gives the following limits shown in \figref{fig:flat_slenderness}.
+
+
+An element, which has the same slenderness as the yield limit $\lambda_{ey}$, should just reach the yield stress before local buckling occurs. Elements which have higher levels of residual stresses from rolling and welding will reach the yield stress earlier and therefore have lower values of $\lambda_{ey}$.
+
+The allowable slenderness of stiffened elements is much greater than that for unstiffened elements.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/SRL}
+\caption{Yield slenderness limits of flat plate elements}\label{fig:flat_slenderness}
+\end{figure}
+
+Often $k_f$ is provided with section parameters in the product specification manual.
+
+\begin{exmp}
+Assume Grade 300 steel, find the section capacity $N_s$ of a 700WB115 section.
+\end{exmp}
+\begin{solution}
+\begin{minipage}{5cm}\centering\input{PIC/CH04/IS}
+\end{minipage}
+\begin{minipage}{.99\linewidth-5cm}
+This is a welded section. The gross area is $A_g=\SI{14600}{\mm^2}$.
+
+For flanges, only one side is supported. Thus, $\lambda_{ey,f}=14$.
+\begin{gather*}
+b_{e,f}=14\times\SI{16}{\mm}\times\sqrt{\dfrac{250}{300}}=\SI{204.5}{\mm}.
+\end{gather*}
+This is greater than the clear width $b=\dfrac{b_f-t_w}{2}=\SI{120}{\mm}$, hence $b_{e,f}=b=\SI{120}{\mm}$.
+
+For web, both sides are supported. Thus, $\lambda_{ey,w}=35$.
+\begin{gather*}
+b_{e,w}=35\times\SI{10}{\mm}\times\sqrt{\dfrac{250}{310}}=\SI{314.3}{\mm}.
+\end{gather*}
+\end{minipage}
+
+The effective area is then
+\begin{gather*}
+\begin{split}
+A_e&=\sum{}b_{e,i}t_i=\underbrace{\SI{314.3}{\mm}\times\SI{10}{\mm}}_\text{web, blue}+\underbrace{4\times\SI{120}{\mm}\times\SI{16}{\mm}}_\text{flange, red}\\
+&+\underbrace{2\times\SI{10}{\mm}\times\SI{16}{\mm}}_\text{connection, green}=\SI{1.114e4}{\mm^2}.
+\end{split}
+\end{gather*}
+
+The form factor $k_f=A_e/A_g=0.763$, which is similar to the value listed (see the table in Liberty catalogue) of $0.767$. Since there is no area reduction, $A_n=A_g$.
+\begin{gather*}
+N_s=k_fA_gf_y=A_ef_y=\SI{1.114e4}{\mm^2}\times\SI{300}{\mpa}=\SI{3342}{\kn}.
+\end{gather*}
+Note here the flange yield stress \SI{300}{\mpa} is used for the whole section as per \S~\ref{sec:ys}.
+\end{solution}
+\subsection{Member Capacity}\label{sec:n_c}
+Before we introduce how to calculate \textbf{member} capacity, the concept of modified slenderness ratio $\lambda_n$ shall be discussed.
+
+Since buckling plays a vital role in compression members, we can no more use the full length to compute slenderness ratio, instead, the effective length $L_e$ shall be used.
+\begin{gather}
+L_e=k_eL,
+\end{gather}
+where $k_e$ is the member effective length factor (\NZSSTEEL{Fig. 4.8.3.2}).
+
+The modified slenderness ratio $\lambda_n$ is defined as
+\begin{gather}
+\lambda_n=\lambda\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{L_e}{r}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}.
+\end{gather}
+If $f_y=\SI{250}{\mpa}$ and $k_f=1$, then
+\begin{gather*}
+\lambda_n=\lambda=\dfrac{L_e}{r}.
+\end{gather*}
+
+The nominal member capacity $N_s$ is associated with the nominal section capacity $N_c$ via a reduction factor $\alpha_c$:
+\begin{gather}
+N_c=\alpha_cN_s,
+\end{gather}
+in which,
+\begin{gather*}
+\alpha_c=\xi\left(1-\sqrt{1-\left(\dfrac{90}{\xi\lambda'}\right)^2}\right),\qquad
+\xi=\dfrac{\left(\dfrac{\lambda'}{90}\right)^2+1+\eta}{2\left(\dfrac{\lambda'}{90}\right)^2},
+\end{gather*}
+with
+\begin{gather*}
+\lambda'=\lambda_n+\alpha_a\alpha_b,\qquad
+\eta=\max\left(0.00326\left(\lambda'-13.5\right),~0\right),\qquad
+\alpha_a=\dfrac{2100\left(\lambda_n-13.5\right)}{\lambda_n^2-15.3\lambda_n+2050},
+\end{gather*}
+and $\alpha_b$ is the compression member section constant which are shown in \tabref{tab:alpha_b} that characterises sectional residual stress effects (also refer to \NZSSTEEL{Table 6.3.3(1)}).
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Values of $\alpha_b$}\label{tab:alpha_b}
+\begin{tabular}{m{10cm}cc}
+	\toprule
+	section type                                                                               &     $k_f$      & $\alpha_b$ \\ \midrule
+	UB and UC sections, hot-rolled ($t_f\leqslant\SI{40}{\mm}$), Box sections, welded & $\leqslant1.0$ & \num{0.0}  \\
+	UB and UC sections, hot-rolled ($t_f>\SI{40}{\mm}$)                               & $\leqslant1.0$ & \num{1.0}  \\
+	RHS and CHS, hot-formed                                                                    &     $=1.0$     & \num{-1.0} \\
+	RHS and CHS, cold-formed (stress relieved)                                                 &     $<1.0$     & \num{-0.5} \\
+	RHS and CHS, cold-formed (non-stress relieved)                                             & $\leqslant1.0$ & \num{-0.5} \\
+	H and I sections, welded from flame cut plate ($t_f\leqslant\SI{40}{\mm}$)        &     $=1.0$     & \num{0.0}  \\
+	                                                                                           &     $<1.0$     & \num{0.5}  \\
+	H and I sections, welded from flame cut plate ($t_f>\SI{40}{\mm}$)                &     $=1.0$     & \num{0.0}  \\
+	                                                                                           &     $<1.0$     & \num{1.0}  \\
+	H and I sections, welded from as-rolled plate ($t_f\leqslant\SI{40}{\mm}$)        & $\leqslant1.0$ & \num{0.5}  \\
+	H and I sections, welded from as-rolled plate ($t_f>\SI{40}{\mm}$)                & $\leqslant1.0$ & \num{1.0}  \\
+	Tee sections, flame cut from universal sections, Angles, Channels, hot-rolled              &     $=1.0$     & \num{0.5}  \\
+	                                                                                           &     $<1.0$     & \num{1.0}  \\ \bottomrule
+\end{tabular}
+\end{table}
+For a given $\alpha_b$, $\alpha_c$ is a function of $\lambda_n$, it can be plotted as shown in \figref{fig:alpha_c}.
+
+It can be inferred that since $\alpha_c$ accounts for buckling, residual stress, OOS, etc., it has a shape resembles the theoretical curve as seen previously.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/ALPHAC}
+\caption{$\lambda_n$ versus $\alpha_c$}\label{fig:alpha_c}
+\end{figure}
+
+Performing such a computation is somehow tedious, in practice, engineers can refer to the pre-compiled table \NZSSTEEL{Table 6.3.3(2)}, as well as \tabref{tab:alpha_c}, to find the proper value to be used.
+
+The most conservative curve is that with $\alpha_b=1$. The European codes, like \NZSSTEEL{}, have five curves for $\alpha_b$. The Canadian code has 3 curves for different residual stress conditions, while the US code has just one curve for all residual stress conditions.
+\begin{exmp}
+What is the maximum stress that can be applied to a hot-rolled compact Grade 300 column (no holes) with $t_f<\SI{11}{\mm}$ and $\lambda=100$?
+\end{exmp}
+\begin{solution}
+Since it is compact section, shear lag is often not a problem. It can be safely assumed that $k_f=1$. Since there are no holes, $A_n=A_g$. From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section. For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{300}{\mpa}$ for Grade 300 steel.
+
+The modified slenderness ratio
+\begin{gather*}
+\lambda_n=\lambda\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=100\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=109.5.
+\end{gather*}
+
+$\alpha_c$ can be computed (or found from \tabref{tab:alpha_c}, or \figref{fig:alpha_c}) as \num{0.480}. Thus, the maximum stress is
+\begin{gather*}
+f_{max}=\dfrac{N^*}{A_n}\leqslant\dfrac{\phi{}N_c}{A_n}=\phi\alpha_ck_ff_y=0.9\times0.480\times1\times\SI{300}{\mpa}=\SI{129.6}{\mpa}.
+\end{gather*}
+\end{solution}
+\begin{table}[H]
+\centering\scriptsize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.03}
+\caption{Values of $\lambda_n$ as function of $\alpha_b$ and $\alpha_c$}\label{tab:alpha_c}
+\begin{tabular}{c|ccccc|c|ccccc|c|ccccc}
+	\toprule
+	            &    \multicolumn{5}{c|}{$\alpha_b$}    &             &    \multicolumn{5}{c|}{$\alpha_b$}    &             &    \multicolumn{5}{c}{$\alpha_b$}     \\
+	$\lambda_n$ &  -1   & -0.5  &   0   &  0.5  &   1   & $\lambda_n$ &  -1   & -0.5  &   0   &  0.5  &   1   & $\lambda_n$ &  -1   & -0.5  &   0   &  0.5  &   1   \\ \midrule
+	     0      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &             &       &       &       &       &       &             &       &       &       &       &       \\
+	     2      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     102     & 0.646 & 0.586 & 0.528 & 0.474 & 0.426 &     202     & 0.190 & 0.181 & 0.173 & 0.165 & 0.158 \\
+	     4      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     104     & 0.630 & 0.571 & 0.515 & 0.463 & 0.416 &     204     & 0.186 & 0.178 & 0.170 & 0.163 & 0.156 \\
+	     6      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     106     & 0.615 & 0.557 & 0.502 & 0.452 & 0.407 &     206     & 0.182 & 0.174 & 0.167 & 0.160 & 0.153 \\
+	     8      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     108     & 0.599 & 0.542 & 0.489 & 0.441 & 0.398 &     208     & 0.179 & 0.171 & 0.164 & 0.157 & 0.151 \\
+	    10      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     110     & 0.584 & 0.528 & 0.477 & 0.431 & 0.389 &     210     & 0.176 & 0.168 & 0.161 & 0.154 & 0.148 \\
+	    12      & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 &     112     & 0.568 & 0.515 & 0.465 & 0.421 & 0.381 &     212     & 0.172 & 0.165 & 0.158 & 0.152 & 0.146 \\
+	    14      & 1.000 & 0.999 & 0.998 & 0.997 & 0.997 &     114     & 0.553 & 0.501 & 0.454 & 0.411 & 0.372 &     214     & 0.169 & 0.162 & 0.156 & 0.149 & 0.144 \\
+	    16      & 1.000 & 0.996 & 0.992 & 0.987 & 0.983 &     116     & 0.539 & 0.488 & 0.442 & 0.401 & 0.364 &     216     & 0.166 & 0.159 & 0.153 & 0.147 & 0.141 \\
+	    18      & 1.000 & 0.992 & 0.985 & 0.977 & 0.970 &     118     & 0.524 & 0.476 & 0.431 & 0.392 & 0.356 &     218     & 0.163 & 0.156 & 0.150 & 0.145 & 0.139 \\
+	    20      & 1.000 & 0.989 & 0.978 & 0.967 & 0.956 &     120     & 0.510 & 0.463 & 0.421 & 0.383 & 0.348 &     220     & 0.160 & 0.154 & 0.148 & 0.142 & 0.137 \\
+	    22      & 0.999 & 0.985 & 0.971 & 0.957 & 0.943 &     122     & 0.496 & 0.451 & 0.410 & 0.374 & 0.341 &     222     & 0.157 & 0.151 & 0.145 & 0.140 & 0.135 \\
+	    24      & 0.998 & 0.981 & 0.965 & 0.947 & 0.929 &     124     & 0.483 & 0.439 & 0.400 & 0.365 & 0.334 &     224     & 0.154 & 0.148 & 0.143 & 0.138 & 0.133 \\
+	    26      & 0.996 & 0.977 & 0.958 & 0.937 & 0.916 &     126     & 0.470 & 0.428 & 0.390 & 0.357 & 0.327 &     226     & 0.152 & 0.146 & 0.141 & 0.136 & 0.131 \\
+	    28      & 0.994 & 0.973 & 0.951 & 0.927 & 0.902 &     128     & 0.457 & 0.417 & 0.381 & 0.349 & 0.320 &     228     & 0.149 & 0.143 & 0.138 & 0.133 & 0.129 \\
+	    30      & 0.991 & 0.968 & 0.943 & 0.917 & 0.888 &     130     & 0.445 & 0.406 & 0.372 & 0.341 & 0.313 &     230     & 0.146 & 0.141 & 0.136 & 0.131 & 0.127 \\
+	    32      & 0.988 & 0.963 & 0.936 & 0.907 & 0.874 &     132     & 0.433 & 0.396 & 0.363 & 0.333 & 0.306 &     232     & 0.144 & 0.139 & 0.134 & 0.129 & 0.125 \\
+	    34      & 0.985 & 0.958 & 0.928 & 0.896 & 0.860 &     134     & 0.421 & 0.386 & 0.354 & 0.325 & 0.300 &     234     & 0.141 & 0.136 & 0.132 & 0.127 & 0.123 \\
+	    36      & 0.981 & 0.952 & 0.921 & 0.886 & 0.846 &     136     & 0.410 & 0.376 & 0.346 & 0.318 & 0.294 &     236     & 0.139 & 0.134 & 0.130 & 0.125 & 0.121 \\
+	    38      & 0.977 & 0.946 & 0.913 & 0.875 & 0.832 &     138     & 0.399 & 0.367 & 0.337 & 0.311 & 0.288 &     238     & 0.137 & 0.132 & 0.128 & 0.123 & 0.119 \\
+	    40      & 0.973 & 0.940 & 0.905 & 0.865 & 0.818 &     140     & 0.389 & 0.357 & 0.330 & 0.304 & 0.282 &     240     & 0.134 & 0.130 & 0.126 & 0.122 & 0.118 \\
+	    42      & 0.968 & 0.934 & 0.896 & 0.854 & 0.804 &     142     & 0.378 & 0.349 & 0.322 & 0.298 & 0.276 &     242     & 0.132 & 0.128 & 0.124 & 0.120 & 0.116 \\
+	    44      & 0.962 & 0.927 & 0.888 & 0.842 & 0.789 &     144     & 0.369 & 0.340 & 0.314 & 0.291 & 0.270 &     244     & 0.130 & 0.126 & 0.122 & 0.118 & 0.114 \\
+	    46      & 0.957 & 0.920 & 0.879 & 0.831 & 0.775 &     146     & 0.359 & 0.332 & 0.307 & 0.285 & 0.265 &     246     & 0.128 & 0.124 & 0.120 & 0.116 & 0.113 \\
+	    48      & 0.951 & 0.913 & 0.870 & 0.820 & 0.761 &     148     & 0.350 & 0.324 & 0.300 & 0.279 & 0.260 &     248     & 0.126 & 0.122 & 0.118 & 0.115 & 0.111 \\
+	    50      & 0.944 & 0.905 & 0.861 & 0.808 & 0.747 &     150     & 0.341 & 0.316 & 0.293 & 0.273 & 0.255 &     250     & 0.124 & 0.120 & 0.116 & 0.113 & 0.110 \\
+	    52      & 0.938 & 0.897 & 0.851 & 0.796 & 0.732 &     152     & 0.332 & 0.309 & 0.287 & 0.267 & 0.250 &     252     & 0.122 & 0.118 & 0.115 & 0.111 & 0.108 \\
+	    54      & 0.931 & 0.889 & 0.841 & 0.784 & 0.718 &     154     & 0.324 & 0.301 & 0.281 & 0.262 & 0.245 &     254     & 0.120 & 0.116 & 0.113 & 0.110 & 0.107 \\
+	    56      & 0.923 & 0.880 & 0.830 & 0.771 & 0.704 &     156     & 0.316 & 0.294 & 0.274 & 0.256 & 0.240 &     256     & 0.118 & 0.115 & 0.111 & 0.108 & 0.105 \\
+	    58      & 0.915 & 0.871 & 0.820 & 0.759 & 0.690 &     158     & 0.308 & 0.287 & 0.268 & 0.251 & 0.235 &     258     & 0.116 & 0.113 & 0.110 & 0.107 & 0.104 \\
+	    60      & 0.907 & 0.862 & 0.809 & 0.746 & 0.676 &     160     & 0.301 & 0.281 & 0.263 & 0.246 & 0.231 &     260     & 0.115 & 0.111 & 0.108 & 0.105 & 0.102 \\
+	    62      & 0.899 & 0.852 & 0.797 & 0.733 & 0.662 &     162     & 0.294 & 0.274 & 0.257 & 0.241 & 0.226 &     262     & 0.113 & 0.110 & 0.107 & 0.104 & 0.101 \\
+	    64      & 0.890 & 0.842 & 0.785 & 0.720 & 0.649 &     164     & 0.287 & 0.268 & 0.252 & 0.236 & 0.222 &     264     & 0.111 & 0.108 & 0.105 & 0.102 & 0.099 \\
+	    66      & 0.881 & 0.832 & 0.773 & 0.707 & 0.635 &     166     & 0.280 & 0.262 & 0.246 & 0.231 & 0.218 &     266     & 0.110 & 0.106 & 0.104 & 0.101 & 0.098 \\
+	    68      & 0.871 & 0.821 & 0.761 & 0.694 & 0.622 &     168     & 0.274 & 0.257 & 0.241 & 0.227 & 0.214 &     268     & 0.108 & 0.105 & 0.102 & 0.099 & 0.097 \\
+	    70      & 0.861 & 0.809 & 0.748 & 0.680 & 0.609 &     170     & 0.267 & 0.251 & 0.236 & 0.222 & 0.210 &     270     & 0.106 & 0.103 & 0.101 & 0.098 & 0.096 \\
+	    72      & 0.851 & 0.797 & 0.735 & 0.667 & 0.596 &     172     & 0.261 & 0.246 & 0.231 & 0.218 & 0.206 &     272     & 0.105 & 0.102 & 0.099 & 0.097 & 0.094 \\
+	    74      & 0.840 & 0.785 & 0.722 & 0.653 & 0.583 &     174     & 0.255 & 0.240 & 0.227 & 0.214 & 0.202 &     274     & 0.103 & 0.101 & 0.098 & 0.095 & 0.093 \\
+	    76      & 0.829 & 0.772 & 0.708 & 0.639 & 0.570 &     176     & 0.250 & 0.235 & 0.222 & 0.210 & 0.199 &     276     & 0.102 & 0.099 & 0.097 & 0.094 & 0.092 \\
+	    78      & 0.817 & 0.759 & 0.695 & 0.626 & 0.558 &     178     & 0.244 & 0.230 & 0.218 & 0.206 & 0.195 &     278     & 0.100 & 0.098 & 0.095 & 0.093 & 0.091 \\
+	    80      & 0.805 & 0.746 & 0.681 & 0.612 & 0.545 &     180     & 0.239 & 0.225 & 0.213 & 0.202 & 0.192 &     280     & 0.099 & 0.096 & 0.094 & 0.092 & 0.089 \\
+	    82      & 0.792 & 0.732 & 0.667 & 0.599 & 0.533 &     182     & 0.233 & 0.221 & 0.209 & 0.198 & 0.188 &     282     & 0.097 & 0.095 & 0.093 & 0.091 & 0.088 \\
+	    84      & 0.779 & 0.718 & 0.653 & 0.586 & 0.522 &     184     & 0.228 & 0.216 & 0.205 & 0.195 & 0.185 &     284     & 0.096 & 0.094 & 0.092 & 0.089 & 0.087 \\
+	    86      & 0.766 & 0.704 & 0.638 & 0.572 & 0.510 &     186     & 0.224 & 0.212 & 0.201 & 0.191 & 0.182 &     286     & 0.095 & 0.092 & 0.090 & 0.088 & 0.086 \\
+	    88      & 0.752 & 0.689 & 0.624 & 0.559 & 0.499 &     188     & 0.219 & 0.208 & 0.197 & 0.187 & 0.178 &     288     & 0.093 & 0.091 & 0.089 & 0.087 & 0.085 \\
+	    90      & 0.737 & 0.675 & 0.610 & 0.547 & 0.487 &     190     & 0.214 & 0.203 & 0.193 & 0.184 & 0.175 &     290     & 0.092 & 0.090 & 0.088 & 0.086 & 0.084 \\
+	    92      & 0.723 & 0.660 & 0.596 & 0.534 & 0.477 &     192     & 0.210 & 0.199 & 0.190 & 0.181 & 0.172 &     292     & 0.091 & 0.089 & 0.087 & 0.085 & 0.083 \\
+	    94      & 0.708 & 0.645 & 0.582 & 0.521 & 0.466 &     194     & 0.206 & 0.196 & 0.186 & 0.178 & 0.169 &     294     & 0.090 & 0.088 & 0.086 & 0.084 & 0.082 \\
+	    96      & 0.692 & 0.630 & 0.568 & 0.509 & 0.456 &     196     & 0.201 & 0.192 & 0.183 & 0.174 & 0.167 &     296     & 0.089 & 0.087 & 0.085 & 0.083 & 0.081 \\
+	    98      & 0.677 & 0.615 & 0.554 & 0.497 & 0.445 &     198     & 0.197 & 0.188 & 0.179 & 0.171 & 0.164 &     298     & 0.087 & 0.085 & 0.084 & 0.082 & 0.080 \\
+	    100     & 0.661 & 0.600 & 0.541 & 0.485 & 0.435 &     200     & 0.194 & 0.185 & 0.176 & 0.168 & 0.161 &     300     & 0.086 & 0.084 & 0.082 & 0.081 & 0.079 \\ \bottomrule
+\end{tabular}
+\end{table}
+\section{Design Procedure}
+Any column that satisfies all strength and serviceability criteria will be a satisfactory design.
+
+The most economical satisfactory design for a given situation will be dictated by fabrication costs for the whole frame and by architectural considerations. A rolled section will usually be cheaper than a fabricated section. A tubular section will usually require a smaller area than an I section, but a RHS will be more expensive to buy than an I section and more expensive to connect. Fabricated tubes are relatively expensive to make, but may be used for heavier loads.
+
+In general, for a column of the given cross section, the lightest column is likely to be the most economic because it uses the least steel material.
+
+Design of compression members may be carried out by the following approaches.
+\subsubsection{Trial and Error}
+A number of section sizes are chosen, and evaluated to determine the best (safe and economical) solution. The following steps may be useful for rolled shapes:
+\begin{enumerate}
+\item compute the factored compression force $N^*$
+\item assume flange yield stress $f_y$ (e.g., \SI{280}{\mpa}, \SI{300}{\mpa}.) and form factor $k_f=1$
+\item assume a proper gyration radius $r$ (around \SI{50}{\mm}) and compute the modified slenderness ratio $\lambda_n$
+\item compute $\alpha_c$
+\item compute the minimum net area $A_{n,min}=\dfrac{N^*}{\phi\alpha_ck_ff_y}$
+\item select a section
+\item update $k_f$ and $\lambda_n$ according to section properties
+\item compute $\phi{}N_c$
+\begin{enumerate}
+\item if $N^*<\phi{}N_c$, check if a smaller section would work in order to obtain the most economical section
+\item if $N^*>\phi{}N_c$, select a larger section and repeat the previous steps
+\end{enumerate}
+\end{enumerate}
+\subsubsection{Tables and Charts}
+Design capacity tables and charts may be developed for specific sections to speed up the design. Given that effective length $L_e$ may affect member capacity, for all designations, it is possible to calculate and compile the corresponding capacities under different $L_e$ values. \figref{fig:design_table} and \figref{fig:design_chart} are two examples. Similar charts/tables can be seen in design books and other references.
+
+Alternatively, by using property table, similar design tables can be generated. \tabref{tab:ub_strong}, \tabref{tab:ub_weak}, \tabref{tab:uc_strong} and \tabref{tab:uc_weak} are examples.
+\begin{sidewaysfigure}[p]
+\centering
+\includegraphics[width=\linewidth]{PIC/CH04/TABLE}
+\caption{Design load capacity table for members subject to axial compression buckling about weak axis}\label{fig:design_table}
+\end{sidewaysfigure}
+\begin{sidewaysfigure}[p]
+\centering
+\includegraphics[width=\linewidth]{PIC/CH04/CHART}
+\caption{Design capacity chart for members subject to axial compression}\label{fig:design_chart}
+\end{sidewaysfigure}
+\begin{sidewaystable}[p]
+\centering\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.4}
+\caption{Design load capacity table for UB members subject to axial compression buckling about strong axis (manually generated)}\label{tab:ub_strong}
+\begin{tabular}{r|c|ccccccccccccccccccccccccc}
+	\toprule
+	                                                                                        \multicolumn{27}{c}{\Large{}Grade 300 Steel UB Section Subject to Axial Compression \textbf{Strong} Axis Buckling}                                                                                         \\ \midrule
+	                    & \multicolumn{1}{c|}{$\phi{}N_s$ (\si{\kn})} &                                                                                          \multicolumn{25}{c}{$\phi{}N_c$ (\si{\kn})}                                                                                           \\
+	$L_e$ (\si{\meter}) &                      0                      &   2    &  2.5   &   3    &  3.5   &   4    &  4.5   &   5    &  5.5   &   6    &  6.5   &   7    &  7.5   &   8    &  8.5   &   9    &  9.5   &   10   &   11   &   12   &   13   &   14   &   15   &   16   &   17   &   18   \\ \midrule
+	           610UB125 &                   3830.4                    & 3830.4 & 3830.4 & 3830.4 & 3817.6 & 3791.1 & 3764.5 & 3737.7 & 3710.7 & 3683.3 & 3655.5 & 3627.2 & 3598.3 & 3568.8 & 3538.7 & 3507.7 & 3475.9 & 3443.2 & 3374.7 & 3301.6 & 3223.5 & 3139.9 & 3050.6 & 2955.7 & 2855.5 & 2750.5 \\
+	                113 &                   3383.6                    & 3383.6 & 3383.6 & 3383.6 & 3372.4 & 3349.0 & 3325.6 & 3301.9 & 3278.0 & 3253.8 & 3229.3 & 3204.3 & 3178.9 & 3152.8 & 3126.2 & 3098.9 & 3070.8 & 3042.0 & 2981.5 & 2917.0 & 2848.1 & 2774.4 & 2695.6 & 2611.9 & 2523.5 & 2430.9 \\
+	                101 &                   3116.9                    & 3116.9 & 3116.9 & 3116.9 & 3102.0 & 3079.8 & 3057.5 & 3034.9 & 3012.2 & 2989.1 & 2965.7 & 2941.8 & 2917.4 & 2892.5 & 2866.9 & 2840.6 & 2813.5 & 2785.6 & 2727.0 & 2664.4 & 2597.3 & 2525.4 & 2448.5 & 2366.9 & 2280.9 & 2191.2 \\
+	          530UB92.4 &                   2956.6                    & 2956.6 & 2956.6 & 2945.9 & 2921.8 & 2897.7 & 2873.3 & 2848.6 & 2823.5 & 2797.8 & 2771.6 & 2744.7 & 2717.0 & 2688.4 & 2658.8 & 2628.2 & 2596.5 & 2563.5 & 2493.5 & 2417.8 & 2336.0 & 2248.3 & 2155.2 & 2057.6 & 1957.0 & 1855.1 \\
+	               82.0 &                   2557.2                    & 2557.2 & 2557.2 & 2547.3 & 2526.5 & 2505.5 & 2484.3 & 2462.8 & 2440.9 & 2418.6 & 2395.8 & 2372.4 & 2348.3 & 2323.4 & 2297.7 & 2271.0 & 2243.4 & 2214.6 & 2153.6 & 2087.6 & 2016.2 & 1939.7 & 1858.6 & 1773.6 & 1686.1 & 1597.5 \\
+	          460UB82.1 &                   2775.5                    & 2775.5 & 2767.0 & 2740.3 & 2713.3 & 2686.1 & 2658.3 & 2629.9 & 2600.8 & 2570.7 & 2539.6 & 2507.2 & 2473.5 & 2438.4 & 2401.6 & 2363.0 & 2322.6 & 2280.3 & 2189.7 & 2091.2 & 1985.8 & 1875.4 & 1762.2 & 1649.1 & 1538.4 & 1432.3 \\
+	               74.6 &                   2436.7                    & 2436.7 & 2431.2 & 2408.1 & 2384.8 & 2361.3 & 2337.4 & 2313.0 & 2287.9 & 2262.1 & 2235.4 & 2207.7 & 2178.9 & 2148.8 & 2117.4 & 2084.5 & 2050.1 & 2014.1 & 1936.9 & 1853.0 & 1763.1 & 1668.4 & 1571.0 & 1473.0 & 1376.7 & 1283.8 \\
+	               67.1 &                   2135.9                    & 2135.9 & 2131.4 & 2111.2 & 2090.9 & 2070.3 & 2049.4 & 2028.1 & 2006.2 & 1983.7 & 1960.4 & 1936.2 & 1911.1 & 1884.9 & 1857.5 & 1828.9 & 1798.9 & 1767.5 & 1700.3 & 1627.2 & 1548.8 & 1466.3 & 1381.2 & 1295.6 & 1211.3 & 1129.9 \\
+	          410UB59.7 &                   1934.9                    & 1934.9 & 1920.1 & 1899.6 & 1878.9 & 1857.8 & 1836.3 & 1814.1 & 1791.1 & 1767.2 & 1742.4 & 1716.3 & 1689.0 & 1660.3 & 1630.0 & 1598.2 & 1564.7 & 1529.6 & 1454.4 & 1373.5 & 1288.6 & 1202.0 & 1116.1 & 1033.2 & 954.6  & 881.5  \\
+	               53.7 &                   1811.7                    & 1811.7 & 1794.3 & 1774.3 & 1754.1 & 1733.5 & 1712.4 & 1690.6 & 1667.9 & 1644.4 & 1619.7 & 1593.8 & 1566.5 & 1537.7 & 1507.4 & 1475.5 & 1441.8 & 1406.5 & 1331.1 & 1250.6 & 1167.1 & 1083.1 & 1001.0 & 922.7  & 849.6  & 782.2  \\
+	          360UB56.7 &                   1947.0                    & 1939.4 & 1915.4 & 1891.3 & 1866.6 & 1841.2 & 1814.9 & 1787.5 & 1758.8 & 1728.6 & 1696.6 & 1662.7 & 1626.7 & 1588.5 & 1548.1 & 1505.3 & 1460.5 & 1413.7 & 1315.6 & 1214.5 & 1114.2 & 1018.1 & 928.4  & 846.3  & 772.1  & 705.5  \\
+	               50.7 &                   1682.3                    & 1676.5 & 1656.1 & 1635.4 & 1614.3 & 1592.7 & 1570.3 & 1546.9 & 1522.5 & 1496.8 & 1469.6 & 1440.9 & 1410.3 & 1378.0 & 1343.7 & 1307.5 & 1269.5 & 1229.7 & 1146.3 & 1060.0 & 973.9  & 891.1  & 813.5  & 742.2  & 677.6  & 619.5  \\
+	               44.7 &                   1532.0                    & 1524.7 & 1505.5 & 1486.1 & 1466.2 & 1445.8 & 1424.6 & 1402.5 & 1379.3 & 1354.7 & 1328.8 & 1301.2 & 1271.9 & 1240.7 & 1207.8 & 1173.0 & 1136.5 & 1098.4 & 1019.2 & 938.0  & 858.2  & 782.3  & 712.0  & 648.0  & 590.4  & 539.0  \\
+	          310UB46.2 &                   1586.7                    & 1569.3 & 1546.9 & 1524.0 & 1500.4 & 1475.9 & 1450.1 & 1422.9 & 1393.9 & 1362.9 & 1329.8 & 1294.4 & 1256.5 & 1216.3 & 1173.8 & 1129.4 & 1083.5 & 1036.6 & 942.4  & 851.2  & 766.3  & 689.3  & 620.7  & 560.2  & 507.1  & 460.4  \\
+	               40.4 &                   1428.5                    & 1411.2 & 1390.6 & 1369.5 & 1347.7 & 1325.0 & 1301.2 & 1275.8 & 1248.9 & 1220.0 & 1189.1 & 1155.9 & 1120.5 & 1082.9 & 1043.2 & 1001.9 & 959.4  & 916.2  & 829.9  & 747.3  & 671.0  & 602.4  & 541.7  & 488.3  & 441.5  & 400.6  \\
+	               32.0 &                   1075.2                    & 1061.0 & 1045.1 & 1028.9 & 1012.1 & 994.5  & 976.0  & 956.4  & 935.4  & 912.8  & 888.7  & 862.8  & 835.1  & 805.7  & 774.8  & 742.7  & 709.8  & 676.6  & 610.7  & 548.3  & 491.1  & 440.1  & 395.1  & 355.8  & 321.4  & 291.4  \\
+	          250UB37.3 &                   1368.0                    & 1333.8 & 1309.1 & 1283.3 & 1256.1 & 1227.0 & 1195.5 & 1161.4 & 1124.2 & 1083.8 & 1040.2 & 993.7  & 944.9  & 894.5  & 843.7  & 793.4  & 744.4  & 697.4  & 611.1  & 536.0  & 471.7  & 417.1  & 370.7  & 331.1  & 297.3  & 268.3  \\
+	               31.4 &                   1154.9                    & 1123.7 & 1102.1 & 1079.5 & 1055.6 & 1029.9 & 1002.1 & 971.8  & 938.6  & 902.6  & 863.8  & 822.6  & 779.6  & 735.6  & 691.5  & 648.3  & 606.6  & 567.0  & 494.9  & 432.9  & 380.2  & 335.7  & 298.0  & 266.0  & 238.6  & 215.2  \\
+	               25.7 &                    893.7                    & 870.6  & 854.3  & 837.2  & 819.1  & 799.8  & 778.8  & 756.0  & 731.2  & 704.2  & 675.1  & 644.1  & 611.6  & 578.2  & 544.7  & 511.5  & 479.4  & 448.7  & 392.5  & 343.9  & 302.4  & 267.2  & 237.4  & 212.0  & 190.3  & 171.6  \\
+	          200UB29.8 &                   1100.2                    & 1053.8 & 1028.1 & 1000.5 & 970.3  & 936.9  & 899.9  & 858.9  & 814.0  & 766.0  & 716.0  & 665.5  & 615.9  & 568.5  & 524.0  & 482.8  & 445.1  & 410.9  & 351.8  & 303.5  & 263.9  & 231.3  & 204.1  & 181.4  & 162.2  & 145.8  \\
+	               25.4 &                    930.2                    & 889.2  & 866.8  & 842.7  & 816.2  & 786.9  & 754.2  & 718.1  & 678.6  & 636.5  & 593.1  & 549.5  & 507.2  & 467.0  & 429.5  & 395.1  & 363.8  & 335.4  & 286.7  & 247.0  & 214.6  & 187.9  & 165.8  & 147.3  & 131.7  & 118.3  \\
+	               22.3 &                    826.6                    & 790.2  & 770.3  & 748.9  & 725.5  & 699.4  & 670.5  & 638.4  & 603.4  & 566.1  & 527.6  & 488.9  & 451.3  & 415.6  & 382.3  & 351.7  & 323.8  & 298.6  & 255.2  & 219.9  & 191.1  & 167.4  & 147.7  & 131.2  & 117.2  & 105.4  \\
+	               18.2 &                    661.5                    & 630.5  & 614.0  & 596.1  & 576.4  & 554.4  & 529.9  & 502.8  & 473.3  & 442.0  & 410.1  & 378.5  & 348.1  & 319.6  & 293.2  & 269.2  & 247.4  & 227.8  & 194.3  & 167.2  & 145.1  & 127.0  & 112.0  &  99.4  &  88.8  &  79.8  \\
+	          180UB22.2 &                    812.2                    & 763.9  & 740.0  & 713.5  & 683.7  & 649.9  & 612.0  & 570.5  & 526.8  & 482.6  & 439.7  & 399.5  & 362.5  & 329.2  & 299.4  & 272.9  & 249.4  & 228.6  & 193.6  & 165.7  & 143.3  & 125.0  & 110.0  &  97.5  &  87.0  &  78.1  \\
+	               18.1 &                    662.4                    & 622.0  & 602.2  & 580.1  & 555.1  & 526.8  & 495.1  & 460.5  & 424.2  & 387.7  & 352.6  & 319.8  & 289.8  & 262.9  & 238.9  & 217.6  & 198.8  & 182.1  & 154.1  & 131.9  & 114.0  &  99.4  &  87.5  &  77.5  &  69.1  &  62.1  \\
+	               16.1 &                    587.5                    & 551.1  & 533.3  & 513.5  & 491.0  & 465.5  & 436.9  & 405.8  & 373.3  & 340.7  & 309.5  & 280.4  & 253.9  & 230.2  & 209.1  & 190.4  & 173.8  & 159.2  & 134.7  & 115.2  &  99.6  &  86.9  &  76.4  &  67.7  &  60.4  &  54.2  \\
+	          150UB18.0 &                    662.4                    & 609.9  & 585.1  & 556.8  & 524.0  & 486.7  & 445.9  & 403.7  & 362.4  & 323.8  & 289.0  & 258.2  & 231.4  & 208.0  & 187.6  & 170.0  & 154.5  & 141.0  & 118.7  & 101.1  &  87.2  &  75.9  &  66.6  &  58.9  &  52.5  &  47.1  \\
+	               14.0 &                    512.6                    & 470.0  & 450.0  & 426.9  & 400.2  & 369.8  & 337.0  & 303.4  & 271.0  & 241.3  & 214.7  & 191.4  & 171.2  & 153.7  & 138.5  & 125.4  & 113.9  & 103.9  &  87.3  &  74.4  &  64.1  &  55.7  &  48.9  &  43.3  &  38.6  &  34.6  \\ \bottomrule
+\end{tabular}
+\end{sidewaystable}
+\begin{sidewaystable}[p]
+\centering\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.4}
+\caption{Design load capacity table for UB members subject to axial compression buckling about weak axis (manually generated)}\label{tab:ub_weak}
+\begin{tabular}{r|c|ccccccccccccccccccccccccc}
+	\toprule
+	                                                                                        \multicolumn{27}{c}{\Large{}Grade 300 Steel UB Section Subject to Axial Compression \textbf{Weak} Axis Buckling}                                                                                         \\ \midrule
+	                    & \multicolumn{1}{c|}{$\phi{}N_s$ (\si{\kn})} &                                                                                         \multicolumn{25}{c}{$\phi{}N_c$ (\si{\kn})}                                                                                          \\
+	$L_e$ (\si{\meter}) &                      0                      &   2    &  2.25  &  2.5   &  2.75  &   3    &  3.25  &  3.5   &  3.75  &   4    &  4.25  &  4.5   &  4.75  &   5    &  5.25  &  5.5   &  5.75  &   6    &  6.25  &  6.5   &  6.75  &   7    &  7.25  &  7.5   & 7.75  &   8   \\ \midrule
+	           610UB125 &                   3830.4                    & 3440.5 & 3353.6 & 3259.2 & 3156.6 & 3045.1 & 2924.7 & 2796.1 & 2661.0 & 2521.5 & 2380.2 & 2240.0 & 2103.2 & 1971.7 & 1846.8 & 1729.5 & 1619.9 & 1518.1 & 1423.9 & 1336.9 & 1256.6 & 1182.5 & 1114.3 & 1051.3 & 993.1 & 939.4 \\
+	                113 &                   3383.6                    & 3035.9 & 2958.4 & 2874.3 & 2782.6 & 2683.1 & 2575.6 & 2460.9 & 2340.5 & 2216.3 & 2090.9 & 1966.5 & 1845.4 & 1729.2 & 1619.0 & 1515.6 & 1419.1 & 1329.6 & 1246.8 & 1170.4 & 1099.9 & 1034.9 & 975.1  & 919.8  & 868.9 & 821.8 \\
+	                101 &                   3116.9                    & 2774.8 & 2698.6 & 2615.4 & 2524.6 & 2425.8 & 2319.4 & 2206.5 & 2089.0 & 1969.1 & 1849.4 & 1732.3 & 1619.6 & 1512.7 & 1412.4 & 1319.0 & 1232.5 & 1152.8 & 1079.4 & 1011.9 & 949.9  & 893.0  & 840.6  & 792.4  & 748.1 & 707.1 \\
+	          530UB92.4 &                   2956.6                    & 2585.7 & 2502.7 & 2411.3 & 2311.2 & 2202.5 & 2086.6 & 1965.6 & 1842.5 & 1720.2 & 1601.5 & 1488.3 & 1382.0 & 1283.3 & 1192.2 & 1108.7 & 1032.3 & 962.6  & 899.0  & 841.0  & 788.0  & 739.5  & 695.2  & 654.5  & 617.1 & 582.8 \\
+	               82.0 &                   2557.2                    & 2230.5 & 2157.3 & 2076.7 & 1988.3 & 1892.4 & 1790.4 & 1684.2 & 1576.6 & 1470.0 & 1367.0 & 1269.1 & 1177.5 & 1092.6 & 1014.4 & 942.9  & 877.6  & 818.0  & 763.7  & 714.2  & 669.1  & 627.8  & 590.0  & 555.4  & 523.7 & 494.5 \\
+	          460UB82.1 &                   2775.5                    & 2370.1 & 2278.2 & 2176.6 & 2065.3 & 1946.0 & 1821.4 & 1695.0 & 1570.6 & 1451.0 & 1338.6 & 1234.3 & 1138.7 & 1051.6 & 972.6  & 901.0  & 836.3  & 777.7  & 724.7  & 676.5  & 632.8  & 593.0  & 556.7  & 523.6  & 493.2 & 465.3 \\
+	               74.6 &                   2436.7                    & 2084.8 & 2005.2 & 1917.0 & 1820.6 & 1716.9 & 1608.5 & 1498.3 & 1389.5 & 1284.7 & 1185.9 & 1094.1 & 1009.8 & 932.9  & 863.0  & 799.7  & 742.4  & 690.5  & 643.5  & 600.9  & 562.1  & 526.8  & 494.6  & 465.2  & 438.2 & 413.5 \\
+	               67.1 &                   2135.9                    & 1827.2 & 1757.3 & 1679.9 & 1595.3 & 1504.3 & 1409.2 & 1312.6 & 1217.1 & 1125.3 & 1038.7 & 958.2  & 884.4  & 817.0  & 755.8  & 700.3  & 650.2  & 604.7  & 563.5  & 526.2  & 492.2  & 461.3  & 433.1  & 407.4  & 383.8 & 362.1 \\
+	          410UB59.7 &                   1934.9                    & 1632.3 & 1563.2 & 1486.8 & 1403.4 & 1314.8 & 1223.4 & 1132.2 & 1043.8 & 960.2  & 882.5  & 811.4  & 746.6  & 688.1  & 635.3  & 587.7  & 544.9  & 506.2  & 471.3  & 439.7  & 411.0  & 384.9  & 361.2  & 339.5  & 319.7 & 301.6 \\
+	               53.7 &                   1811.7                    & 1504.4 & 1433.6 & 1355.4 & 1270.7 & 1181.9 & 1092.0 & 1004.1 & 920.5  & 842.7  & 771.5  & 707.0  & 648.9  & 596.8  & 550.0  & 508.1  & 470.4  & 436.6  & 406.1  & 378.6  & 353.6  & 331.0  & 310.5  & 291.7  & 274.6 & 258.9 \\
+	          360UB56.7 &                   1947.0                    & 1616.2 & 1540.0 & 1455.8 & 1364.6 & 1269.1 & 1172.4 & 1077.9 & 988.0  & 904.5  & 828.0  & 758.7  & 696.3  & 640.3  & 590.1  & 545.1  & 504.7  & 468.4  & 435.7  & 406.2  & 379.4  & 355.1  & 333.1  & 313.0  & 294.6 & 277.7 \\
+	               50.7 &                   1682.3                    & 1398.4 & 1333.1 & 1260.8 & 1182.6 & 1100.5 & 1017.3 & 935.7  & 858.1  & 785.8  & 719.6  & 659.6  & 605.5  & 556.9  & 513.3  & 474.2  & 439.1  & 407.6  & 379.1  & 353.4  & 330.2  & 309.1  & 289.9  & 272.4  & 256.4 & 241.7 \\
+	               44.7 &                   1532.0                    & 1255.5 & 1191.5 & 1120.9 & 1045.0 & 966.5  & 888.2  & 812.8  & 742.1  & 677.2  & 618.3  & 565.3  & 518.0  & 475.7  & 437.9  & 404.1  & 373.8  & 346.7  & 322.3  & 300.3  & 280.4  & 262.4  & 246.0  & 231.0  & 217.4 & 204.9 \\
+	          310UB46.2 &                   1586.7                    & 1318.3 & 1256.5 & 1188.2 & 1114.2 & 1036.6 & 958.0  & 881.1  & 807.8  & 739.7  & 677.3  & 620.7  & 569.8  & 524.0  & 483.0  & 446.2  & 413.1  & 383.4  & 356.7  & 332.5  & 310.6  & 290.8  & 272.7  & 256.2  & 241.2 & 227.4 \\
+	               40.4 &                   1428.5                    & 1173.7 & 1114.7 & 1049.7 & 979.7  & 907.1  & 834.5  & 764.3  & 698.4  & 637.6  & 582.5  & 532.8  & 488.3  & 448.5  & 413.0  & 381.2  & 352.7  & 327.2  & 304.2  & 283.4  & 264.7  & 247.7  & 232.2  & 218.1  & 205.3 & 193.5 \\
+	               32.0 &                   1075.2                    & 832.9  & 776.1  & 715.0  & 652.3  & 591.1  & 533.5  & 480.9  & 433.7  & 392.0  & 355.1  & 322.7  & 294.2  & 269.1  & 246.8  & 227.2  & 209.7  & 194.1  & 180.1  & 167.5  & 156.2  & 146.0  & 136.8  & 128.3  & 120.7 & 113.7 \\
+	          250UB37.3 &                   1368.0                    & 1061.4 & 989.5  & 912.1  & 832.7  & 754.9  & 681.6  & 614.6  & 554.5  & 501.2  & 454.1  & 412.7  & 376.3  & 344.2  & 315.8  & 290.6  & 268.3  & 248.3  & 230.4  & 214.4  & 199.9  & 186.9  & 175.0  & 164.2  & 154.4 & 145.5 \\
+	               31.4 &                   1154.9                    & 880.7  & 816.4  & 748.0  & 678.8  & 612.2  & 550.5  & 494.7  & 445.2  & 401.5  & 363.3  & 329.7  & 300.3  & 274.5  & 251.6  & 231.5  & 213.5  & 197.6  & 183.3  & 170.5  & 158.9  & 148.5  & 139.0  & 130.5  & 122.6 & 115.5 \\
+	               25.7 &                    893.7                    & 614.6  & 552.2  & 490.9  & 433.9  & 383.1  & 338.8  & 300.6  & 267.9  & 239.8  & 215.7  & 194.9  & 176.8  & 161.1  & 147.3  & 135.2  & 124.5  & 115.0  & 106.5  &  99.0  &  92.2  &  86.0  &  80.5  &  75.5  & 70.9  & 66.7  \\
+	          200UB29.8 &                   1100.2                    & 814.9  & 748.5  & 679.3  & 611.1  & 547.1  & 489.0  & 437.4  & 392.2  & 352.8  & 318.5  & 288.6  & 262.5  & 239.6  & 219.5  & 201.7  & 186.0  & 171.9  & 159.4  & 148.2  & 138.1  & 129.0  & 120.8  & 113.3  & 106.5 & 100.3 \\
+	               25.4 &                    930.2                    & 674.9  & 615.9  & 555.4  & 496.9  & 442.8  & 394.4  & 351.8  & 314.8  & 282.7  & 254.9  & 230.8  & 209.7  & 191.3  & 175.1  & 160.9  & 148.3  & 137.0  & 127.0  & 118.1  & 110.0  & 102.7  &  96.1  &  90.2  & 84.7  & 79.8  \\
+	               22.3 &                    826.6                    & 602.3  & 550.4  & 497.0  & 445.1  & 397.0  & 353.8  & 315.8  & 282.7  & 254.0  & 229.0  & 207.4  & 188.5  & 172.0  & 157.5  & 144.7  & 133.3  & 123.2  & 114.2  & 106.2  &  98.9  &  92.4  &  86.5  &  81.1  & 76.2  & 71.8  \\
+	               18.2 &                    661.5                    & 349.6  & 297.8  & 254.0  & 217.8  & 188.1  & 163.7  & 143.5  & 126.7  & 112.6  & 100.7  &  90.6  &  81.9  &  74.4  &  67.8  &  62.1  &  57.1  &  52.6  &  48.7  &  45.2  &  42.0  &  39.2  &  36.6  &  34.3  & 32.2  & 30.3  \\
+	          180UB22.2 &                    812.2                    & 393.5  & 331.6  & 280.7  & 239.5  & 206.1  & 178.9  & 156.5  & 138.0  & 122.5  & 109.5  &  98.4  &  88.9  &  80.7  &  73.5  &  67.3  &  61.8  &  57.0  &  52.7  &  48.9  &  45.5  &  42.4  &  39.6  &  37.1  & 34.8  & 32.7  \\
+	               18.1 &                    662.4                    & 316.7  & 266.5  & 225.4  & 192.1  & 165.2  & 143.4  & 125.4  & 110.6  &  98.2  &  87.7  &  78.8  &  71.2  &  64.6  &  58.9  &  53.9  &  49.5  &  45.6  &  42.2  &  39.1  &  36.4  &  33.9  &  31.7  &  29.7  & 27.9  & 26.2  \\
+	               16.1 &                    587.5                    & 277.1  & 232.8  & 196.7  & 167.6  & 144.1  & 125.0  & 109.3  &  96.3  &  85.5  &  76.4  &  68.6  &  62.0  &  56.3  &  51.3  &  46.9  &  43.1  &  39.7  &  36.7  &  34.1  &  31.7  &  29.5  &  27.6  &  25.8  & 24.3  & 22.8  \\
+	          150UB18.0 &                    662.4                    & 239.3  & 196.9  & 164.1  & 138.5  & 118.3  & 102.1  &  89.0  &  78.2  &  69.3  &  61.8  &  55.4  &  50.0  &  45.3  &  41.3  &  37.7  &  34.6  &  31.9  &  29.5  &  27.3  &  25.4  &  23.7  &  22.1  &  20.7  & 19.4  & 18.2  \\
+	               14.0 &                    512.6                    & 176.5  & 144.9  & 120.5  & 101.6  &  86.7  &  74.8  &  65.2  &  57.3  &  50.7  &  45.2  &  40.5  &  36.5  &  33.1  &  30.2  &  27.6  &  25.3  &  23.3  &  21.5  &  20.0  &  18.5  &  17.3  &  16.1  &  15.1  & 14.2  & 13.3  \\ \bottomrule
+\end{tabular}
+\end{sidewaystable}
+\begin{sidewaystable}[p]
+\centering\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.2}
+\caption{Design load capacity table for UC members subject to axial compression buckling about strong axis (manually generated)}\label{tab:uc_strong}
+\begin{tabular}{r|c|ccccccccccccccccccccccccc}
+	\toprule
+	                                                                             \multicolumn{27}{c}{\Large{}Grade 300 Steel UC Section Subject to Axial Compression \textbf{Strong}  Axis Buckling}                                                                              \\ \midrule
+	                    & $\phi{}N_s$ (\si{\kn}) &                                                                                          \multicolumn{25}{c}{$\phi{}N_c$ (\si{\kn})}                                                                                           \\
+	$L_e$ (\si{\meter}) &           0            &   2    &  2.5   &   3    &  3.5   &   4    &  4.5   &   5    &  5.5   &   6    &  6.5   &   7    &  7.5   &   8    &  8.5   &   9    &  9.5   &   10   &   11   &   12   &   13   &   14   &   15   &   16   &   17   &   18   \\ \midrule
+	           310UC158 &         5065.2         & 5036.0 & 4971.4 & 4905.9 & 4838.8 & 4769.7 & 4697.9 & 4622.7 & 4543.6 & 4460.0 & 4371.3 & 4276.9 & 4176.6 & 4069.9 & 3956.9 & 3837.7 & 3712.9 & 3583.2 & 3314.1 & 3040.9 & 2774.5 & 2523.3 & 2292.1 & 2082.9 & 1895.5 & 1728.6 \\
+	                137 &         4410.0         & 4381.3 & 4324.2 & 4266.2 & 4206.9 & 4145.6 & 4081.8 & 4014.9 & 3944.5 & 3869.9 & 3790.6 & 3706.3 & 3616.4 & 3520.9 & 3419.8 & 3313.2 & 3201.7 & 3086.1 & 2847.2 & 2606.2 & 2372.9 & 2154.2 & 1954.1 & 1773.7 & 1612.7 & 1469.6 \\
+	                118 &         3780.0         & 3754.0 & 3704.6 & 3654.5 & 3603.2 & 3550.2 & 3494.9 & 3437.0 & 3375.9 & 3311.2 & 3242.4 & 3169.1 & 3091.0 & 3008.0 & 2920.1 & 2827.4 & 2730.7 & 2630.4 & 2423.7 & 2215.9 & 2015.4 & 1828.0 & 1657.0 & 1503.2 & 1366.1 & 1244.5 \\
+	               96.8 &         3348.0         & 3316.1 & 3270.1 & 3223.2 & 3175.0 & 3124.9 & 3072.5 & 3017.3 & 2958.7 & 2896.3 & 2829.6 & 2758.4 & 2682.4 & 2601.6 & 2516.1 & 2426.4 & 2333.4 & 2237.9 & 2044.0 & 1853.8 & 1674.5 & 1510.4 & 1363.0 & 1232.1 & 1116.7 & 1015.0 \\
+	          250UC89.5 &         2872.8         & 2820.9 & 2774.7 & 2727.1 & 2677.4 & 2624.9 & 2569.1 & 2509.2 & 2444.7 & 2375.1 & 2299.9 & 2219.2 & 2133.3 & 2042.9 & 1949.1 & 1853.3 & 1757.1 & 1661.9 & 1479.5 & 1313.4 & 1166.4 & 1038.3 & 927.5  & 831.8  & 749.2  & 677.6  \\
+	               72.9 &         2516.4         & 2463.8 & 2421.3 & 2377.4 & 2331.2 & 2282.3 & 2229.9 & 2173.4 & 2112.2 & 2045.9 & 1974.4 & 1897.6 & 1816.3 & 1731.3 & 1644.0 & 1556.0 & 1468.6 & 1383.3 & 1222.9 & 1079.7 & 954.9  & 847.4  & 755.2  & 676.1  & 608.1  & 549.4  \\
+	          200UC59.5 &         2057.4         & 1981.4 & 1936.8 & 1889.3 & 1838.0 & 1781.7 & 1719.8 & 1651.3 & 1576.3 & 1495.2 & 1409.4 & 1320.8 & 1231.9 & 1144.8 & 1061.4 & 982.9  & 910.0  & 842.8  & 725.4  & 628.1  & 547.6  & 480.8  & 425.1  & 378.2  & 338.5  & 304.6  \\
+	               52.2 &         1798.2         & 1730.8 & 1691.4 & 1649.6 & 1604.2 & 1554.5 & 1499.6 & 1439.1 & 1372.6 & 1300.9 & 1225.1 & 1147.1 & 1068.9 & 992.5  & 919.6  & 851.1  & 787.5  & 729.1  & 627.1  & 542.8  & 473.1  & 415.3  & 367.1  & 326.5  & 292.2  & 262.9  \\
+	               46.2 &         1593.0         & 1531.9 & 1496.6 & 1459.0 & 1418.1 & 1373.3 & 1323.8 & 1269.1 & 1209.1 & 1144.4 & 1076.2 & 1006.2 & 936.4  & 868.5  & 803.8  & 743.3  & 687.3  & 635.9  & 546.4  & 472.6  & 411.7  & 361.3  & 319.3  & 284.0  & 254.1  & 228.6  \\
+	          150UC37.2 &         1277.1         & 1195.2 & 1155.3 & 1110.8 & 1060.2 & 1002.7 & 938.3  & 868.6  & 796.3  & 724.6  & 656.4  & 593.4  & 536.5  & 485.7  & 440.7  & 400.9  & 365.8  & 334.8  & 283.0  & 241.9  & 209.0  & 182.2  & 160.2  & 142.0  & 126.6  & 113.6  \\
+	               30.0 &         1111.7         & 1034.2 & 997.1  & 955.2  & 907.2  & 852.6  & 791.8  & 726.9  & 661.0  & 597.1  & 537.6  & 483.6  & 435.5  & 393.1  & 355.8  & 323.1  & 294.4  & 269.1  & 227.0  & 193.8  & 167.3  & 145.7  & 128.1  & 113.4  & 101.1  &  90.7  \\
+	               23.4 &         858.2          & 794.4  & 764.1  & 729.6  & 690.0  & 644.8  & 594.9  & 542.4  & 490.0  & 440.2  & 394.5  & 353.7  & 317.6  & 286.1  & 258.5  & 234.4  & 213.3  & 194.8  & 164.2  & 140.0  & 120.8  & 105.1  &  92.4  &  81.7  &  72.9  &  65.3  \\
+	          100UC14.8 &         544.3          & 454.7  & 411.4  & 360.6  & 307.9  & 259.4  & 218.2  & 184.5  & 157.2  & 135.2  & 117.3  & 102.6  &  90.5  &  80.3  &  71.7  &  64.5  &  58.2  &  52.8  &  44.1  &  37.3  &  32.0  &  27.8  &  24.3  &  21.4  &  19.1  &  17.0  \\ \bottomrule
+\end{tabular}
+\caption{Design load capacity table for UC members subject to axial compression buckling about weak axis (manually generated)}\label{tab:uc_weak}
+\begin{tabular}{r|c|ccccccccccccccccccccccccc}
+	\toprule
+	                                                                              \multicolumn{27}{c}{\Large{}Grade 300 Steel UC Section Subject to Axial Compression \textbf{Weak} Axis Buckling}                                                                                \\ \midrule
+	                    & $\phi{}N_s$ (\si{\kn}) &                                                                                          \multicolumn{25}{c}{$\phi{}N_c$ (\si{\kn})}                                                                                           \\
+	$L_e$ (\si{\meter}) &           0            &   2    &  2.25  &  2.5   &  2.75  &   3    &  3.25  &  3.5   &  3.75  &   4    &  4.25  &  4.5   &  4.75  &   5    &  5.25  &  5.5   &  5.75  &   6    &  6.25  &  6.5   &  6.75  &   7    &  7.25  &  7.5   &  7.75  &   8    \\ \midrule
+	           310UC158 &         5065.2         & 4835.6 & 4774.8 & 4711.9 & 4646.4 & 4578.1 & 4506.5 & 4431.1 & 4351.7 & 4267.8 & 4179.2 & 4085.7 & 3987.3 & 3884.0 & 3776.2 & 3664.3 & 3548.9 & 3430.9 & 3311.1 & 3190.6 & 3070.4 & 2951.2 & 2834.0 & 2719.5 & 2608.3 & 2500.7 \\
+	                137 &         4410.0         & 4206.4 & 4152.8 & 4097.4 & 4039.7 & 3979.4 & 3916.1 & 3849.5 & 3779.2 & 3704.9 & 3626.5 & 3543.7 & 3456.5 & 3365.1 & 3269.7 & 3170.7 & 3068.9 & 2964.8 & 2859.4 & 2753.5 & 2648.0 & 2543.7 & 2441.3 & 2341.4 & 2244.5 & 2151.0 \\
+	                118 &         3780.0         & 3602.2 & 3555.7 & 3507.6 & 3457.5 & 3405.1 & 3350.1 & 3292.1 & 3230.9 & 3166.2 & 3097.8 & 3025.5 & 2949.5 & 2869.8 & 2786.7 & 2700.6 & 2612.0 & 2521.7 & 2430.4 & 2338.9 & 2247.8 & 2157.9 & 2069.9 & 1984.2 & 1901.1 & 1821.1 \\
+	               96.8 &         3348.0         & 3175.6 & 3132.0 & 3086.6 & 3039.2 & 2989.4 & 2936.9 & 2881.4 & 2822.5 & 2760.2 & 2694.1 & 2624.4 & 2551.1 & 2474.4 & 2394.8 & 2312.8 & 2229.1 & 2144.4 & 2059.6 & 1975.4 & 1892.5 & 1811.5 & 1732.8 & 1656.8 & 1583.9 & 1514.0 \\
+	          250UC89.5 &         2872.8         & 2683.9 & 2639.4 & 2592.5 & 2542.8 & 2490.0 & 2433.6 & 2373.3 & 2309.0 & 2240.5 & 2168.2 & 2092.2 & 2013.3 & 1932.2 & 1849.8 & 1767.1 & 1685.0 & 1604.5 & 1526.3 & 1450.8 & 1378.5 & 1309.6 & 1244.3 & 1182.5 & 1124.3 & 1069.6 \\
+	               72.9 &         2516.4         & 2336.7 & 2295.1 & 2251.1 & 2204.1 & 2154.0 & 2100.3 & 2042.7 & 1981.2 & 1915.9 & 1847.0 & 1775.2 & 1701.1 & 1625.6 & 1549.8 & 1474.6 & 1400.9 & 1329.4 & 1260.6 & 1194.9 & 1132.5 & 1073.5 & 1018.0 & 965.8  & 916.8  & 871.0  \\
+	          200UC59.5 &         2057.4         & 1841.2 & 1793.0 & 1740.6 & 1683.5 & 1621.4 & 1554.4 & 1483.0 & 1408.3 & 1331.5 & 1254.2 & 1177.9 & 1104.0 & 1033.3 & 966.5  & 904.0  & 845.9  & 792.0  & 742.3  & 696.5  & 654.3  & 615.4  & 579.7  & 546.7  & 516.3  & 488.2  \\
+	               52.2 &         1798.2         & 1608.0 & 1565.6 & 1519.4 & 1469.1 & 1414.5 & 1355.5 & 1292.7 & 1227.0 & 1159.5 & 1091.8 & 1025.0 & 960.2  & 898.5  & 840.2  & 785.6  & 735.0  & 688.0  & 644.8  & 604.9  & 568.2  & 534.4  & 503.3  & 474.6  & 448.2  & 423.8  \\
+	               46.2 &         1593.0         & 1421.6 & 1383.4 & 1341.8 & 1296.5 & 1247.1 & 1193.9 & 1137.3 & 1078.2 & 1017.8 & 957.2  & 897.7  & 840.3  & 785.6  & 734.1  & 686.0  & 641.4  & 600.2  & 562.2  & 527.3  & 495.2  & 465.6  & 438.4  & 413.4  & 390.3  & 369.0  \\
+	          150UC37.2 &         1277.1         & 1054.4 & 1003.0 & 946.2  & 884.9  & 821.0  & 756.8  & 694.3  & 635.3  & 580.8  & 531.1  & 486.2  & 445.9  & 409.7  & 377.4  & 348.5  & 322.6  & 299.3  & 278.3  & 259.4  & 242.2  & 226.7  & 212.6  & 199.7  & 188.0  & 177.2  \\
+	               30.0 &         1111.7         & 902.7  & 854.2  & 800.7  & 743.8  & 685.3  & 627.6  & 572.6  & 521.5  & 474.9  & 432.9  & 395.3  & 361.8  & 332.0  & 305.4  & 281.6  & 260.4  & 241.4  & 224.3  & 209.0  & 195.1  & 182.5  & 171.0  & 160.6  & 151.1  & 142.4  \\
+	               23.4 &         858.2          & 685.1  & 644.6  & 600.4  & 553.9  & 507.0  & 461.6  & 419.0  & 380.1  & 345.0  & 313.6  & 285.8  & 261.1  & 239.3  & 219.9  & 202.6  & 187.2  & 173.4  & 161.0  & 149.9  & 139.9  & 130.8  & 122.6  & 115.1  & 108.2  & 102.0  \\
+	          100UC14.8 &         544.3          & 323.0  & 280.5  & 242.5  & 209.9  & 182.5  & 159.6  & 140.4  & 124.4  & 110.8  &  99.3  &  89.4  &  80.9  &  73.5  &  67.1  &  61.5  &  56.6  &  52.2  &  48.3  &  44.8  &  41.7  &  38.9  &  36.4  &  34.1  &  32.0  &  30.1  \\ \bottomrule
+\end{tabular}
+\end{sidewaystable}
+\begin{exmp}
+Axial Compression Example --- UC
+
+Using Grade 300 steel, find the lightest UC without holes for $G=\SI{400}{\kn}$ and $Q=\SI{700}{\kn}$ with $L_e=\SI{5}{\meter}$.
+\end{exmp}
+\begin{solution}
+For all hot-rolled UC sections, $t_f<\SI{40}{\mm}$, thus $k_f=1$ and $\alpha_b=0$. Assume $f_y=\SI{300}{\mpa}$.
+
+Load combination gives
+\begin{gather*}
+N^*=1.2G+1.5Q=1.2\times\SI{400}{\kn}+1.5\times\SI{700}{\kn}=\SI{1530}{\kn}.
+\end{gather*}
+
+For the identical $L_e$ along both axes, clearly the weak axis governs. Assume a moderate $r_y\approx\SI{60}{\mm}$, this leads to
+\begin{gather*}
+\lambda_n=\dfrac{L_e}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{\SI{5}{\meter}}{\SI{50}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=91.3.
+\end{gather*}
+Then $\alpha_c=0.601$.
+\begin{gather*}
+A_{n,min}=\dfrac{N^*}{\phi\alpha_ck_ff_y}=\dfrac{\SI{1530}{\kn}}{0.9\times0.601\times1\times\SI{300}{\mpa}}=\SI{9430}{\mm^2}.
+\end{gather*}
+
+Try 250UC89.5, update all quantities,
+\begin{gather*}
+r_y=\SI{65.2}{\mm},\quad
+\lambda_n=84.0,\quad
+\alpha_c=0.653,\quad
+A_{n,min}=\SI{8685}{\mm^2}.
+\end{gather*}
+Since $A_n=\SI{11400}{\mm^2}>\SI{8685}{\mm^2}$, 250UC89.5 works.
+
+Try 250UC72.9, update all quantities,
+\begin{gather*}
+r_y=\SI{64.5}{\mm},\quad
+\lambda_n=84.9,\quad
+\alpha_c=0.646,\quad
+A_{n,min}=\SI{8772}{\mm^2}.
+\end{gather*}
+Since $A_n=\SI{9320}{\mm^2}>\SI{8772}{\mm^2}$, 250UC72.9 works.
+
+Try 200UC59.5, update all quantities,
+\begin{gather*}
+r_y=\SI{51.7}{\mm},\quad
+\lambda_n=105.9,\quad
+\alpha_c=0.502,\quad
+A_{n,min}=\SI{11280}{\mm^2}.
+\end{gather*}
+Since $A_n=\SI{7620}{\mm^2}<\SI{11280}{\mm^2}$, 200UC59.5 does not work.
+
+The lightest designation would be 250UC72.9. By using $N^*=\SI{1530}{\kn}$, the optimal section is 250UC72.9 from \figref{fig:design_table}.
+\end{solution}
+
+\begin{exmp}
+A \SI{18}{\meter} long beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis. Find the lightest I section to carry $N^*=\SI{700}{\kn}$. Use Grade 300 steel.
+\end{exmp}
+\begin{solution}
+The effective lengths are
+\begin{gather*}
+L_{e,y}=\SI{18}{\meter}/4=\SI{4.5}{\meter},\\
+L_{e,x}=\SI{18}{\meter}.
+\end{gather*}
+An efficient member shall have similar $L_{e}/r$ about both axes. This leads to $r_x/r_y\approx4$. UC sections often have $r_x/r_y\approx\numrange{1.6}{1.8}$. UB sections often have $r_x/r_y\approx\numrange{3.5}{5.5}$. Thus use UB sections will be more efficient. From \tabref{tab:ub_strong} and \tabref{tab:ub_weak},
+\begin{table}[H]
+\centering
+\begin{tabular}{rccc}
+	\toprule
+	  Section & $\phi{}N_{c,x}$ at \SI{18}{\meter} & $\phi{}N_{c,y}$ at \SI{4.5}{\meter} &      \\ \midrule
+	410UB59.7 &               881.5                &                811.4                & Okay \\
+	     53.7 &               782.2                &                707.0                & Okay \\
+	360UB56.7 &               705.5                &                758.7                & Okay \\
+	     50.7 &               619.5                &                659.6                & N.G. \\ \bottomrule
+\end{tabular}
+\end{table}
+Thus the lightest section is 410UB53.7.
+\end{solution}
+\subsection{Consideration of Effective Length}
+\subsubsection{Individual Member}
+\NZSSTEEL{\S~4.8.3.2} recommends the following values for $k_e$ as shown in \figref{fig:k_e} for \textbf{individual} sway and braced members that are designed for load combinations that do \textbf{not} include earthquake loads. Those values are larger than the theoretical values because it is assumed that no connections are ideal, connections at member ends normally have some flexibility. It is worth noting that those values may be different in other codes.
+\begin{figure}[H]\centering
+\includegraphics{PIC/CH04/BS}
+\caption{Effective length factor $k_e$}\label{fig:k_e}
+\end{figure}
+
+\begin{exmp}
+A \SI{10}{\meter} long 310UB32.0 beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis. Find the maximum axial compressive force it can carry.
+\end{exmp}
+\begin{solution}
+Both strong axis and weak axis need to be considered. For a 310UB32 section, the following properties can be found: $\alpha_b=0$, $A_n=A_g=\SI{4080}{\mm^2}$, $f_y=\SI{320}{\mpa}$, $k_f=0.915$, $r_x=\SI{124}{\mm}$, $r_y=\SI{32.9}{\mm}$.
+\begin{itemize}
+\item strong axis ($x$-axis)\\
+Since it is pinned at both ends, $k_e=1$, the modified slenderness ratio is
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{10}{\meter}}{\SI{124}{\mm}}\times\sqrt{0.915}\times\sqrt{\dfrac{320}{250}}=87.3.
+\end{gather*}
+Then, $\alpha_c=0.629$. The maximum compressive force is then
+\begin{gather*}
+\phi{}N_{c,x}=\phi\alpha_ck_fA_nf_y=0.9\times0.629\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{676.6}{\kn}.
+\end{gather*}
+
+This value is also given in \tabref{tab:ub_strong}.
+\item weak axis ($y$-axis)\\
+Since it is pinned at quarter points, $k_e=1$ and $L=0.25\times\SI{10}{\meter}=\SI{2.5}{\meter}$ the modified slenderness ratio is
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{2.5}{\meter}}{\SI{32.9}{\mm}}\times\sqrt{0.915}\times\sqrt{\dfrac{320}{250}}=82.2.
+\end{gather*}
+Then, $\alpha_c=0.665$. The maximum compressive force is then
+\begin{gather*}
+\phi{}N_{c,y}=\phi\alpha_ck_fA_nf_y=0.9\times0.665\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{715.0}{\kn}.
+\end{gather*}
+
+This value is also given in \tabref{tab:ub_weak}.
+\end{itemize}
+The governing maximum compressive force shall be the minimum of two, thus $\phi{}N_c=\SI{676.6}{\kn}$. In practice, \textbf{always} check both axes for capacity.
+
+Note, if $L_e=\SI{0}{\m}$, then $\phi{}N_c=\phi{}N_s=0.9\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{1075.2}{\kn}$, which are given by both tables for strong- and weak-axis buckling.
+\end{solution}
+\subsubsection{Frame Member}
+There are two types of frame members.
+\begin{itemize}
+\item \textbf{Braced Frame Member}\\
+In these frames, lateral stability is provided by structural walls, diagonal bracing or other similar means within the storey considered. For braced members, $1.0\geqslant{}k_e\geqslant{}0.5$.
+\item \textbf{Sway Frame Member}\\
+In these frames, lateral stability is provided by bending stiffness of rigidly connected beams or columns. The upper supports can also move down the same amount on each side. For sway members, $k_e\geqslant{}1.0$.
+\end{itemize}
+
+Whether the beams are braced results in different rotation constraints on beam--column joints. Besides, the illustrations in \figref{fig:fm} only show the cases when the far ends of beams are pinned. The fixity condition of beam far end also has an impact on the degree of rotation constraint offered. This will be discussed later.
+\begin{figure}[ht!]
+\centering
+\input{PIC/CH04/ELBS}
+\caption{Illustration of different types of frame members with theoretical $k_e$ shown}\label{fig:fm}
+\end{figure}
+
+In order to compute member capacities, two methods are available, namely the stability function and the $\gamma$-factor method.
+\paragraph{Stability Functions}
+In the general case of different $EI$ in the beams at the top and bottom of the frame, stability functions can be used to evaluate the buckling force in the member without needing to consider the effective lengths. These are included in computer programs but are not studied here.
+\paragraph{The $\gamma$-Factor Method}
+Alternatively, for frame members, the effective length factor $k_e$ can be determined by a simplified method via stiffness ratios. The following assumptions of idealized conditions, which seldom exist in real structures, are adopted (\ANSI{\S~7.2}):
+\begin{itemize}
+\item all members have constant cross section,
+\item all joints are rigid,
+\item joint restraint is distributed to the column above and below the joint in proportion to $EI/L$ of the two columns,
+\item for braced frames, rotations at opposite ends of the beams are of equal magnitude, producing single curvature bending,
+\item for sway frames, rotations at opposite ends of the restraining beams are of equal magnitude, producing reverse curvature bending,
+\item the stiffness parameters $L\sqrt{\dfrac{P}{EI}}$ of all columns are equal,
+\item all columns buckle simultaneously,
+\item behaviour is purely elastic,
+\item no significant axial compression force exists in the girders,
+\item shear deformations are neglected.
+\end{itemize}
+
+For each compression member, it is possible to compute the stiffness ratios of two ends respectively via the following expression.
+\begin{gather}\label{eq:be}
+\gamma=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{EI}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eEI}{L}}=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{I}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}},
+\end{gather}
+in which
+\begin{itemize}
+\item \NZSSTEEL{\S~4.8.3.4.2} $\displaystyle\sum_{\text{columns}}\dfrac{I}{L}$ shall be calculated from the sum of the stiffnesses, in the plane of bending, of all the compression members rigidly connected at the end of the member under consideration, including the member itself.
+\item \NZSSTEEL{\S~4.8.3.4.3} $\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}$ shall be calculated from the sum of the stiffnesses, in the plane of bending, of all the beams rigidly connected at the end of the member under consideration. The contributions of any beams pin-connected to the member shall be neglected.
+\item $\beta_e$ is a modification factor to account for different beam far end conditions. This will be introduced later. For the moment, assume $\beta_e=1$.
+\end{itemize}
+
+With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated by one of the following methods:
+\begin{enumerate}
+\item The exact solution for the assumptions above may be found using the following equations. These are transcendental functions that can be solved by numerical methods.
+\begin{itemize}
+\item braced member
+\begin{gather*}
+\dfrac{\gamma_1\gamma_2}{4}\left(\dfrac{\pi}{k_e}\right)^2+\dfrac{\gamma_1+\gamma_2}{2}\left(1-\dfrac{\pi/k_e}{\tan\left(\pi/k_e\right)}\right)+\dfrac{2\tan\left(0.5\pi/k_e\right)}{\pi/k_e}=1.0
+\end{gather*}
+\item sway member
+\begin{gather*}
+\left(\gamma_1\gamma_2\left(\dfrac{\pi}{k_e}\right)^2-36\right)\tan\left(\dfrac{\pi}{k_e}\right)=6\left(\gamma_1+\gamma_2\right)\dfrac{\pi}{k_e}
+\end{gather*}
+\end{itemize}
+\item US Alignment Charts. These charts used in \ANSI{} give the graphical solutions to the two equations above. They are shown in \figref{fig:a360_ke} in which $G_A$ and $G_B$ correspond to $\gamma_1$ and $\gamma_2$. Additional copies are provided at the end of this chapter.
+\begin{figure}[htb!]
+\centering\footnotesize
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/A360.BRACED}
+\caption{for braced members}
+\end{subfigure}\hfil
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/A360.SWAY}
+\caption{for sway members}
+\end{subfigure}
+\caption{Alignment chart for $k_e$}\label{fig:a360_ke}
+\end{figure}
+\item AU/NZ Alignment Charts. These charts used in \NZSSTEEL{Fig. 4.8.3.3} are essentially identical to the ones used in the US code but presented in a different format. \figref{fig:kee} shows those charts.
+\begin{figure}[H]
+\centering\includegraphics[width=.99\textwidth]{PIC/CH04/KEE}
+\caption{$k_e$ for braced and sway members \citep{Gorenc2015}}\label{fig:kee}
+\end{figure}
+\item French Equations. These are used in the French code and they are an approximation to the two equations above. They give answers to an accuracy of better than \SI{1}{\percent} to the true answer and any error results in a slightly conservative answer. This is better than the readability of the design charts.
+\begin{itemize}
+\item braced member
+\begin{gather}\color{cc0066}
+k_e=\dfrac{3\gamma_1\gamma_2+1.4\left(\gamma_1+\gamma_2\right)+0.64}{3\gamma_1\gamma_2+2\left(\gamma_1+\gamma_2\right)+1.28}
+\end{gather}
+\item sway member
+\begin{gather}\color{cc0066}
+k_e=\sqrt{\dfrac{1.6\gamma_1\gamma_2+4\left(\gamma_1+\gamma_2\right)+7.5}{\gamma_1+\gamma_2+7.5}}
+\end{gather}
+\end{itemize}
+\end{enumerate}
+The French method is probably the best for practical usage, although any of the methods above would be acceptable.
+\subsubsection{Examples of Alignment Charts}
+To use the alignment charts, one shall calculate $\gamma_1$ and $\gamma_2$ first. Draw a straight line defined by $\gamma_1$ and $\gamma_2$, the intersection gives the value of $k_e$.
+\paragraph{Braced Individual Member}
+Since both ends are fixed,
+\begin{gather*}
+\gamma_{top}=\gamma_{bot}=0.
+\end{gather*}
+From the chart, $k_e=0.5$.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/AC1}
+\end{figure}
+\paragraph{Braced Frame Member}
+The top end is connected to two beams,
+\begin{gather*}
+\gamma_{top}=\dfrac{1}{1.5/0.8+1.5/1.5}=0.348,\qquad
+\gamma_{bot}=0.
+\end{gather*}
+From the chart, $k_e\approx0.57$. The French equation gives $k_e=0.5704$.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/AC2}
+\end{figure}
+\paragraph{Sway Individual Member}
+Since the top end is a free end and the bottom end is fixed,
+\begin{gather*}
+\gamma_{top}=\infty,\qquad\gamma_{bot}=0.
+\end{gather*}
+From the chart, $k_e=2.0$.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/AC3}
+\end{figure}
+\paragraph{Sway Frame Member}
+The top end is connected to two beams,
+\begin{gather*}
+\gamma_{top}=\dfrac{1}{1.5/0.8+1.5/1.5}=0.348,\qquad
+\gamma_{bot}=0.
+\end{gather*}
+From the chart, $k_e\approx1.05$. The French equation gives $k_e=1.0644$.
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/AC4}
+\end{figure}
+\subsubsection{Remark}
+The stiffness ratio $\gamma$ characterises the rotation ability of an end. A sufficiently large $\gamma\rightarrow\infty$ represents a pinned connection while a sufficiently small $\gamma\rightarrow0$ represents a fixed connection. \textbf{However, those are idealised assumptions, in real world those perfect connections do not exist. Thus, $\gamma$ is often taken as \num{1} for fully fixed connection and \num{10} for perfectly pinned connection.}
+
+\begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACFM.sm}{Worksheet}
+Axial Compression Example --- Frame
+
+For the frame shown, find axial compression capacity of column when the frame is a) braced and b) unbraced. Assume the out-of-plane buckling is fully prevented. Use Grade 300 steel.
+\begin{figure}[H]
+\input{PIC/CH04/FRAME1}
+\end{figure}
+\end{exmp}
+\begin{solution}
+In this simple case, $\beta_e=1$. The stiffness ratios can be computed as
+\begin{gather*}
+\gamma_1=\gamma_{top}=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=4.15,\qquad
+\gamma_2=\gamma_{bot}=10.
+\end{gather*}
+Note for the pinned connection, \num{10} is used.
+\begin{itemize}
+\item braced frame
+
+By the French equation,
+\begin{gather*}
+k_e=\dfrac{3\gamma_1\gamma_2+1.4\left(\gamma_1+\gamma_2\right)+0.64}{3\gamma_1\gamma_2+2\left(\gamma_1+\gamma_2\right)+1.28}=0.941.
+\end{gather*}
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{0.941\times\SI{5}{\meter}}{\SI{213}{\mm}}\times\sqrt{0.902}\times\sqrt{\dfrac{300}{250}}=22.97.
+\end{gather*}
+Thus $\alpha_c=0.968$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.968\times0.902\times\SI{10500}{\mm^2}\times\SI{300}{\mpa}=\SI{2475}{\kn}.
+\end{gather*}
+\item sway frame
+
+By the French equation,
+\begin{gather*}
+k_e=\sqrt{\dfrac{1.6\gamma_1\gamma_2+4\left(\gamma_1+\gamma_2\right)+7.5}{\gamma_1+\gamma_2+7.5}}=2.455.
+\end{gather*}
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{2.455\times\SI{5}{\meter}}{\SI{213}{\mm}}\times\sqrt{0.902}\times\sqrt{\dfrac{300}{250}}=59.95.
+\end{gather*}
+Thus $\alpha_c=0.809$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.809\times0.902\times\SI{10500}{\mm^2}\times\SI{300}{\mpa}=\SI{2069}{\kn}.
+\end{gather*}
+\end{itemize}
+\end{solution}
+
+%
+%\begin{exmp}
+%Axial Compression Example --- Braced Frame
+%
+%For the following frame supported out-of-plane at top and bottom only, find the lightest Grade 300 I section to carry the load $N^*=\SI{700}{\kn}$.
+%\end{exmp}
+%\begin{solution}
+%Noting that $L_{e,x}=4\times\SI{4.5}{\meter}=\SI{18}{\meter}$ while $L_{e,y}=\SI{4.5}{\meter}$, an efficient member shall have similar slenderness ratios $\lambda=L_e/r$ about both axes.
+%
+%Thus we try UB sections only.
+%\end{solution}
+\subsection{Modifications to \texorpdfstring{$\gamma$}{G}-Factor Method}
+\subsubsection{Effect of Beam End Conditions}
+Recall \figref{fig:fm} and \eqsref{eq:be},
+\begin{gather*}
+\gamma=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{EI}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eEI}{L}}=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{I}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}}.
+\end{gather*}
+
+\NZSSTEEL{\S~4.8.3.4.3} uses a modifying factor $\beta_e$ to account for various conditions at the far ends of the beams, which may affect the magnitude of moment on the joint. This corresponds to \ANSI{Eq. C-A-7-4}.
+\begin{table}[H]
+\centering\footnotesize
+\caption{Modifying factor $\beta_e$}\label{tab:beta_e}
+\begin{tabular}{lrr}
+	\toprule
+	fixity at far end of beam     & beam restraining a braced member & beam restraining a sway member \\ \midrule
+	pinned                        &                              1.5 &                            0.5 \\
+	rigidly connected to a column &                              1.0 &                            1.0 \\
+	fixed                         &                              2.0 &                           0.67 \\ \bottomrule
+\end{tabular}
+\end{table}
+\begin{figure}[H]
+\centering
+\input{PIC/CH04/BEE}
+\end{figure}
+\subsubsection{Member Yielding}
+Stocky columns which are subject to high axial forces may yield as a result of the residual stress. This reduces the elastic modulus, so the column has a `close to' pinned connection at the yield end. This can lead to a saving of material.
+
+We will not study this in this class, and it is not important for $f<0.5f_y$.
+\subsubsection{Total Storey Sidesway}
+The design charts are based on the assumption that all columns buckle simultaneously and that the sidesway load for the storey can be obtained from the sidesway load of one column.
+
+In gravity frames the resistance of one column to sidesway may be greater than that of other columns due to its loading or stiffness. It is assumed columns are axially rigid.
+
+For design against sidesway, the gravity load which a frame can support may be split up in any proportion. An example is shown as follows.
+\begin{figure}[H]
+\centering\input{PIC/CH04/SS}
+\end{figure}
+
+However, the maximum load in any column must \textbf{not} exceed the maximum load that a column could support if it were braced against sidesway ($k_e=1.0$).
+
+For the following frame, assume the braced and sway capacities for each column are listed as follows.
+\begin{figure}[H]
+\centering\input{PIC/CH04/SS2}
+\end{figure}
+For the sway mechanism, $\sum_{i=1}^3N^*_i=N^*\leqslant\sum_{i=1}^3\phi{}N_{c,s}^i=\SI{1100}{\kn}$. For each column, the maximum load shall not exceed its braced capacity, that is
+\begin{gather*}
+N^*_1\leqslant\phi{}N_{c,b}^1=\SI{500}{\kn},\qquad
+N^*_2\leqslant\phi{}N_{c,b}^2=\SI{600}{\kn},\qquad
+N^*_3\leqslant\phi{}N_{c,b}^3=\SI{400}{\kn}.
+\end{gather*}
+
+Now consider the following two cases.
+\begin{itemize}
+\item The loads for columns 1 and 2 are given as $N^*_1=\SI{400}{\kn}$ and $N^*_2=\SI{500}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{400}{\kn}-\SI{500}{\kn}=\SI{200}{\kn}$. Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{200}{\kn},~\SI{400}{\kn}\right)=\SI{200}{\kn}$.
+\item The loads for columns 1 and 2 are given as $N^*_1=\SI{300}{\kn}$ and $N^*_2=\SI{300}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{300}{\kn}-\SI{300}{\kn}=\SI{500}{\kn}$. Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{500}{\kn},~\SI{400}{\kn}\right)=\SI{400}{\kn}$.
+\end{itemize}
+
+\begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACSF.sm}{Worksheet}
+Axial Compression Example --- Sway Frame
+
+For the frame shown, the columns are supported out-of-plane at top, centre and bottom, find 1) the maximum value of axial load each column can carry and 2) the maximum value of $N^*_1+N^*_2$ the frame can carry. Note the out-of-plane (weak axis) buckling should be checked as well. Use Grade 300 steel.
+\begin{figure}[H]
+\input{PIC/CH04/FRAME2}
+\end{figure}
+\end{exmp}
+\begin{solution}
+\begin{itemize}
+\item For sway capacity.
+
+\begin{itemize}
+\item Left Column\\
+Find stiffness ratios. $\gamma_{bot}=\gamma_2=1$.
+\begin{gather*}
+\gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{143e6}{\mm^6}/\SI{5}{\meter}}{1\times\SI{188e6}{\mm^6}/\SI{7}{\meter}}=1.065.
+\end{gather*}
+From French equation, $k_e=1.351$. Thus, the modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1.351\times\SI{5}{\meter}}{\SI{112}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=63.84.
+\end{gather*}
+Thus $\alpha_c=0.786$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.786\times1\times\SI{11400}{\mm^2}\times\SI{280}{\mpa}=\SI{2259}{\kn}.
+\end{gather*}
+
+Alternatively, $L_e=k_eL_x=\SI{6.76}{\m}$ could be used to get \SI{2259}{\kn} by linear interpolation from \tabref{tab:uc_strong}.
+\item Right Column\\
+Find stiffness ratios. $\gamma_{bot}=\gamma_2=1$.
+\begin{gather*}
+\gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{114e6}{\mm^6}/\SI{5}{\meter}}{1\times\SI{188e6}{\mm^6}/\SI{7}{\meter}}=0.849.
+\end{gather*}
+From French equation, $k_e=1.319$. Thus, the modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1.319\times\SI{5}{\meter}}{\SI{111}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=65.06.
+\end{gather*}
+Thus $\alpha_c=0.779$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.779\times1\times\SI{9320}{\mm^2}\times\SI{300}{\mpa}=\SI{1961}{\kn}.
+\end{gather*}
+
+Alternatively, $L_e=k_eL_x=\SI{6.60}{\m}$ could be used to get \SI{1961}{\kn} by linear interpolation from \tabref{tab:uc_strong}.
+\end{itemize}
+Thus the total $N^*=\sum{}N^*_i=\SI{2259}{\kn}+\SI{1961}{\kn}=\SI{4220}{\kn}$.
+\item For braced capacity.
+
+One can use French equation to find the corresponding $k_e$ as shown before. For braced columns in a swat frame, use $k_e=1$.
+\begin{itemize}
+\item Left Column\\
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{5}{\meter}}{\SI{112}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=47.25.
+\end{gather*}
+Thus, $\alpha_c=0.874$.
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.874\times1\times\SI{11400}{\mm^2}\times\SI{280}{\mpa}=\SI{2509}{\kn}.
+\end{gather*}
+\item Right Column\\
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{5}{\meter}}{\SI{111}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=49.34.
+\end{gather*}
+Thus, $\alpha_c=0.864$.
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.864\times1\times\SI{9320}{\mm^2}\times\SI{300}{\mpa}=\SI{2173}{\kn}.
+\end{gather*}
+\end{itemize}
+From $\alpha_c$, one can tell the braced capacity shall be greater than the sway capacity.
+\item For weak axis buckling.
+
+Again, we choose $k_e=1$ for a conservative design. Since the columns are supported every half the length, $L_y=\SI{2.5}{\meter}$.
+\begin{itemize}
+\item Left Column\\
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_y}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{2.5}{\meter}}{\SI{65.2}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=40.58.
+\end{gather*}
+Thus, $\alpha_c=0.902$.
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.902\times1\times\SI{11400}{\mm^2}\times\SI{280}{\mpa}=\SI{2592}{\kn}.
+\end{gather*}
+\item Right Column\\
+The modified slenderness ratio,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_y}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{2.5}{\meter}}{\SI{64.5}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=42.46.
+\end{gather*}
+Thus, $\alpha_c=0.895$.
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.895\times1\times\SI{9320}{\mm^2}\times\SI{300}{\mpa}=\SI{2251}{\kn}.
+\end{gather*}
+\end{itemize}
+The results match the capacity table well.
+\end{itemize}
+To sum up, the following design criteria shall be met.
+\begin{gather*}
+N^*_1\leqslant\min\left(\SI{2509}{\kn},~\SI{2592}{\kn}\right)=\SI{2509}{\kn},\\
+N^*_2\leqslant\min\left(\SI{2173}{\kn},~\SI{2251}{\kn}\right)=\SI{2173}{\kn},\\
+N^*_1+N^*_2\leqslant\SI{4220}{\kn}.
+\end{gather*}
+
+If $N^*_1=\SI{2500}{\kn}$, the frame fails with a sway mode when
+\begin{gather*}
+N^*_2=\min\left(\SI{2173}{\kn},\SI{4220}{\kn}-N^*_1\right)=\SI{1720}{\kn}.
+\end{gather*}
+\end{solution}
+
+\begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACSF.sm}{Worksheet}
+Axial Compression Example --- Braced Frame
+
+Same as the previous example but the frame is now braced.
+\begin{figure}[H]
+\input{PIC/CH04/FRAME3}
+\end{figure}
+\end{exmp}
+\begin{solution}
+Since now the frame is braced, we use French equation to obtain $k_e$ for strong axis buckling.
+\begin{itemize}
+\item Column 1.
+
+Given that $\gamma_1=1.065$ and $\gamma_2=1$, from French equation,
+\begin{gather*}
+k_e=\dfrac{3\gamma_1\gamma_2+1.4\left(\gamma_1+\gamma_2\right)+0.64}{3\gamma_1\gamma_2+2\left(\gamma_1+\gamma_2\right)+1.28}=0.782.
+\end{gather*}
+Then,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{0.782\times\SI{5}{\meter}}{\SI{112}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=36.93.
+\end{gather*}
+Thus $\alpha_c=0.917$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.917\times1\times\SI{11400}{\mm^2}\times\SI{280}{\mpa}=\SI{2635}{\kn}.
+\end{gather*}
+\item Column 2.
+
+Given that $\gamma_1=0.849$ and $\gamma_2=1$, from French equation,
+\begin{gather*}
+k_e=\dfrac{3\gamma_1\gamma_2+1.4\left(\gamma_1+\gamma_2\right)+0.64}{3\gamma_1\gamma_2+2\left(\gamma_1+\gamma_2\right)+1.28}=0.768.
+\end{gather*}
+Then,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{0.768\times\SI{5}{\meter}}{\SI{111}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=37.87.
+\end{gather*}
+Thus $\alpha_c=0.913$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.913\times1\times\SI{9320}{\mm^2}\times\SI{300}{\mpa}=\SI{2298}{\kn}.
+\end{gather*}
+\end{itemize}
+
+The weak-axis buckling capacities are the same as in the previous example. The design criteria considering both strong and weak axis buckling are
+\begin{gather*}
+N^*_1\leqslant\min\left(\SI{2635}{\kn},~\SI{2592}{\kn}\right)=\SI{2592}{\kn},\\
+N^*_2\leqslant\min\left(\SI{2298}{\kn},~\SI{2251}{\kn}\right)=\SI{2251}{\kn}.
+\end{gather*}
+If the frame is braced, in this particular case, the weak axis buckling governs.
+\end{solution}
+\subsection{Leaning Columns}
+Moment connections are expensive so frames often have two types of connections:
+\begin{itemize}
+\item moment connections that develop frame action (transfer moments) (Fully Restrained, FR)
+\item `simple' connections (Partially Restrained, PR)
+\end{itemize}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/FR}
+\caption{fully restrained}
+\end{subfigure}\hfil
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/PR}
+\caption{partially restrained}
+\end{subfigure}
+\caption{Connection types}
+\end{figure}
+\begin{figure}[H]
+\centering\input{PIC/CH04/LC}
+\end{figure}
+The FR frame provides a stabilizing effect for all of the columns, \NZSSTEEL{} requires that destabilizing effect of `leaning columns' be accounted for. For `leaning columns', use $k_e=1$.
+\begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACLC.sm}{Worksheet}
+Use Grade 300 steel. For the following sway frame, assume axial rigidity and out-of-plane buckling restrained. Design columns using UC sections.
+\begin{figure}[H]
+\input{PIC/CH04/FRAME4}
+\end{figure}
+\end{exmp}
+\begin{solution}
+For exterior columns, the total force to be carried is
+\begin{gather*}
+\sum{}N^*=2\times\left(\SI{1500}{\kn}+\SI{1900}{\kn}\right)=\SI{6800}{\kn}.
+\end{gather*}
+Try 310UC158, $f_y=\SI{280}{\mpa}$ and $r_x=\SI{139}{\mm}$,
+\begin{gather*}
+\gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{388e6}{\mm^6}/\SI{5}{\meter}}{0.5\times\SI{761e6}{\mm^6}/\SI{10}{\meter}}=2.039,\\
+\gamma_{bot}=\gamma_2=10.
+\end{gather*}
+Note the far end of the beam is pinned and sway is allowed, from \tabref{tab:beta_e}, $\beta_e=0.5$. From French equation, $k_e=2.126$. Thus,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{2.126\times\SI{5}{\meter}}{\SI{139}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=80.92.
+\end{gather*}
+This leads to $\alpha_c=0.674$,
+\begin{gather*}
+\phi{}N_c=\phi\alpha_ck_fA_nf_y=0.9\times0.674\times1\times\SI{20100}{\mm^2}\times\SI{280}{\mpa}=\SI{3415}{\kn}.
+\end{gather*}
+Thus, the total capacity of two columns is
+\begin{gather*}
+\sum\phi{}N_c=2\times\SI{3415}{\kn}=\SI{6830}{\kn}>\SI{6800}{\kn}.
+\end{gather*}
+For interior leaning columns, assume $f_y=\SI{280}{\mpa}$, try $r_x=\SI{100}{\mm}$,
+\begin{gather*}
+\lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1\times\SI{5}{\meter}}{\SI{100}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=52.92.
+\end{gather*}
+Thus $\alpha_c=0.846$,
+\begin{gather*}
+A_n\geqslant\dfrac{N^*}{\phi\alpha_ck_ff_y}=\dfrac{\SI{1900}{\kn}}{0.9\times0.846\times1\times\SI{280}{\mpa}}=\SI{8909}{\mm^2}.
+\end{gather*}
+Thus choose 250UC72.9 for interior columns. It can be checked 250UC72.9 satisfies the design criterion by updating all quantities while the next designation 200UC59.5 does not. The braced capacity is greater than the sway capacity.
+
+In conclusion, choose 250UC72.9 for interior columns and 310UC158 for exterior columns.
+\end{solution}
+\begin{exmp}Loading Dock
+
+A loading dock is supported by four columns. It is braced in one direction and unbraced in the other. Find the column strength for different combinations of beam (310UB46.2 and 610UB125) and column (250UC89.5 and 310UC158) sections. The columns are oriented so that the weak axis direction is braced.
+\begin{figure}[H]
+\input{PIC/CH04/FRAME5}
+\end{figure}
+\end{exmp}
+\begin{solution}
+For all cases, $\beta_e=1$. Using the French equations, the effective lengths for each combination can be found as follows.
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccccccc}
+	\toprule
+	  beam    &  column   &                        & $\gamma_{bot}$ & $\gamma_{top}$ & $k_e$ & $L_e$ \\ \midrule
+	310UB46.2 & 250UC89.5 &   braced (weak axis)   &       10       &      0.65      & 0.83  & 3.75  \\
+	          &           & unbraced (strong axis) &       10       &      1.91      & 2.10  & 9.45  \\
+	310UB46.2 & 310UC158  &   braced (weak axis)   &       10       &      1.67      & 0.90  & 4.04  \\
+	          &           & unbraced (strong axis) &       10       &      5.17      & 2.58  & 11.61 \\
+	610UB125  & 250UC89.5 &   braced (weak axis)   &       10       &      0.07      & 0.71  & 3.21  \\
+	          &           & unbraced (strong axis) &       10       &      0.19      & 1.70  & 7.67  \\
+	610UB125  & 310UC158  &   braced (weak axis)   &       10       &      0.17      & 0.75  & 3.36  \\
+	          &           & unbraced (strong axis) &       10       &      0.52      & 1.79  & 8.07  \\ \bottomrule
+\end{tabular}
+\end{table}
+By looking up the design tables, the critical loads can be found.
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccccccc}
+	\toprule
+	  beam    &  column   &  total weight  & braced capacity & unbraced capacity & critical &      load/weight      \\
+	          &           & \si{\kilogram} &    \si{\kn}     &     \si{\kn}      & \si{\kn} & \si{\kn\per\kilogram} \\ \midrule
+	310UB46.2 & 250UC89.5 &    2719.80     &     2310.07     &      1766.14      & 1766.14  &         2.60          \\
+	310UB46.2 & 310UC158  &    3952.80     &     4254.20     &      3146.73      & 3146.73  &         3.18          \\
+	610UB125  & 250UC89.5 &    4611.00     &     2441.89     &      2103.52      & 2103.52  &         1.82          \\
+	610UB125  & 310UC158  &    5844.00     &     4472.80     &      4054.05      & 4054.05  &         2.77          \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Frame stiffness and therefore buckling capacity depend on stiffness of beams and columns. A proper combination shall be chosen to optimise the design (maximise load carried per weight).
+\end{solution}
+\subsection{Design of Columns in Frames}
+In the previous discussion it is assumed that the columns are axially stiff.
+\begin{itemize}
+\item When columns are not axially stiff and loading is asymmetric, axial shortening occurs which leads to sidesway and moments.
+\item When frame is not symmetric and columns are not axially stiff, sidesway and moments would be induced.
+\item When member loads and lateral forces are present, moments develop in members.
+\end{itemize}
+\begin{figure}[H]
+\centering\input{PIC/CH04/CF}
+\end{figure}
+If moments occur in conjunction with axial force, then he member shall be designed for both moment and axial force. Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects). We will discuss this in design of bending members.
+\begin{sidewaysfigure}[p]
+\centering\footnotesize
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/A360.BRACED}
+\caption{alignment chart for $k_e$ for braced members}
+\end{subfigure}\hfil
+\begin{subfigure}{.5\linewidth}\centering
+\includegraphics[width=.9\linewidth]{PIC/CH04/A360.SWAY}
+\caption{alignment chart for $k_e$ for sway members}
+\end{subfigure}
+\end{sidewaysfigure}

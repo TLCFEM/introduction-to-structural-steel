@@ -1,0 +1,26 @@
+\documentclass[a4paper,11pt,fleqn]{book}
+\input{HEADER}
+\begin{document}
+\frontmatter
+\input{TITLE}
+\begin{spacing}{.5}
+\tableofcontents
+\listoffigures\addcontentsline{toc}{chapter}{List of Figures}
+\listoftables\addcontentsline{toc}{chapter}{List of Tables}
+\end{spacing}
+\mainmatter
+\include{CHAPTER/CH00}
+\include{CHAPTER/CH01}
+\include{CHAPTER/CH02}
+\include{CHAPTER/CH03}
+\include{CHAPTER/CH04}
+\include{CHAPTER/CH05}
+\include{CHAPTER/CH06}
+\include{CHAPTER/CH07}
+\include{CHAPTER/CH08}
+\backmatter
+\part{}
+\appendix
+\includepdf[pages=-]{REF/HOT.ROLLED.AND.STRUCTURAL.STEEL.PRODUCT.pdf}
+\bibliography{BIB}
+\end{document}

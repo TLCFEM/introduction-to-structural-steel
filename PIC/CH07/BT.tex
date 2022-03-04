@@ -1,0 +1,15 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,ext/.pic={
+\path[fill=white](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(-1,-1.5)rectangle++(3,3);
+\draw[dashed,fill=white](0,-1)rectangle++(3,2);
+\draw(3,0)pic{ext};
+\draw(-1,0)pic{ext};
+\draw[line width=1.2mm](2,1)-|(0,-1)--++(2,0);
+\draw[very thick,cc0066](.8,-1)rectangle++(3,2);
+\draw[very thick,cc0066](3.8,0)pic{ext};
+\draw[->,line width=.6mm](4.5,0)--++(1,0)node[right=2mm]{$N^*$};
+\draw[->,line width=.6mm](-1.5,0)--++(-1,0)node[left=2mm]{$N^*$};
+\end{tikzpicture}

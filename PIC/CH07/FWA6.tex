@@ -1,0 +1,16 @@
+\footnotesize
+\begin{tikzpicture}[ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(4,-1)--++(0,2)--(-1,2)--(-1,-2)--cycle;
+\draw[fill=exmpbg](0,-.75)rectangle(8,.75);
+\draw(0,-.6)--(8,-.6);
+\draw[line width=1.2mm](2,.75)-|(0,-.75)--++(3.5,0);
+\draw(1,.75)--++(1,1)--++(1.5,0)--++(-.3,-.3)node[left=1mm]{4}node[right=2mm]{280}--++(0,.3)--++(1.5,0)coordinate(A)node[right=2mm]{W50X SP};
+\draw(A)--++(.2,.2);
+\draw(A)--++(.2,-.2);
+\draw(1.5,-.75)--++(1,-1)--++(1.5,0)--++(-.3,-.3)node[left=1mm]{4}node[right=2mm]{680}--++(0,.3)--++(.5,0);
+\draw(0,0)--++(-1,-1)--++(-1,0)--++(0,-.3)node[left=1mm]{4}node[right=2mm]{150}--++(.3,.3)--++(-.5,0);
+\draw(8,0)pic{ext}(-1,0)pic{ext};
+\end{tikzpicture}

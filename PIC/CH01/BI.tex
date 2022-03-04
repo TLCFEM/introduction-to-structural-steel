@@ -1,0 +1,35 @@
+\footnotesize\pgfplotsset{colormap={whitered}{color(0cm)=(white); color(1cm)=(orange!75!red)}}
+\begin{tikzpicture}[
+declare function={mu1=2;},
+declare function={mu2=2.5;},
+declare function={sigma1=.75;},
+declare function={sigma2=.5;},
+declare function={normal(\m,\s)=1/(2*\s*sqrt(pi))*exp(-(x-\m)^2/(2*\s^2));},
+declare function={bivar(\x,\y,\ma,\sa,\mb,\sb)=1/(2*pi*\sa*\sb)*exp(-((\x-\ma)^2/\sa^2+(\y-\mb)^2/\sb^2))/2;}]
+\begin{axis}[
+width=13cm,
+view={120}{20},
+enlargelimits=false,
+axis x line=center,
+axis y line=center,
+axis z line=center,
+xmin=0,xmax=4.3,
+ymin=0,ymax=4.3,
+zmin=0,zmax=.6,
+domain=0:4,y domain=0:4,
+xlabel=demand,
+ylabel=strength,
+zlabel={probability density},
+xtick=\empty,ytick=\empty,ztick=\empty
+]
+\begin{pgfonlayer}{pre main}
+\addplot3[colormap name=whitered,surf,samples=41](x,y,{bivar(x,y,mu1,sigma1,mu2,sigma2)});
+\end{pgfonlayer}
+\addplot3[samples=21,samples y=0,thick,smooth] (x,0,{normal(mu1,sigma1)});
+\addplot3[samples=21,samples y=0,thick,smooth] (0,x,{normal(mu2,sigma2)});
+\addplot3[name path=bot,samples=41,draw=none](x,x,{bivar(x,x,mu1,sigma1,mu2,sigma2)});
+\addplot3[name path=top,samples=2,draw=none](x,x,.55)node[right,fill=white]{strength=demand};
+\addplot[gray,opacity=.7,z buffer=sort]fill between[of=top and bot];
+\node[fill=white,align=center]at(axis cs:3.5,1.5,0.1){\parbox{2cm}{\centering{}volume under\\this part}=\parbox{2cm}{\centering{}probablity\\of failure}};
+\end{axis}
+\end{tikzpicture}

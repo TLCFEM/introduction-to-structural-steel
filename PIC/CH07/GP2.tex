@@ -1,0 +1,13 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,ext/.pic={
+\path[fill=white](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(2,-1.5)rectangle(-1,1.5);
+\draw[fill=white](0,-1)rectangle(3,1);
+\draw(3,0)pic{ext};
+\draw(-1,0)pic{ext};
+\draw[line width=1.2mm](2,1)--(0,1)(2,-1)--(0,-1);
+\draw[|<->|](2,-1.8)--++(-2,0)node[midway,fill=white]{$L>W$};
+\draw[|<->|](-.5,-1)--++(0,2)node[midway,fill=white]{$W$};
+\end{tikzpicture}

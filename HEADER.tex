@@ -1,0 +1,123 @@
+\usepackage{libertinus}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,tikz,siunitx,array,tabularx,float,amsmath,amsfonts,amssymb,ntheorem,multicol,multirow,booktabs,geometry,enumitem,structmech,titlesec,caption,xifthen,setspace,wrapfig,pgfplots,fancyhdr,rotating,pdflscape,subcaption,moresize,tikz-layers,tikz-dimline,pdfpages,fontawesome5,xurl,zi4}
+\usepackage[authoryear,sort&compress,round]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{bibentry}
+\nobibliography*
+\pgfplotsset{compat=1.18}
+\usepackage[export]{adjustbox}
+\usepackage[many]{tcolorbox}
+\usepackage[version=4]{mhchem}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{hyperref}
+\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing,backgrounds,patterns}
+\usepgfplotslibrary{fillbetween}
+\definecolor{exmpbg}{RGB}{251,245,239}
+\definecolor{0066cc}{RGB}{0,102,204}
+\definecolor{cc0066}{RGB}{204,0,102}
+\definecolor{00cc66}{RGB}{0,204,102}
+\tikzset{joint/.style={draw,circle,line width=.4mm,fill=white,inner sep=0,minimum size=2mm}}
+\hypersetup{
+pdftitle={Introduction to Structural Steel},
+pdfsubject={Civil Engineering},
+pdfauthor={Gregory MacRae; Theodore Chang},
+pdfkeywords={Structural Steel},
+pdfproducer={Super Tool},
+pdfcreator={Super Tool},
+psdextra,unicode,colorlinks,citecolor={00cc66},linkcolor={cc0066}}
+\geometry{margin=25mm}
+\captionsetup[table]{skip=11pt}
+%\setlist{nosep}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.2em}
+\newcommand{\mathbold}[1]{\mathbf{#1}}
+\newcommand*{\figref}[1]{Fig.~\ref{#1}}
+\newcommand*{\tabref}[1]{Table~\ref{#1}}
+\newcommand*{\eqsref}[1]{Eq.~(\ref{#1})}
+\newcommand*{\md}[1]{\mathrm{d}#1}
+\newcommand{\mm}{\milli\meter}
+\newcommand{\cm}{\centi\meter}
+\newcommand{\mpa}{\mega\pascal}
+\newcommand{\gpa}{\giga\pascal}
+\newcommand{\kn}{\kilo\newton}
+\newcommand{\ASNZSACTION}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 1170.0:2002}~Structural design actions}}%
+{{\color{cc0066}\underline{AS/NZS 1170.0:2002}~#1}}%
+}
+\newcommand{\ASNZSFASTERNER}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 1252.1:2016}~High--strength steel fastener assemblies for structural engineering --- Bolts, nuts and washers}}%
+{{\color{cc0066}\underline{AS/NZS 1252.1:2016}~#1}}%
+}
+\newcommand{\NZSSTEEL}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{NZS 3404.1\&2:1997}~Steel structures standard}}%
+{{\color{cc0066}\underline{NZS 3404.1\&2:1997}~#1}}%
+}
+\newcommand{\ASNZSPLATE}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 3678:2016}~Structural steel --- Hot-rolled plates, floorplates and slabs}}%
+{{\color{cc0066}\underline{AS/NZS 3678:2016}~#1}}%
+}
+\newcommand{\ASNZSSTEEL}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 3679.1\&2:2016}~Structural steel}}%
+{{\color{cc0066}\underline{AS/NZS 3679.1\&2:2016}~#1}}%
+}
+\newcommand{\ASNZSCOLD}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 1163:2016}~Cold--formed structural steel hollow sections}}%
+{{\color{cc0066}\underline{AS/NZS 1163:2016}~#1}}%
+}
+\newcommand{\ASNZSWELD}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{AS/NZS 4855:2007}~Welding consumables --- Covered electrodes for manual metal arc welding of non-alloy and fine grain steels --- Classification}}%
+{{\color{cc0066}\underline{AS/NZS 4855:2007}~#1}}%
+}
+\newcommand{\ANSI}[1]{%
+\ifthenelse{\isempty{#1}}%
+{{\color{cc0066}\underline{ANSI/AISC 360-16}~Specification for Structural Steel Buildings}}%
+{{\color{cc0066}\underline{ANSI/AISC 360-16}~#1}}%
+}
+\mdtheorem[
+outerlinewidth=1,%
+outerlinecolor=black!50,%
+roundcorner=4pt,%
+leftmargin=50,%
+rightmargin=50,%
+backgroundcolor=exmpbg,%
+ntheorem=true,%
+%endcode={\clearpage}
+]{solution}{\faKey\hspace*{.5em}Solution}[chapter]
+\newmdtheoremenv[%
+outerlinewidth=1,%
+outerlinecolor=black!50,%
+roundcorner=4pt,%
+leftmargin=50,%
+rightmargin=50,%
+backgroundcolor=exmpbg,%
+ntheorem=true,%
+%startcode={\clearpage}
+]{exmp}{\faPen\hspace*{.5em}Example}[chapter]
+\mdfdefinestyle{highlight}{%
+backgroundcolor=exmpbg,
+rightline=true,
+innerleftmargin=10,
+innerrightmargin=10,
+outerlinewidth=3pt,
+topline=false,
+bottomline=false,
+skipabove=\topsep,
+skipbelow=\topsep
+}
+\newenvironment{conditions}{\par\noindent\tabularx{\linewidth}{>{$}r<{$}@{${}={}$} >{\raggedright\arraybackslash}X}}{\endtabularx\par\vspace{\belowdisplayskip}}
+\setcounter{chapter}{-1}
+\titleformat{\chapter}[display]{\filleft\Huge\bfseries\color{0066cc}}{}{1em}{\titlerule\vspace{.5em}}[\vspace{.5em}\titlerule]
+\titleformat{\section}[hang]{}{\colorbox{0066cc}{\textcolor{white}{\Large\faAngleDoubleRight~\bfseries\thesection}}}{1em}{\Large\bfseries\color{0066cc}}
+\titleformat{\subsection}{\large\bfseries\color{0066cc}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\color{0066cc}}{\thesubsubsection}{1em}{}
+\fancyhead{}\fancyhead[LE]{\footnotesize\color{0066cc}\scshape\leftmark}\fancyhead[RO]{\footnotesize\color{0066cc}\scshape\rightmark}\fancyhead[LO,RE]{\footnotesize\color{0066cc}\textsc{University of Canterbury}}
+\newcommand{\sectionbreak}{\clearpage}
+\raggedbottom\pdfminorversion=7

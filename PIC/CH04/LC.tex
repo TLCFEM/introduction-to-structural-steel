@@ -1,0 +1,52 @@
+\footnotesize
+\begin{tikzpicture}[scale=.6]
+\begin{scope}
+\foreach\x in{0,4,8,12}
+\draw[<-,thick](\x,5)--++(0,1);
+\FixedSupport{0,0}{1.5}
+\FixedSupport{4,0}{1.5}
+\FixedSupport{8,0}{1.5}
+\FixedSupport{12,0}{1.5}
+\draw[line width=1mm](0,0)--++(0,4)--++(12,0)--++(0,-4)node[joint,fill=cc0066]{}(4,0)--++(0,4)(8,0)node[joint,fill=cc0066]{}--++(0,4);
+\node[joint,fill=cc0066]at(4.2,4){};
+\node[joint,fill=cc0066]at(7.8,4){};
+\node[joint,fill=cc0066]at(8.2,4){};
+\node[joint,fill=cc0066]at(11.8,4){};
+\node[align=center]at(10,-2){PR\\leaning column\\connections};
+\node[align=center]at(2,-2){FR\\connections};
+\end{scope}
+\begin{scope}[yshift=-10cm]
+\foreach\x in{0,4,8,12}
+\draw[<-,thick](\x+.4,5)--++(0,1);
+\FixedSupport{0,0}{1.5}
+\FixedSupport{4,0}{1.5}
+\FixedSupport{8,0}{1.5}
+\FixedSupport{12,0}{1.5}
+\draw[line width=1mm](0,0)to[out=90,in=-90](0.4,4)--++(12,0)to(12,0)node[joint,fill=cc0066]{}(4,0)to[out=90,in=-90](4.4,4)(8,0)node[joint,fill=cc0066]{}--(8.4,4);
+\node[joint,fill=cc0066]at(4.6,4){};
+\node[joint,fill=cc0066]at(8.2,4){};
+\node[joint,fill=cc0066]at(8.6,4){};
+\node[joint,fill=cc0066]at(12.2,4){};
+\node[align=center]at(10,-2){destabilizing\\effect};
+\node[align=center]at(2,-2){stabilizing\\effect};
+\end{scope}
+\begin{scope}[xshift=15cm,yshift=-4cm]
+\draw(0,0)rectangle(9,6);
+\node[joint,fill=cc0066]at(0,0){};
+\node[joint,fill=cc0066]at(0,6){};
+\node[joint,fill=cc0066]at(9,6){};
+\node[joint,fill=cc0066]at(9,0){};
+\node[joint,fill=cc0066]at(3,2){};
+\node[joint,fill=cc0066]at(3,4){};
+\node[joint,fill=cc0066]at(6,2){};
+\node[joint,fill=cc0066]at(6,4){};
+%
+\draw[ultra thick](0,2)node[fill=black]{}--(0,4)node[fill=black]{};
+\draw[ultra thick](9,2)node[fill=black]{}--(9,4)node[fill=black]{};
+\draw[ultra thick](3,0)node[fill=black]{}--(6,0)node[fill=black]{};
+\draw[ultra thick](3,6)node[fill=black]{}--(6,6)node[fill=black]{};
+\node[anchor=west]at(2.5,-2){plan of building};
+\draw(2.5,-3)node[fill=black]{}node[right=4mm,anchor=west]{FR columns};
+\draw(2.5,-4)node[joint,fill=cc0066]{}node[right=4mm,anchor=west]{PR (leaning) columns};
+\end{scope}
+\end{tikzpicture}

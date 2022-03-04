@@ -1,0 +1,25 @@
+\footnotesize
+\begin{tikzpicture}[scale=1.2,ext/.pic={
+\path[fill=white](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw[dashed](.5,-2)--++(0,4);
+\draw(1.5,-1.5)rectangle(-.5,1.5);
+\draw[fill=white](0,-1)rectangle(3,1);
+\draw[dashed](.3,-2)--++(0,4)node[midway,circle,fill=black,inner sep=0,minimum size=2mm]{}node[midway,below right=2mm,align=center]{centriod\\of weld};
+\draw(.5,-1.5)pic[rotate=90]{ext}++(0,3)pic[rotate=90]{ext};
+\draw[line width=1.2mm](1.5,-1)-|(0,1)--++(1.5,0);
+\draw[<-,line width=.6mm](2.5,1)--++(0,1.2)node[left]{$P^*_u$};
+\draw[|<->|](.3,1.8)--(2.5,1.8)node[midway,fill=white]{$e$};
+\begin{scope}[xshift=5cm]
+\draw[dashed](.3,-1.5)--++(0,3)node[midway,circle,fill=black,inner sep=0,minimum size=2mm]{};
+\draw[line width=1.2mm](1.5,-1)-|(0,1)--++(1.5,0);
+\setstructmech{convention=direction,node=cc0066,linewidth=.6mm}
+\NodalForce{.3,0}[N][-P^*_u][-P^*_ue][1.5]
+\draw[line width=1.2mm,cc0066](1.5,1)--++(-.2,0);
+\draw[dashed](.3,0)--(1.4,1)coordinate(A);
+\draw[-stealth,line width=.6mm,00cc66](A)--++(1/1.5,-1.1/1.5)coordinate(B)node[midway,right=2mm,align=left]{torsion\\component};
+\draw[-stealth,line width=.6mm,0066cc](B)--++(0,-.8)coordinate(C)node[midway,right=2mm,align=left]{shear\\component};
+\draw[-stealth,line width=.6mm](A)--(C)node[midway,left=2mm,align=left]{total\\stress};
+\end{scope}
+\end{tikzpicture}

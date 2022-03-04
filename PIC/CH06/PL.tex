@@ -1,0 +1,35 @@
+\footnotesize
+\begin{tikzpicture}
+\newdimen\XCoord
+\newdimen\YCoord
+\draw[->](-1,0)--(10,0)node[below=3mm]{extension ($\si{\percent}$)};
+\draw[->](0,-1)--(0,7)node[left=5mm]{stress ($f$)};
+\draw[very thick,line join=round,name path=s](0,0)--(1,4)to[out=76,in=180](5,6)to[out=0,in=120](9,4)node{\LARGE\texttimes};
+\draw[dashed,name path=e](.3,0)--++(1.6,6.4)node[above,fill=white]{\SI{0.2}{\percent} offset};
+\path[name intersections={of=s and e,by=se}];
+\path(se);
+\pgfgetlastxy{\XCoord}{\YCoord};
+\draw[dashed](0,\YCoord)--(se)node[fill=red,inner sep=0,minimum size=2mm,circle]{}--++(1,0)node[align=left,right=1mm,fill=white,anchor=west]{proof loading using \SI{0.2}{\percent} offset strain};
+\draw[draw=white,name path=d](1.2,0)node[below]{\SI{0.5}{\percent}}--++(0,6);
+\path[name intersections={of=s and d,by=sd}];
+\path(sd);
+\pgfgetlastxy{\XCoord}{\YCoord};
+\draw[dashed](sd)node[fill=red,inner sep=0,minimum size=2mm,circle]{}node[align=left,below right=1mm,fill=white,anchor=north west]{}--(0,\YCoord)(\XCoord,0)--(sd);
+\draw[dashed](5,6)node[fill=red,inner sep=0,minimum size=2mm,circle]{}node[align=left,below right=1mm,fill=white,anchor=north west]{}--(0,6)node[left=2mm]{$f_u$};
+\draw[dashed,name path=w](0,4.2)--++(6,0)node[fill=white]{proof load using $0.7f_u$};
+\path[name intersections={of=s and w,by=sw}];
+\path(sw);
+\pgfgetlastxy{\XCoord}{\YCoord};
+\draw[dashed](sw)node[fill=red,inner sep=0,minimum size=2mm,circle]{}node[align=left,below right=1mm,fill=white,anchor=north west]{}--(0,\YCoord)node[left=2mm]{$0.7f_u$};
+\draw[draw=white,name path=t](2.3,0)--++(0,6);
+\path[name intersections={of=s and t,by=st}];
+\path(st);
+\pgfgetlastxy{\XCoord}{\YCoord};
+\node at(st)[fill=red,inner sep=0,minimum size=2mm,circle]{}node[align=left,below right=1mm,fill=white,anchor=north west]{};
+\draw[dashed](0,\YCoord)--++(6,0)node[fill=white]{proof load using \num{0.5} turn}(\XCoord,0)--(st);
+\draw[dashed](.3,0)--++(0,-1);
+\draw[-|](0,-1)--(.3,-1)node[below=2mm,midway,align=center]{snug\\tighten};
+\draw[-|](.3,-1)--(2.3,-1)node[above=1mm]{\num{0.5}};
+\draw[-|](2.3,-1)--(4.3,-1)node[above=1mm]{\num{1}};
+\draw[-|](4.3,-1)--(6.3,-1)node[above=1mm]{\num{1.5}}node[right=4mm]{turns from snug tighten};
+\end{tikzpicture}

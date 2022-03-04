@@ -1,0 +1,16 @@
+\footnotesize
+\begin{tikzpicture}
+\draw(-1,-.5)--++(4,0)--++(2,1)--++(0,2)-|cycle;
+\foreach\x in{0,2}{
+\foreach\y[evaluate=\y as \z using int(1+\y+1.5*\x)]in{0,1,2}{
+\draw(\x,\y)node[circle,inner sep=0pt,minimum size=3mm,line width=.4mm,draw]{}node[right=2mm]{\z};}}
+\draw(1,1)node{\texttimes}node[below=2mm]{c.r.};
+\draw[->,line width=.8mm](3.5,3.5)node[above=1mm]{$P^*=\SI{120}{\kn}$}--++(0,-1);
+\draw[|<->|](0,-1)--++(1,0)node[midway,fill=exmpbg]{\num{80}};
+\draw[|<->|](1,-1)--++(1,0)node[midway,fill=exmpbg]{\num{80}};
+\draw[|<->|](-.5,0)--++(0,1)node[midway,fill=exmpbg]{\num{90}};
+\draw[|<->|](-.5,1)--++(0,1)node[midway,fill=exmpbg]{\num{90}};
+\draw[|<->|](-1.5,-.5)--++(0,3)node[midway,fill=exmpbg]{\num{280}};
+\draw[|<->|](1,-1.5)--++(2.5,0)node[midway,fill=exmpbg]{\num{300}};
+\draw[<-](3.5,1.5)--++(1,.5)--++(2,0)node[fill=exmpbg]{\SI{12}{\mm} plate};
+\end{tikzpicture}

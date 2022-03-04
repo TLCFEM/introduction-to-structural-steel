@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+\newcommand{\Base}{
+\draw[dashed](-1,0)--(1,0)node[fill=white]{$x$};
+\draw[dashed](0,-1.5)node[fill=white]{$y$}--++(0,3);
+\draw[line width=2mm](0,-1)--++(0,2);
+\draw[line width=2mm](-1,-1)--++(2,0)(-1,1)--++(2,0);}
+\begin{scope}[rotate=30]
+\Base
+\end{scope}
+\begin{scope}[xshift=5cm]
+\Base
+\end{scope}
+\begin{scope}[xshift=10cm]
+\Base
+\end{scope}
+\node at(2.5,0){\LARGE$=$};
+\node at(7.5,0){\LARGE$+$};
+\draw[line width=.8mm,->>](0,3)node[above]{$M^*=\sqrt{\left(M_x^*\right)^2+\left(M_y^*\right)^2}$}--(0,2);
+\draw[line width=.8mm,->>](5,3)node[above]{$M_y^*$}--(5,2);
+\draw[line width=.8mm,->>](12.5,0)node[right]{$M_x^*$}--++(-1,0);
+\end{tikzpicture}

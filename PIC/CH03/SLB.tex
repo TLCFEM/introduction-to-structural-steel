@@ -1,0 +1,18 @@
+\footnotesize
+\begin{tikzpicture}
+\draw[thick](-.2,0)rectangle(.2,2);
+\node at(0,2.5)[]{\includegraphics[width=7mm]{PIC/CH03/BUG}};
+\draw[dashed](-.5,-.5)--++(10,0);
+\draw[thick,fill=black!20](-.2,-.5)rectangle(.2,-1.5);
+\begin{scope}[xshift=1cm]
+\draw[thick](-.5,0)rectangle(.5,2);
+\node at(0,2.5)[]{\includegraphics[width=7mm]{PIC/CH03/BUG}};
+\draw[thick,fill=black!20](-.5,-.5)rectangle(.5,-1);
+\end{scope}
+\begin{scope}[xshift=6cm]
+\draw[thick](-4,0)rectangle(4,2);
+\node at(0,2.5)[]{\includegraphics[width=7mm]{PIC/CH03/BUG}};
+\draw[thick,fill=black!20](-4,-.5)--(-1,-.5)to[out=0,in=180](0,-.7)to[out=0,in=180](1,-.5)--(4,-.5);
+\node at(4,-1){$\sigma$};
+\end{scope}
+\end{tikzpicture}

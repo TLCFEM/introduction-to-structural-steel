@@ -1,0 +1,54 @@
+\footnotesize
+\begin{tikzpicture}[x=1cm,y=1cm,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\newcommand{\StaggeredPlate}{
+\draw[very thick](0,0)--++(0,3.55)--++(2.5,0)--pic{ext}++(0,-3.55)--cycle;
+\draw(.7,.4)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[left=2mm]{$E$};
+\draw(1.2,1.4)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[right=2mm]{$D$};
+\draw(.7,2.15)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[left=2mm]{$C$};
+\draw(1.2,3.15)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{}node[right=2mm]{$B$};
+\draw(1.2,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(.7,0)node{\textbar}node[below right=1mm]{$F$};
+\draw(1.2,3.55)node{\textbar}node[above right=1mm]{$A$};
+}
+\begin{scope}[scale=1.2]
+\StaggeredPlate
+\draw[|<->|](.7,-.5)--++(.5,0)node[midway,fill=exmpbg,below=3mm]{$s_p=\num{50}$};
+\draw[|<->|](-.5,0)--++(0,.4)node[midway,fill=exmpbg,left=2mm]{\num{40}};
+\draw[|<->|](-.5,.4)--++(0,1)node[midway,fill=exmpbg]{$s_{g,DE}=\num{100}$};
+\draw[|<->|](-.5,1.4)--++(0,.75)node[midway,fill=exmpbg]{$s_{g,CD}=\num{75}$};
+\draw[|<->|](-.5,2.15)--++(0,1)node[midway,fill=exmpbg]{$s_{g,BC}=\num{100}$};
+\draw[|<->|](-.5,3.14)--++(0,.4)node[midway,fill=exmpbg,left=2mm]{\num{40}};
+\NodalForce{4.5,3.55/2}[N^*][N][N]
+\end{scope}
+\begin{scope}[xshift=5.5cm,yshift=2.73cm]
+\StaggeredPlate
+\draw(1.2,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(.7,0)node{\textbar}node[below right=1mm]{$F$};
+\draw(1.2,3.55)node{\textbar}node[above right=1mm]{$A$};
+\draw[cc0066,dashed,very thick](1.2,3.55)--++(0,-3.55);
+\end{scope}
+\begin{scope}[xshift=5.5cm,yshift=-2.02cm]
+\StaggeredPlate
+\draw(1.2,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(.7,0)node{\textbar}node[below right=1mm]{$F$};
+\draw(1.2,3.55)node{\textbar}node[above right=1mm]{$A$};
+\draw[cc0066,dashed,very thick](1.2,3.55)--++(0,-2.15)--++(-.5,-1)--++(0,-.4);
+\end{scope}
+\begin{scope}[xshift=10cm,yshift=2.73cm]
+\StaggeredPlate
+\draw(1.2,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(.7,0)node{\textbar}node[below right=1mm]{$F$};
+\draw(1.2,3.55)node{\textbar}node[above right=1mm]{$A$};
+\draw[cc0066,dashed,very thick](1.2,3.55)--(1.2,3.15)--(.7,2.15)--(1.2,1.4)--(1.2,0);
+\end{scope}
+\begin{scope}[xshift=10cm,yshift=-2.02cm]
+\StaggeredPlate
+\draw(1.2,0)node{\textbar}node[below right=1mm]{$G$};
+\draw(.7,0)node{\textbar}node[below right=1mm]{$F$};
+\draw(1.2,3.55)node{\textbar}node[above right=1mm]{$A$};
+\draw[cc0066,dashed,very thick](1.2,3.55)--(1.2,3.15)--(.7,2.15)--(1.2,1.4)--(.7,.4)--(.7,0);
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\draw[dashed](-6,0)--(6,0);
+\draw[dashed](0,1.5)--(0,-6);
+\draw[|<->|](0,-1)--(0,0)node[midway,fill=white]{$h/2$};
+\draw[|<->|](0,1)--(0,0)node[midway,fill=white]{$h/2$};
+\draw[|<->|](1,.5)--(1,0)node[midway,fill=white,right=4mm]{$h/4$};
+\draw[|<->|](-1,-.67)--(-1,0)node[midway,fill=white,left=4mm]{$h/3$};
+\begin{scope}[xshift=-3cm]
+\draw[dashed](0,-1.5)--++(0,3);
+\draw[fill=black!20](0,-1)|-++(1,2)--++(-2,-2)--cycle;
+\draw[ultra thick,,<-](0,.67)--++(1.5,0)node[fill=white,anchor=west]{$F_y$};
+\draw[ultra thick,<-](0,-.67)--++(-1.5,0)node[fill=white,anchor=east]{$F_y=f_y\times\dfrac{bh}{2}$};
+\node at(0,-2){elastic};
+\node[anchor=north,align=left]at(0,-3){$M_y=2\times{}F_y\times\dfrac{h}{3}$\\[3mm]$M_y=2\times{}f_y\times\dfrac{bh}{4}\times\dfrac{h}{3}$\\[3mm]$M_y=\dfrac{bh^2}{6}f_y$};
+\end{scope}
+\begin{scope}[xshift=3cm]
+\draw[dashed](0,-1.5)--++(0,3);
+\draw[fill=black!20](-1,-1)|-++(0,1)--++(2,0)--++(0,1)--++(-1,0)|-cycle;
+\draw[ultra thick,<-](0,.5)--++(1.5,0)node[fill=white,anchor=west]{$F_p=f_y\times\dfrac{bh}{2}\times\dfrac{1}{2}$};
+\draw[ultra thick,,<-](0,-.5)--++(-1.5,0)node[fill=white,anchor=east]{$F_p$};
+\node at(0,-2){plastic};
+\node[anchor=north,align=left]at(0,-3){$M_p=2\times{}F_p\times\dfrac{h}{4}$\\[3mm]$M_p=2\times{}f_y\times\dfrac{bh}{2}\times\dfrac{h}{4}$\\[3mm]$M_p=\dfrac{bh^2}{4}f_y$};
+\end{scope}
+\end{tikzpicture}

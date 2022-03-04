@@ -1,0 +1,85 @@
+\newcommand{\BracedStructure}{
+\def\a{1.5}\def\b{2}
+\HingeSupport{\a,-\b}
+\HingeSupport{-\a,-\b}
+\RollerSupport[90]{\a,\b}
+\RollerSupport[-90]{-\a,\b}
+\draw[dashed](0,-\b)--++(0,2*\b);
+\draw[dashed](-\a,-\b)--++(2*\a,0);
+\draw[dashed](-\a,\b)--++(2*\a,0);
+}
+\newcommand{\SwayStructure}{
+\def\a{1.5}\def\b{2}\def\c{-0.6*\a}\def\d{1.4*\a}\def\e{0.4*\a}
+\HingeSupport{\a,-\b}
+\HingeSupport{-\a,-\b}
+\RollerSupport[90]{\d,\b}
+\RollerSupport[-90]{\c,\b}
+\draw[dashed](0,-\b)--++(\e,2*\b);
+\draw[dashed](-\a,-\b)--++(2*\a,0);
+\draw[dashed](\c,\b)--++(2*\a,0);
+}
+\begin{tikzpicture}[scale=1]
+\begin{scope}
+\BracedStructure
+\draw[line width=2mm](-\a,-\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=2mm](-\a,\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=1mm](0,\b)to[out=-90,in=90](.2*\a,0)to[out=-90,in=90](0,-\b);
+\node[]at(0,-\b-1){braced $k_e=0.5$};
+\end{scope}
+\begin{scope}[xshift=5.5cm]\def\theta{15}
+\BracedStructure
+\draw[line width=1mm](0,\b)to[in=90,out=-90+2*\theta](0,-\b);
+\draw[line width=2mm](-\a,-\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=.3mm](-\a,\b)node[joint]{}--(0,\b)node[joint]{}--(\a,\b)node[joint]{};
+\node[]at(0,-\b-1){braced $k_e=0.7$};
+\end{scope}
+\begin{scope}[xshift=11cm]\def\theta{15}
+\BracedStructure
+\draw[line width=1mm](0,\b)to[in=90-2*\theta,out=-90+2*\theta](0,-\b);
+\draw[line width=.3mm](-\a,-\b)node[joint]{}--(0,-\b)node[joint]{}--(\a,-\b)node[joint]{};
+\draw[line width=.3mm](-\a,\b)node[joint]{}--(0,\b)node[joint]{}--(\a,\b)node[joint]{};
+\node[]at(0,-\b-1){braced $k_e=1.0$};
+\end{scope}
+\begin{scope}[yshift=-7cm]\def\theta{10}
+\BracedStructure
+\draw[line width=2mm](-\a,-\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=1mm](-\a,\b)node[joint]{}to[out=-\theta,in=180+2*\theta](0,\b)to[out=2*\theta,in=180+\theta](\a,\b)node[joint]{};
+\draw[line width=1mm](0,\b)to[in=90,out=-90+2*\theta](0,-\b);
+\node[]at(0,-\b-1){braced $0.5<k_e<0.7$};
+\end{scope}
+\begin{scope}[xshift=5.5cm,yshift=-7cm]\def\theta{10}
+\BracedStructure
+\draw[line width=1mm](0,\b)to[in=90-2*\theta,out=-90+2*10](0,-\b);
+\draw[line width=1mm](-\a,-\b)node[joint]{}to[out=10,in=180-2*10](0,-\b)to[out=-2*10,in=180+10](\a,-\b)node[joint]{};
+\draw[line width=.3mm](-\a,\b)node[joint]{}--(0,\b)node[joint]{}--(\a,\b)node[joint]{};
+\node[]at(0,-\b-1){braced $0.7<k_e<1.0$};
+\end{scope}
+\begin{scope}[xshift=11cm,yshift=-7cm]
+\SwayStructure
+\draw[line width=2mm](-\a,-\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=2mm](\c,\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=1mm](\e,\b)to[in=90,out=-90](0,-\b);
+\node[]at(0,-\b-1){sway $k_e=1.0$};
+\end{scope}
+\begin{scope}[yshift=-14cm]
+\SwayStructure
+\draw[line width=1mm](\e,\b)to[in=90,out=-90-10](0,-\b);
+\draw[line width=2mm](-\a,-\b)node[joint]{}--++(2*\a,0)node[joint]{};
+\draw[line width=.3mm](\c,\b)node[joint]{}--(\e,\b)node[joint]{}--(\d,\b)node[joint]{};
+\node[]at(0,-\b-1){sway $k_e=2.0$};
+\end{scope}
+\begin{scope}[xshift=5.5cm,yshift=-14cm]
+\SwayStructure
+\draw[line width=1mm](\e,\b)--(0,-\b);
+\draw[line width=.3mm](\c,\b)node[joint]{}--(\e,\b)node[joint]{}--(\d,\b)node[joint]{};
+\draw[line width=.3mm](-\a,-\b)node[joint]{}--(0,-\b)node[joint]{}--(\a,-\b)node[joint]{};
+\node[]at(0,-\b-1){sway $k_e=\infty$};
+\end{scope}
+\begin{scope}[xshift=11cm,yshift=-14cm]
+\SwayStructure
+\draw[line width=1mm](\c,\b)node[joint]{}to[out=20,in=180-20](\e,\b)to[out=-20,in=180+20](\d,\b)node[joint]{};
+\draw[line width=1mm](-\a,-\b)node[joint]{}to[out=10,in=180-10](0,-\b)to[out=-10,in=180+10](\a,-\b)node[joint]{};
+\draw[line width=1mm](\e,\b)to[in=90-10,out=-90-20](0,-\b);
+\node[]at(0,-\b-1){sway $1.0<k_e<\infty$};
+\end{scope}
+\end{tikzpicture}

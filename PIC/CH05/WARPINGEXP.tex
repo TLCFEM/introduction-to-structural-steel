@@ -1,0 +1,24 @@
+\footnotesize
+\begin{tikzpicture}[scale=.7]
+\newcommand{\Base}[3]{
+\draw[#1](-1,-1)--++(2,0);
+\draw[#1,#2](-1,1)--++(2,0);
+\draw[#1,#3](0,-1)--++(0,2);}
+\begin{scope}
+\Base{dashed}{}{}
+\node at(0,1.5){C};
+\draw[->](1.2,1)--(2,1);
+\node[align=center,anchor=west]at(2.5,1){$P=\dfrac{\pi^2EI_y}{L_e^2}$\\for column};
+\draw[dashed](-1.1,0)rectangle(1.1,1.2);
+\begin{scope}[]
+\Base{line width=1mm}{}{}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=8cm]
+\Base{dashed}{}{}
+\node at(2,0){$T=GJ\theta$};
+\begin{scope}[rotate=-30]
+\Base{line width=1mm}{}{}
+\end{scope}
+\end{scope}
+\end{tikzpicture}

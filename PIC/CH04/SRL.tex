@@ -1,0 +1,36 @@
+\footnotesize\begin{tikzpicture}
+\node at(0,1){
+\begin{tabular}{llc}
+	\toprule
+	longitudinal edges supported & residual stresses & $\lambda_{ey}$ \\ \midrule
+	\multirow{4}{*}{one}         & SR                &       16       \\
+	                             & HR                &       16       \\
+	                             & LW, CF            &       15       \\
+	                             & HW                &       14       \\ \midrule
+	\multirow{4}{*}{both}        & SR                &       45       \\
+	                             & HR                &       45       \\
+	                             & LW, CF            &       40       \\
+	                             & HW                &       35       \\ \bottomrule
+	\multicolumn{3}{l}{SR --- stress relived}                         \\
+	\multicolumn{3}{l}{HR --- hot-rolled}                             \\
+	\multicolumn{3}{l}{CF --- cold-formed}                            \\
+	\multicolumn{3}{l}{LW --- lightly welded longitudinally}          \\
+	\multicolumn{3}{l}{HW --- heavily welded longitudinally}          \\ \bottomrule
+\end{tabular}
+};
+\node[align=left]at(8,2.5){The following illustrations show \textcolor{cc0066}{one} and \textcolor{0066cc}{both}\\edges supported for common sections.};
+\draw[color=0066cc,line width=1.2mm](5.8,0)--++(0,1.5)node[midway,right=2mm]{S};
+\draw[color=cc0066,line width=1.2mm](5,1.5)node[above]{U}--++(1.6,0)node[above]{U}(5,0)node[below]{U}--++(1.6,0)node[below]{U};
+\draw[color=0066cc,line width=1.2mm](7.5,0)rectangle(9,1)node[midway]{S};
+\draw[color=cc0066,line width=1.2mm](10,1.5)node[above]{U}--++(.8,0)--++(0,-1.5)--++(-.8,0)node[above]{U};
+\draw[color=0066cc,line width=1.2mm](10.8,0)--++(0,1.5)node[midway,right]{U};
+\draw[color=cc0066,line width=1.2mm](10,-2.5)node[right]{U}--++(0,1.5)node[right]{U}(10,-1.75)--++(.8,0)node[above]{U};
+\draw[color=cc0066,line width=1.2mm](7.5,-1)node[right]{U}--++(0,-1)--++(1,0)node[above]{U};
+\FixedSupport[-90]{5,4.5}
+\FixedSupport[90]{7.5,4.5}
+\draw[line width=1.2mm](5,4.5)--++(2.5,0)node[midway,below=5mm,align=center]{both edges supported\\stiffened, S};
+\draw[line width=1.2mm,dashed](5,4.5)to[out=0,in=180](6.25,4.8)to[out=0,in=180](7.5,4.5);
+\FixedSupport[-90]{8.5,4.5}
+\draw[line width=1.2mm](8.5,4.5)--++(2.5,0)node[midway,below=5mm,align=center]{one edge supported\\unstiffened, U};
+\draw[line width=1.2mm,dashed](8.5,4.5)to[out=0,in=210](11,5);
+\end{tikzpicture}

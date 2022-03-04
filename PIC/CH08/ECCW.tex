@@ -1,0 +1,24 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw[dashed](.5,-2.5)--++(0,5);
+\draw(1.5,-2)rectangle(-.5,2);
+\draw[fill=exmpbg](0,-1)rectangle(4,1);
+\draw(.5,-2)pic[rotate=90]{ext}++(0,4)pic[rotate=90]{ext};
+\draw[line width=1.2mm](1.5,-1)-|(0,1)--++(1.5,0);
+\draw[<-,line width=.6mm](3.5,1)--++(0,1.2)node[left]{$P^*_u$};
+\draw[|<->|](1.5,1.8)--(3.5,1.8)node[midway,fill=exmpbg]{$\SI{200}{\mm}$};
+\draw[|<->|](0,-2.5)--++(1.5,0)node[midway,fill=exmpbg]{$\SI{150}{\mm}$};
+\draw[|<->|](-1,-1)--++(0,2)node[midway,fill=exmpbg,rotate=90]{$\SI{200}{\mm}$};
+\draw[<-](2,-.8)--++(1,-.8)--++(2,0)node[fill=exmpbg]{\SI{12}{\mm} plate};
+\begin{scope}[xshift=6.5cm]
+\draw[dashed](.45,-1.5)--++(0,3)node[midway,circle,fill=black,inner sep=0,minimum size=2mm]{};
+\draw[line width=1.2mm](1.5,-1)-|(0,1)--++(1.5,0);
+\draw[|<->|](0,-1.5)--++(.45,0)node[midway,below]{$\bar{x}$};
+\draw[|<->|](0,-2)--++(1.5,0)node[midway,fill=exmpbg]{$\SI{150}{\mm}$};
+\draw[|<->|](-1,-1)--++(0,2)node[midway,fill=exmpbg,rotate=90]{$\SI{200}{\mm}$};
+\end{scope}
+\node at(11,0){\includegraphics[height=5cm]{PIC/CH08/WJ}};
+\end{tikzpicture}

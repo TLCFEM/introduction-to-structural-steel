@@ -1,0 +1,17 @@
+\footnotesize
+\begin{tikzpicture}[scale=.6]
+\HingeSupport[90]{7,5}{1.5}
+\FixedSupport{0,0}{1.5}
+\FixedSupport{7,0}{1.5}
+\draw[line width=1mm](0,0)--++(0,5)--++(7,0)--++(0,-5);
+\draw[|<->|](0,-1)--++(7,0)node[midway,fill=exmpbg]{\SI{7}{\meter}};
+\draw[|<->|](-1,0)--++(0,5)node[midway,fill=exmpbg]{\SI{5}{\meter}};
+\setstructmech{convention=direction}
+\NodalForce{0,7}[N][-N^*_1][N]
+\NodalForce{7,7}[N][-N^*_2][N]
+\RollerSupport[120]{0,2.5}{1.5}
+\RollerSupport[120]{7,2.5}{1.5}
+\draw[dashed](0,2.5)--++(30:2);
+\draw[dashed](7,2.5)--++(30:2);
+\node[align=left]at(4,2){Beam: 410UB53.7\\Left Column: 250UC89.5\\Right Column: 250UC72.9};
+\end{tikzpicture}

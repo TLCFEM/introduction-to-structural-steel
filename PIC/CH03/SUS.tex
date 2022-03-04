@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+\def\a{.4}\def\b{2}
+\newcommand{\Bolt}{
+\draw[fill=white](-\a,-\a)rectangle(\a,\a);
+\draw(-.7*\a,-2.5*\a)rectangle(.7*\a,\a);
+\draw(-1.4*\a,\a)rectangle(0,1.8*\a);
+\draw(0,\a)rectangle(1.4*\a,1.8*\a);
+\draw(-1.4*\a,-\a)rectangle(0,-1.8*\a);
+\draw(0,-\a)rectangle(1.4*\a,-1.8*\a);
+}
+\draw(-\b,0)rectangle(1.5*\b,\a);
+\draw(-1.5*\b,0)rectangle(\b,-\a);
+\draw[->](1.6*\b,.5*\a)--++(1,0)node[right=3mm]{$N^*$};
+\draw[->](-1.6*\b,-.5*\a)--++(-1,0)node[left=3mm]{$N^*$};
+\setstructmech{convention=direction}
+\Bolt
+\begin{scope}[yshift=-3cm]
+\draw(-1.5*\b,-1.5)rectangle(\b,1.5);
+\draw[fill=white,fill opacity=.8](-\b,-1.2)rectangle(1.5*\b,1.2);
+\draw[->](1.6*\b,0)--++(1,0)node[right=3mm]{$N^*$};
+\draw[->](-1.6*\b,0)--++(-1,0)node[left=3mm]{$N^*$};
+\draw[cc0066,ultra thick,dashed](0,1.2)--(0,-1.2)node[below=5mm]{$A_n$};
+\draw[cc0066,ultra thick,dashed](1,1.2)--(1,-1.2)node[below=5mm]{$A_g$};
+\node(0,0)[very thick,circle,draw,minimum size=8mm,fill=white]{};
+\node[align=left]at(7,1){Note the top plate has smaller\\section width which governs.};
+\begin{scope}[yshift=-3cm]
+\begin{scope}[xshift=-2cm]
+\draw[pattern=north west lines](-1.5,-.2)rectangle(1.5,.2)node[midway,below=7mm]{$A_n$};
+\draw[fill=white](-.3,-.2)rectangle(.3,.2);
+\end{scope}
+\begin{scope}[xshift=2cm]
+\draw[pattern=north west lines](-1.5,-.2)rectangle(1.5,.2)node[midway,below=7mm]{$A_g$};
+\draw[|<->|](2,-.2)--++(0,.4)node[midway,right=2mm]{$t$};
+\end{scope}
+\end{scope}
+\end{scope}
+\end{tikzpicture}

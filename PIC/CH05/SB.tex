@@ -1,0 +1,15 @@
+\footnotesize
+\begin{tikzpicture}
+\draw[dashed](-5,0)--(5,0)node[right=5mm]{bucking axis};
+\node at(-4,.5){web};
+\node at(1,1){stiffener};
+\node at(4,1){$A_n=\text{all shaded area}$};
+\draw[pattern=north west lines](-4,-.1)rectangle(4,.1);
+\draw[pattern=north west lines](-.1,.1)rectangle(.1,1);
+\draw[pattern=north west lines](-.1,-.1)rectangle(.1,-1);
+\draw[|<->|](-4,-1.2)--++(4,0)node[midway,fill=white]{$b_e$};
+\draw[|<->|](0,-1.2)--++(4,0)node[midway,fill=white]{$b_e$};
+\draw[|<->|](-.5,.1)--(-.5,1)node[midway,fill=white]{$b_{es}$};
+\draw[|<->|](-.1,1.2)--(.1,1.2)node[midway,above=2mm]{$t_s$};
+\draw[|<->|](-4.4,-.1)--++(0,.2)node[midway,left=2mm,fill=white]{$t_w$};
+\end{tikzpicture}

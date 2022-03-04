@@ -1,0 +1,19 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,ext/.pic={
+\path[fill=white](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(2,-1.5)rectangle(-1,1.5);
+\draw[fill=white](1,-1)rectangle(3,1);
+\draw(-1,0)pic{ext};
+\draw[line width=1.2mm](2,1)--(1,1)(2,-1)--(1,-1);
+\UDL{4.5,-1}{4.5,1}{.5}
+\foreach\x in{0,.2,.4,.6,.8,1}{
+\draw(1+\x,1)to[out=-60+30*\x,in=180](3,.8*\x);
+\draw(1+\x,-1)to[out=60-30*\x,in=180](3,-.8*\x);
+}
+\draw(2,1.7)|-++(-.2,.2)node[left]{A};
+\draw(2,-1.7)|-++(-.2,-.2)node[left]{A};
+\draw[fill=cc0066,opacity=.6](-2,-1)|-++(-1,2)node[above]{$f$}to[out=-90,in=90](-2.2,0)to[out=-90,in=90](-3,-1)--cycle;
+\node at(-2.5,-1.5){section A};
+\end{tikzpicture}

@@ -1,0 +1,20 @@
+\footnotesize\begin{tikzpicture}
+\newdimen\XCoord
+\newdimen\YCoord
+\newcommand*{\ExtractCoordinate}[1]{\path (#1); \pgfgetlastxy{\XCoord}{\YCoord};}
+\draw[->](0,0)--(10,0)node[below=3mm]{tension strain ($\varepsilon$)};
+\draw[->](0,0)--(0,6)node[left=5mm]{stress ($f$)};
+\draw[very thick,line join=round](0,0)--(.5,2)--(3,2)to[out=30,in=180](6,2.8)to[out=0,in=160](8,2.4)node[right=5mm]{low carbon steel};
+\draw[very thick,line join=round](0,0)--(.8,3.2)--(3,3.2)to[out=30,in=180](6,3.8)to[out=0,in=160](8,3.4)node[right=5mm]{HSLA steel};
+\draw[very thick,line join=round,name path=s](0,0)--(1,4)to[out=76,in=210](3,5)to[out=30,in=180](5,5.5)to[out=0,in=110](7,4)node[right=5mm]{alloy steel};
+\draw[dashed,name path=e](.1,0)--++(1.25,5)node[above]{\SI{0.2}{\percent} offset};
+\path[name intersections={of=s and e,by=sy}];
+\ExtractCoordinate{$(sy)$}
+\draw(sy)node[fill=red,inner sep=0,minimum size=2mm,circle]{}node[align=left,below right=1mm,fill=white,anchor=north west]{yield stress\\for alloy steel};
+\draw[dashed](sy)--(\XCoord,0);
+\draw[|<->|](0,-.4)--++(\XCoord,0)node[midway,fill=white]{\SI{0.5}{\percent}};
+\draw[dashed](sy)--(0,\YCoord)node[left=2mm]{$\approx\SI{700}{\mpa}$};
+\draw[dashed](3,3.2)--(0,3.2)node[left=2mm]{$\approx\SI{350}{\mpa}$};
+\draw[dashed](3,2)--(0,2)node[left=2mm]{$\approx\SI{250}{\mpa}$};
+\node at(7,1){(not to scale)};
+\end{tikzpicture}

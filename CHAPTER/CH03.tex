@@ -1,0 +1,395 @@
+\chapter{Tension Members}
+Tension members are commonly used as bracing in trusses and elsewhere. They may be wires, rods, bars, structural shapes, etc.
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/TM}
+\end{figure}
+\section{Strength Design Concept}\label{sec:tension}
+The LRFD equation possesses the following form (\NZSSTEEL{\S~7.1}):
+\begin{gather}
+\begin{split}
+%\sum\gamma_iE_i&\leqslant\phi{}R_n\\
+%\text{Force}&\leqslant\text{Resistance}\\
+N^*&\leqslant\phi{}N_t
+\end{split}
+\end{gather}
+where
+\begin{conditions}
+N^*&factored summation of forces\\
+N_t&nominal (ideal) tensile strength\\
+\phi&strength reduction factor, for tension $\phi_t=\num{0.9}$
+\end{conditions}
+
+Failure is considered to occur as a result of either:
+\begin{itemize}
+\item \textbf{Excessive elongation}: yield over the \textbf{gross} area $A_g$\\
+In this case, $N_t$ is determined by the gross area:
+\begin{gather}\label{eq:tension_gross}
+N_t=A_gf_y
+\end{gather}
+where
+\begin{conditions}
+A_g&gross cross section area\\
+f_y&yield strength
+\end{conditions}
+\item \textbf{Sudden strength decrease}: facture over the \textbf{net} area $A_n$\\
+In this case, $N_t$ is determined by the net area:
+\begin{gather}\label{eq:tension_net}
+N_t=0.85k_{te}A_nf_u
+\end{gather}
+where
+\begin{conditions}
+k_{te}&the correction factor for distribution of forces\\
+A_n&net cross section area\\
+f_u&tensile (ultimate) strength
+\end{conditions}
+\begin{figure}[H]
+\centering
+\includegraphics{PIC/CH03/NET}
+\end{figure}
+\end{itemize}
+
+Thus, to design a member in tension, one shall use the following criterion.
+\begin{gather}
+N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_u\right).
+\end{gather}
+\begin{figure}[H]
+\centering\footnotesize
+\input{PIC/CH03/SUS}
+\end{figure}
+\subsection{Definition of Net Area}
+The \textbf{net} area of the section considers the \textbf{gross} areas of holes used in the member. For bolted members, the standard hole size $d_h$ is a function of the bolt diameter $d_f$ (\NZSSTEEL{\S~14.3.5.2.1}).
+\begin{gather}\label{eq:dh}
+d_h=\left\{
+\begin{array}{ll}
+d_f+\SI{2}{\mm},&d_f\leqslant\SI{24}{\mm},\\
+d_f+\SI{3}{\mm},&d_f>\SI{24}{\mm}.
+\end{array}
+\right.
+\end{gather}
+\subsubsection{Unstaggered Holes}
+According to \NZSSTEEL{\S~9.1.10.2}, for holes that are not staggered, the area to be deducted shall be the \textbf{maximum} summation of the areas of the holes in any cross sections that are perpendicular to the direction of the design action. For a cross section with $n$ holes of size $d_{h,i}$ of a plate of thickness $t$, the net area can be computed as
+\begin{gather}\label{eq:unstaggered}
+A_n=A_g-\sum_{i=1}^{n}d_{h,i}t_i.
+\end{gather}
+The calculated net area is indeed the \textbf{minimum} `net' area.
+\subsubsection{Staggered Holes}
+According to \NZSSTEEL{\S~9.1.10.3}, for staggered holes, the area to be deducted shall be the \textbf{greater} of:
+\begin{enumerate}
+\item the deduction of non-staggered holes,
+\item the summation of the areas of all holes in any zig-zag line extending progressively across the member or part of the member.
+\end{enumerate}
+For a zig-zag line with $n$ holes and $m$ diagonal line segments, the net area shall be computed as follows.
+\begin{gather}\label{eq:staggered}
+A_n=A_g-\sum_{i=1}^{n}d_{h,i}t_i+\sum_{j=1}^{m}\frac{s_{p,j}^2t_j}{4s_{g,j}},
+\end{gather}
+in which
+\begin{conditions}
+s_{p}&staggered pitch, distance between hole centers measured \textbf{parallel} to the force direction\\
+s_{g}&gauge length, distance between hole centers measured \textbf{perpendicular} to the force direction
+\end{conditions}
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/SPG}
+\end{figure}
+
+\eqsref{eq:unstaggered} is the simplified case of \eqsref{eq:staggered} with no diagonal line segments. For staggered layouts, the third term in \eqsref{eq:staggered} must be used. For any given bolt layouts, the governing net area shall be the \textbf{minimum} of all staggered and unstaggered cases. This is due to the fact that in a staggered layout, depending on pitch and gauge, an unstaggered section may have smaller net area than a staggered section.
+
+If all holes have the same size $d_{h,i}=d_h$, and the plate thickness is uniform $t_i=t_j=t$, then it is possible to express the net area as $A_n=Lt$ with $L=b-nd_h+\sum_{j=1}^{m}\dfrac{s_{p,j}^2}{4s_{g,j}}$. The main task is to find the length of critical fracture line $L$.
+
+\begin{exmp}
+For the plate shown, assume the thickness is $t=\SI{12}{\mm}$ and the diameter of bolts is \SI{20}{\mm}, to compute the critial fracture line, both staggered and unstaggered cases need to be considered.
+\begin{figure}[H]\centering
+\input{PIC/CH03/SP}
+\end{figure}
+\end{exmp}
+\begin{solution}
+The standard hole size $d_h=\SI{20}{\mm}+\SI{2}{\mm}=\SI{22}{\mm}$. The width $b=\SI{355}{\mm}$. The four cases considered are:
+\begin{itemize}
+\item Line ABDG --- Unstaggered
+\begin{gather*}
+L_{ABDG}=b-2d_h=\SI{355}{\mm}-2\times\SI{22}{\mm}=\SI{311}{\mm}.
+\end{gather*}
+\item Line ABDEF --- Staggered\\
+There are three bolts and one diagonal line DE, for which $s_p=\SI{50}{\mm}$ and $s_g=\SI{100}{\mm}$.
+\begin{gather*}
+\begin{split}
+L_{ABDEF}&=b-3d_h+\dfrac{s_p^2}{4s_g}\\&=\SI{355}{\mm}-3\times\SI{22}{\mm}+\dfrac{\left(\SI{50}{\mm}\right)^2}{4\times\SI{100}{\mm}}=\SI{295.3}{\mm}.
+\end{split}
+\end{gather*}
+\item Line ABCDG --- Staggered\\
+There are three bolts and two diagonal lines. For BC, $s_p=\SI{50}{\mm}$ and $s_g=\SI{100}{\mm}$. For CD, $s_p=\SI{50}{\mm}$ and $s_g=\SI{75}{\mm}$.
+\begin{gather*}
+\begin{split}
+L_{ABCDG}&=b-3d_h+\sum\dfrac{s_p^2}{4s_g}\\&=\SI{355}{\mm}-3\times\SI{22}{\mm}+\dfrac{\left(\SI{50}{\mm}\right)^2}{4\times\SI{100}{\mm}}+\dfrac{\left(\SI{50}{\mm}\right)^2}{4\times\SI{75}{\mm}}=\SI{303.6}{\mm}.
+\end{split}
+\end{gather*}
+\item Line ABCDEF --- Staggered\\
+There are four bolts and three diagonal lines: BC, CD and DE.
+\begin{gather*}
+\begin{split}
+L_{ABCDEF}&=b-4d_h+\sum\dfrac{s_p^2}{4s_g}\\&=\SI{355}{\mm}-4\times\SI{22}{\mm}+\dfrac{2\times\left(\SI{50}{\mm}\right)^2}{4\times\SI{100}{\mm}}+\dfrac{\left(\SI{50}{\mm}\right)^2}{4\times\SI{75}{\mm}}=\SI{287.8}{\mm}.
+\end{split}
+\end{gather*}
+\end{itemize}
+The governing case leads to the \textbf{minimum} net area $A_n=L_{ABCDEF}t=\SI{287.8}{\mm}\times\SI{12}{\mm}=\SI{3454}{\mm^2}$. In this example, since the plate is resisting $N^*$ applied on the right side, there is \textbf{no} need to consider cases such as ABCEF in which bolt at D has provided some resistance. The design of bolted connection will be introduced in Chapter \ref{ch:bolt}.
+\end{solution}
+\subsubsection{Angle Connection}
+For angle connection, the gauge $s_g$ shall be taken as the sum of the back marks to each hole, less the leg thickness (\NZSSTEEL{Fig. 9.1.10.3(2)}).
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/ASGF}
+\caption{Illustration of gauge of staggered layout in an angle}
+\end{figure}
+Essentially, the distance measured at the \textbf{centre} of thickness is evaluated. That is,
+\begin{gather}
+s_g=s_{g,1}+s_{g,2}-\dfrac{t_1+t_2}{2}.
+\end{gather}
+\subsection{Determination of Distribution Factor}
+A correction factor $k_{te}$ is used to account for the concept of shear lag, or plane sections not remaining plane. This concept may be seen from the following examples.
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/SLB}
+\end{figure}
+
+In other connections, the same effect can be seen. Factors affecting shear lag are
+\begin{itemize}
+\item proportion of section connected;
+
+It may be seen that the stress flow lines change direction and move together  concentrating stress.
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/SL1}
+\end{figure}
+\item length of weld or number of connects, more shear lag is expected with fewer connectors;
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/SL2}
+\end{figure}
+\item change in direction of stress due to section shape,  e.g., angle connected with fillet welds on both sides of one leg.
+\begin{figure}[H]
+\centering\footnotesize
+\includegraphics{PIC/CH03/SHEARLAG}
+\caption{Shear lag in welded angle specimen \citep{Dhanuskar2021}}
+\end{figure}
+\begin{figure}[H]
+\centering\footnotesize
+\includegraphics{PIC/CH03/BSL}
+\caption{Shear lag in bolted angle specimen}
+\end{figure}
+\end{itemize}
+
+The determination of $k_{te}$ is explained in \NZSSTEEL{\S~7.3}.
+
+Some codes define an effective net area $A_e=k_{te}A_n$. We will use the AISC recommendations, because they are clearer, and more reasonable than the AS/NZS approach. They are given in \figref{fig:shear_lag} (\ANSI{Table D3.1}), where $U=k_{te}$.
+\begin{figure}[p]
+\centering
+\includegraphics[width=.99\textwidth]{PIC/CH03/SHEAR.LAG}
+\caption{Shear lag factors for connections to tension members}
+\label{fig:shear_lag}
+\end{figure}
+\section{Tension Member Slenderness Limitations}
+Most codes do not have any requirements for slenderness. However, undesired flutter (or vibration) of slender tension members have been observed in some situations. The AISC-LRFD code makes the following recommendations (\ANSI{\S~D1}): For members designed on the basis of tension, the slenderness ratio, $L/r$, preferably \textbf{should not exceed 300}. This suggestion does not apply to rods or hangers in tension.
+\begin{exmp}\href{run:./WORKSHEET/CH03/EX3.ATUC.sm}{Worksheet}
+Axial Tension Example --- Slender UC
+
+Choose a \SI{8}{\meter} long UC section to carry $G=\SI{880}{\kn}$ and $Q=\SI{1200}{\kn}$ respectively with Grade 300 steel.
+\end{exmp}
+\begin{solution}
+Assume $f_y=\SI{280}{\mpa}$, the factored tension force is given by the critical load combination,
+\begin{align*}
+N^*_t=\sum\gamma_iE_i&=1.2G+1.5Q\\
+&=1.2\times\SI{880}{\kn}+1.5\times\SI{1200}{\kn}\\
+&=\SI{2856}{\kn}.
+\end{align*}
+LRFD requires the following for material yielding on the gross area.
+\begin{align*}
+N^*_t&\leqslant\phi{}N_t\\
+&\leqslant\phi{}A_gf_y,\\
+A_g&\geqslant\dfrac{N^*_t}{\phi{}f_y}=\SI{11330}{\mm^2}.
+\end{align*}
+Try 250UC89.5,
+\begin{gather*}
+A_g=\SI{11400}{\mm^2}>\SI{11330}{\mm^2}.
+\end{gather*}
+Check slenderness requirement, considering the minimum $r$ value:
+\begin{gather*}
+\dfrac{L}{r_{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.5}=\num{122.7}<\num{300},\qquad\text{Okay.}
+\end{gather*}
+Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see, \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but its heavier.
+
+Note:
+\begin{itemize}
+\item The critical loading actions need to be combined for ultimate limit states (left hand side of the equation).
+\item Remember slenderness may impose additional requirements.
+\end{itemize}
+\end{solution}
+
+\begin{exmp}\href{run:./WORKSHEET/CH03/EX3.ATBC.sm}{Worksheet}
+Axial Tension Example --- Staggered Bolt Connection
+
+Assuming Grade 300 steel and $\phi~\SI{12}{\mm}$ bolts, the thickness of top plate is \SI{12}{\mm}, what is the maximum factored force (or design strength) in tension of the top plate shown below?
+\begin{figure}[H]
+\input{PIC/CH03/SBC}
+\end{figure}
+\end{exmp}
+\begin{solution}
+A member subjected to an axial tension force shall satisfy:
+\begin{gather*}
+N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_y\right).
+\end{gather*}
+In this case, $k_{te}=1$. The overall width $b$ is
+\begin{gather*}
+b=2\times\SI{50}{\mm}+2\times\SI{65}{\mm}=\SI{230}{\mm}.
+\end{gather*}
+The standard hole size is
+\begin{gather*}
+d_h=\SI{12}{\mm}+\SI{2}{\mm}=\SI{14}{\mm}.
+\end{gather*}
+Because $t=\SI{12}{\mm}>\SI{11}{\mm}$, for Grade 300 steel, $f_y=\SI{300}{\mpa}$ and $f_u=\SI{440}{\mpa}$.
+
+For gross area,
+\begin{gather*}
+A_gf_y=btf_y=\SI{230}{\mm}\times\SI{12}{\mm}\times\SI{300}{\mpa}=\SI{828}{\kn}.
+\end{gather*}
+For net area, find critical fracture line first. When fracture line is $ABFG$,
+\begin{gather*} L_{ABFG}=b-2d=\SI{230}{\mm}-2\times\SI{14}{\mm}=\SI{202}{\mm}.\qquad\rightarrow\qquad\text{critical}
+\end{gather*}
+When fracture line is $ABDFG$,
+\begin{gather*}
+L_{ABDFG}=\SI{230}{\mm}+2\times\dfrac{\left(\SI{70}{\mm}\right)^2}{4\times\SI{65}{\mm}}-3\times\SI{14}{\mm}=\SI{225.7}{\mm}.
+\end{gather*}
+\begin{figure}[H]\centering\input{PIC/CH03/SBC2}
+\end{figure}
+Thus,
+\begin{gather*}
+A_n=L_{ABFG}t=\SI{202}{\mm}\times\SI{12}{\mm}=\SI{2424}{\mm^2}.
+\end{gather*}
+Then,
+\begin{gather*}
+0.85k_{te}A_nf_u=0.85\times1\times\SI{2424}{\mm^2}\times\SI{440}{\mpa}=\SI{906.6}{\kn}.
+\end{gather*}
+The maximum factored force is then
+\begin{gather*}
+N^*\leqslant\min\left(0.9\times\SI{828}{\kn},~0.9\times\SI{906.6}{\kn}\right)=\SI{745.2}{\kn}.
+\end{gather*}
+\begin{flushright}
+$N^*=\SI{745.2}{\kn}$
+\end{flushright}
+\end{solution}
+For connected members, both failure mechanisms need to be calculated. This applies to not only bolted connection with area reduction, but also other types of connections.
+
+\begin{exmp}\href{run:./WORKSHEET/CH03/EX3.ATAC.sm}{Worksheet}
+Axial Tension Example --- Angle Connection
+
+Use Grade 300 steel, design a \SI{2.7}{\meter} single angle tension member connected to a plate with one leg (long leg if UA) using 5 M20 ($\phi\SI{20}{\mm}$) class 8.8 bolts in a line, with one at each section. Let $G=\SI{130}{\kn}$ and $Q=\SI{190}{\kn}$.
+
+\includegraphics[width=7cm]{PIC/CH03/ANGLE}
+\end{exmp}
+\begin{solution}
+The critical combination is
+\begin{gather*}
+N^*_t=\max\left(1.35G,~1.2G+1.5Q\right)=\SI{441}{\kn}.
+\end{gather*}
+Assume $f_y=\SI{320}{\mpa}$, the minimum gross area is
+\begin{gather*}
+A_g\geqslant\dfrac{N^*_t}{\phi{}f_y}=\dfrac{\SI{441}{\kn}}{0.9\times\SI{320}{\mpa}}=\SI{1531}{\mm^2}.
+\end{gather*}
+According to case 8 in \figref{fig:shear_lag}, $k_{te}=0.8$, the minimum net area is
+\begin{gather*}
+A_n\geqslant\dfrac{N^*_t}{\phi{}0.85k_{te}f_u}=\dfrac{\SI{441}{\kn}}{0.9\times0.85\times0.8\times\SI{440}{\mpa}}=\SI{1638}{\mm^2}.
+\end{gather*}
+Thus the net area governs. Try the following sections.
+\begin{table}[H]
+\centering\small
+\begin{tabular}{lccccc}
+	\toprule
+	Section                        & $A_g$ & $t$ & $r_{min}$ & $A_n$  &      \\ \midrule
+	125\texttimes75\texttimes10UA  & 1810  & 9.5 &   16.2    &  1601  & N.G. \\
+	100\texttimes100\texttimes10EA & 1810  & 9.5 &   19.6    &  1601  & N.G. \\
+	125\texttimes90\texttimes8UA   & 1820  & 7.8 &   19.7    & 1648.4 & Okay \\
+	125\texttimes125\texttimes8EA  & 1900  & 7.8 &   24.8    & 1728.4 & Okay \\
+	125\texttimes90\texttimes10UA  & 2200  & 9.5 &   19.6    &  1991  & Okay \\
+	100\texttimes100\texttimes12EA & 2260  & 12  &   19.5    &  1996  & Okay \\ \bottomrule
+\end{tabular}
+\end{table}
+Thus use 125\texttimes90\texttimes8UA. The thickness is smaller than \SI{11}{\mm}, thus the assumed yield stress is appropriate for Grade 300 steel.
+\begin{flushright}
+Use 125\texttimes90\texttimes8UA
+\end{flushright}
+\end{solution}
+
+\begin{exmp}\href{run:./WORKSHEET/CH03/EX3.BFUC.sm}{Worksheet}
+Axial Tension Example --- Bolted Flange UC
+
+Find the size of UC member carrying axial loads $G=\SI{270}{\kn}$, $Q=\SI{400}{\kn}$ and $W=\SI{45}{\kn}$ using Grade 300 steel. The spacing of bolts is \SI{80}{\mm} along the direction of axial force. Note bolted connections apply to both sides of the member.
+\begin{figure}[H]
+\includegraphics[width=7cm]{PIC/CH04/UC}
+\input{PIC/CH03/BFUC}
+\end{figure}
+\end{exmp}
+\begin{solution}
+The demand can be obtained via combinations.
+\begin{align*}
+N^*_t&=\max\left(1.35G,~1.2G+1.5Q,~1.2G+\psi_cQ+W\right)\\
+&=\max\left(\SI{364.5}{\kn},~\SI{924}{\kn},~\SI{529}{\kn}\right)\\
+&=\SI{924}{\kn}.
+\end{align*}
+Assume $f_y=\SI{320}{\mpa}$, for yielding on gross area,
+\begin{gather*}
+A_g\geqslant\dfrac{N^*_t}{\phi{}f_y}=\dfrac{\SI{924}{\kn}}{0.9\times\SI{320}{\mpa}}=\SI{3208}{\mm^2}.
+\end{gather*}
+Try 150UC30.0, $A_g=\SI{3860}{\mm^2}$ and $t_f=\SI{9.4}{\mm}$. Since for each net section, there are 2 bolts per flange, totalling 4, the net area is
+\begin{gather*}
+A_n=A_g-4t_fd_h=\SI{3860}{\mm^2}-4\times\SI{9.4}{\mm}\times\SI{22}{\mm}=\SI{3033}{\mm^2}.
+\end{gather*}
+Since there are three bolts in a line and $b_f>\dfrac{2}{3}d$, from \figref{fig:shear_lag}, $k_{te}=0.9$ according to case 7. Thus for fracture on net area,
+\begin{gather*}
+\phi0.85k_{te}A_nf_y=0.9\times0.85\times0.9\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{919}{\kn}.
+\end{gather*}
+The difference is only \SI{0.5}{\percent}. Considering the ultimate strength would be greater, 150UC30.0 is okay.
+
+Use case 2 in \tabref{fig:shear_lag} to recheck the example, from which,
+\begin{gather*}
+k_{te}=1-\dfrac{\bar{x}}{l}.
+\end{gather*}
+Since bolts are in both flanges, axial forces from half section goes to bolts on each side. Consider half section only, find eccentricity $\bar{x}$,
+
+\begin{minipage}{6cm}
+\centering\input{PIC/CH03/HI}
+\end{minipage}
+\begin{minipage}{.99\linewidth-6cm}
+\begin{align*}
+\bar{x}&=\dfrac{\sum{}x_iA_i}{\sum{}A_i}\\&=\dfrac{\left(b_f-t_w\right)\cdot{}t_f\cdot{}t_f/2+t_w\cdot{}d/2\cdot{}d/4}{A_g/2}\\
+&=\dfrac{\left(153-6.6\right)\cdot{}9.4\cdot{}4.7+6.6\cdot{}78.8\cdot{}9.4}{1930}\si{\mm}\\
+&=\SI{13.97}{\mm}.
+\end{align*}
+The total length of connection is $l=2\times\SI{80}{\mm}=\SI{160}{\mm}$,
+\begin{align*}
+k_{te}&=1-\dfrac{\bar{x}}{l}\\
+&=1-\dfrac{\SI{13.97}{\mm}}{\SI{160}{\mm}}\\
+&=0.913.
+\end{align*}
+\end{minipage}
+
+Thus,
+\begin{gather*}
+\phi0.85k_{te}A_nf_y=0.9\times0.85\times0.913\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{932}{\kn}>\SI{924}{\kn}.
+\end{gather*}
+
+The general method (case 2) is less conservative than the specific one (case 7) in this case.
+\begin{flushright}
+Use 150UC30.0
+\end{flushright}
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/BFUC2}
+\end{figure}
+\end{solution}
+
+\begin{figure}[p]
+\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR1}
+\end{figure}
+\begin{figure}[p]
+\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR2}
+\end{figure}

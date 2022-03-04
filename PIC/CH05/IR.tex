@@ -1,0 +1,22 @@
+\footnotesize
+\begin{tikzpicture}[scale=.6]
+\begin{scope}
+\draw[->](0,0)--(8,0)node[below=2mm]{strain};
+\draw[->](0,0)--(0,5)node[left=2mm]{stress};
+\draw[very thick,line join=round](0,0)--(1,4)--(1.02,3.5)(4,3.5)to[out=30,in=180](6,4.2)to[out=0,in=160](8,3.8);
+\draw[very thick,line join=round,decoration={random steps,segment length=2pt,amplitude=1.5pt}]decorate{(1.02,3.5)--(4,3.5)};
+\node at(4,2){typical response};
+\end{scope}
+\begin{scope}[xshift=12cm]
+\draw[->](0,0)--(8,0)node[below=2mm]{strain};
+\draw[->](0,0)--(0,5)node[left=2mm]{stress};
+\draw[very thick,line join=round](0,0)--(.875,3.5)--(8,3.5);
+\node[align=center]at(4,2){idealised response\\elastic perfectly plastic};
+\draw[dashed](.875,3.5)--(0,3.5)node[left=2mm]{$f_y$};
+\draw[dashed](.875,3.5)--(.875,0)node[below=2mm]{$\varepsilon_y$};
+\draw(.875*.3,3.5*.3)node[circle,fill=cc0066]{}node[left=2mm]{(a)};
+\draw(.875,3.5)node[circle,fill=cc0066]{}node[above=2mm]{(b)};
+\draw(2.5,3.5)node[circle,fill=cc0066]{}node[above=2mm]{(c)};
+\draw(6,3.5)node[circle,fill=cc0066]{}node[above=2mm]{(d)};
+\end{scope}
+\end{tikzpicture}

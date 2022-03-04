@@ -1,0 +1,36 @@
+\begin{tikzpicture}
+\HingeSupport{0,0}
+\HingeSupport{4,0}
+\draw[dashed](0,0)|-(4,3)--(4,0);
+\draw[<-,thick](0,3.5)--++(0,1)node[fill=white]{$P_1$};
+\draw[<-,thick](4,3.5)--++(0,1)node[fill=white]{$P_2$};
+\draw[line width=1.2mm](0,0)node[joint]{}to[out=92,in=-94](0-.1,3-.1)to[out=-4,in=190](4-.1,3-.2)to[out=-80,in=85](4,0)node[joint]{};
+\begin{scope}[xshift=8cm]
+\HingeSupport{0,0}
+\HingeSupport{4,-1}
+\draw[dashed](0,0)|-(4,3)--(4,-1);
+\draw[<-,thick](0,3.5)--++(0,1)node[fill=white]{$P_1$};
+\draw[<-,thick](4,3.5)--++(0,1)node[fill=white]{$P_2$};
+\draw[line width=1.2mm](0,0)node[joint]{}to[out=95,in=-100](0-.2,3-.1)to[out=-10,in=170](4-.2,3-.3)to[out=-100,in=95](4,-1)node[joint]{};
+\end{scope}
+\begin{scope}[yshift=-6cm]
+\HingeSupport{0,0}
+\HingeSupport{4,0}
+\draw[<-,thick](2,3.5)--++(0,1)node[fill=white]{$P_1$};
+\setstructmech{showvalue=off,opacity=.5}
+\IForceA[cc0066]{0,0}{0,3}{0}{-1}
+\IForceA[cc0066]{0,3}{2,3}{1}{.5}
+\IForceA[cc0066]{2,3}{4,3}{-.5}{-1}
+\IForceA[cc0066]{4,0}{4,3}{0}{1}
+\draw[line width=1.2mm](0,0)node[joint]{}|-(4,3)--(4,0)node[joint]{};
+\begin{scope}[xshift=8cm]
+\HingeSupport{0,0}
+\HingeSupport{4,0}
+\draw[<-,thick](-.5,3)--++(-1,0)node[fill=white]{$P_2$};
+\IForceA[cc0066]{0,0}{0,3}{0}{1}
+\IForceA[cc0066]{0,3}{4,3}{-1}{-1}
+\IForceA[cc0066]{4,0}{4,3}{0}{1}
+\draw[line width=1.2mm](0,0)node[joint]{}|-(4,3)--(4,0)node[joint]{};
+\end{scope}
+\end{scope}
+\end{tikzpicture}

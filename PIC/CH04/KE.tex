@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\FixedSupport{0,0}
+\FixedSupport[180]{0,4}
+\FixedSupport{5,0}
+\HingeSupport[180]{5,4}
+\HingeSupport[180]{10,4}
+\HingeSupport{10,0}
+\draw[very thick](0,0)to[out=90,in=-90]node(A)[pos=0.5,circle,fill=red,inner sep=0,minimum size=2mm]{}(.4,2);
+\draw[very thick](0,4)to[out=-90,in=90]node(B)[pos=0.5,circle,fill=red,inner sep=0,minimum size=2mm]{}(.4,2);
+\draw[very thick](5,0)to[out=90,in=-60]node(C)[pos=0.3,circle,fill=red,inner sep=0,minimum size=2mm]{}(5,4)node[joint]{};
+\draw[very thick](10,0)node[joint]{}to[out=70,in=-70](10,4)node[joint]{};
+\draw[|<->|](-1,1)--++(0,2)node[midway,fill=white]{$L_e=0.5L$};
+\draw[|<->|](4,4)--++(0,-2.8)node[midway,fill=white]{$L_e=0.7L$};
+\draw[|<->|](9,0)--++(0,4)node[midway,fill=white]{$L_e=L$};
+\end{tikzpicture}

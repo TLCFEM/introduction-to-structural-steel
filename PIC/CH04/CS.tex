@@ -1,0 +1,25 @@
+\footnotesize
+\begin{tikzpicture}[>=latex]
+\begin{axis}[
+width=10cm,
+height=7cm,
+xtick=\empty,
+ytick=\empty,
+axis x line=center,
+axis y line=center,
+xlabel={$\lambda$},
+ylabel={$f$},
+xlabel style={right},
+ylabel style={left},
+xmin=0,xmax=4.5,ymin=0,ymax=2]
+\addplot[name path=A,line width=1mm,color=black,mark=none,domain=0:.8]{1.5625};
+\addplot[name path=B,samples=40,line width=1mm,color=black,mark=none,domain=.8:4]{1/x/x}node[color=cc0066,above,pos=1]{$f_{om}$};
+\addplot[dashed,very thick,color=0066cc,mark=none,domain=.8:1.5]{1.5625}node[above,pos=1]{$f_y$};
+\addplot[dashed,samples=10,very thick,color=cc0066,mark=none,domain=0:.8]{1/x/x};
+\addplot[name path=C,domain=0:.8]{0};
+\addplot[name path=D,domain=.8:4]{0};
+\addplot[00cc66,opacity=.3]fill between[of=A and C];
+\addplot[00cc66,opacity=.3]fill between[of=B and D];
+\node[align=center]at(.5,.7){safe\\region};
+\end{axis}
+\end{tikzpicture}

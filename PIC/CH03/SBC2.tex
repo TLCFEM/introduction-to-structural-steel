@@ -1,0 +1,26 @@
+\footnotesize
+\begin{tikzpicture}[scale=1,x=1cm,y=1cm,ext/.pic={
+\path[fill=exmpbg](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
+\draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
+}]
+\draw(0,0)--++(0,2.3)--++(2.5,0)--pic{ext}++(0,-2.3)--cycle;
+\draw(.7,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(.7,1.15)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(.7,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,0)node{\textbar};
+\draw(1.4,2.3)node{\textbar};
+\draw[cc0066,dashed,very thick](1.4,0)--(1.4,2.3);
+\begin{scope}[xshift=6cm]
+\draw(0,0)--++(0,2.3)--++(2.5,0)--pic{ext}++(0,-2.3)--cycle;
+\draw(.7,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(.7,1.15)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(.7,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,.5)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,1.8)node[very thick,circle,inner sep=0,minimum size=4mm,draw]{};
+\draw(1.4,0)node{\textbar};
+\draw(1.4,2.3)node{\textbar};
+\draw[cc0066,dashed,very thick](1.4,0)--(1.4,.5)--(.7,1.15)--(1.4,1.8)--(1.4,2.3);
+\end{scope}
+\end{tikzpicture}
