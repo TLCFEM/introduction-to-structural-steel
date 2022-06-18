@@ -1,0 +1,20 @@
+\begin{tikzpicture}
+\HingeSupport{0,0}
+\HingeSupport{4,0}
+\draw[<-,thick](2,3.5)--++(0,1)node[fill=white]{$P_1$};
+\setstructmech{showvalue=off,opacity=.5}
+\IForceA[cc0066]{0,0}{0,3}{0}{-1}
+\IForceA[cc0066]{0,3}{2,3}{1}{.5}
+\IForceA[cc0066]{2,3}{4,3}{-.5}{-1}
+\IForceA[cc0066]{4,0}{4,3}{0}{1}
+\draw[line width=1.2mm](0,0)node[joint]{}|-(4,3)--(4,0)node[joint]{};
+\begin{scope}[xshift=8cm]
+\HingeSupport{0,0}
+\HingeSupport{4,0}
+\draw[<-,thick](-.5,3)--++(-1,0)node[fill=white]{$P_2$};
+\IForceA[cc0066]{0,0}{0,3}{0}{1}
+\IForceA[cc0066]{0,3}{4,3}{-1}{-1}
+\IForceA[cc0066]{4,0}{4,3}{0}{1}
+\draw[line width=1.2mm](0,0)node[joint]{}|-(4,3)--(4,0)node[joint]{};
+\end{scope}
+\end{tikzpicture}

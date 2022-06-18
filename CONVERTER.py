@@ -1,5 +1,6 @@
 import os
 import zipfile
+import shutil
 
 from pdf2image import convert_from_path
 
@@ -16,3 +17,6 @@ for f in os.listdir('.'):
     archive.write(f)
 
 archive.close()
+
+os.chdir('..')
+shutil.make_archive('WORKSHEET', 'zip', 'WORKSHEET')

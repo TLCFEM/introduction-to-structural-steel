@@ -50,12 +50,12 @@ For other boundary conditions, similar procedures can be carried out.
 
 In general, the buckling strength $N_{om}$ of a column is expressed as
 \begin{gather*}
-N_{om}=P_{cr}=\dfrac{\pi^2EI}{\left(k_eL\right)^2}==\dfrac{\pi^2EI}{L_e^2},
+N_{om}=P_{cr}=\dfrac{\pi^2EI}{\left(k_eL\right)^2}=\dfrac{\pi^2EI}{L_e^2},
 \end{gather*}
 where $k_e$ is the effective length factor with can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length. It is the distance between buckling points of inflection for a flexural member. The following are a few examples.
 \begin{figure}[H]
 \footnotesize\centering
-\input{PIC/CH04/KE}
+\input{PIC/CH04/KE}\caption{Illustration of effective length}
 \end{figure}
 
 Dividing $N_{om}$ by cross section area, we define buckling stress $f_{om}$ as
@@ -163,6 +163,7 @@ and a reduction in elastic modulus.
 Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$. Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$, when $E$ decreases, $f_{om}$ would decease accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
 \begin{figure}[H]
 \centering\input{PIC/CH04/RSS}
+\caption{Stress--strain curve considering residual stress}
 \end{figure}
 The effect is most significant on members of moderate slenderness, where the strength is reduced.
 \begin{figure}[H]
@@ -336,7 +337,7 @@ It can be inferred that since $\alpha_c$ accounts for buckling, residual stress,
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/ALPHAC}
-\caption{$\lambda_n$ versus $\alpha_c$}\label{fig:alpha_c}
+\caption{$\alpha_c$ as a function of $\lambda_n$}\label{fig:alpha_c}
 \end{figure}
 
 Performing such a computation is somehow tedious, in practice, engineers can refer to the pre-compiled table \NZSSTEEL{Table 6.3.3(2)}, as well as \tabref{tab:alpha_c}, to find the proper value to be used.
@@ -360,7 +361,7 @@ f_{max}=\dfrac{N^*}{A_n}\leqslant\dfrac{\phi{}N_c}{A_n}=\phi\alpha_ck_ff_y=0.9\t
 \end{solution}
 \begin{table}[H]
 \centering\scriptsize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.03}
-\caption{Values of $\lambda_n$ as function of $\alpha_b$ and $\alpha_c$}\label{tab:alpha_c}
+\caption{Values of $\alpha_c$ as function of $\alpha_b$ and $\lambda_n$}\label{tab:alpha_c}
 \begin{tabular}{c|ccccc|c|ccccc|c|ccccc}
 	\toprule
 	            &    \multicolumn{5}{c|}{$\alpha_b$}    &             &    \multicolumn{5}{c|}{$\alpha_b$}    &             &    \multicolumn{5}{c}{$\alpha_b$}     \\
@@ -907,6 +908,7 @@ Recall \figref{fig:fm} and \eqsref{eq:be},
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/BEE}
+\caption{Far end of beam conditions}
 \end{figure}
 \subsubsection{Member Yielding}
 Stocky columns which are subject to high axial forces may yield as a result of the residual stress. This reduces the elastic modulus, so the column has a `close to' pinned connection at the yield end. This can lead to a saving of material.
@@ -920,6 +922,7 @@ In gravity frames the resistance of one column to sidesway may be greater than t
 For design against sidesway, the gravity load which a frame can support may be split up in any proportion. An example is shown as follows.
 \begin{figure}[H]
 \centering\input{PIC/CH04/SS}
+\caption{Transfer of vertical loads}
 \end{figure}
 
 However, the maximum load in any column must \textbf{not} exceed the maximum load that a column could support if it were braced against sidesway ($k_e=1.0$).
@@ -1116,6 +1119,7 @@ Moment connections are expensive so frames often have two types of connections:
 \end{figure}
 \begin{figure}[H]
 \centering\input{PIC/CH04/LC}
+\caption{Destabilizaing effect of leaning columns}
 \end{figure}
 The FR frame provides a stabilizing effect for all of the columns, \NZSSTEEL{} requires that destabilizing effect of `leaning columns' be accounted for. For `leaning columns', use $k_e=1$.
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACLC.sm}{Worksheet}
@@ -1208,7 +1212,10 @@ In the previous discussion it is assumed that the columns are axially stiff.
 \item When member loads and lateral forces are present, moments develop in members.
 \end{itemize}
 \begin{figure}[H]
-\centering\input{PIC/CH04/CF}
+\centering\input{PIC/CH04/CF1}
+\caption{Sidesway due to non-rigid columns}
+\centering\input{PIC/CH04/CF2}
+\caption{Moment developed in columns due to horizontal loads}
 \end{figure}
 If moments occur in conjunction with axial force, then he member shall be designed for both moment and axial force. Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects). We will discuss this in design of bending members.
 \begin{sidewaysfigure}[p]

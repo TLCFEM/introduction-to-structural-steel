@@ -1,6 +1,6 @@
 \begin{tikzpicture}[domain=0:10][x=2cm]
 \draw[thick,->](0,0)--(10,0)node[right]{$\eta{}L$};
-\draw[thick,->](0,)--(0,5);
+\draw[thick,->](0,0)--(0,5);
 \foreach\x in{.5,1.5,2.5}\draw[dashed, thick,red](\x*pi,-1)--++(0,6);
 \draw[ultra thick,color=cc0066]plot[domain=0:.438*pi](\x,{tan(\x r)});
 \foreach\x in{.5,1.5}\draw[ultra thick,color=cc0066]plot[domain=(\x+.25)*pi:(\x+.938)*pi] (\x,{tan(\x r)});
