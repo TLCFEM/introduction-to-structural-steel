@@ -1,4 +1,5 @@
 import os
+import urllib.request
 
 main_file = open('IMAGES.tex', 'w')
 
@@ -35,3 +36,5 @@ main_file.writelines('\\end{document}')
 
 main_file.close()
 
+if __name__ == '__main__':
+    urllib.request.urlretrieve('https://raw.githubusercontent.com/TLCFEM/structmech/master/structmech.sty', 'structmech.sty')
