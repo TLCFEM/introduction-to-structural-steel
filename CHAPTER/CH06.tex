@@ -450,9 +450,9 @@ If the strength of bolt is less than the strength of plate, then design for bear
 
 According to \NZSSTEEL{\S~9.3.2.4.1}, a ply subject to a design bearing force $V^*_b$ due to bolt in shear shall satisfy
 \begin{gather}
-V^*_b\leqslant{}\phi{}V_b.
+V^*_b\leqslant{}C_1\phi{}V_b.
 \end{gather}
-The nominal bearing capacity $V_b$ of a ply shall be the \textbf{smaller} of the following two.
+For \textbf{non-seismic}  design, $C_1=1.0$. For seismic design, $C_1<1.0$. It could be as low as \num{0.6} for seismic design according to \NZSSTEEL{\S~12.9.4.3}. Also, using $C_1=0.6$ is a good default for all NZ connections as it will reduce the bolt hole deformation, and the possibility of significantly pinched hysteretic behaviour causing large impacts during earthquake shaking. The nominal bearing capacity $V_b$ of a ply shall be the \textbf{smaller} of the following two.
 \begin{enumerate}
 \item \textbf{Ply bearing failure beside bolt (Eq. 9.3.2.4(1))}
 \begin{gather}
