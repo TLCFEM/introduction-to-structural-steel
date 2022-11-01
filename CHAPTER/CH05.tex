@@ -275,11 +275,48 @@ Warping is important for shorter members.
 %\includegraphics{PIC/CH05/WARP}
 %\caption{Examples of Saint Venant and warping torsion \citep{Murray1984}}
 %\end{figure}
+What is this thing called warping? Warping is the deformation such that plane sections do not remain plane.
+
+For a simply supported member subjected to end torsion, plane sections do not remain plane at ends. There are warping deformations but no warping stresses. In such a configuration, torsion is resisted by St. Venant effects only. The $M_0$ is a function of $GJ$.
 \begin{figure}[H]
-\centering
-\includegraphics[width=.99\textwidth]{PIC/CH05/WARPINGO}
+\centering\footnotesize
+\input{PIC/CH05/WARP1}
 \end{figure}
-Circular sections are free from warping. All other sections warp. Hollow sections have low warping deformation and angles have low warping stress but high warping deformation. Based on this fact, for angles, rectangular/square/circular hollow sections, narrow rectangular sections and T sections, one shall use \eqsref{eq:no_warp} to calculate $M_o$ (\NZSSTEEL{Cl. 5.6.1.3 to Cl. 5.6.1.6}). For all other sections, one shall use \eqsref{eq:warp} to compute reference moment.
+
+If one end is restrained, plane sections remain plane at end, which means warping deformations are restrained \textbf{but} warping stresses/forces exist. In such a configuration, end rotation is less and member is stronger. The $M_0$ is a function of \textbf{both} $EI_w$ and $GJ$.
+\begin{figure}[H]
+\centering\footnotesize
+\input{PIC/CH05/WARP2}
+\end{figure}
+
+Circular sections are free from warping. All other sections warp. Hollow sections have low warping deformation and angles have low warping stress but high warping deformation.
+\begin{figure}[H]
+\footnotesize\centering
+\begin{tikzpicture}[scale=.8]
+\begin{scope}
+\draw[line width=1.2mm](0,0)circle(1cm);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){no warping};
+\end{scope}
+\begin{scope}[xshift=4cm]
+\draw[line width=1.2mm](-1,-1)rectangle(1,1);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping deformation};
+\end{scope}
+\begin{scope}[xshift=8cm]
+\draw[line width=1.2mm](1,-.3)--++(-1,0)--++(0,1);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping force};
+\end{scope}
+\begin{scope}[xshift=12cm]
+\draw[line width=1.2mm](0,-1)--(0,1);
+\draw[line width=1.2mm](-1,0)--(1,0);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping force};
+\end{scope}
+\end{tikzpicture}
+\end{figure}
+Based on this fact, for angles, rectangular/square/circular hollow sections, narrow rectangular sections and T sections, one shall use \eqsref{eq:no_warp} to calculate $M_o$ (\NZSSTEEL{Cl. 5.6.1.3 to Cl. 5.6.1.6}). For all other sections, one shall use \eqsref{eq:warp} to compute reference moment.
 
 The most significant warping stress is often developed in open sections with several legs with all elements not framing into one point. For example, I and C sections. If readers want to learn more about warping, check \href{https://www.youtube.com/watch?v=QtyGWZDPtCI}{this}\footnote{https://www.youtube.com/watch?v=QtyGWZDPtCI} video.
 

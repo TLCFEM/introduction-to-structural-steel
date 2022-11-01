@@ -390,9 +390,105 @@ Use 150UC30.0
 \end{figure}
 \end{solution}
 
-\begin{figure}[p]
-\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR1}
+\begin{exmp}
+Sag rods, threaded over their whole length, are to be designed to support purlins parallel to the roof surface as shown below. This is because purlins are strong in bending about their major axis, but they are weak about their minor axis. To prevent possible rod damage during construction, use a minimum diameter of \SI{16}{\mm} and to prevent flutter, use $L/d<500$. Assume Grade 300 steel.
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/TENSIONRODS}
 \end{figure}
-\begin{figure}[p]
-\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR2}
+\end{exmp}
+\begin{solution}
+The rods are to be threaded such that $A_n=0.75A_g=0.75\times\dfrac{\pi{}d^2}{4}$. Since they are threaded over their whole length we only need to consider fracture,
+\begin{gather*}
+\phi{}N_t=0.9\times0.95\times{}k_{te}A_nf_u\geqslant{}N^*_t.
+\end{gather*}
+This gives
+\begin{gather*}
+\begin{split}
+d(\si{\meter})&\geqslant\sqrt{\dfrac{4\times{}N^*_t}{0.9\times0.85\times{}k_{te}\times{}f_u\times0.75\times\pi{}}}\\&=\sqrt{\dfrac{4\times{}N^*_t}{0.9\times0.85\times{}1\times{}\SI{440}{\mpa}\times0.75\times\pi{}}}=\num{7.102e-5}\sqrt{N^*_t(\si{\newton})}.
+\end{split}
+\end{gather*}
+
+We proceed to find $N^*$ on the member.
+\begin{enumerate}
+\item Clay roofing: \SI{800}{\pascal} on flat roof, i.e., on flat roof, weight is \SI{800}{\pascal}. On sloping roof, the weight per horizontal distance is
+\begin{gather*}
+\dfrac{\SI{800}{\pascal}}{\cos\alpha}=\dfrac{\sqrt{10}}{3}\times\SI{800}{\pascal}=\SI{843.3}{\pascal}.
+\end{gather*}
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}
+\draw(0,0)--++(3,0)--++(0,1)--cycle;
+\draw(1,0)arc(0:18.435:1)node[midway,right=1mm]{$\alpha$};
+\dimline[extension start length=0,extension end length=0]{(0,-.5)}{(3,-.5)}{3}
+\dimline[extension start length=0,extension end length=0]{(3.5,0)}{(3.5,1)}{1}
+\begin{scope}[rotate=18.435]
+\draw(0,.5)rectangle++(3*1.0541,.2);
+\foreach \x in {0,.3,.6,...,3.1}{
+\draw[<-](\x*1.0541,.8)--++(.1,.3);}
+\end{scope}
+\end{tikzpicture}
 \end{figure}
+\item Snow pressure: \SI{1600}{\pascal} (vertical)
+\item Purlin equivalent force: 150PFC has a linear density of \SI{17.7}{\kilogram\per\meter}, the horizontal spacing is \SI{1.8}{\meter}, this gives
+\begin{gather*}
+\dfrac{\SI{17.7}{\kilogram\per\meter}\times\SI{9.81}{\newton\per\kilogram}}{\SI{1.8}{\meter}}=\SI{96.5}{\pascal}.
+\end{gather*}
+\end{enumerate}
+Collecting those terms, the design action
+\begin{gather*}
+\begin{split}
+N^*_{v,Pa}&=1.2G+S\\&=1.2\times\left(\SI{843.3}{\pascal}+\SI{96.5}{\pascal}\right)+\SI{1600}{\pascal}=\SI{2728}{\pascal}
+\end{split}
+\end{gather*}
+
+The equivalent total vertical force acting on sag rod is computed by accounting for tributary area. This leads to
+\begin{gather*}
+N^*_{v,kN}=\SI{2728}{\pascal}\times\SI{10.8}{\meter}\times\SI{6.6}{\meter}/3=\SI{64.8}{\kilo\newton}.
+\end{gather*}
+
+The critical tension force in sag rod is
+\begin{gather*}
+N^*_t=N^*_{v,kN}\sin\alpha=\SI{64.8}{\kilo\newton}\times\dfrac{1}{\sqrt{10}}=\SI{20.5}{\kn}.
+\end{gather*}
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}[scale=.2,rotate=90]
+\draw(6,0)arc(180:180-18.435:4)node[midway,below]{$\alpha$};
+\draw[<-](0,0)--++(10,0)node[midway,right]{$N^*_v$};
+\draw[->](10,0)--++(-9,3);
+\draw[<-](0,0)--++(1,3)node[midway,below]{$N^*_t$};
+\end{tikzpicture}
+\end{figure}
+
+Thus the minimum diameter is
+\begin{gather*}
+d=\num{7.102e-5}\sqrt{20500}=\SI{}{\meter}=\SI{1.017e-2}{\meter}=\SI{10.17}{\mm}\le\SI{16}{\mm}.
+\end{gather*}
+\begin{flushright}
+Try $\phi\SI{16}{\mm}$ rod
+\end{flushright}
+
+Check flutter.
+\begin{gather}
+\dfrac{L}{d}=\dfrac{\SI{10.8}{\meter}/6\times\dfrac{\sqrt{10}}{3}}{\SI{16}{\mm}}=118.6<500
+\end{gather}
+
+Check force in top tie rod.
+\begin{gather*}
+N^*_{t,top}=N^*_t\times\cos\alpha=\SI{21.6}{\kn}.
+\end{gather*}
+The minimum diameter becomes \SI{10.44}{\mm}. Thus the chosen \SI{16}{\mm} rod is still okay.
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}[scale=.2]
+\draw(6,0)arc(180:180-18.435:4)node[midway,left]{$\alpha$};
+\draw[->](0,0)--++(10,0)node[midway,below]{$N^*_{t,top}$};
+\draw[<-](10,0)--++(-9,3)node[midway,above]{$N^*_t$};
+\draw[<-](0,0)--++(1,3);
+\end{tikzpicture}
+\end{figure}
+\begin{flushright}
+Use Grade 300 $\phi\SI{16}{\mm}$ rod
+\end{flushright}
+\end{solution}

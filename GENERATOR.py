@@ -7,7 +7,7 @@ main_file.write('\\documentclass[tikz,11pt,border=.1mm]{standalone}\n')
 main_file.write(
     '\\usepackage{amsmath,amsfonts,amssymb,mathpazo,gnuplot-lua-tikz,siunitx,pgfplots,xcolor,structmech,booktabs,multirow,pdfpages,tikz-dimline}\n')
 main_file.write(
-    '\\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing,backgrounds,patterns}\n')
+    '\\usetikzlibrary{shapes,arrows,positioning,calc,decorations.pathmorphing,backgrounds,patterns,spy}\n')
 main_file.write('\\usepgfplotslibrary{fillbetween}\n')
 main_file.write('\\definecolor{exmpbg}{RGB}{255,255,255}\n')
 main_file.write('\\definecolor{0066cc}{RGB}{0,102,204}\n')

@@ -1,0 +1,28 @@
+\begin{tikzpicture}[spy using outlines={circle,magnification=3,size=5cm,connect spies}]
+\draw[very thick](.5,-.5)++(-30:.2)--++(0,2);
+\draw[fill=black!10](-.5,0)--++(-30:3)--++(1,0)--++(150:3)--cycle;
+\draw[fill=black!20](0,0)--++(-30:3)--++(0,1)--++(150:3)--cycle;
+\draw[fill=black!30](-.5,1)--++(-30:3)--++(1,0)--++(150:3)--cycle;
+\draw[very thick](-.5,-.5)++(-30:.2)--++(0,2);
+\draw[cc0066,->,very thick](-1,0)++(-30:3)--++(-1,0);
+\draw[cc0066,->,very thick](-2,1)++(-30:3)--++(1,0);
+\begin{scope}[xshift=10cm]
+\begin{scope}[rotate around={-5:(0,0)}]
+\draw[fill=black!10](-.5,-.5)rectangle++(4,1);
+\draw[dashed](-.5,0)--++(4,0);
+\end{scope}
+\begin{scope}[rotate around={5:(0,0)}]
+\draw[fill=black!30](-.5,-.5)rectangle++(4,1);
+\draw[dashed](-.5,0)--++(4,0);
+\end{scope}
+\draw(1.5,-1.5)node{top view};
+\spy on (10,0)in node at(6,1);
+\draw[dashed,very thin](-.5,-.5)rectangle++(4,1);
+\draw[dashed,very thin](-.5,0)--++(4,0);
+\node[fill=black,circle,inner sep=0,minimum size=2mm]at(0,.6){};
+\node[fill=black,circle,inner sep=0,minimum size=2mm]at(0,-.6){};
+\draw[cc0066,->,very thick](3.5,1)--++(0,.5);
+\draw[cc0066,->,very thick](3.5,-1)--++(0,-.5);
+\end{scope}
+\node[align=center]at(6,-2){warping deformation\\but no warping force};
+\end{tikzpicture}
