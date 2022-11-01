@@ -239,7 +239,7 @@ Assuming Grade 300 steel and $\phi~\SI{12}{\mm}$ bolts, the thickness of top pla
 \begin{solution}
 A member subjected to an axial tension force shall satisfy:
 \begin{gather*}
-N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_y\right).
+N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_u\right).
 \end{gather*}
 In this case, $k_{te}=1$. The overall width $b$ is
 \begin{gather*}
@@ -249,11 +249,11 @@ The standard hole size is
 \begin{gather*}
 d_h=\SI{12}{\mm}+\SI{2}{\mm}=\SI{14}{\mm}.
 \end{gather*}
-Because $t=\SI{12}{\mm}>\SI{11}{\mm}$, for Grade 300 steel, $f_y=\SI{300}{\mpa}$ and $f_u=\SI{440}{\mpa}$.
+Because $t=\SI{12}{\mm}>\SI{11}{\mm}$, for Grade 300 steel, $f_y=\SI{310}{\mpa}$ and $f_u=\SI{430}{\mpa}$.
 
 For gross area,
 \begin{gather*}
-A_gf_y=btf_y=\SI{230}{\mm}\times\SI{12}{\mm}\times\SI{300}{\mpa}=\SI{828}{\kn}.
+A_gf_y=btf_y=\SI{230}{\mm}\times\SI{12}{\mm}\times\SI{310}{\mpa}=\SI{855.6}{\kn}.
 \end{gather*}
 For net area, find critical fracture line first. When fracture line is $ABFG$,
 \begin{gather*} L_{ABFG}=b-2d=\SI{230}{\mm}-2\times\SI{14}{\mm}=\SI{202}{\mm}.\qquad\rightarrow\qquad\text{critical}
@@ -270,14 +270,14 @@ A_n=L_{ABFG}t=\SI{202}{\mm}\times\SI{12}{\mm}=\SI{2424}{\mm^2}.
 \end{gather*}
 Then,
 \begin{gather*}
-0.85k_{te}A_nf_u=0.85\times1\times\SI{2424}{\mm^2}\times\SI{440}{\mpa}=\SI{906.6}{\kn}.
+0.85k_{te}A_nf_u=0.85\times1\times\SI{2424}{\mm^2}\times\SI{430}{\mpa}=\SI{886}{\kn}.
 \end{gather*}
 The maximum factored force is then
 \begin{gather*}
-N^*\leqslant\min\left(0.9\times\SI{828}{\kn},~0.9\times\SI{906.6}{\kn}\right)=\SI{745.2}{\kn}.
+N^*\leqslant\min\left(0.9\times\SI{855.6}{\kn},~0.9\times\SI{886}{\kn}\right)=\SI{770}{\kn}.
 \end{gather*}
 \begin{flushright}
-$N^*=\SI{745.2}{\kn}$
+$N^*=\SI{770}{\kn}$
 \end{flushright}
 \end{solution}
 For connected members, both failure mechanisms need to be calculated. This applies to not only bolted connection with area reduction, but also other types of connections.
@@ -364,7 +364,7 @@ Since bolts are in both flanges, axial forces from half section goes to bolts on
 \begin{minipage}{.99\linewidth-6cm}
 \begin{align*}
 \bar{x}&=\dfrac{\sum{}x_iA_i}{\sum{}A_i}\\&=\dfrac{\left(b_f-t_w\right)\cdot{}t_f\cdot{}t_f/2+t_w\cdot{}d/2\cdot{}d/4}{A_g/2}\\
-&=\dfrac{\left(153-6.6\right)\cdot{}9.4\cdot{}4.7+6.6\cdot{}78.8\cdot{}9.4}{1930}\si{\mm}\\
+&=\dfrac{\left(153-6.6\right)\cdot{}9.4\cdot{}4.7+6.6\cdot{}78.8\cdot{}39.4}{1930}\si{\mm}\\
 &=\SI{13.97}{\mm}.
 \end{align*}
 The total length of connection is $l=2\times\SI{80}{\mm}=\SI{160}{\mm}$,
@@ -377,7 +377,7 @@ k_{te}&=1-\dfrac{\bar{x}}{l}\\
 
 Thus,
 \begin{gather*}
-\phi0.85k_{te}A_nf_y=0.9\times0.85\times0.913\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{932}{\kn}>\SI{924}{\kn}.
+\phi0.85k_{te}A_nf_u=0.9\times0.85\times0.913\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{932}{\kn}>\SI{924}{\kn}.
 \end{gather*}
 
 The general method (case 2) is less conservative than the specific one (case 7) in this case.

@@ -465,7 +465,7 @@ t_p&ply thickness\\
 f_{up}&ply ultimate strength
 \end{conditions}
 \item \textbf{Bolt tearing out failure (Eq. 9.3.2.4(2))}
-\begin{gather}
+\begin{gather}\label{eq:93242}
 V_b=a_et_pf_{up},
 \end{gather}
 where
@@ -483,10 +483,14 @@ The following requirements shall be met to avoid potential failure modes.
 \end{figure}
 \begin{enumerate}
 \item \textbf{Bolt spacing failure}\\
-\NZSSTEEL{\S~9.6.1} requires the minimum pitch $s$ (the distance between centres of bolt holes) shall be at least $2.5d_f$.
+The minimum pitch $s$ (the distance between centres of bolt holes)
+\begin{itemize}
+\item in any direction shall be at least $2.5d_f$. (\NZSSTEEL{\S~9.6.1})
 \begin{gather}
 s\geqslant2.5d_f.
 \end{gather}
+\item in the direction of force, the computation of $s$ should be such that \eqsref{eq:93242} is satisfied. Here, to compute $a_e$, the `minimum distance from hole edge to edge of ply in direction of force plus half of $d_f$' is taken as `the clear distance between bolt holes in the direction of the component of force plus half of $d_f$'.
+\end{itemize}
 \item \textbf{Bolt side failure}\\
 \NZSSTEEL{\S~9.6.2.1} defines the edge distance to be the distance from the nearer edge of the hole to the physical edge of the plate or rolled section \textbf{plus} half of $d_f$. The edge distance $a_e=e+d_f/2$ shall meet the following minimum values for different cases:
 \begin{itemize}
@@ -495,16 +499,16 @@ s\geqslant2.5d_f.
 \item $1.25d_f$ for rolled edge of a rolled flat bar or section
 \end{itemize}
 \item \textbf{Corrosion between plates}\\
-\NZSSTEEL{\S~9.6.3} requires the maximum distance between centres of holes shall be the smaller of $15t_p$ and $\SI{200}{\mm}$.
+\NZSSTEEL{\S~9.6.4} requires the maximum distance between centres of holes shall be the smaller of $12t_p$ and $\SI{150}{\mm}$.
 \begin{gather}
-s\leqslant\min\left(15t_p,~\SI{200}{\mm}\right).
+s\leqslant\min\left(12t_p,~\SI{150}{\mm}\right).
 \end{gather}
 \end{enumerate}
-\subsection{Block Shear Failure}\label{sec:block_failure}
+\subsection{Block Tearing Failure}\label{sec:block_failure}
 Block shear/tearing failure is not explicitly considered in \NZSSTEEL{}. However, it has caused connection failures in the past.
 \begin{figure}[H]
 \centering\footnotesize
-\includegraphics[scale=1.5]{PIC/CH06/BLOCK}\caption{Illustration of block shear failure}
+\includegraphics[scale=1.5]{PIC/CH06/BLOCK}\caption{Illustration of block tearing failure}
 \end{figure}
 
 Similar to tension members, in this course, we the following expression to determine capacity when tension stress is uniform.
@@ -531,7 +535,7 @@ where $A_{nv}$ and $A_{gv}$ have been introduced previously and are also illustr
 \begin{figure}[H]
 \centering\footnotesize
 \includegraphics[scale=.8]{PIC/CH06/BTOF}
-\caption{Failure surface of block shear/tear (\href{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}{\url{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}})}
+\caption{Failure surface of block shear/tearing (\href{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}{\url{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}})}
 \end{figure}
 \subsection{Bolt Tension Failure}
 \begin{figure}[H]
@@ -674,7 +678,7 @@ According to \tabref{tab:angle_gauge}, choose a gauge length of \SI{40}{\mm}. Th
 \begin{figure}[H]
 \input{PIC/CH06/DABC}
 \end{figure}
-Check block shear.
+Check block tearing.
 \begin{gather*}
 A_{gv}=2\times\SI{110}{\mm}\times\SI{5}{\mm}=\SI{1100}{\mm^2},\\
 A_{gt}=2\times\SI{35}{\mm}\times\SI{5}{\mm}=\SI{350}{\mm^2},\\
@@ -690,7 +694,7 @@ Use \eqsref{eq:block_shear},
 \begin{flushright}
 NOT GOOD
 \end{flushright}
-Block shear is the controlling mode and must be considered. Therefore, to keep lightest angles, the spacing of bolts must be increased. The following spacing is satisfactory.
+Block tearing is the controlling mode and must be considered. Therefore, to keep lightest angles, the spacing of bolts must be increased. The following spacing is satisfactory.
 \begin{figure}[H]
 \input{PIC/CH06/DABC2}
 \end{figure}

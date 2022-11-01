@@ -602,7 +602,7 @@ The $\alpha_m$ can be computed as
 \begin{gather*}
 \alpha_m=\dfrac{1.7\times\SI{100}{\kn\meter}}{\sqrt{\left(\SI{20}{\kn\meter}\right)^2+\left(\SI{20}{\kn\meter}\right)^2+\left(\SI{60}{\kn\meter}\right)^2}}=2.5628>2.5,
 \end{gather*}
-use $\alpha_m=2.5$. This lead to
+use $\alpha_m=2.5$. This leads to
 \begin{gather*}
 \dfrac{M^*}{\alpha_m}=\dfrac{\SI{100}{\kn\meter}}{2.5}=\SI{40}{\kn\meter}.
 \end{gather*}
@@ -672,15 +672,18 @@ The nominal shear capacity $V_v$ shall be determined as
 \begin{gather}
 V_v=\min\left(V_w,~V_b\right).
 \end{gather}
-where
+
+The shear capacity associated with web yielding $V_w$ (\NZSSTEEL{\S~5.11.4.1}) is,
 \begin{gather}
-V_w=0.6f_yA_w
+V_w=0.6f_{yw}A_w=0.6f_{yw}dt_w
 \end{gather}
-is the yield capacity (\NZSSTEEL{\S~5.11.4.1}) while
+where $f_{yw}$ is the yield shear stress. For an unstiffened web, $A_w=dt_w$ is the area of web.
+
+The shear capacity associated with web buckling $V_b$ (\NZSSTEEL{\S~5.11.5.1}) is,
 \begin{gather}
 V_b=V_w\left(\dfrac{82}{\dfrac{d_p}{t_w}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}}\right)^2=0.6f_yA_w\left(\dfrac{82}{\dfrac{d_p}{t_w}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}}\right)^2
 \end{gather}
-is the buckling capacity (\NZSSTEEL{\S~5.11.5.1}). In above equations, $d_p$ is the depth of the deepest web panel, this is equal to the distance between the insides of the flanges, $d_1$, for an unstiffened web, and $A_w=dt_w$ is the area of web.
+where $d_p$ is the depth of the deepest web panel, this is equal to the distance between the insides of the flanges, $d_1$. Note $d_1\neq{}d$ in general.
 
 Also, \NZSSTEEL{Cl. 5.10.1.1} imposes the maximum web slenderness ratio as
 \begin{gather}
