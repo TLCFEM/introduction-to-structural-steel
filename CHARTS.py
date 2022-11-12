@@ -44,12 +44,15 @@ def compute_axial_compression(lmd: float, kffy: float, an: float):
     return .9 * ac * kffy * an / 1000
 
 
-def ub_strong_axis():
+def ub_strong_axis(size: tuple | None = None):
     ls = get_line_style()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UB = pandas.read_csv('REF/UB.DESIGNATION.csv')
     for i in UB['designation']:
@@ -70,15 +73,21 @@ def ub_strong_axis():
     plt.ylabel(r'$\phi{}N_c$ [kN]')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UB.STRONG.NC.pdf')
+    if size is None:
+        figure.savefig('REF/UB.STRONG.NC.pdf')
+    else:
+        figure.savefig(f'REF/UB.STRONG.NC.LARGE.pdf')
 
 
-def ub_weak_axis():
+def ub_weak_axis(size: tuple | None = None):
     ls = get_line_style()
 
     le = np.linspace(0, 10, 1000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UB = pandas.read_csv('REF/UB.DESIGNATION.csv')
     for i in UB['designation']:
@@ -99,15 +108,21 @@ def ub_weak_axis():
     plt.ylabel(r'$\phi{}N_c$ [kN]')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UB.WEAK.NC.pdf')
+    if size is None:
+        figure.savefig('REF/UB.WEAK.NC.pdf')
+    else:
+        figure.savefig('REF/UB.WEAK.NC.LARGE.pdf')
 
 
-def uc_strong_axis():
+def uc_strong_axis(size: tuple | None = None):
     ls = get_line_style()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UC = pandas.read_csv('REF/UC.DESIGNATION.csv')
     for i in UC['designation']:
@@ -129,15 +144,21 @@ def uc_strong_axis():
     plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UC.STRONG.NC.pdf')
+    if size is None:
+        figure.savefig('REF/UC.STRONG.NC.pdf')
+    else:
+        figure.savefig('REF/UC.STRONG.NC.LARGE.pdf')
 
 
-def uc_weak_axis():
+def uc_weak_axis(size: tuple | None = None):
     ls = get_line_style()
 
     le = np.linspace(0, 10, 1000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UC = pandas.read_csv('REF/UC.DESIGNATION.csv')
     for i in UC['designation']:
@@ -158,7 +179,10 @@ def uc_weak_axis():
     plt.ylabel(r'$\phi{}N_c$ [kN]')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UC.WEAK.NC.pdf')
+    if size is None:
+        figure.savefig('REF/UC.WEAK.NC.pdf')
+    else:
+        figure.savefig('REF/UC.WEAK.NC.LARGE.pdf')
 
 
 yield_modulus = 200
@@ -179,13 +203,16 @@ def offset():
         yield i
 
 
-def ub_strong_bending():
+def ub_strong_bending(size: tuple | None = None):
     ls = get_line_style()
     off = offset()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UB = pandas.read_csv('REF/UB.DESIGNATION.csv')
     for i in UB['designation']:
@@ -208,15 +235,21 @@ def ub_strong_bending():
     plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UB.STRONG.MS.pdf')
+    if size is None:
+        figure.savefig('REF/UB.STRONG.MS.pdf')
+    else:
+        figure.savefig('REF/UB.STRONG.MS.LARGE.pdf')
 
 
-def uc_strong_bending():
+def uc_strong_bending(size: tuple | None = None):
     ls = get_line_style()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
-    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    if size is None:
+        figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+    else:
+        figure = plt.figure(figsize=size, dpi=200)
 
     UC = pandas.read_csv('REF/UC.DESIGNATION.csv')
     for i in UC['designation']:
@@ -239,7 +272,10 @@ def uc_strong_bending():
     plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
     plt.grid(which='both')
     figure.tight_layout()
-    figure.savefig('REF/UC.STRONG.MS.pdf')
+    if size is None:
+        figure.savefig('REF/UC.STRONG.MS.pdf')
+    else:
+        figure.savefig('REF/UC.STRONG.MS.LARGE.pdf')
 
 
 if __name__ == '__main__':
@@ -249,3 +285,9 @@ if __name__ == '__main__':
     uc_weak_axis()
     ub_strong_bending()
     uc_strong_bending()
+    ub_strong_axis((11.7, 8.3))
+    ub_weak_axis((11.7, 8.3))
+    uc_strong_axis((11.7, 8.3))
+    uc_weak_axis((11.7, 8.3))
+    ub_strong_bending((11.7, 8.3))
+    uc_strong_bending((11.7, 8.3))
