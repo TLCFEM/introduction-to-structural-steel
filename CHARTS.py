@@ -3,6 +3,7 @@ from itertools import cycle
 
 import matplotlib
 import matplotlib.pyplot as plt
+import matplotx
 import numpy as np
 import pandas as pandas
 
@@ -58,15 +59,15 @@ def ub_strong_axis():
         k_f = float(section['k_f'].values[0])
         A = float(section['A'].values[0])
         nc = [compute_axial_compression(l * 1000 / r_x, k_f * f_y, A) for l in le]
-        plt.plot(le, nc, label=i, linestyle=next(ls), linewidth=1)
+        plt.semilogy(le, nc, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 20)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UB Strong Axis Compression', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\phi{}N_c$ [kN]')
-    plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
     figure.savefig('REF/UB.STRONG.NC.pdf')
@@ -87,15 +88,15 @@ def ub_weak_axis():
         k_f = float(section['k_f'].values[0])
         A = float(section['A'].values[0])
         nc = [compute_axial_compression(l * 1000 / r_y, k_f * f_y, A) for l in le]
-        plt.plot(le, nc, label=i, linestyle=next(ls), linewidth=1)
+        plt.semilogy(le, nc, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 10)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UB Weak Axis Compression', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\phi{}N_c$ [kN]')
-    plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
     figure.savefig('REF/UB.WEAK.NC.pdf')
@@ -116,11 +117,12 @@ def uc_strong_axis():
         k_f = float(section['k_f'].values[0])
         A = float(section['A'].values[0])
         nc = [compute_axial_compression(l * 1000 / r_x, k_f * f_y, A) for l in le]
-        plt.plot(le, nc, label=i, linestyle=next(ls), linewidth=1)
+        plt.semilogy(le, nc, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 20)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UC Strong Axis Compression', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\phi{}N_c$ [kN]')
@@ -145,15 +147,15 @@ def uc_weak_axis():
         k_f = float(section['k_f'].values[0])
         A = float(section['A'].values[0])
         nc = [compute_axial_compression(l * 1000 / r_y, k_f * f_y, A) for l in le]
-        plt.plot(le, nc, label=i, linestyle=next(ls), linewidth=1)
+        plt.semilogy(le, nc, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 10)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UC Weak Axis Compression', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\phi{}N_c$ [kN]')
-    plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
     figure.savefig('REF/UC.WEAK.NC.pdf')
@@ -172,8 +174,14 @@ def compute_as(le, Iy, Iw, J, ms):
     return min(1, .6 * (math.sqrt(factor ** 2 + 3) - factor))
 
 
+def offset():
+    for i in cycle([2, -2]):
+        yield i
+
+
 def ub_strong_bending():
     ls = get_line_style()
+    off = offset()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
@@ -188,16 +196,16 @@ def ub_strong_bending():
         fy = float(section['f_y'].values[0])
         zex = float(section['Z_ex'].values[0])
         ms = fy * zex / 1000
-        As = np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
-        plt.plot(le, .9 * As * ms, label=i, linestyle=next(ls), linewidth=1)
+        As = .9 * ms * np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
+        plt.semilogy(le, As, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 20)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UB Strong Axis Bending', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
-    plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
     figure.savefig('REF/UB.STRONG.MS.pdf')
@@ -219,16 +227,16 @@ def uc_strong_bending():
         fy = float(section['f_y'].values[0])
         zex = float(section['Z_ex'].values[0])
         ms = fy * zex / 1000
-        As = np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
-        plt.plot(le, .9 * As * ms, label=i, linestyle=next(ls), linewidth=1)
+        As = .9 * ms * np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
+        plt.semilogy(le, As, label=i, linestyle=next(ls), linewidth=1)
 
-    plt.legend(ncol=2)
+    plt.legend(ncol=2, handlelength=4)
     plt.xlim(0, 20)
     plt.minorticks_on()
+    matplotx.line_labels()
     plt.title('Grade 300 UC Strong Axis Bending', fontweight='bold')
     plt.xlabel('Effective Length [m]')
     plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
-    plt.yscale('log')
     plt.grid(which='both')
     figure.tight_layout()
     figure.savefig('REF/UC.STRONG.MS.pdf')
