@@ -159,8 +159,85 @@ def uc_weak_axis():
     figure.savefig('REF/UC.WEAK.NC.pdf')
 
 
+yield_modulus = 200
+shear_modulus = 80
+
+
+def compute_as(le, Iy, Iw, J, ms):
+    if le == 0:
+        return 1
+    mo = math.sqrt((math.pi / le) ** 2 * yield_modulus * Iy) * math.sqrt(
+        (shear_modulus * J + (math.pi / le) ** 2 * yield_modulus * Iw) / 1000)
+    factor = ms / mo
+    return min(1, .6 * (math.sqrt(factor ** 2 + 3) - factor))
+
+
+def ub_strong_bending():
+    ls = get_line_style()
+
+    le = np.linspace(0, 20, 2000, endpoint=False)
+
+    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+
+    UB = pandas.read_csv('REF/UB.DESIGNATION.csv')
+    for i in UB['designation']:
+        section = UB[i == UB['designation']]
+        Iy = float(section['I_y'].values[0])
+        Iw = float(section['I_w'].values[0])
+        J = float(section['J'].values[0])
+        fy = float(section['f_y'].values[0])
+        zex = float(section['Z_ex'].values[0])
+        ms = fy * zex / 1000
+        As = np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
+        plt.plot(le, .9 * As * ms, label=i, linestyle=next(ls), linewidth=1)
+
+    plt.legend(ncol=2)
+    plt.xlim(0, 20)
+    plt.minorticks_on()
+    plt.title('Grade 300 UB Strong Axis Bending', fontweight='bold')
+    plt.xlabel('Effective Length [m]')
+    plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
+    plt.yscale('log')
+    plt.grid(which='both')
+    figure.tight_layout()
+    figure.savefig('REF/UB.STRONG.MS.pdf')
+
+
+def uc_strong_bending():
+    ls = get_line_style()
+
+    le = np.linspace(0, 20, 2000, endpoint=False)
+
+    figure = plt.figure(figsize=(6.2, 9.4), dpi=200)
+
+    UC = pandas.read_csv('REF/UC.DESIGNATION.csv')
+    for i in UC['designation']:
+        section = UC[i == UC['designation']]
+        Iy = float(section['I_y'].values[0])
+        Iw = float(section['I_w'].values[0])
+        J = float(section['J'].values[0])
+        fy = float(section['f_y'].values[0])
+        zex = float(section['Z_ex'].values[0])
+        ms = fy * zex / 1000
+        As = np.array([compute_as(l, Iy, Iw, J, ms) for l in le])
+        plt.plot(le, .9 * As * ms, label=i, linestyle=next(ls), linewidth=1)
+
+    plt.legend(ncol=2)
+    plt.xlim(0, 20)
+    plt.minorticks_on()
+    plt.title('Grade 300 UC Strong Axis Bending', fontweight='bold')
+    plt.xlabel('Effective Length [m]')
+    plt.ylabel(r'$\alpha_s\phi{}M_s$ [kN$\cdot$m]')
+    plt.yscale('log')
+    plt.grid(which='both')
+    figure.tight_layout()
+    figure.savefig('REF/UC.STRONG.MS.pdf')
+
+
 if __name__ == '__main__':
     ub_strong_axis()
     ub_weak_axis()
     uc_strong_axis()
     uc_weak_axis()
+    ub_strong_bending()
+    uc_strong_bending()
