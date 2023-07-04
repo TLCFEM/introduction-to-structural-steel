@@ -46,6 +46,7 @@ f_u&tensile (ultimate) strength
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH03/NET}
+\caption{Fracture over net area}
 \end{figure}
 \end{itemize}
 
@@ -56,6 +57,7 @@ N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_u\right).
 \begin{figure}[H]
 \centering\footnotesize
 \input{PIC/CH03/SUS}
+\caption{Definitions of gross and net areas}
 \end{figure}
 \subsection{Definition of Net Area}
 The \textbf{net} area of the section considers the \textbf{gross} areas of holes used in the member. For bolted members, the standard hole size $d_h$ is a function of the bolt diameter $d_f$ (\NZSSTEEL{\S~14.3.5.2.1}).
@@ -91,6 +93,7 @@ s_{g}&gauge length, distance between hole centers measured \textbf{perpendicular
 \begin{figure}[H]
 \centering
 \input{PIC/CH03/SPG}
+\caption{Definition of gauge length and pitch}
 \end{figure}
 
 \eqsref{eq:unstaggered} is the simplified case of \eqsref{eq:staggered} with no diagonal line segments. For staggered layouts, the third term in \eqsref{eq:staggered} must be used. For any given bolt layouts, the governing net area shall be the \textbf{minimum} of all staggered and unstaggered cases. This is due to the fact that in a staggered layout, depending on pitch and gauge, an unstaggered section may have smaller net area than a staggered section.
@@ -236,7 +239,7 @@ Assuming Grade 300 steel and $\phi~\SI{12}{\mm}$ bolts, the thickness of top pla
 \begin{solution}
 A member subjected to an axial tension force shall satisfy:
 \begin{gather*}
-N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_y\right).
+N^*\leqslant\min\left(\phi{}A_gf_y,~\phi{}0.85k_{te}A_nf_u\right).
 \end{gather*}
 In this case, $k_{te}=1$. The overall width $b$ is
 \begin{gather*}
@@ -246,11 +249,11 @@ The standard hole size is
 \begin{gather*}
 d_h=\SI{12}{\mm}+\SI{2}{\mm}=\SI{14}{\mm}.
 \end{gather*}
-Because $t=\SI{12}{\mm}>\SI{11}{\mm}$, for Grade 300 steel, $f_y=\SI{300}{\mpa}$ and $f_u=\SI{440}{\mpa}$.
+Because $t=\SI{12}{\mm}>\SI{11}{\mm}$, for Grade 300 steel, $f_y=\SI{310}{\mpa}$ and $f_u=\SI{430}{\mpa}$.
 
 For gross area,
 \begin{gather*}
-A_gf_y=btf_y=\SI{230}{\mm}\times\SI{12}{\mm}\times\SI{300}{\mpa}=\SI{828}{\kn}.
+A_gf_y=btf_y=\SI{230}{\mm}\times\SI{12}{\mm}\times\SI{310}{\mpa}=\SI{855.6}{\kn}.
 \end{gather*}
 For net area, find critical fracture line first. When fracture line is $ABFG$,
 \begin{gather*} L_{ABFG}=b-2d=\SI{230}{\mm}-2\times\SI{14}{\mm}=\SI{202}{\mm}.\qquad\rightarrow\qquad\text{critical}
@@ -267,14 +270,14 @@ A_n=L_{ABFG}t=\SI{202}{\mm}\times\SI{12}{\mm}=\SI{2424}{\mm^2}.
 \end{gather*}
 Then,
 \begin{gather*}
-0.85k_{te}A_nf_u=0.85\times1\times\SI{2424}{\mm^2}\times\SI{440}{\mpa}=\SI{906.6}{\kn}.
+0.85k_{te}A_nf_u=0.85\times1\times\SI{2424}{\mm^2}\times\SI{430}{\mpa}=\SI{886}{\kn}.
 \end{gather*}
 The maximum factored force is then
 \begin{gather*}
-N^*\leqslant\min\left(0.9\times\SI{828}{\kn},~0.9\times\SI{906.6}{\kn}\right)=\SI{745.2}{\kn}.
+N^*\leqslant\min\left(0.9\times\SI{855.6}{\kn},~0.9\times\SI{886}{\kn}\right)=\SI{770}{\kn}.
 \end{gather*}
 \begin{flushright}
-$N^*=\SI{745.2}{\kn}$
+$N^*=\SI{770}{\kn}$
 \end{flushright}
 \end{solution}
 For connected members, both failure mechanisms need to be calculated. This applies to not only bolted connection with area reduction, but also other types of connections.
@@ -361,7 +364,7 @@ Since bolts are in both flanges, axial forces from half section goes to bolts on
 \begin{minipage}{.99\linewidth-6cm}
 \begin{align*}
 \bar{x}&=\dfrac{\sum{}x_iA_i}{\sum{}A_i}\\&=\dfrac{\left(b_f-t_w\right)\cdot{}t_f\cdot{}t_f/2+t_w\cdot{}d/2\cdot{}d/4}{A_g/2}\\
-&=\dfrac{\left(153-6.6\right)\cdot{}9.4\cdot{}4.7+6.6\cdot{}78.8\cdot{}9.4}{1930}\si{\mm}\\
+&=\dfrac{\left(153-6.6\right)\cdot{}9.4\cdot{}4.7+6.6\cdot{}78.8\cdot{}39.4}{1930}\si{\mm}\\
 &=\SI{13.97}{\mm}.
 \end{align*}
 The total length of connection is $l=2\times\SI{80}{\mm}=\SI{160}{\mm}$,
@@ -374,7 +377,7 @@ k_{te}&=1-\dfrac{\bar{x}}{l}\\
 
 Thus,
 \begin{gather*}
-\phi0.85k_{te}A_nf_y=0.9\times0.85\times0.913\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{932}{\kn}>\SI{924}{\kn}.
+\phi0.85k_{te}A_nf_u=0.9\times0.85\times0.913\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{932}{\kn}>\SI{924}{\kn}.
 \end{gather*}
 
 The general method (case 2) is less conservative than the specific one (case 7) in this case.
@@ -387,9 +390,105 @@ Use 150UC30.0
 \end{figure}
 \end{solution}
 
-\begin{figure}[p]
-\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR1}
+\begin{exmp}
+Sag rods, threaded over their whole length, are to be designed to support purlins parallel to the roof surface as shown below. This is because purlins are strong in bending about their major axis, but they are weak about their minor axis. To prevent possible rod damage during construction, use a minimum diameter of \SI{16}{\mm} and to prevent flutter, use $L/d<500$. Assume Grade 300 steel.
+\begin{figure}[H]
+\centering
+\input{PIC/CH03/TENSIONRODS}
 \end{figure}
-\begin{figure}[p]
-\centering\includegraphics[width=.99\textwidth]{PIC/CH03/TR2}
+\end{exmp}
+\begin{solution}
+The rods are to be threaded such that $A_n=0.75A_g=0.75\times\dfrac{\pi{}d^2}{4}$. Since they are threaded over their whole length we only need to consider fracture,
+\begin{gather*}
+\phi{}N_t=0.9\times0.95\times{}k_{te}A_nf_u\geqslant{}N^*_t.
+\end{gather*}
+This gives
+\begin{gather*}
+\begin{split}
+d(\text{in~}\si{\meter})&\geqslant\sqrt{\dfrac{4\times{}N^*_t}{0.9\times0.85\times{}k_{te}\times{}f_u\times0.75\times\pi{}}}\\&=\sqrt{\dfrac{4\times{}N^*_t}{0.9\times0.85\times{}1\times{}\SI{440}{\mpa}\times0.75\times\pi{}}}=\num{7.102e-5}\sqrt{N^*_t(\text{in~}\si{\newton})}.
+\end{split}
+\end{gather*}
+
+We proceed to find $N^*$ on the member.
+\begin{enumerate}
+\item Clay roofing: \SI{800}{\pascal} on flat roof, i.e., on flat roof, weight is \SI{800}{\pascal}. On sloping roof, the weight per horizontal distance is
+\begin{gather*}
+\dfrac{\SI{800}{\pascal}}{\cos\alpha}=\dfrac{\sqrt{10}}{3}\times\SI{800}{\pascal}=\SI{843.3}{\pascal}.
+\end{gather*}
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}
+\draw(0,0)--++(3,0)--++(0,1)--cycle;
+\draw(1,0)arc(0:18.435:1)node[midway,right=1mm]{$\alpha$};
+\dimline[extension start length=0,extension end length=0]{(0,-.5)}{(3,-.5)}{3}
+\dimline[extension start length=0,extension end length=0]{(3.5,0)}{(3.5,1)}{1}
+\begin{scope}[rotate=18.435]
+\draw(0,.5)rectangle++(3*1.0541,.2);
+\foreach \x in {0,.3,.6,...,3.1}{
+\draw[<-](\x*1.0541,.8)--++(.1,.3);}
+\end{scope}
+\end{tikzpicture}
 \end{figure}
+\item Snow pressure: \SI{1600}{\pascal} (vertical)
+\item Purlin equivalent force: 150PFC has a linear density of \SI{17.7}{\kilogram\per\meter}, the horizontal spacing is \SI{1.8}{\meter}, this gives
+\begin{gather*}
+\dfrac{\SI{17.7}{\kilogram\per\meter}\times\SI{9.81}{\newton\per\kilogram}}{\SI{1.8}{\meter}}=\SI{96.5}{\pascal}.
+\end{gather*}
+\end{enumerate}
+Collecting those terms, the design action
+\begin{gather*}
+\begin{split}
+N^*_{v,Pa}&=1.2G+S\\&=1.2\times\left(\SI{843.3}{\pascal}+\SI{96.5}{\pascal}\right)+\SI{1600}{\pascal}=\SI{2728}{\pascal}
+\end{split}
+\end{gather*}
+
+The equivalent total vertical force acting on sag rod is computed by accounting for tributary area. This leads to
+\begin{gather*}
+N^*_{v,kN}=\SI{2728}{\pascal}\times\SI{10.8}{\meter}\times\SI{6.6}{\meter}/3=\SI{64.8}{\kilo\newton}.
+\end{gather*}
+
+The critical tension force in sag rod is
+\begin{gather*}
+N^*_t=N^*_{v,kN}\sin\alpha=\SI{64.8}{\kilo\newton}\times\dfrac{1}{\sqrt{10}}=\SI{20.5}{\kn}.
+\end{gather*}
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}[scale=.2,rotate=90]
+\draw(6,0)arc(180:180-18.435:4)node[midway,below]{$\alpha$};
+\draw[<-](0,0)--++(10,0)node[midway,right]{$N^*_v$};
+\draw[->](10,0)--++(-9,3);
+\draw[<-](0,0)--++(1,3)node[midway,below]{$N^*_t$};
+\end{tikzpicture}
+\end{figure}
+
+Thus the minimum diameter is
+\begin{gather*}
+d=\num{7.102e-5}\sqrt{20500}=\SI{1.017e-2}{\meter}=\SI{10.17}{\mm}\le\SI{16}{\mm}.
+\end{gather*}
+\begin{flushright}
+Try $\phi\SI{16}{\mm}$ rod
+\end{flushright}
+
+Check flutter.
+\begin{gather}
+\dfrac{L}{d}=\dfrac{\SI{10.8}{\meter}/6\times\dfrac{\sqrt{10}}{3}}{\SI{16}{\mm}}=118.6<500
+\end{gather}
+
+Check force in top tie rod.
+\begin{gather*}
+N^*_{t,top}=N^*_t\times\cos\alpha=\SI{21.6}{\kn}.
+\end{gather*}
+The minimum diameter becomes \SI{10.44}{\mm}. Thus the chosen \SI{16}{\mm} rod is still okay.
+\begin{figure}[H]
+\centering\footnotesize
+\begin{tikzpicture}[scale=.2]
+\draw(6,0)arc(180:180-18.435:4)node[midway,left]{$\alpha$};
+\draw[->](0,0)--++(10,0)node[midway,below]{$N^*_{t,top}$};
+\draw[<-](10,0)--++(-9,3)node[midway,above]{$N^*_t$};
+\draw[<-](0,0)--++(1,3);
+\end{tikzpicture}
+\end{figure}
+\begin{flushright}
+Use Grade 300 $\phi\SI{16}{\mm}$ rod
+\end{flushright}
+\end{solution}

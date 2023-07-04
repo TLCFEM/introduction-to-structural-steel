@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="392.401mm"
+   height="260.16022mm"
+   viewBox="0 0 392.401 260.16022"
+   version="1.1"
+   id="svg45131"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="SFA.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview45133"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.73049944"
+     inkscape:cx="841.2053"
+     inkscape:cy="597.53639"
+     inkscape:window-width="1920"
+     inkscape:window-height="1013"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs45128">
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path6865" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Lstart"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(1.1,0,0,1.1,1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path6862" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker1925"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:isstock="true">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.625;stroke-linejoin:round"
+         id="path1640" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(117.60416,9.469126)">
+    <path
+       style="fill:#ff5555;stroke-width:0.264583"
+       d="M -15.52165,95.771207 214.31383,38.466785 V 138.46679 l -229.83548,57.30442 z"
+       id="path4061" />
+    <path
+       style="fill:#cccccc;stroke-width:0.264583"
+       d="M 44.96137,230.6911 274.79684,173.38667 165.92741,110.53088 -63.908068,167.8353 Z"
+       id="path4316"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m -3.42505,202.75518 v -100 l -12.0966,-6.983973 V 195.77121 Z"
+       id="path4059" />
+    <path
+       style="fill:#e6e6e6;stroke-width:0.264583"
+       d="M -3.42505,102.75518 226.41042,45.450761 V 145.45076 L -3.42505,202.75518 Z"
+       id="path4096" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m -63.908068,167.8353 v 20 L 44.96137,250.69108 V 230.6911 Z"
+       id="path4681" />
+    <path
+       style="fill:#f9f9f9;stroke-width:0.264583"
+       d="m 44.96137,230.6911 v 19.99998 l 229.83547,-57.3044 v -20.00001 z"
+       id="path4716" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m -63.908068,57.835296 1.4e-5,10.000001 96.772824,55.871823 v -10 z"
+       id="path4833"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;stroke-width:0.264583"
+       d="m 32.86477,113.70712 1e-5,9.99998 229.83547,-57.304403 V 56.402696 Z"
+       id="path4835"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#cccccc;stroke-width:0.264583"
+       d="M 32.86477,103.70712 262.70025,46.402696 165.92741,-9.469126 -63.908058,47.835294 Z"
+       id="path5131"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m -63.908058,47.835294 -5e-6,10.000003 96.772833,55.871823 v -10 z"
+       id="path5133"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#ffffff;stroke-width:0.264583"
+       d="m 32.86477,103.70712 v 10 l 229.83548,-57.304424 -10e-6,-10.000013 z"
+       id="path5135"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m 32.86477,113.70712 v 10 l 12.09661,6.98396 -10e-6,-9.99998 z"
+       id="path5516"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#f9f9f9;stroke-width:0.264583"
+       d="m 44.96137,120.6911 10e-6,9.99998 229.83547,-57.304403 v -10 z"
+       id="path5518"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#cccccc;stroke-width:0.264583"
+       d="M 44.96137,110.6911 274.79684,53.386663 262.70025,46.402696 32.86477,103.70712 Z"
+       id="path5520"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#808080;stroke-width:0.264583"
+       d="m 32.86477,103.70712 v 10 l 12.0966,6.98398 v -10 z"
+       id="path5522"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#f9f9f9;stroke-width:0.264583"
+       d="m 44.96137,110.6911 v 10 l 229.83548,-57.304423 -1e-5,-10.000014 z"
+       id="path5524"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m -100.19788,121.88337 48.386416,-12.06409"
+       id="path6633" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow2Lstart)"
+       d="m -100.19788,221.88337 48.386417,-12.06409"
+       id="path7130" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1925)"
+       d="m -76.004673,130.85132 v 70"
+       id="path3769"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-106.24619"
+       y="103.39137"
+       id="text30334"><tspan
+         sodipodi:role="line"
+         id="tspan30332"
+         style="stroke-width:0"
+         x="-106.24619"
+         y="103.39137">Compression</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-100.19788"
+       y="241.88336"
+       id="text31856"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0"
+         x="-100.19788"
+         y="241.88336"
+         id="tspan36710">Tension</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:11.2889px;fill:#000000;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-118.34279"
+       y="166.40739"
+       id="text32958"><tspan
+         sodipodi:role="line"
+         id="tspan32956"
+         style="stroke-width:0"
+         x="-118.34279"
+         y="166.40739">Shear</tspan></text>
+  </g>
+</svg>

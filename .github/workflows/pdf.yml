@@ -8,7 +8,8 @@ jobs:
       - name: Install Packages
         run: |
           sudo apt-get install poppler-utils python3-pip
-          python -m pip install pdf2image
+          python -m pip install -r requirements.txt
+          python CHARTS.py
           python GENERATOR.py
       - name: Compile
         uses: xu-cheng/texlive-action/full@v1
@@ -43,3 +44,12 @@ jobs:
           asset_name: IMAGES.zip
           tag: latest
           overwrite: true
+      - name: Release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: WORKSHEET.zip
+          asset_name: WORKSHEET.zip
+          tag: latest
+          overwrite: true
+

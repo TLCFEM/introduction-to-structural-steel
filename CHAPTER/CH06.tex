@@ -41,7 +41,7 @@ Different connections can put different demands on the bolts.
 \end{figure}
 \end{itemize}
 \section{Connector Types}
-Standard connection types are now available in the \href{https://www.scnz.org/techincal-resources/connections-guide/}{Steel Connect}. This means that connections can be specified rapidly using standard notation, and every element of the connection does not need to be designed independently. It is the purpose of this chapter to explain how connections should be designed.
+Standard connection types are now available in the \href{https://www.scnz.org/techincal-resources/connections-guide/}{Steel Connect}\footnote{\url{https://www.scnz.org/techincal-resources/connections-guide/}}. This means that connections can be specified rapidly using standard notation, and every element of the connection does not need to be designed independently. It is the purpose of this chapter to explain how connections should be designed.
 \begin{itemize}
 \item \textbf{Pins}\\Used in `zero moment' connections in truss joints.
 \item \textbf{Rivets}
@@ -52,7 +52,7 @@ Standard connection types are now available in the \href{https://www.scnz.org/te
 \end{itemize}
 \begin{figure}[H]
 \centering
-\includegraphics[width=10cm]{PIC/CH06/RI}
+\includegraphics[width=10cm]{PIC/CH06/RI}\caption{Installing a rivet}
 \end{figure}
 \item \textbf{Bolts}\\
 Different head markings also exist depending on the mill, whether it is metric or imperial, and the preference of the mill. It is important to purchase bolts through an SCNZ approved distributor to ensure quality control.
@@ -62,12 +62,12 @@ Bolts should be specified according to the grade and standard. (E.g, other grade
 \item Ordinary
 \begin{figure}[H]
 \centering
-\includegraphics{PIC/CH06/BEXP}
+\includegraphics{PIC/CH06/BEXP2}
 \end{figure}
 \item High Strength (HS)
 \begin{figure}[H]
 \centering
-\includegraphics{PIC/CH06/HBEXP}
+\includegraphics{PIC/CH06/HBEXP2}
 \end{figure}
 \end{itemize}
 \end{itemize}
@@ -127,7 +127,7 @@ B\approx\dfrac{2}{\sqrt{3}}A\approx1.1547A.
 
 Bolt length is generally measured from the inside of the head of the bolt to the end of the bolt. Some bolts are threaded along their whole length. The minimum length of threaded bolt is shown as follows.
 \begin{table}[H]
-\centering\footnotesize
+\centering\footnotesize\caption{Minimum length of thread}
 \begin{tabular}{cc}
 	\toprule
 	          Nominal Length of Bolt, $L$            & Minimum Length of Thread, $T$ \\ \midrule
@@ -143,7 +143,7 @@ L\geqslant\text{grip}+\text{washer thickness}\times\text{washer number}+\text{nu
 L\leqslant\text{grip}+\text{washer thickness}\times\text{washer number}+\text{thread length}-\SI{3}{\mm}.
 \end{gather*}
 \begin{figure}[H]
-\centering\includegraphics[width=10cm]{PIC/CH06/GRIP}
+\centering\includegraphics[width=10cm]{PIC/CH06/GRIP}\caption{Definition of grip and washer thickness}
 \end{figure}
 \section{Installation of Bolts}
 Bolts may be installed in two ways:
@@ -166,7 +166,7 @@ Proof loading may be carried out by any of the following methods.
 \item \textbf{Torque wrench}\\The torque to turn the bolt is measured  giving an indication of the bolt tensile force. It must be calibrated. Clean and flat surfaces are assumed.
 \item \textbf{Specified nut rotation method, a.k.a. turn-of-nut method}\\Snug tighten is initially performed. Then the nut is turned a specified amount relative to the bolt as shown.
 \begin{figure}[H]
-\centering\includegraphics[scale=.25]{PIC/CH06/TON}
+\centering\includegraphics[scale=.25]{PIC/CH06/TON}\caption{Steps of turn-of-nut method}
 \end{figure}
 
 The amount of turn required depends on the bolt type. This method is
@@ -190,7 +190,7 @@ This method is
 \item \textbf{Tension Control Bolts}\\Fracture of bolt end occurs at the notch when proof load is reached.
 \begin{figure}[H]
 \centering
-\includegraphics[width=10cm]{PIC/CH06/TCB}
+\includegraphics[width=10cm]{PIC/CH06/TCB}\caption{Steps of installing TC bolts}
 \end{figure}
 This method is
 \begin{itemize}
@@ -202,11 +202,11 @@ All of the proof loading methods above require the bolt to sustain some permanen
 \section{Erection Tolerances}
 In design of bolts, one shall consider the size of tools used.
 \begin{figure}[H]
-\centering\input{PIC/CH06/IW}\caption{Definition of impact wrench sizes \citet{ASI2016}}
+\centering\input{PIC/CH06/IW}\caption{Definition of impact wrench sizes \citep{ASI2016}}
 \end{figure}
 
 \begin{table}[H]
-\centering\caption{Impact wrench sizes \citet{ASI2016}}
+\centering\caption{Impact wrench sizes \citep{ASI2016}}
 \begin{tabular}{ccc}
 	\toprule
 	Impact wrench &                                $B$                                &   $A$    \\
@@ -216,7 +216,7 @@ In design of bolts, one shall consider the size of tools used.
 \end{tabular}
 \end{table}
 \begin{table}[H]
-\centering\caption{Impact wrench sizes \citet{ASI2016}}
+\centering\caption{Impact wrench sizes \citep{ASI2016}}
 \begin{tabular}{ccccccc}
 	\toprule
 	Nominal  & \multicolumn{3}{c}{Sockets \SI{20}{\mm} drive} & \multicolumn{3}{c}{Sockets \SI{25}{\mm} drive} \\
@@ -240,7 +240,7 @@ If extension bar and/or universal joint are used, their dimensions shall also be
 \input{PIC/CH06/UJ}
 \caption{Universal joint}
 \end{subfigure}
-\caption{Dimension of extension bar and universal joint \citet{ASI2016}}
+\caption{Dimension of extension bar and universal joint \citep{ASI2016}}
 \end{figure}
 \section{Modes of Carrying Shear Force}
 \subsection{Shear Planes}
@@ -376,7 +376,7 @@ The design strength of bolts in shear is affected by the ultimate shear strength
 The core area of the bolt, $A_c$, is used when the shear plane passes through the threaded area. $A_c$ is given in \tabref{tab:bolt_dim} and it is often $0.75A_o$ to $0.8A_o$ where $A_o$ is the shank area.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1.2]{PIC/CH06/BSF}
+\includegraphics[scale=1.2]{PIC/CH06/BSF}\caption{Bolt shear failure}
 \end{figure}
 
 Experiments show that
@@ -418,7 +418,7 @@ For bolts to develop their strength, the material around bolts must be strong en
 \textbf{Bearing} causes deformation and elongation of the plate beside the hole. Strength loss will occur due to plate fracture as discussed later.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm]{PIC/CH06/BBEAR}
+\includegraphics[width=8cm]{PIC/CH06/BBEAR}\caption{Bearing failure}
 \end{figure}
 
 Codes generally have an allowable resistance, $R_n$, greater than $A_bf_u$. This is due to the following reasons.
@@ -434,21 +434,25 @@ Codes generally have an allowable resistance, $R_n$, greater than $A_bf_u$. This
 
 If the strength of bolt is less than the strength of plate, then design for bearing of the bolt should be carried out.
 
-\textbf{Bolt tear out failure} occurs when the distance between bole hole and the edge of plate, or the distance between adjacent bolt holes in the line of force is small.
+\textbf{Bolt tear out failure} occurs when the distance between bolt hole and the edge of plate, or the distance between adjacent bolt holes in the line of force is small.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8cm]{PIC/CH06/BTEAR}
+\includegraphics[width=8cm]{PIC/CH06/BTEAR}\caption{Tear out failure}
 \end{figure}
 
 \textbf{Edge failure} due to bolt loading in a direction which is not in the line of force should also be considered.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{PIC/CH06/SF}\caption{Edge failure of plate}
+\end{figure}
 
 \textbf{Oversize holes} may require special edge distance and bearing design because loading may be more concentrated.
 
 According to \NZSSTEEL{\S~9.3.2.4.1}, a ply subject to a design bearing force $V^*_b$ due to bolt in shear shall satisfy
 \begin{gather}
-V^*_b\leqslant{}\phi{}V_b.
+V^*_b\leqslant{}C_1\phi{}V_b.
 \end{gather}
-The nominal bearing capacity $V_b$ of a ply shall be the \textbf{smaller} of the following two.
+For \textbf{non-seismic}  design, $C_1=1.0$. For seismic design, $C_1<1.0$. It could be as low as \num{0.6} for seismic design according to \NZSSTEEL{\S~12.9.4.3}. Also, using $C_1=0.6$ is a good default for all NZ connections as it will reduce the bolt hole deformation, and the possibility of significantly pinched hysteretic behaviour causing large impacts during earthquake shaking. The nominal bearing capacity $V_b$ of a ply shall be the \textbf{smaller} of the following two.
 \begin{enumerate}
 \item \textbf{Ply bearing failure beside bolt (Eq. 9.3.2.4(1))}
 \begin{gather}
@@ -461,7 +465,7 @@ t_p&ply thickness\\
 f_{up}&ply ultimate strength
 \end{conditions}
 \item \textbf{Bolt tearing out failure (Eq. 9.3.2.4(2))}
-\begin{gather}
+\begin{gather}\label{eq:93242}
 V_b=a_et_pf_{up},
 \end{gather}
 where
@@ -469,20 +473,24 @@ where
 a_e&minimum distance from hole edge to edge of ply in direction of force plus half of $d_f$
 \end{conditions}
 \begin{figure}[H]
-\centering\input{PIC/CH06/ED1}
+\centering\input{PIC/CH06/ED1}\caption{Illustration of $a_e$}
 \end{figure}
 \end{enumerate}
 
 The following requirements shall be met to avoid potential failure modes.
 \begin{figure}[H]
-\centering\input{PIC/CH06/ED2}
+\centering\input{PIC/CH06/ED2}\caption{Illustration of minimum pitch $s$ and edge distance $e$}
 \end{figure}
 \begin{enumerate}
 \item \textbf{Bolt spacing failure}\\
-\NZSSTEEL{\S~9.6.1} requires the minimum pitch $s$ (the distance between centres of bolt holes) shall be at least $2.5d_f$.
+The minimum pitch $s$ (the distance between centres of bolt holes)
+\begin{itemize}
+\item in any direction shall be at least $2.5d_f$. (\NZSSTEEL{\S~9.6.1})
 \begin{gather}
 s\geqslant2.5d_f.
 \end{gather}
+\item in the direction of force, the computation of $s$ should be such that \eqsref{eq:93242} is satisfied. Here, to compute $a_e$, the `minimum distance from hole edge to edge of ply in direction of force plus half of $d_f$' is taken as `the clear distance between bolt holes in the direction of the component of force plus half of $d_f$'.
+\end{itemize}
 \item \textbf{Bolt side failure}\\
 \NZSSTEEL{\S~9.6.2.1} defines the edge distance to be the distance from the nearer edge of the hole to the physical edge of the plate or rolled section \textbf{plus} half of $d_f$. The edge distance $a_e=e+d_f/2$ shall meet the following minimum values for different cases:
 \begin{itemize}
@@ -491,16 +499,16 @@ s\geqslant2.5d_f.
 \item $1.25d_f$ for rolled edge of a rolled flat bar or section
 \end{itemize}
 \item \textbf{Corrosion between plates}\\
-\NZSSTEEL{\S~9.6.3} requires the maximum distance between centres of holes shall be the smaller of $15t_p$ and $\SI{200}{\mm}$.
+\NZSSTEEL{\S~9.6.4} requires the maximum distance between centres of holes shall be the smaller of $12t_p$ and $\SI{150}{\mm}$.
 \begin{gather}
-s\leqslant\min\left(15t_p,~\SI{200}{\mm}\right).
+s\leqslant\min\left(12t_p,~\SI{150}{\mm}\right).
 \end{gather}
 \end{enumerate}
-\subsection{Block Shear Failure}\label{sec:block_failure}
+\subsection{Block Tearing Failure}\label{sec:block_failure}
 Block shear/tearing failure is not explicitly considered in \NZSSTEEL{}. However, it has caused connection failures in the past.
 \begin{figure}[H]
 \centering\footnotesize
-\includegraphics[scale=1.5]{PIC/CH06/BLOCK}
+\includegraphics[scale=1.5]{PIC/CH06/BLOCK}\caption{Illustration of block tearing failure}
 \end{figure}
 
 Similar to tension members, in this course, we the following expression to determine capacity when tension stress is uniform.
@@ -527,12 +535,12 @@ where $A_{nv}$ and $A_{gv}$ have been introduced previously and are also illustr
 \begin{figure}[H]
 \centering\footnotesize
 \includegraphics[scale=.8]{PIC/CH06/BTOF}
-\caption{Failure surface of block shear/tear (\href{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}{\url{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}})}
+\caption{Failure surface of block shear/tearing (\href{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}{\url{https://m2ukblog.wordpress.com/2016/05/28/block-shear-failure-in-tension-members/}})}
 \end{figure}
 \subsection{Bolt Tension Failure}
 \begin{figure}[H]
 \centering
-\includegraphics[angle=-90,width=8cm]{PIC/CH06/BTF}
+\includegraphics[angle=-90,width=8cm]{PIC/CH06/BTF}\caption{Bolt tension failure}
 \end{figure}
 \NZSSTEEL{9.3.2.2} requires
 \begin{gather}
@@ -551,13 +559,13 @@ f_{uf}&minimum tensile strength of a bolt
 \left(\dfrac{V^*_{f}}{\phi{}V_{f}}\right)^2+\left(\dfrac{N^*_{tf}}{\phi{}N_{tf}}\right)^2\leqslant1.0.
 \end{gather}
 \begin{figure}[H]
-\centering\input{PIC/CH06/VI}
+\centering\input{PIC/CH06/VI}\caption{Envelop of axial force versus shear}
 \end{figure}
 \subsection{Bending Failure of Bolts}
 Bending failure is not usually aa problem expect for very long bolts. Standard methods can be used.
 \begin{figure}[H]
 \centering
-\includegraphics{PIC/CH06/BBF}
+\includegraphics{PIC/CH06/BBF}\caption{Bending failure of bolts}
 \end{figure}
 \subsection{Fatigue Failure of Bolts}
 The strength of bolts is reduced by fatigue and methods are available for design.
@@ -670,7 +678,7 @@ According to \tabref{tab:angle_gauge}, choose a gauge length of \SI{40}{\mm}. Th
 \begin{figure}[H]
 \input{PIC/CH06/DABC}
 \end{figure}
-Check block shear.
+Check block tearing.
 \begin{gather*}
 A_{gv}=2\times\SI{110}{\mm}\times\SI{5}{\mm}=\SI{1100}{\mm^2},\\
 A_{gt}=2\times\SI{35}{\mm}\times\SI{5}{\mm}=\SI{350}{\mm^2},\\
@@ -686,7 +694,7 @@ Use \eqsref{eq:block_shear},
 \begin{flushright}
 NOT GOOD
 \end{flushright}
-Block shear is the controlling mode and must be considered. Therefore, to keep lightest angles, the spacing of bolts must be increased. The following spacing is satisfactory.
+Block tearing is the controlling mode and must be considered. Therefore, to keep lightest angles, the spacing of bolts must be increased. The following spacing is satisfactory.
 \begin{figure}[H]
 \input{PIC/CH06/DABC2}
 \end{figure}
@@ -718,7 +726,7 @@ k_h&factor for different hole types\\
 \end{conditions}
 \begin{figure}[H]
 \centering
-\input{PIC/CH06/SS}
+\input{PIC/CH06/SS}\caption{Friction force}
 \end{figure}
 \subsection{Gap Opening (Tension Behaviour)}
 \begin{gather}
@@ -736,7 +744,7 @@ In combined shear and tension, a bolt shall satisfy
 \dfrac{V^*_{sf}}{\phi{}V_{sf}}+\dfrac{N^*_{tf}}{\phi{}N_{tf}}\leqslant1.0.
 \end{gather}
 \begin{figure}[H]
-\centering\input{PIC/CH06/VN}
+\centering\input{PIC/CH06/VN}\caption{Envelop of tension versus shear}
 \end{figure}
 
 \begin{exmp}

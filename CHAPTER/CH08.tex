@@ -26,7 +26,7 @@ Bolts are subject to different shear forces, two design methods exist, namely,
 \subsection{Elastic Design Method}
 %The external load $P$ is decomposed into two components: direct shear and torsion. It is equivalent to shifting $P$ to the centre of rigidity (c.r.).
 \begin{figure}[H]
-\centering\input{PIC/CH08/ED}
+\centering\input{PIC/CH08/ED}\caption{Decomposition of arbitrary force into $x$ and $y$ components}
 \end{figure}
 \subsubsection{Basis for Elastic Computation}
 \paragraph{Assumption}
@@ -61,7 +61,7 @@ T_i&fastener force due to applied torque
 \sum{}M=0,\quad&\longrightarrow\quad\sum_{i=1}^nT_ir_i=Pe.
 \end{align}
 \begin{figure}[H]
-\centering\input{PIC/CH08/ED2}
+\centering\input{PIC/CH08/ED2}\caption{Equilibria of bolt forces}
 \end{figure}
 \paragraph{Kinematics/Compatibility}
 \begin{gather}
@@ -233,13 +233,13 @@ It is necessary to check other possible failure modes, for example,
 \item bolt bearing
 \item bolt tear out
 \item edge distance
-\item block shear, etc.
+\item block tearing, etc.
 \end{itemize}
 \end{solution}
 \subsection{Ultimate Strength Method}
 Many countries use the ultimate strength method to estimate the strength of a connection. This method uses the concept of the instantaneous centre of rotation (ICR).
 \begin{figure}[H]
-\centering\input{PIC/CH08/ICR}
+\centering\input{PIC/CH08/ICR}\caption{Illustration of ICR}
 \end{figure}
 
 According to this method, the deformation of each fastener (or part of a weld) is assumed to be proportional to its distance from the ICR. The connection fails when on of the fasteners reaches the maximum deformation $\Delta_{max}$. Accordingly, the maximum resistance is denoted as $R_{ult}$.
@@ -255,7 +255,7 @@ This relationship does not have to be linear. For example, according to AISC tab
 R_i=R_{ult}\left(1-e^{-0.394\Delta_i}\right)^{0.55}.
 \end{gather}
 \begin{figure}[H]
-\centering\input{PIC/CH08/US}
+\centering\input{PIC/CH08/US}\caption{Linear and nonlinear responses}
 \end{figure}
 
 The procedure is iterative.
@@ -332,7 +332,7 @@ For exponential relationship, $P_u=\SI{164.61}{\kn}$ corresponds to $\SI{12}{\pe
 \section{Eccentric Bolted Tension Shear Connections}
 These connections have complex behaviour and several methods have been proposed for design as described by \citet{Smith1996}. We consider proof loaded high strength bolts here and we will use the method \citep{Salmon2009} where high strength bolt forces are used to prevent lift-off.
 \begin{figure}[H]
-\centering\input{PIC/CH08/ECC}
+\centering\input{PIC/CH08/ECC}\caption{Stress components of eccentrically loaded bolted connection}
 \end{figure}
 The compressive stress due to $N^*=\sum{}N^*_{tf}$ can be computed as
 \begin{gather}

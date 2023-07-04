@@ -87,7 +87,7 @@ For rectangular sections, $\mathrm{SF}=1.5$. The value of shape factor would var
 If one plots section curvature versus moment, the following response can be obtained.
 \begin{figure}[H]
 \centering
-\input{PIC/CH05/PDC}
+\input{PIC/CH05/PDC}\caption{Section response}
 \end{figure}
 If the section \textbf{does not buckle} and is \textbf{ductile}, then the section strength is closer to $M_p$ than to $M_y$. The fact that we have strain hardening in the steel means that $M_p$ can easily be obtained in actual members, although $M_p$ implies an infinite curvature with the steel model chosen.
 \subsection{Calculation of Plastic Modulus}
@@ -207,16 +207,17 @@ It shall be noted that slender sections are often not economical thus generally 
 
 If one plots $M_s$ against $\lambda_s$, the curve has a similar shape as seen in compression members in which elastic buckling is expected for slender sections, and residual stress effects control the behaviour. The effective section moduli $Z_e$ for both axes are also given in the specification.
 \begin{figure}[H]
-\centering\input{PIC/CH05/SC}
+\centering\input{PIC/CH05/SC}\caption{Section capacity as a function of slenderness}
 \end{figure}
 \section{Strength Considering Member Buckling}
 A bending member, like a compression member, may undergo lateral buckling. However, only the part of the section in compression has the tendency to buckle.
 \begin{figure}[H]
 \centering\input{PIC/CH05/BB}
+\caption{Compression develops in the upper part of a beam}
 \end{figure}
 Beam buckling over its length is generally called Flexural Lateral Torsional (FLT) buckling. Because part of the section is in tension, and doesn't tend to buckle, it restrains the total connection.
 \begin{figure}[H]
-\centering\input{PIC/CH05/FLT}
+\centering\input{PIC/CH05/FLT}\caption{Components of FLT buckling}
 \end{figure}
 
 The amount of FLT buckling depends on
@@ -227,10 +228,11 @@ The amount of FLT buckling depends on
 \item member bracing type and positions
 \item type and location of loading
 \end{itemize}
+Interested readers can check \href{https://www.youtube.com/watch?v=XSl7ZntK94E}{this}\footnote{\url{https://www.youtube.com/watch?v=XSl7ZntK94E}} video.
 \subsection{Orientation Effect}
 I sections bending about their strong axis with an unbraced compression flange are susceptible to buckling. However, strengths of other sections are not always affected by buckling. Lateral buckling is not generally significant in the following members.
 \begin{figure}[H]
-\centering\input{PIC/CH05/OE}
+\centering\input{PIC/CH05/OE}\caption{Sections less sensitive to lateral buckling}
 \end{figure}
 \subsection{Uniform Moment}
 \subsubsection{Reference Moment}
@@ -273,11 +275,48 @@ Warping is important for shorter members.
 %\includegraphics{PIC/CH05/WARP}
 %\caption{Examples of Saint Venant and warping torsion \citep{Murray1984}}
 %\end{figure}
+What is this thing called warping? Warping is the deformation such that plane sections do not remain plane.
+
+For a simply supported member subjected to end torsion, plane sections do not remain plane at ends. There are warping deformations but no warping stresses. In such a configuration, torsion is resisted by St. Venant effects only. The $M_0$ is a function of $GJ$.
 \begin{figure}[H]
-\centering
-\includegraphics[width=.99\textwidth]{PIC/CH05/WARPINGO}
+\centering\footnotesize
+\input{PIC/CH05/WARP1}
 \end{figure}
-Circular sections are free from warping. All other sections warp. Hollow sections have low warping deformation and angles have low warping stress but high warping deformation. Based on this fact, for angles, rectangular/square/circular hollow sections, narrow rectangular sections and T sections, one shall use \eqsref{eq:no_warp} to calculate $M_o$ (\NZSSTEEL{Cl. 5.6.1.3 to Cl. 5.6.1.6}). For all other sections, one shall use \eqsref{eq:warp} to compute reference moment.
+
+If one end is restrained, plane sections remain plane at end, which means warping deformations are restrained \textbf{but} warping stresses/forces exist. In such a configuration, end rotation is less and member is stronger. The $M_0$ is a function of \textbf{both} $EI_w$ and $GJ$.
+\begin{figure}[H]
+\centering\footnotesize
+\input{PIC/CH05/WARP2}
+\end{figure}
+
+Circular sections are free from warping. All other sections warp. Hollow sections have low warping deformation and angles have low warping stress but high warping deformation.
+\begin{figure}[H]
+\footnotesize\centering
+\begin{tikzpicture}[scale=.8]
+\begin{scope}
+\draw[line width=1.2mm](0,0)circle(1cm);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){no warping};
+\end{scope}
+\begin{scope}[xshift=4cm]
+\draw[line width=1.2mm](-1,-1)rectangle(1,1);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping deformation};
+\end{scope}
+\begin{scope}[xshift=8cm]
+\draw[line width=1.2mm](1,-.3)--++(-1,0)--++(0,1);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping force};
+\end{scope}
+\begin{scope}[xshift=12cm]
+\draw[line width=1.2mm](0,-1)--(0,1);
+\draw[line width=1.2mm](-1,0)--(1,0);
+\draw[dashed](-2,0)--++(4,0);
+\node at(0,-1.5){low warping force};
+\end{scope}
+\end{tikzpicture}
+\end{figure}
+Based on this fact, for angles, rectangular/square/circular hollow sections, narrow rectangular sections and T sections, one shall use \eqsref{eq:no_warp} to calculate $M_o$ (\NZSSTEEL{Cl. 5.6.1.3 to Cl. 5.6.1.6}). For all other sections, one shall use \eqsref{eq:warp} to compute reference moment.
 
 The most significant warping stress is often developed in open sections with several legs with all elements not framing into one point. For example, I and C sections. If readers want to learn more about warping, check \href{https://www.youtube.com/watch?v=QtyGWZDPtCI}{this}\footnote{https://www.youtube.com/watch?v=QtyGWZDPtCI} video.
 
@@ -302,13 +341,13 @@ A \textbf{segment} or \textbf{subsegment} may also be between the unrestrained (
 The factor $k_t$ is for twist about $z$-axis (beam chord) at segment ends. It depends on the segment end restraint which may be categorised as F, L, P and U.
 \begin{figure}[H]
 \centering
-\input{PIC/CH05/KT}
+\input{PIC/CH05/KT}\caption{Definition of local axes}
 \end{figure}
 
 The factor $k_l$ is the height of load abobe the neutral axis. Depending on where the load is applied, some cases are more likely to buckle.
 \begin{figure}[H]
 \centering
-\input{PIC/CH05/KL}
+\input{PIC/CH05/KL}\caption{Loads applied to different heights}
 \end{figure}
 
 The $k_r$ factor considers warping. If warping restraint exists, $k_r<1$, segments become more rigid, then warping deformation is limited so that beam can carry more load.
@@ -389,7 +428,7 @@ where $\alpha_s$ is the slenderness reduction factor to account for residual str
 \end{gather}
 When $M_s\ll{}M_o$, $\alpha_s=0.6\times\sqrt{3}=1.03\approx1$. As $M_s/M_o\rightarrow\infty$, $M_{cr}$ is less than $M_o$.
 \begin{figure}[H]
-\centering\input{PIC/CH05/MCR}
+\centering\input{PIC/CH05/MCR}\caption{Critical moment as a function of effective length}
 \end{figure}
 \subsection{Effect of Loading Type}
 The critical strength $M_{cr}$ is obtained under uniform moment. However, not all members are subjected to uniform moment. To account for non-uniform moment, an additional factor $\alpha_m$ is used so that the nominal member moment capacity $M_b$ can be calculated as
@@ -444,9 +483,12 @@ Design capacity tables and charts may be used for analysis and design. These are
 \end{enumerate}
 
 The following is a review of hand calculation of bending moment diagrams.
-\begin{figure}[H]
-\centering\includegraphics[width=.99\textwidth]{PIC/CH05/BMD}
+\begin{figure}[H]\scriptsize
+\centering\input{PIC/CH05/BMD}
 \end{figure}
+%\begin{figure}[H]
+%\centering\includegraphics[width=.99\textwidth]{PIC/CH05/BMD}
+%\end{figure}
 
 \begin{exmp}\href{run:./WORKSHEET/CH05/EX5.BSSB.sm}{Worksheet}
 Strong Axis Bending Example --- Simply Supported Beam
@@ -597,7 +639,7 @@ The $\alpha_m$ can be computed as
 \begin{gather*}
 \alpha_m=\dfrac{1.7\times\SI{100}{\kn\meter}}{\sqrt{\left(\SI{20}{\kn\meter}\right)^2+\left(\SI{20}{\kn\meter}\right)^2+\left(\SI{60}{\kn\meter}\right)^2}}=2.5628>2.5,
 \end{gather*}
-use $\alpha_m=2.5$. This lead to
+use $\alpha_m=2.5$. This leads to
 \begin{gather*}
 \dfrac{M^*}{\alpha_m}=\dfrac{\SI{100}{\kn\meter}}{2.5}=\SI{40}{\kn\meter}.
 \end{gather*}
@@ -608,29 +650,40 @@ From the design capacity table, 200UB25.4 gives $\phi{}M_b=\SI{46.0}{\kn\meter}$
 Thus need to pick a larger section. Eventually, 250UB31.4 is chosen.
 \end{solution}
 \section{Design for Shear}
+\subsection{Shear Flow On Thin--Walled Sections}
+The shear stress is \textbf{not} uniform. There are two types of shear stresses on thin--walled sections: vertical shear and horizontal shear. Consider a I section under strong axis bending, the section is subjected to compression/tension and shear forces.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{PIC/CH05/SFA}
+\end{figure}
 %\begin{figure}[H]
 %\centering\footnotesize
 %\includegraphics[scale=.8]{PIC/CH05/SHEAR1}\hfill
 %\includegraphics[scale=.8]{PIC/CH05/SHEAR2}
 %\caption{Stress equilibrium \citep{Hibbeler2016}}
 %\end{figure}
+\subsubsection{Horizontal Shear}
+The shear stress on the longitudinal cut (light grey) needs to equilibrate the normal stress on the free body. According to stress equilibrium of a 2D plane, the shear stress on the section (dark grey) is assumed to be equal to that on the longitudinal cut (light grey).
+
+The horizontal shear stress is mostly in flanges. Due to symmetry, it is self-equilibrating. The horizontal shear stress on web is often negligible for thin--walled sections.
 \begin{figure}[H]
 \centering
-\includegraphics[width=.9\textwidth]{PIC/CH05/OSHEAR1}
+\includegraphics[width=.8\textwidth]{PIC/CH05/SFB}
+\caption{Horizontal shear of free body cut on flange}
+\end{figure}
+\subsubsection{Vertical Shear}
+For vertical shear stress, similar analysis can be performed.
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\textwidth]{PIC/CH05/SFC}
+\caption{Vertical shear of free body cut on flange}
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=.9\textwidth]{PIC/CH05/OSHEAR2}
+\includegraphics[width=.7\textwidth]{PIC/CH05/SFD}
+\caption{Vertical shear of free body cut on web}
 \end{figure}
-\begin{figure}[H]
-\centering
-\includegraphics[width=.9\textwidth]{PIC/CH05/OSHEAR3}
-\end{figure}
-By stress equilibrium, the distribution of shear in an I section bending about its strong axis may be found using
-\begin{gather*}
-q=\dfrac{VQ}{Ib}.
-\end{gather*}
-Shear stress is not uniform over the section. The horizontal shear is bigger in the flanges, and is self-equilibrating. The vertical shear in the web carries almost all of the applied shear force to a section. The flanges carry the majority of the bending. Interested readers can check \href{https://www.youtube.com/watch?v=f08Y39UiC-o}{this}\footnote{https://www.youtube.com/watch?v=f08Y39UiC-o} video for more elaborations.
+The vertical shear in the web carries almost all of the applied shear force to a section. The flanges carry the majority of the bending (normal stress). The vertical shear stress distribution is depicted in \figref{fig:vshear}. Interested readers can check \href{https://www.youtube.com/watch?v=f08Y39UiC-o}{this}\footnote{https://www.youtube.com/watch?v=f08Y39UiC-o} video for more elaborations.
 %\begin{figure}[H]
 %\centering\footnotesize
 %\includegraphics[width=.99\textwidth]{PIC/CH05/SHEAR3}
@@ -640,9 +693,14 @@ Shear stress is not uniform over the section. The horizontal shear is bigger in 
 \begin{figure}[H]
 \centering\footnotesize
 \includegraphics{PIC/CH05/VSHEAR}
-\caption{Vertical shear distribution in an I section}
+\caption{Vertical shear distribution in an I section}\label{fig:vshear}
 \end{figure}
 \subsection{Shear Capacity}
+In practical design, we mainly consider the \textbf{vertical} shear acting on web. It is further assumed the vertical shear is uniform/constant over the depth. The shear stress can be computed using the following expression.
+\begin{gather*}
+q=\dfrac{VQ}{Ib}.
+\end{gather*}
+
 A flat plate unstiffened web in an I section shall satisfy
 \begin{gather}
 V^*\leqslant\phi{}V_v.
@@ -651,22 +709,25 @@ The nominal shear capacity $V_v$ shall be determined as
 \begin{gather}
 V_v=\min\left(V_w,~V_b\right).
 \end{gather}
-where
+
+The shear capacity associated with web yielding $V_w$ (\NZSSTEEL{\S~5.11.4.1}) is,
 \begin{gather}
-V_w=0.6f_yA_w
+V_w=0.6f_{yw}A_w=0.6f_{yw}dt_w
 \end{gather}
-is the yield capacity (\NZSSTEEL{\S~5.11.4.1}) while
+where $f_{yw}$ is the yield shear stress. For an unstiffened web, $A_w=dt_w$ is the area of web.
+
+The shear capacity associated with web buckling $V_b$ (\NZSSTEEL{\S~5.11.5.1}) is,
 \begin{gather}
 V_b=V_w\left(\dfrac{82}{\dfrac{d_p}{t_w}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}}\right)^2=0.6f_yA_w\left(\dfrac{82}{\dfrac{d_p}{t_w}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}}\right)^2
 \end{gather}
-is the buckling capacity (\NZSSTEEL{\S~5.11.5.1}). In above equations, $d_p$ is the depth of the deepest web panel, this is equal to the distance between the insides of the flanges, $d_1$, for an unstiffened web, and $A_w=dt_w$ is the area of web.
+where $d_p$ is the depth of the deepest web panel, this is equal to the distance between the insides of the flanges, $d_1$. Note $d_1\neq{}d$ in general.
 
 Also, \NZSSTEEL{Cl. 5.10.1.1} imposes the maximum web slenderness ratio as
 \begin{gather}
 \dfrac{d_p}{t_w}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}\leqslant180.
 \end{gather}
 \begin{figure}[H]
-\centering\input{PIC/CH05/VW}
+\centering\input{PIC/CH05/VW}\caption{Design region of shear capacity}
 \end{figure}
 \subsection{Interaction Between Bending and Shear}
 For the majority of practical situations, we can ignore a reduction in bending strength due to shear, or a reduction in shear strength due to bending also being carried by the section. This is because the bending is carried mainly by the flanges of an I beam bending about its strong axis, the shear is resisted mainly by the web.
@@ -687,7 +748,7 @@ V_v\left(2.2-1.6\dfrac{M^*}{\phi{}M_s}\right),&\text{for~}0.75<\dfrac{M^*}{\phi{
 \end{gather}
 To illustrate, the following graph can be used.
 \begin{figure}[H]
-\centering\input{PIC/CH05/VM}
+\centering\input{PIC/CH05/VM}\caption{Interaction between shear and moment}
 \end{figure}
 
 \begin{exmp}
@@ -751,7 +812,7 @@ Point load is an idealised concept that does not exist in practice. All loads ar
 
 If loading is applied from another section, then the way the force should be computed on the beam being designed in shown below.
 \begin{figure}[H]
-\centering\includegraphics{PIC/CH05/BEARO}
+\centering\includegraphics{PIC/CH05/BEARO}\caption{Ineffective regions are ignored}
 \end{figure}
 \subsection{Yielding}
 Web yielding will occur over the area $b_{bf}t_w$ when there is either high load or small area. The nominal bearing yield capacity of a web shall be calculated as (\NZSSTEEL{\S~5.13.3.1})
@@ -891,7 +952,7 @@ It can be seen than web buckling governs and $V^*>\phi{}R_{bb}$. One can increas
 \section{Biaxial Loading}
 The biaxial bending can be decomposed into strong axis and weak axis components.
 \begin{figure}[H]
-\centering\input{PIC/CH05/BL}
+\centering\input{PIC/CH05/BL}\caption{Decomposition of biaxial moment into $x$ and $y$ components}
 \end{figure}
 In absence of axial force, \NZSSTEEL{Cl.~8.4.5.1} requires
 \begin{align}
@@ -899,9 +960,9 @@ In absence of axial force, \NZSSTEEL{Cl.~8.4.5.1} requires
 \end{align}
 where major axis bending occurs about the $x$-axis and minor axis bending ocurs about the $y$-axis. Furthermore, $M_{cx}=\min\left(M_{sx}~,M_{bx}\right)$ for the major (strong) axis and $M_{cy}=M_{sy}$ for the minor (weak) axis. FLT buckling does \textbf{not} occur for bending about weak axis.
 \begin{figure}[H]
-\centering\input{PIC/CH05/BAI}
+\centering\input{PIC/CH05/BAI}\caption{Envelop of biaxial moments}
 \end{figure}
-
+\clearpage
 \begin{exmp}
 Biaxial Design
 
@@ -980,3 +1041,11 @@ For unbraced members, $M_{cx}=M_{bx}$ which depends on $\alpha_m$, unbraced leng
 	          100UC14.8 &           21.4            &            9.9            & 20.0  & 18.3  & 16.7  & 15.3  & 14.0  & 12.9  & 12.0  & 11.1  & 10.4  &  9.1  &  8.1  &  7.3  &  6.6  &  6.0  &  5.5  &  5.1  &  4.7  &  4.4  &  4.1  &  3.9  &  3.7  &  3.5  &  3.3  &  3.2  \\ \bottomrule
 \end{tabular}
 \end{sidewaystable}
+\begin{figure}[p]
+\centering
+\includegraphics[width=.99\textwidth]{REF/UB.STRONG.MS}
+\end{figure}
+\begin{figure}[p]
+\centering
+\includegraphics[width=.99\textwidth]{REF/UC.STRONG.MS}
+\end{figure}

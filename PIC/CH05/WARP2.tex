@@ -1,0 +1,18 @@
+\begin{tikzpicture}[spy using outlines={circle,magnification=3,size=5cm,connect spies}]
+\draw[dashed,very thin](0,-.5)rectangle++(4,1);
+\draw[dashed,very thin](0,0)--++(4,0);
+\begin{scope}
+\draw[fill=black!10](0,.5)to[out=0,in=175](4,.3)--++(85:-1)to[out=175,in=0](0,-.5)--cycle;
+\draw[dashed](0,0)to[out=0,in=175](4,-.2);
+\end{scope}
+\begin{scope}
+\draw[fill=black!30](0,-.5)to[out=0,in=185](4,-.3)--++(95:1)to[out=185,in=0](0,.5)--cycle;
+\draw[dashed](0,0)to[out=0,in=185](4,.2);
+\end{scope}
+\draw[cc0066,->,very thick](3.9,1)--++(0,.5);
+\draw[cc0066,->,very thick](3.9,-1)--++(0,-.5);
+\draw(2,-1.5)node{top view};
+\FixedSupport[-90]{0,0}{2}
+\spy on (0,0)in node at(-4,1);
+\node[align=center]at(-4,-2){warping force but no\\warping deformation};
+\end{tikzpicture}
