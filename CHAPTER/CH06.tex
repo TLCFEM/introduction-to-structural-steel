@@ -92,22 +92,27 @@ Grade 4.6 bolts are mode of low carbon steel (similar to Grade 250 steel) and th
 Grade 8.8 bolts are make of medium carbon steel using quenching and tempering to enhance the properties. They are used in main framing.
 
 Almost all bolts currently used in Australasia are now made in China.
+\section{Washer Size}
+Washers are useful to spread load from the bolt head or nut onto the material being clamped. Also, as washers have similar characteristics, they provide a relatively consistent coefficient of friction during rotation of the nut relative to the bolt when tightening during installation.
+
+The acceptable dimension ranges for flat round washers for high strength structural bolting are given in \ASNZSFASTERNER{Fig. 4.1}. In this class, a washer thickness of \SI{3.5}{\mm} for computations for all bolt sizes may be used as this value satisfies the dimensional criteria. In practice, the possible range of dimensions should be considered.
 \section{Bolt Dimension}
 The bolt dimensions are shown in \tabref{tab:bolt_dim}.
 \begin{table}[H]
-\centering\footnotesize\caption{Dimensions of bolts}\label{tab:bolt_dim}
-\begin{tabular}{c|cc|ccc|ccc|ccc}
-	\toprule
-	     &  shank   &  head  & core  & tensile & shank & \multicolumn{3}{c|}{Commercial} & \multicolumn{3}{c}{High Strength} \\
-	Type & diameter & height & area  &  area   & area  & width & width &   nut height    & width & width &    nut height     \\
-	     &   $E$    &  $C$   & $A_c$ &  $A_s$  & $A_o$ &  $A$  &  $B$  &                 &  $A$  &  $B$  &                   \\ \midrule
-	M12  &    12    &   8    & 76.2  &  84.3   &  113  &  18   &  20   &       11        &       &       &                   \\
-	M16  &    16    &   11   &  144  &   157   &  201  &  24   &  26   &       15        &  27   &  31   &        17         \\
-	M20  &    20    &   13   &  225  &   256   &  314  &  30   &  33   &       18        &  34   &  39   &        21         \\
-	M24  &    24    &   16   &  324  &   353   &  452  &  36   &  40   &       22        &  41   &  47   &        24         \\
-	M30  &    30    &   20   &  519  &   561   &  706  &  46   &  51   &       26        &  50   &  58   &        31         \\
-	M36  &    36    &   24   &  759  &   817   & 1016  &  55   &  61   &       31        &  60   &  69   &        37         \\ \bottomrule
-	\multicolumn{12}{l}{All numbers are in \si{\mm} or \si{\mm^2}.}
+\setlength{\tabcolsep}{0.2em}
+\centering\footnotesize\caption{Dimensions of structural bolts}\label{tab:bolt_dim}
+\begin{tabular}{c|cc|ccc|ccc|ccc|c}
+    \toprule
+         &  shank   &  head  & core  & tensile & shank & \multicolumn{3}{c|}{Grade 4.6} & \multicolumn{3}{c|}{Grade 8.8} & thread \\
+    Type & diameter & height & area  &  area   & area  & width & width &   nut height   & width & width &   nut height   & pitch  \\
+         &   $E$    &  $C$   & $A_c$ &  $A_s$  & $A_o$ &  $A$  &  $B$  &                &  $A$  &  $B$  &                &        \\ \midrule
+    M12  &    12    &   8    & 76.2  &  84.3   &  113  &  18   &  20   &       11       &       &       &                &  1.75  \\
+    M16  &    16    &   11   &  144  &   157   &  201  &  24   &  26   &       15       &  27   &  31   &       17       &  2.0   \\
+    M20  &    20    &   13   &  225  &   256   &  314  &  30   &  33   &       18       &  34   &  39   &       21       &  2.5   \\
+    M24  &    24    &   16   &  324  &   353   &  452  &  36   &  40   &       22       &  41   &  47   &       24       &  3.0   \\
+    M30  &    30    &   20   &  519  &   561   &  706  &  46   &  51   &       26       &  50   &  58   &       31       &  3.5   \\
+    M36  &    36    &   24   &  759  &   817   & 1016  &  55   &  61   &       31       &  60   &  69   &       37       &  4.0   \\ \bottomrule
+    \multicolumn{13}{l}{All numbers are in \si{\mm} or \si{\mm^2}, values are taken from AS 1111.1 and \ASNZSFASTERNER{~}.}
 \end{tabular}
 \end{table}
 The shank area is computed as $A_o=\pi\dfrac{E^2}{4}$. The core area is computed as $A_c=\pi\dfrac{D^2}{4}$. The tensile area is computed by using pitch diameter which includes threads thus is smaller than $E$ (major diameter) but greater than $D$ (minor diameter).
@@ -137,13 +142,29 @@ Bolt length is generally measured from the inside of the head of the bolt to the
 \end{tabular}
 \end{table}
 
-According to \NZSSTEEL{~}, with grip denotes the thickness of materials to be held together, the length of bolt required is
-\begin{gather*}
-L\geqslant\text{grip}+\text{washer thickness}\times\text{washer number}+\text{nut height},\\
-L\leqslant\text{grip}+\text{washer thickness}\times\text{washer number}+\text{thread length}-\SI{3}{\mm}.
-\end{gather*}
+According to \NZSSTEEL{14.3.6.1.2}, a bolt should have
+\begin{itemize}
+\item At least one clear thread above the nut after tightening, and
+\item The following minimum number of threads beneath the nut after tightening
+\begin{itemize}
+\item for snug tightened bolts: one clear thread
+\item for tensioned bolts (i.e., proof loaded bolts) with diameter, $d_b$:
+\begin{center}
+\begin{tabular}{ll}
+    \toprule
+    bolt length between bolt head and nut, $l_g$ & No. threads \\ \midrule
+    $l_g\leqslant4d_b$                           & 5           \\
+    $4d_b<l_g\leqslant8d_b$                      & 7           \\
+    $4d_b<l_g$                                   & 10          \\ \bottomrule
+\end{tabular}
+\end{center}
+\end{itemize}
+\end{itemize}
+
+Note: The term "grip length" or "grip" of a bolt is defined differently in \NZSSTEEL{Append. K1.2.4}, \ASNZSFASTERNER{\S~2.3.5} and international standards. Sometimes it includes the distance between the bolt head and nut, and other times it is this minus the thickness of washer(s). Full definition is required when using this term.
+
 \begin{figure}[H]
-\centering\includegraphics[width=10cm]{PIC/CH06/GRIP}\caption{Definition of grip and washer thickness}
+\centering\includegraphics[width=10cm]{PIC/CH06/BOLT.WASHER}\caption{Bolt, washer and nut}
 \end{figure}
 \section{Installation of Bolts}
 Bolts may be installed in two ways:
@@ -175,6 +196,17 @@ The amount of turn required depends on the bolt type. This method is
 \item less dependent on surface conditions, and
 \item easy to inspect.
 \end{itemize}
+
+To fully tension (i.e., proof load) a bolt, the number of turns of the nut relative to the bolt after snug tightening to achieve the desired bolt tension, where surfaces beneath the bolt head and nut are parallel, should be the following for different bolt diameters, $d_b$ (\NZSSTEEL{Table 14.3.6.1.2}).
+\begin{center}
+\begin{tabular}{ll}
+    \toprule
+    bolt length between underside of bolt head and end of bolt, $l$ & rotations \\ \midrule
+    $l\leqslant4d_b$                                                & 1/3 turn  \\
+    $4d_b<l\leqslant8d_b$                                           & 1/2 turn  \\
+    $8d_b<l$                                                        & 2/3 turn  \\ \bottomrule
+\end{tabular}
+\end{center}
 \item \textbf{Direct tension indicator (DTI)}\\Tightening on washers with protrusions.
 \begin{figure}[H]
 \centering\includegraphics[height=5cm]{PIC/CH06/DTI}
