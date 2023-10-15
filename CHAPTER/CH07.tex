@@ -152,28 +152,28 @@ The following are some examples of welding symbols taken from \citep{Corgan2017}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/WL}
-\caption{Weld length specified on welding symbol between extension lines \citep{Corgan2017}}
+\caption{Weld length specified on welding symbol between extension lines (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/WL2}
 \caption{Weld length specified on welding symbol between extension lines with
-section lines representing the weld area \citep{Corgan2017}}
+section lines representing the weld area (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/IW}
-\caption{Example of intermittent welds \citep{Corgan2017}}
+\caption{Example of intermittent welds (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/IW1}
-\caption{Example of chain intermittent welds \citep{Corgan2017}}
+\caption{Example of chain intermittent welds (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/IW2}
-\caption{Example of staggered intermittent welds \citep{Corgan2017}}
+\caption{Example of staggered intermittent welds (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
@@ -183,42 +183,42 @@ section lines representing the weld area \citep{Corgan2017}}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/FW}
-\caption{Example of a welding symbol for a fillet weld \citep{Corgan2017}}
+\caption{Example of a welding symbol for a fillet weld (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[width=.99\textwidth]{PIC/CH07/EXAMPLE/FWS}
-\caption{Fillet weld size \citep{Corgan2017}}
+\caption{Fillet weld size (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/UL}
-\caption{Unequal leg fillet with detail drawing \citep{Corgan2017}}
+\caption{Unequal leg fillet with detail drawing (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/UL2}
-\caption{Unequal leg fillets that could be shown without detail \citep{Corgan2017}}
+\caption{Unequal leg fillets that could be shown without detail (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/BW}
-\caption{Welding symbol example for a groove weld \citep{Corgan2017}}
+\caption{Welding symbol example for a groove weld (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/BW2}
-\caption{Example of a groove/butt weld \citep{Corgan2017}}
+\caption{Example of a groove/butt weld (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/MT}
-\caption{Welding symbol with melt--through \citep{Corgan2017}}
+\caption{Welding symbol with melt--through (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH07/EXAMPLE/MT2}
-\caption{Melt--through example \citep{Corgan2017}}
+\caption{Melt--through example (unit: inch) \citep{Corgan2017}}
 \end{figure}
 \begin{figure}[p]
 \centering
@@ -264,6 +264,7 @@ specified in practice (where possible).
 \item \textbf{Butt Weld}\\Complete penetration butt weld should be the same thickness as the material they are connecting. By using an electrode of sufficient strength ($f_{uw}\geqslant{}f_u$) and an SP weld, the effect of the weld can be ignored since the weld strength does not limit the member strength.
 \item \textbf{Fillet Weld}
 \begin{itemize}
+\item \textbf{Preferred Sizes}\\Preferred sizes of a fillet weld with $t_w$ less than \SI{15}{\mm} are \SI{2}{\mm}, \SI{4}{\mm}, \SI{5}{\mm}, \SI{6}{\mm}, \SI{8}{\mm}, \SI{10}{\mm} and \SI{12}{\mm} (\NZSSTEEL{\S~9.7.3.2}).
 \item \textbf{Minimum Length}\\The minimum length $l_w$ is $4t_w$ to ensure good fusion.
 \item \textbf{Minimum Size}
 \begin{table}[H]
@@ -354,9 +355,17 @@ For example, for $t_w=\SI{3}{\mm}$, SP with E41XX electrodes, the dependable str
 &=\SI{0.417}{\kn\per\mm}.
 \end{align*}
 
-When using SP longitudinal fillet welds to RHS with $t<\SI{3}{\mm}$, SP capacities should be multiplied by \num{0.7}/\num{0.8} to acount for the different $\phi$ factors.
+When using SP longitudinal fillet welds to RHS with $t<\SI{3}{\mm}$, SP capacities should be multiplied by \num{0.7}/\num{0.8} to account for the different $\phi$ factors.
 
 Welds greater than \SI{8}{\mm} require multiple passes and tend to be less economical.
+\section{Fillet Weld Root Gaps}
+Where there is a separation/gap between plates (i.e., root gaps), the fillet weld size, $t_w$, is given by the inscribed triangle (which does not include the root gap) as shown (\NZSSTEEL{\S~9.7.3.1} and AS/NZS 5131 \S~7.5.8).
+\begin{figure}[H]
+\centering\input{PIC/CH07/WRG}
+\caption{Fillet weld with root gap}
+\end{figure}
+
+Fabrication tolerances are given in AS/NZS 5131 \S~7.5.8 Appendix F and \NZSSTEEL{\S~14.4}. Design/construction documentation should be clear as to how root gaps are considered (e.g., by the designer accounting for the tolerances with an increased $t_w$, or by the fabricator).
 \section{Good Practice for Welded Members}
 Although not shown in \NZSSTEEL{}, the following are some good practice for welded members.
 \begin{itemize}
