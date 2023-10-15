@@ -4,7 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install Packages
         run: |
           sudo apt-get install poppler-utils python3-pip
@@ -12,8 +12,9 @@ jobs:
           python CHARTS.py
           python GENERATOR.py
       - name: Compile
-        uses: xu-cheng/texlive-action/full@v1
+        uses: xu-cheng/texlive-action@v2
         with:
+          scheme: full
           run: |
             latexmk -pdf INTRO.tex
             latexmk -pdf IMAGES.tex
