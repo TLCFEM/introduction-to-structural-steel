@@ -4,6 +4,10 @@ This is the official repository of the book `Introduction to Structural Steel`.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5513880.svg)](https://doi.org/10.5281/zenodo.5513880)
 
+> [!WARNING]
+> The `master` branch is regularly updated __after__ each semester.
+> For the latest version of the current semester, please go to the corresponding revision branch.
+
 ## To Compile
 
 In order to compile the book, one needs to generate some design charts.
