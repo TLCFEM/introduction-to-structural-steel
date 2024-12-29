@@ -285,7 +285,7 @@ specified in practice (where possible).
 	\toprule
 	Thickness of material alongside which fillet weld is to be made $t$ (\si{\mm}) & $t_w$ (\si{\mm}) \\ \midrule
 	                                    $t<6$                                      &       $t$        \\
-	                               $6\geqslant{}t$                                 &      $t-1$       \\ \bottomrule
+	                               $6\leqslant{}t$                                 &      $t-1$       \\ \bottomrule
 \end{tabular}
 \end{table}
 This is necessary to a) prevent yielding of base material and b) indicate actual throat thickness.
@@ -501,7 +501,7 @@ This value can be seen in \tabref{tab:phi_v_w}.
 
 The weld length required is
 \begin{gather*}
-L_{min}=\dfrac{\SI{640}{\kn}}{\SI{0.835}{\kn\per\mm}}=\SI{766.5}{\mm}<\SI{1700}{\mm}.
+L_{min}=\dfrac{\SI{640}{\kn}}{\SI{0.835}{\kn\per\mm}}=\SI{766.5}{\mm}.
 \end{gather*}
 Possible weld placements are the follows.
 \begin{figure}[H]
@@ -551,7 +551,7 @@ Try $\SI{4}{\mm}$ W50X FCAW SP weld, $L_{min}=4\times{}t_w=\SI{16}{\mm}$. Assume
 \end{align*}
 The weld length required is
 \begin{gather*}
-L_{min}=\dfrac{\SI{718}{\kn}}{\SI{0.652}{\kn\per\mm}}=\SI{1101.6}{\mm}<\SI{1700}{\mm}.
+L_{min}=\dfrac{\SI{718}{\kn}}{\SI{0.652}{\kn\per\mm}}=\SI{1101.6}{\mm}.
 \end{gather*}
 \item Position of Welds\\
 Balance welds so that there is no eccentricity.

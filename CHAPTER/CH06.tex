@@ -108,7 +108,7 @@ The bolt dimensions are shown in \tabref{tab:bolt_dim}.
          &   $E$    &  $C$   & $A_c$ &  $A_s$  & $A_o$ &  $A$  &  $B$  &                &  $A$  &  $B$  &                &        \\ \midrule
     M12  &    12    &   8    & 76.2  &  84.3   &  113  &  18   &  20   &       11       &       &       &                &  1.75  \\
     M16  &    16    &   11   &  144  &   157   &  201  &  24   &  26   &       15       &  27   &  31   &       17       &  2.0   \\
-    M20  &    20    &   13   &  225  &   256   &  314  &  30   &  33   &       18       &  34   &  39   &       21       &  2.5   \\
+    M20  &    20    &   13   &  225  &   245   &  314  &  30   &  33   &       18       &  34   &  39   &       21       &  2.5   \\
     M24  &    24    &   16   &  324  &   353   &  452  &  36   &  40   &       22       &  41   &  47   &       24       &  3.0   \\
     M30  &    30    &   20   &  519  &   561   &  706  &  46   &  51   &       26       &  50   &  58   &       31       &  3.5   \\
     M36  &    36    &   24   &  759  &   817   & 1016  &  55   &  61   &       31       &  60   &  69   &       37       &  4.0   \\ \bottomrule
@@ -326,18 +326,17 @@ The minimum proof load for specific bolts is specified in the following table (\
 	          M36            &                     490                     \\ \bottomrule
 \end{tabular}
 \end{table}
-It is developed by a mixed consideration of the following:
+The axial force of a proof loaded bolt should be as high as possible without causing a risk of major bolt deformation or fracture. The minimum bolt proof load in old standards was determined by a mixed consideration of the following:
 \begin{itemize}
-\item \SI{0.2}{\percent} offset strain
-\item \SI{0.5}{\percent} extension under load
-\item \SI{70}{\percent} of $f_u$
+\item \SI{0.2}{\percent} offset strain,
+\item \SI{0.5}{\percent} extension under load,
+\item \SI{70}{\percent} of $f_u$.
 \end{itemize}
+It is now being changed to simply be $0.7f_u$.
 \begin{figure}[H]
 \centering\input{PIC/CH06/PL}
 \caption{Proof load}
 \end{figure}
-
-The proof load should be as high as possible without the risk of major bolt deformation or failure.
 \section{Strengths of Different Bolt Types}
 \begin{table}[H]
 \centering\footnotesize
@@ -531,7 +530,7 @@ s\geqslant2.5d_f.
 \item $1.25d_f$ for rolled edge of a rolled flat bar or section
 \end{itemize}
 \item \textbf{Corrosion between plates}\\
-\NZSSTEEL{\S~9.6.4} requires the maximum distance between centres of holes shall be the smaller of $12t_p$ and $\SI{150}{\mm}$.
+\NZSSTEEL{\S~9.6.4} requires the maximum distance from the centre of any bolt hole to the edge of the plate to be the smaller of $12t_p$ and $\SI{150}{\mm}$.
 \begin{gather}
 s\leqslant\min\left(12t_p,~\SI{150}{\mm}\right).
 \end{gather}
