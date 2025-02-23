@@ -330,7 +330,7 @@
     <region left="0" top="693" width="785" height="62" color="#000000" fontSize="18">
       <text lang="eng" fontFamily="Arial" fontSize="18">
         <content>
-          <p style="font-size: 18px;">Given the difference is smaller than 1%, and the ultimate strength would be greater, 150UC30.0 is okay according to MacRae's sugguestion.</p>
+          <p style="font-size: 18px;">Given the difference is smaller than 1%, and the ultimate strength would be greater, 150UC30.0 is OK according to MacRae's sugguestion.</p>
         </content>
       </text>
     </region>
