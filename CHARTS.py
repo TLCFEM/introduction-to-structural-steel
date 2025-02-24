@@ -76,7 +76,7 @@ def ub_strong_axis(size: tuple | None = None):
     if size is None:
         figure.savefig('REF/UB.STRONG.NC.pdf')
     else:
-        figure.savefig(f'REF/UB.STRONG.NC.LARGE.pdf')
+        figure.savefig("REF/UB.STRONG.NC.LARGE.pdf")
 
 
 def ub_weak_axis(size: tuple | None = None):
@@ -198,14 +198,8 @@ def compute_as(le, Iy, Iw, J, ms):
     return min(1, .6 * (math.sqrt(factor ** 2 + 3) - factor))
 
 
-def offset():
-    for i in cycle([2, -2]):
-        yield i
-
-
 def ub_strong_bending(size: tuple | None = None):
     ls = get_line_style()
-    off = offset()
 
     le = np.linspace(0, 20, 2000, endpoint=False)
 
