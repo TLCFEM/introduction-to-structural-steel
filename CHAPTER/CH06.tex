@@ -309,15 +309,18 @@ These are identical expect that the /TF bolting has treatment of the mating surf
 \caption{Behaviour of high-strength structural bolts. Slip load 1 applies to tension-controlled HS structural bolts (i.e., proof loaded bolts) using a slip factor of 0.35. Slip load 2 applies to snug-tight bolts. \citep{Gorenc2015}}
 \end{figure}
 \section{Minimum Bolt Proof Loads}
-It is necessary to tighten the bolt to obtain its `proof load' in order to get the maximum benefit from it.
-
-Proof loading the bolt is tightening it such as it stretches until it applies at least the `proof load', $P_L$. The bolt is then in tension applying a compressive force of $P_L$ to the plates. The compression causes friction between the plates and minimizes deformation.
+% It is necessary to tighten the bolt to obtain its `proof load' in order to get the maximum benefit from it.
+% Proof loading the bolt is tightening it such as it stretches until it applies at least the `proof load', $P_L$. The bolt is then in tension applying a compressive force of $P_L$ to the plates. The compression causes friction between the plates and minimizes deformation.
+Proof loading a bolt involves tightening the bolt such that it is subject to a minimum tension, known as the `bolt proof load', $N_\text{proof}$.
+The bolt in tension, applies a compression force of $N_\text{proof}$ to the plates.
+The compression is a `normal force' over the interface between the plates.
+This minimises axial deformation due to tension over the plate interfaces, and slip deformation when shear is applied over the interface.
 
 The minimum proof load for specific bolts is specified in the following table (\NZSSTEEL{Table~15.2.5.1}).
-\begin{table}[H]\centering\footnotesize\caption{Minimum Bolt tension for property class 8.8 bolts}
+\begin{table}[H]\centering\footnotesize\caption{Proof load $N_\text{proof}$ for property class 8.8 bolts}
 \begin{tabular}{cc}
 	\toprule
-	Nominal diameter of bolt & Minimum bolt tension (proof load, \si{\kn}) \\ \midrule
+	Nominal diameter of bolt & Proof load ($N_\text{proof}$, \si{\kn}) \\ \midrule
 	          M16            &                     95                      \\
 	          M20            &                     145                     \\
 	          M22            &                     180                     \\
@@ -345,7 +348,7 @@ It is now being changed to simply be $0.7f_u$.
 	\toprule
 	Size &           Shear           &           Shear           &          Axial           \\
 	     &        (eXcluded)         &        (iNcluded)         &         Tension          \\
-	     & $\phi{}V_{fx}~(\si{\kn})$ & $\phi{}V_{fn}~(\si{\kn})$ & $\phi{}N_{f}~(\si{\kn})$ \\ \midrule
+	     & $\phi{}V_{fx}~(\si{\kn})$ & $\phi{}V_{fn}~(\si{\kn})$ & $\phi{}N_{tf}~(\si{\kn})$ \\ \midrule
 	M12  &           22.4            &           15.1            &            27            \\
 	M16  &           39.9            &           28.6            &           50.2           \\
 	M20  &           62.3            &           44.6            &           78.4           \\
@@ -362,7 +365,7 @@ It is now being changed to simply be $0.7f_u$.
 	Size & \multicolumn{3}{l|}{Strength /S or /T}                                                 & \multicolumn{5}{l}{Serviceability /T}                                                                                      \\ \cline{2-9}
 	     &            Shear            &            Shear            &           Axial            &         Proof         &            Axial            & \multicolumn{3}{l}{Shear $\phi{}V_{sf}$ ($\si{\kn}$) for $\mu=0.35$} \\
 	     &         (eXcluded)          &         (iNcluded)          &          Tension           &         Load          &           Tension           & Standard &   Short   &                     Long                      \\
-	     & $\phi{}V_{fx}$ ($\si{\kn}$) & $\phi{}V_{fn}$ ($\si{\kn}$) & $\phi{}N_{f}$ ($\si{\kn}$) & $N_{tf}$ ($\si{\kn}$) & $\phi{}N_{tf}$ ($\si{\kn}$) & $k_h=1.0$  & $k_h=0.85$ &                   $k_h=0.7$                    \\ \midrule
+	     & $\phi{}V_{fx}$ ($\si{\kn}$) & $\phi{}V_{fn}$ ($\si{\kn}$) & $\phi{}N_{tf}$ ($\si{\kn}$) & $N_\text{proof}$ ($\si{\kn}$) & $\phi{}N_\text{proof}$ ($\si{\kn}$) & $k_h=1.0$  & $k_h=0.85$ &                   $k_h=0.7$                    \\ \midrule
 	M16  &            82.7             &            59.3             &            104             &          95           &            66.5             &   23.3   &   19.8    &                     16.3                      \\
 	M20  &             129             &            92.6             &            163             &          145          &            101.5            &   35.5   &   30.2    &                     24.9                      \\
 	M24  &             186             &             133             &            234             &          210          &             147             &   51.5   &   43.7    &                     36.0                      \\
@@ -772,8 +775,9 @@ N_{ti}&minimum bolt tension at installation
 \subsection{Shear Slip Under Tension}\label{sec:bolt_combined_s}
 In combined shear and tension, a bolt shall satisfy
 \begin{gather}
-\dfrac{V^*_{sf}}{\phi{}V_{sf}}+\dfrac{N^*_{tf}}{\phi{}N_{tf}}\leqslant1.0.
+\dfrac{V^*_{sf}}{\phi{}V_{sf}}+\dfrac{N^*_{tf}}{\phi{}N_{ti}}\leqslant1.0.
 \end{gather}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts.
 \begin{figure}[H]
 \centering\input{PIC/CH06/VN}\caption{Envelop of tension versus shear}
 \end{figure}
