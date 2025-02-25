@@ -752,26 +752,27 @@ V_{sf}&nominal shear capacity of a bolt\\
 &\num{0.30} for galvanized surfaces as lightly sandblasted\\
 &test values for other conditions\\
 n_{ei}&number of effective interfaces\\
-N_{ti}&minimum bolt tension at installation (\NZSSTEEL{Table~15.2.5.1})\\
+N_{ti}&minimum bolt tension at installation\\
 k_h&factor for different hole types\\
 &\num{1.0} for standard holes\\
 &\num{0.85} for short slotted and oversize holes\\
 &\num{0.70} for long slotted holes
 \end{conditions}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts (\NZSSTEEL{Table~15.2.5.1}).
 \begin{figure}[H]
 \centering
 \input{PIC/CH06/SS}\caption{Friction force}
 \end{figure}
 \subsection{Gap Opening (Tension Behaviour)}
 \begin{gather}
-N^*_{tf}\leqslant\phi{}N_{tf}=\phi{}N_{ti},
+N^*_{tf}\leqslant\phi{}N_{ti},
 \end{gather}
 where
 \begin{conditions}
 \phi&strength reduction factor, \num{0.7}\\
-N_{tf}&nominal tension capacity\\
 N_{ti}&minimum bolt tension at installation
 \end{conditions}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts.
 \subsection{Shear Slip Under Tension}\label{sec:bolt_combined_s}
 In combined shear and tension, a bolt shall satisfy
 \begin{gather}
