@@ -1,5 +1,5 @@
 matplotlib==3.10.1
 matplotx==0.3.10
 numpy==2.2.5
-pandas==2.2.3
+pandas==2.3.0
 pdf2image==1.17.0
