@@ -217,7 +217,7 @@ A_g=\SI{11400}{\mm^2}>\SI{11330}{\mm^2}.
 \end{gather*}
 Check slenderness requirement, considering the minimum $r$ value:
 \begin{gather*}
-\dfrac{L}{r_{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.2}=\num{122.7}<\num{300},\qquad\text{OK.}
+\dfrac{L}{r_\text{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.2}=\num{122.7}<\num{300},\qquad\text{OK.}
 \end{gather*}
 Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see, \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but it is heavier.
 
@@ -303,11 +303,12 @@ According to case 8 in \figref{fig:shear_lag}, $k_{te}=0.8$, the minimum net are
 A_n\geqslant\dfrac{N^*_t}{\phi{}0.85k_{te}f_u}=\dfrac{\SI{441}{\kn}}{0.9\times0.85\times0.8\times\SI{440}{\mpa}}=\SI{1638}{\mm^2}.
 \end{gather*}
 Thus the net area governs. Try the following sections.
+There is no need to check sections whose gross area is smaller than the minimum net area.
 \begin{table}[H]
 \centering\small
-\begin{tabular}{lccccc}
+\begin{tabular}{rccccc}
 	\toprule
- Section                        & $A_g$ (\si{\mm^2}) & $t$ (\si{\mm}) & $r_{\text{min}}$ (\si{\mm}) & $A_n$ (\si{\mm^2}) &      \\ \midrule
+ Section                        & $A_g$ (\si{\mm^2}) & $t$ (\si{\mm}) & $r_\text{min}$ (\si{\mm}) & $A_n$ (\si{\mm^2}) &      \\ \midrule
 	125\texttimes75\texttimes10UA  & 1810  & 9.5 &   16.2    &  1601  & N.G. \\
 	100\texttimes100\texttimes10EA & 1810  & 9.5 &   19.6    &  1601  & N.G. \\
 	125\texttimes90\texttimes8UA   & 1820  & 7.8 &   19.7    & 1648.4 & OK   \\
