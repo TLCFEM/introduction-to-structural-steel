@@ -276,7 +276,7 @@ If extension bar and/or universal joint are used, their dimensions shall also be
 \end{figure}
 \section{Modes of Carrying Shear Force}
 \subsection{Shear Planes}
-Bolts can be in single (one shear plane) or double (two shear planes) shear as shown below. Threads may be iNcluded (N) or eXcluded (X) from the shear plance (e.g., M20X bolt).
+Bolts can be in single (one shear plane) or double (two shear planes) shear as shown below. Threads may be iNcluded (N) or eXcluded (X) from the shear plane (e.g., M20X bolt).
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH06/SP}
@@ -309,15 +309,18 @@ These are identical expect that the /TF bolting has treatment of the mating surf
 \caption{Behaviour of high-strength structural bolts. Slip load 1 applies to tension-controlled HS structural bolts (i.e., proof loaded bolts) using a slip factor of 0.35. Slip load 2 applies to snug-tight bolts. \citep{Gorenc2015}}
 \end{figure}
 \section{Minimum Bolt Proof Loads}
-It is necessary to tighten the bolt to obtain its `proof load' in order to get the maximum benefit from it.
-
-Proof loading the bolt is tightening it such as it stretches until it applies at least the `proof load', $P_L$. The bolt is then in tension applying a compressive force of $P_L$ to the plates. The compression causes friction between the plates and minimizes deformation.
+% It is necessary to tighten the bolt to obtain its `proof load' in order to get the maximum benefit from it.
+% Proof loading the bolt is tightening it such as it stretches until it applies at least the `proof load', $P_L$. The bolt is then in tension applying a compressive force of $P_L$ to the plates. The compression causes friction between the plates and minimizes deformation.
+Proof loading a bolt involves tightening the bolt such that it is subject to a minimum tension, known as the `bolt proof load', $N_\text{proof}$.
+The bolt in tension, applies a compression force of $N_\text{proof}$ to the plates.
+The compression is a `normal force' over the interface between the plates.
+This minimises axial deformation due to tension over the plate interfaces, and slip deformation when shear is applied over the interface.
 
 The minimum proof load for specific bolts is specified in the following table (\NZSSTEEL{Table~15.2.5.1}).
-\begin{table}[H]\centering\footnotesize\caption{Minimum Bolt tension for property class 8.8 bolts}
+\begin{table}[H]\centering\footnotesize\caption{Proof load $N_\text{proof}$ for property class 8.8 bolts}\label{tab:proof_load}
 \begin{tabular}{cc}
 	\toprule
-	Nominal diameter of bolt & Minimum bolt tension (proof load, \si{\kn}) \\ \midrule
+	Nominal diameter of bolt & Proof load ($N_\text{proof}$, \si{\kn}) \\ \midrule
 	          M16            &                     95                      \\
 	          M20            &                     145                     \\
 	          M22            &                     180                     \\
@@ -345,7 +348,7 @@ It is now being changed to simply be $0.7f_u$.
 	\toprule
 	Size &           Shear           &           Shear           &          Axial           \\
 	     &        (eXcluded)         &        (iNcluded)         &         Tension          \\
-	     & $\phi{}V_{fx}~(\si{\kn})$ & $\phi{}V_{fn}~(\si{\kn})$ & $\phi{}N_{f}~(\si{\kn})$ \\ \midrule
+	     & $\phi{}V_{fx}~(\si{\kn})$ & $\phi{}V_{fn}~(\si{\kn})$ & $\phi{}N_{tf}~(\si{\kn})$ \\ \midrule
 	M12  &           22.4            &           15.1            &            27            \\
 	M16  &           39.9            &           28.6            &           50.2           \\
 	M20  &           62.3            &           44.6            &           78.4           \\
@@ -362,7 +365,7 @@ It is now being changed to simply be $0.7f_u$.
 	Size & \multicolumn{3}{l|}{Strength /S or /T}                                                 & \multicolumn{5}{l}{Serviceability /T}                                                                                      \\ \cline{2-9}
 	     &            Shear            &            Shear            &           Axial            &         Proof         &            Axial            & \multicolumn{3}{l}{Shear $\phi{}V_{sf}$ ($\si{\kn}$) for $\mu=0.35$} \\
 	     &         (eXcluded)          &         (iNcluded)          &          Tension           &         Load          &           Tension           & Standard &   Short   &                     Long                      \\
-	     & $\phi{}V_{fx}$ ($\si{\kn}$) & $\phi{}V_{fn}$ ($\si{\kn}$) & $\phi{}N_{f}$ ($\si{\kn}$) & $N_{tf}$ ($\si{\kn}$) & $\phi{}N_{tf}$ ($\si{\kn}$) & $k_h=1.0$  & $k_h=0.85$ &                   $k_h=0.7$                    \\ \midrule
+	     & $\phi{}V_{fx}$ ($\si{\kn}$) & $\phi{}V_{fn}$ ($\si{\kn}$) & $\phi{}N_{tf}$ ($\si{\kn}$) & $N_\text{proof}$ ($\si{\kn}$) & $\phi{}N_\text{proof}$ ($\si{\kn}$) & $k_h=1.0$  & $k_h=0.85$ &                   $k_h=0.7$                    \\ \midrule
 	M16  &            82.7             &            59.3             &            104             &          95           &            66.5             &   23.3   &   19.8    &                     16.3                      \\
 	M20  &             129             &            92.6             &            163             &          145          &            101.5            &   35.5   &   30.2    &                     24.9                      \\
 	M24  &             186             &             133             &            234             &          210          &             147             &   51.5   &   43.7    &                     36.0                      \\
@@ -590,10 +593,10 @@ f_{uf}&minimum tensile strength of a bolt
 \left(\dfrac{V^*_{f}}{\phi{}V_{f}}\right)^2+\left(\dfrac{N^*_{tf}}{\phi{}N_{tf}}\right)^2\leqslant1.0.
 \end{gather}
 \begin{figure}[H]
-\centering\input{PIC/CH06/VI}\caption{Envelop of axial force versus shear}
+\centering\input{PIC/CH06/VI}\caption{Envelope of axial force versus shear}
 \end{figure}
 \subsection{Bending Failure of Bolts}
-Bending failure is not usually aa problem expect for very long bolts. Standard methods can be used.
+Bending failure is not usually a problem except for very long bolts. Standard methods can be used.
 \begin{figure}[H]
 \centering
 \includegraphics{PIC/CH06/BBF}\caption{Bending failure of bolts}
@@ -697,8 +700,8 @@ A quick summary, the desired section shall meet the following requirements:
 
 Try 65\texttimes50\texttimes5UA, $A_g=\SI{512}{\mm^2}$. This does not satisfy the requirement.
 
-Try 75\texttimes50\texttimes5UA, $A_g=\SI{560}{\mm^2}>\SI{555.6}{\mm^2}$, okay. Check net area,
-$A_{g,min}=\SI{475.3}{\mm^2}+\SI{18}{\mm}\times\SI{5}{\mm}=\SI{565.3}{\mm}$. The difference is \SI{0.9}{\percent}, okay.
+Try 75\texttimes50\texttimes5UA, $A_g=\SI{560}{\mm^2}>\SI{555.6}{\mm^2}$, OK. Check net area,
+$A_{g,min}=\SI{475.3}{\mm^2}+\SI{18}{\mm}\times\SI{5}{\mm}=\SI{565.3}{\mm}$. The difference is \SI{0.9}{\percent}, OK.
 
 Check bolt spacing, $s=\SI{40}{\mm}\geqslant2.5d_f=2.5\times\SI{16}{\mm}=\SI{40}{\mm}$.
 \begin{align*}
@@ -749,33 +752,35 @@ V_{sf}&nominal shear capacity of a bolt\\
 &\num{0.30} for galvanized surfaces as lightly sandblasted\\
 &test values for other conditions\\
 n_{ei}&number of effective interfaces\\
-N_{ti}&minimum bolt tension at installation (\NZSSTEEL{Table~15.2.5.1})\\
+N_{ti}&minimum bolt tension at installation\\
 k_h&factor for different hole types\\
 &\num{1.0} for standard holes\\
 &\num{0.85} for short slotted and oversize holes\\
 &\num{0.70} for long slotted holes
 \end{conditions}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts (\tabref{tab:proof_load}).
 \begin{figure}[H]
 \centering
 \input{PIC/CH06/SS}\caption{Friction force}
 \end{figure}
 \subsection{Gap Opening (Tension Behaviour)}
 \begin{gather}
-N^*_{tf}\leqslant\phi{}N_{tf}=\phi{}N_{ti},
+N^*_{tf}\leqslant\phi{}N_{ti},
 \end{gather}
 where
 \begin{conditions}
 \phi&strength reduction factor, \num{0.7}\\
-N_{tf}&nominal tension capacity\\
 N_{ti}&minimum bolt tension at installation
 \end{conditions}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts.
 \subsection{Shear Slip Under Tension}\label{sec:bolt_combined_s}
 In combined shear and tension, a bolt shall satisfy
 \begin{gather}
-\dfrac{V^*_{sf}}{\phi{}V_{sf}}+\dfrac{N^*_{tf}}{\phi{}N_{tf}}\leqslant1.0.
+\dfrac{V^*_{sf}}{\phi{}V_{sf}}+\dfrac{N^*_{tf}}{\phi{}N_{ti}}\leqslant1.0.
 \end{gather}
+The minimum bolt tension at installation, $N_{ti}$, may be taken as $N_\text{proof}$ for proof loaded bolts.
 \begin{figure}[H]
-\centering\input{PIC/CH06/VN}\caption{Envelop of tension versus shear}
+\centering\input{PIC/CH06/VN}\caption{Envelope of tension versus shear}
 \end{figure}
 
 \begin{exmp}

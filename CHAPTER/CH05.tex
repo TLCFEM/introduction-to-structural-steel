@@ -344,7 +344,7 @@ The factor $k_t$ is for twist about $z$-axis (beam chord) at segment ends. It de
 \input{PIC/CH05/KT}\caption{Definition of local axes}
 \end{figure}
 
-The factor $k_l$ is the height of load abobe the neutral axis. Depending on where the load is applied, some cases are more likely to buckle.
+The factor $k_l$ is the height of load above the neutral axis. Depending on where the load is applied, some cases are more likely to buckle.
 \begin{figure}[H]
 \centering
 \input{PIC/CH05/KL}\caption{Loads applied to different heights}
@@ -362,14 +362,14 @@ The determination of $k_t$, $k_l$ and $k_r$ is summarised in \tabref{tab:end_res
 	                                                 &                           &                                                               \multicolumn{3}{c|}{load height position}                                                                & \multicolumn{3}{c}{\multirow{2}[1]{3cm}{\centering{}ends with minor axis\\rotation restraints}} \\ \cline{3-5}
 	                                                 &                           &  \multirow{2}[1]{1cm}{\centering{}shear\\centre} &                                 \multicolumn{2}{c|}{top flange}                                 &                                      \multicolumn{3}{c}{}                                       \\\cline{4-8}
 	                                                 &                           &                                                                       & \parbox{2cm}{\centering{}load within\\segment} & \parbox{2cm}{\centering{}load at\\segment end} & none & one &                                        both                                        \\ \midrule
-	                       FF                        &            1.0            &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.9 &                                        0.7                                         \\
+                        FF                        &            1.0            &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.85 &                                        0.7                                         \\
 	                       FL                        &            1.0            &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 1.0 &                                        1.0                                         \\
 	                       LL                        &            1.0            &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 1.0 &                                        1.0                                         \\
 	                       FU                        &            1.0            &                                 1.0                                  &                      2.0                       &                      2.0                       & 1.0  & 1.0 &                                        1.0                                         \\
-	                       FP                        &      \eqsref{eq:kt1}      &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.9 &                                        0.7                                         \\
+                        FP                        &      \eqsref{eq:kt1}      &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.85 &                                        0.7                                         \\
 	                       PL                        &      \eqsref{eq:kt1}      &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 1.0 &                                        1.0                                         \\
 	                       PU                        &      \eqsref{eq:kt1}      &                                 1.0                                  &                      2.0                       &                      2.0                       & 1.0  & 1.0 &                                        1.0                                         \\
-	                       PP                        &      \eqsref{eq:kt2}      &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.9 &                                        0.7                                         \\ \bottomrule
+                        PP                        &      \eqsref{eq:kt2}      &                                 1.0                                  &                      1.4                       &                      1.0                       & 1.0  & 0.85 &                                        0.7                                         \\ \bottomrule
 \end{tabular}
 \end{table}
 Details and other considerations can be found in \NZSSTEEL{Table~5.6.3}. The following two expressions are used in \tabref{tab:end_restraint}.
@@ -812,7 +812,7 @@ Point load is an idealised concept that does not exist in practice. All loads ar
 
 If loading is applied from another section, then the way the force should be computed on the beam being designed in shown below.
 \begin{figure}[H]
-\centering\includegraphics{PIC/CH05/BEARO}\caption{Ineffective regions are ignored}
+\centering\input{PIC/CH05/BEARO}\caption{Ineffective regions are ignored}
 \end{figure}
 \subsection{Yielding}
 Web yielding will occur over the area $b_{bf}t_w$ when there is either high load or small area. The nominal bearing yield capacity of a web shall be calculated as (\NZSSTEEL{\S~5.13.3.1})
@@ -960,7 +960,7 @@ In absence of axial force, \NZSSTEEL{Cl.~8.4.5.1} requires
 \end{align}
 where major axis bending occurs about the $x$-axis and minor axis bending ocurs about the $y$-axis. Furthermore, $M_{cx}=\min\left(M_{sx}~,M_{bx}\right)$ for the major (strong) axis and $M_{cy}=M_{sy}$ for the minor (weak) axis. FLT buckling does \textbf{not} occur for bending about weak axis.
 \begin{figure}[H]
-\centering\input{PIC/CH05/BAI}\caption{Envelop of biaxial moments}
+\centering\input{PIC/CH05/BAI}\caption{Envelope of biaxial moments}
 \end{figure}
 \clearpage
 \begin{exmp}

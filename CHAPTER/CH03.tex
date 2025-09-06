@@ -217,9 +217,9 @@ A_g=\SI{11400}{\mm^2}>\SI{11330}{\mm^2}.
 \end{gather*}
 Check slenderness requirement, considering the minimum $r$ value:
 \begin{gather*}
-\dfrac{L}{r_{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.5}=\num{122.7}<\num{300},\qquad\text{Okay.}
+\dfrac{L}{r_\text{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.2}=\num{122.7}<\num{300},\qquad\text{OK.}
 \end{gather*}
-Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see, \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but its heavier.
+Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see, \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but it is heavier.
 
 Note:
 \begin{itemize}
@@ -303,17 +303,18 @@ According to case 8 in \figref{fig:shear_lag}, $k_{te}=0.8$, the minimum net are
 A_n\geqslant\dfrac{N^*_t}{\phi{}0.85k_{te}f_u}=\dfrac{\SI{441}{\kn}}{0.9\times0.85\times0.8\times\SI{440}{\mpa}}=\SI{1638}{\mm^2}.
 \end{gather*}
 Thus the net area governs. Try the following sections.
+There is no need to check sections whose gross area is smaller than the minimum net area.
 \begin{table}[H]
 \centering\small
-\begin{tabular}{lccccc}
+\begin{tabular}{rccccc}
 	\toprule
-	Section                        & $A_g$ & $t$ & $r_{min}$ & $A_n$  &      \\ \midrule
+ Section                        & $A_g$ (\si{\mm^2}) & $t$ (\si{\mm}) & $r_\text{min}$ (\si{\mm}) & $A_n$ (\si{\mm^2}) &      \\ \midrule
 	125\texttimes75\texttimes10UA  & 1810  & 9.5 &   16.2    &  1601  & N.G. \\
 	100\texttimes100\texttimes10EA & 1810  & 9.5 &   19.6    &  1601  & N.G. \\
-	125\texttimes90\texttimes8UA   & 1820  & 7.8 &   19.7    & 1648.4 & Okay \\
-	125\texttimes125\texttimes8EA  & 1900  & 7.8 &   24.8    & 1728.4 & Okay \\
-	125\texttimes90\texttimes10UA  & 2200  & 9.5 &   19.6    &  1991  & Okay \\
-	100\texttimes100\texttimes12EA & 2260  & 12  &   19.5    &  1996  & Okay \\ \bottomrule
+	125\texttimes90\texttimes8UA   & 1820  & 7.8 &   19.7    & 1648.4 & OK   \\
+	125\texttimes125\texttimes8EA  & 1900  & 7.8 &   24.8    & 1728.4 & OK   \\
+	125\texttimes90\texttimes10UA  & 2200  & 9.5 &   19.6    &  1991  & OK   \\
+	100\texttimes100\texttimes12EA & 2260  & 12  &   19.5    &  1996  & OK   \\ \bottomrule
 \end{tabular}
 \end{table}
 Thus use 125\texttimes90\texttimes8UA. The thickness is smaller than \SI{11}{\mm}, thus the assumed yield stress is appropriate for Grade 300 steel.
@@ -332,7 +333,7 @@ Find the size of UC member carrying axial loads $G=\SI{270}{\kn}$, $Q=\SI{400}{\
 \end{figure}
 \end{exmp}
 \begin{solution}
-The demand can be obtained via combinations.
+The demand can be obtained via combinations, noting that $\psi_c=0.4$ (see \tabref{table:load_factors}),
 \begin{align*}
 N^*_t&=\max\left(1.35G,~1.2G+1.5Q,~1.2G+\psi_cQ+W\right)\\
 &=\max\left(\SI{364.5}{\kn},~\SI{924}{\kn},~\SI{529}{\kn}\right)\\
@@ -350,7 +351,7 @@ Since there are three bolts in a line and $b_f>\dfrac{2}{3}d$, from \figref{fig:
 \begin{gather*}
 \phi0.85k_{te}A_nf_y=0.9\times0.85\times0.9\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{919}{\kn}.
 \end{gather*}
-The difference is only \SI{0.5}{\percent}. Considering the ultimate strength would be greater, 150UC30.0 is okay.
+The difference is only \SI{0.5}{\percent}. Considering the ultimate strength would be greater, 150UC30.0 is OK.
 
 Use case 2 in \tabref{fig:shear_lag} to recheck the example, from which,
 \begin{gather*}
@@ -476,9 +477,9 @@ Check flutter.
 
 Check force in top tie rod.
 \begin{gather*}
-N^*_{t,top}=N^*_t\times\cos\alpha=\SI{21.6}{\kn}.
+N^*_{t,top}=N^*_t/\cos\alpha=\SI{21.6}{\kn}.
 \end{gather*}
-The minimum diameter becomes \SI{10.44}{\mm}. Thus the chosen \SI{16}{\mm} rod is still okay.
+The minimum diameter becomes \SI{10.44}{\mm}. Thus the chosen \SI{16}{\mm} rod is still OK.
 \begin{figure}[H]
 \centering\footnotesize
 \begin{tikzpicture}[scale=.2]
