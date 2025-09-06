@@ -13,7 +13,7 @@ jobs:
           python CHARTS.py
           python GENERATOR.py
       - name: Compile
-        uses: xu-cheng/texlive-action@v2
+        uses: xu-cheng/texlive-action@v3
         with:
           scheme: full
           run: |
