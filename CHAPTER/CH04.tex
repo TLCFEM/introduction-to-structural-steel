@@ -418,14 +418,14 @@ Performing such a computation is somehow tedious, in practice, engineers can ref
 
 The most conservative curve is that with $\alpha_b=1$. The European codes, like \NZSSTEEL{}, have five curves for $\alpha_b$. The Canadian code has 3 curves for different residual stress conditions, while the US code has just one curve for all residual stress conditions.
 \begin{exmp}
-What is the maximum stress that can be applied to a hot-rolled compact Grade 300 column (no holes) with $t_f<\SI{11}{\mm}$ and $\lambda=100$?
+What is the maximum stress that can be applied to a hot-rolled compact Grade 300 column (no holes) with $t_f<\SI{11}{\mm}$ and $\dfrac{k_eL}{r}=100$?
 \end{exmp}
 \begin{solution}
 Since it is compact section, shear lag is often not a problem. It can be safely assumed that $k_f=1$. Since there are no holes, $A_n=A_g$. From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section. For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{320}{\mpa}$ for Grade 300 steel.
 
 The modified slenderness ratio
 \begin{gather*}
-\lambda_n=\lambda\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=100\times\sqrt{1}\times\sqrt{\dfrac{320}{250}}=113.1.
+\lambda_n=\dfrac{k_eL}{r}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=100\times\sqrt{1}\times\sqrt{\dfrac{320}{250}}=113.1.
 \end{gather*}
 
 $\alpha_c$ can be computed (or found from \tabref{tab:alpha_c}, or \figref{fig:alpha_c}) as \num{0.459}. Thus, the maximum stress is
