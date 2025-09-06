@@ -1,3 +1,5 @@
+.idea
+.venv
 *.aux
 *.bak
 *.bbl
@@ -11,8 +13,7 @@
 *.synctex.gz
 *.thm
 *.toc
-.idea
-INTRO.pdf
 IMAGES*
-venv
+INTRO.pdf
 PNG
+venv
