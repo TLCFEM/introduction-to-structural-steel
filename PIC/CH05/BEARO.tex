@@ -1,5 +1,5 @@
 \footnotesize
-\begin{tikzpicture}[scale=.8,ext/.pic={
+\begin{tikzpicture}[ext/.pic={
                 \path[fill=white](-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2)to(0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2)--cycle;
                 \draw(-0.2,0)to[bend left](0,0.1)to[bend right](0.2,0.2) (0.2,0)to[bend left](0,-0.1)to[bend right](-0.2,-0.2);
             }]
@@ -31,5 +31,5 @@
         \draw(3,-5)--pic{ext}++(0,5)--pic{ext}++(0,5);
         \draw[pattern=north east lines](-\base,0)rectangle(-1,-\thickness);
     \end{scope}
-    \node at(0,-4)[align=left]{Hatched regions are considered ineffective\\and thus ignored in design.\\The widths shall be determined according to the 1:1 slope rule.};
+    \node at(0,-5)[align=left]{Hatched regions are considered ineffective\\and thus ignored in design.\\The widths shall be determined according to the 1:1 slope rule.};
 \end{tikzpicture}
