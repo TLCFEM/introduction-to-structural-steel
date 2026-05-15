@@ -41,6 +41,25 @@ python3 ./CONVERTER.py
 
 See [CI/CD](.github/workflows/pdf.yml) for more details.
 
+## Reference Build
+
+The following is a standard procedure that builds everything using docker.
+Make sure `docker` and `curl` are available on the system.
+
+```bash
+mkdir -p enci336
+curl -fsSL https://raw.githubusercontent.com/TLCFEM/introduction-to-structural-steel/master/dockerfile -o enci336/dockerfile
+
+docker build -f enci336/dockerfile -t enci336 enci336
+
+cid=$(docker create enci336)
+docker cp "$cid:/workspace/INTRO.pdf" ./enci336/
+docker cp "$cid:/workspace/IMAGES.pdf" ./enci336/
+docker cp "$cid:/workspace/IMAGES.zip" ./enci336/
+docker cp "$cid:/workspace/WORKSHEET.zip" ./enci336/
+docker rm "$cid" >/dev/null
+```
+
 ## Comments/Suggestions
 
 Any comments/suggestions are welcome. Please feel free to suggest improvements by creating new issues.
