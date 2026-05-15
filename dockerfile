@@ -14,8 +14,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ENV PATH="/root/.local/bin/:$PATH"
 
-RUN uv venv .venv && . .venv/bin/activate && \
-    uv pip install -r requirements.txt && \
+RUN uv venv .venv && uv pip install -r requirements.txt && \
     uv run python CHARTS.py && \
     uv run python GENERATOR.py && \
     latexmk -pdf INTRO.tex && \
