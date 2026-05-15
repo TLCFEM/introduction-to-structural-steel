@@ -2,6 +2,9 @@ name: Continuous
 on:
   push:
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,34 +28,9 @@ jobs:
         run: |
           python CONVERTER.py
       - name: Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: INTRO.pdf
-          asset_name: INTRO.pdf
-          tag: latest
-          overwrite: true
-      - name: Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: IMAGES.pdf
-          asset_name: IMAGES.pdf
-          tag: latest
-          overwrite: true
-      - name: Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: IMAGES.zip
-          asset_name: IMAGES.zip
-          tag: latest
-          overwrite: true
-      - name: Release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: WORKSHEET.zip
-          asset_name: WORKSHEET.zip
-          tag: latest
-          overwrite: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in INTRO.pdf IMAGES.pdf IMAGES.zip WORKSHEET.zip; do
+            gh release upload latest "$file" --clobber
+          done
