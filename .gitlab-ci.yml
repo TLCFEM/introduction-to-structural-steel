@@ -3,6 +3,9 @@ stages:
   - build
 build_pdf:
   stage: build
+  resource_group: $CI_COMMIT_REF_SLUG
+  tags:
+    - spacehub
   script:
     - apt-get update && apt-get install -y python3-pip python3-venv poppler-utils
     - python3 -m venv venv
