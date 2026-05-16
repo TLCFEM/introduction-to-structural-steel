@@ -20,3 +20,4 @@ build_pdf:
       - IMAGES.pdf
       - IMAGES.zip
       - WORKSHEET.zip
+    expire_in: 1 week
