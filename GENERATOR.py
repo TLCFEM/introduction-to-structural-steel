@@ -28,7 +28,7 @@ if __name__ == "__main__":
             for tex_file in os.listdir("PIC/" + ch):
                 if tex_file.endswith(".tex"):
                     main_file.write("\\input{PIC/" + ch + "/" + tex_file + "}\n")
-                elif tex_file.endswith(".pdf") or tex_file.endswith(".png"):
+                elif tex_file.endswith((".pdf", ".png")):
                     main_file.write("\\begin{tikzpicture}\n")
                     main_file.write(
                         "\\node at(0,0){\\includegraphics{PIC/"
