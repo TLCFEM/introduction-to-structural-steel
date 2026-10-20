@@ -118,7 +118,7 @@ y_i&signed $y$ distance from c.r. of fastener $i$
 \begin{gather*}
 r_i=\sqrt{x_i^2+y_i^2}.
 \end{gather*}
-\item Determine polar moment of distance
+\item Determine polar moment of area
 \begin{gather*}
 J=\sum_{i=1}^nr_i^2.
 \end{gather*}
@@ -157,7 +157,7 @@ In which $Z_x$ accounts for the holes in plate.
 \begin{gather}
 V^*\leqslant\phi{}V_n=\phi{}A_vf_y=0.9\cdot\sum{}d_tt_i\cdot\dfrac{2}{3}\cdot0.6f_y.
 \end{gather}
-The factor $2/3$ accounts for averaged shear stress.
+The factor $2/3$ accounts for average shear stress.
 \begin{exmp}
 Determine the size of Grade 8.8/N/S bolts in the bearing type connection below using Grade 300 steel.
 \begin{figure}[H]
@@ -180,7 +180,7 @@ Determine the size of Grade 8.8/N/S bolts in the bearing type connection below u
 \end{tabular}
 \end{center}
 
-The critical bolts are are bolt 4 and 6. A M20/8.8N bolt has a capacity of $\SI{92.6}{\kn}$ (see \tabref{tab:bolt8.8}). Thus use six M20/8.8N bolts.
+The critical bolts are bolts 4 and 6. An M20/8.8N bolt has a capacity of $\SI{92.6}{\kn}$ (see \tabref{tab:bolt8.8}). Thus use six M20/8.8N bolts.
 \end{solution}
 \begin{exmp}
 Find the maximum factored load, $P^*$ and the maximum service load, $P$, that can be carried in the connection in the previous example.
@@ -242,7 +242,7 @@ Many countries use the ultimate strength method to estimate the strength of a co
 \centering\input{PIC/CH08/ICR}\caption{Illustration of ICR}
 \end{figure}
 
-According to this method, the deformation of each fastener (or part of a weld) is assumed to be proportional to its distance from the ICR. The connection fails when on of the fasteners reaches the maximum deformation $\Delta_{max}$. Accordingly, the maximum resistance is denoted as $R_{ult}$.
+According to this method, the deformation of each fastener (or part of a weld) is assumed to be proportional to its distance from the ICR. The connection fails when one of the fasteners reaches the maximum deformation $\Delta_{max}$. Accordingly, the maximum resistance is denoted as $R_{ult}$.
 
 It is also necessary to know the force deformation relationship for each bolt. A linear relationship can be expressed as
 \begin{gather}\label{eq:ri_linear}
@@ -455,7 +455,7 @@ f_{u,max}^*\leqslant\left\{\begin{array}{ll}
 \end{itemize}
 \begin{exmp}\href{run:./WORKSHEET/CH08/EX8.ECLW.sm}{Worksheet} Eccentrically Loaded Weld
 
-A bracket is to be connected to both flanges of a 250UC89.5 Grade 300 column to transit a vertical factored force of \SI{200}{\kn} that is \SI{200}{\mm} from the column. Assume plate satisfies all necessary requirements. Use E48XX GP electrodes and find weld size.
+A bracket is to be connected to both flanges of a 250UC89.5 Grade 300 column to transmit a vertical factored force of \SI{200}{\kn} that is \SI{200}{\mm} from the column. Assume plate satisfies all necessary requirements. Use E48XX GP electrodes and find weld size.
 \begin{figure}[H]\input{PIC/CH08/ECCW}
 \end{figure}
 \end{exmp}
@@ -508,7 +508,7 @@ t_t\geqslant\dfrac{\SI{1.056}{\kn\per\mm}}{0.6\times0.6\times\SI{480}{\mpa}}=\SI
 Thus required weld size is $t_w=\sqrt{2}\times\SI{6.11}{\mm}=\SI{8.64}{\mm}$, try \SI{10}{\mm} weld. The minimum size is \SI{5}{\mm}. The maximum size is \SI{11}{\mm}. Use \SI{10}{\mm} E48XX GP fillet welds.
 \end{solution}
 \begin{exmp}
-Compute required size of W50X fillet weld. Assume that column and bracket do no govern. Assume the shear stress is uniform.
+Compute required size of W50X fillet weld. Assume that column and bracket do not govern. Assume the shear stress is uniform.
 \begin{figure}[H]
 \input{PIC/CH08/ECCW2}
 \end{figure}

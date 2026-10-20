@@ -32,7 +32,7 @@ where
 A_g&gross cross section area\\
 f_y&yield strength
 \end{conditions}
-\item \textbf{Sudden strength decrease}: facture over the \textbf{net} area $A_n$\\
+\item \textbf{Sudden strength decrease}: fracture over the \textbf{net} area $A_n$\\
 In this case, $N_t$ is determined by the net area:
 \begin{gather}\label{eq:tension_net}
 N_t=0.85k_{te}A_nf_u
@@ -101,7 +101,7 @@ s_{g}&gauge length, distance between hole centers measured \textbf{perpendicular
 If all holes have the same size $d_{h,i}=d_h$, and the plate thickness is uniform $t_i=t_j=t$, then it is possible to express the net area as $A_n=Lt$ with $L=b-nd_h+\sum_{j=1}^{m}\dfrac{s_{p,j}^2}{4s_{g,j}}$. The main task is to find the length of critical fracture line $L$.
 
 \begin{exmp}
-For the plate shown, assume the thickness is $t=\SI{12}{\mm}$ and the diameter of bolts is \SI{20}{\mm}, to compute the critial fracture line, both staggered and unstaggered cases need to be considered.
+For the plate shown, assume the thickness is $t=\SI{12}{\mm}$ and the diameter of bolts is \SI{20}{\mm}. To compute the critical fracture line, both staggered and unstaggered cases need to be considered.
 \begin{figure}[H]\centering
 \input{PIC/CH03/SP}
 \end{figure}
@@ -135,7 +135,7 @@ L_{ABCDEF}&=b-4d_h+\sum\dfrac{s_p^2}{4s_g}\\&=\SI{355}{\mm}-4\times\SI{22}{\mm}+
 \end{split}
 \end{gather*}
 \end{itemize}
-The governing case leads to the \textbf{minimum} net area $A_n=L_{ABCDEF}t=\SI{287.8}{\mm}\times\SI{12}{\mm}=\SI{3454}{\mm^2}$. In this example, since the plate is resisting $N^*$ applied on the right side, there is \textbf{no} need to consider cases such as ABCEF in which bolt at D has provided some resistance. The design of bolted connection will be introduced in Chapter \ref{ch:bolt}.
+The governing case leads to the \textbf{minimum} net area $A_n=L_{ABCDEF}t=\SI{287.8}{\mm}\times\SI{12}{\mm}=\SI{3454}{\mm^2}$. In this example, since the plate is resisting $N^*$ applied on the right side, there is \textbf{no} need to consider cases such as ABCEF in which the bolt at D provides some resistance. The design of bolted connection will be introduced in Chapter \ref{ch:bolt}.
 \end{solution}
 \subsubsection{Angle Connection}
 For angle connection, the gauge $s_g$ shall be taken as the sum of the back marks to each hole, less the leg thickness (\NZSSTEEL{Fig. 9.1.10.3(2)}).
@@ -159,12 +159,12 @@ In other connections, the same effect can be seen. Factors affecting shear lag a
 \begin{itemize}
 \item proportion of section connected;
 
-It may be seen that the stress flow lines change direction and move together  concentrating stress.
+It may be seen that the stress flow lines change direction and move together, concentrating stress.
 \begin{figure}[H]
 \centering
 \input{PIC/CH03/SL1}
 \end{figure}
-\item length of weld or number of connects, more shear lag is expected with fewer connectors;
+\item length of weld or number of connectors; more shear lag is expected with fewer connectors;
 \begin{figure}[H]
 \centering
 \input{PIC/CH03/SL2}
@@ -192,7 +192,7 @@ Some codes define an effective net area $A_e=k_{te}A_n$. We will use the AISC re
 \label{fig:shear_lag}
 \end{figure}
 \section{Tension Member Slenderness Limitations}
-Most codes do not have any requirements for slenderness. However, undesired flutter (or vibration) of slender tension members have been observed in some situations. The AISC-LRFD code makes the following recommendations (\ANSI{\S~D1}): For members designed on the basis of tension, the slenderness ratio, $L/r$, preferably \textbf{should not exceed 300}. This suggestion does not apply to rods or hangers in tension.
+Most codes do not have any requirements for slenderness. However, undesired flutter (or vibration) of slender tension members has been observed in some situations. The AISC-LRFD code makes the following recommendations (\ANSI{\S~D1}): For members designed on the basis of tension, the slenderness ratio, $L/r$, preferably \textbf{should not exceed 300}. This suggestion does not apply to rods or hangers in tension.
 \begin{exmp}\href{run:./WORKSHEET/CH03/EX3.ATUC.sm}{Worksheet}
 Axial Tension Example --- Slender UC
 
@@ -219,7 +219,7 @@ Check slenderness requirement, considering the minimum $r$ value:
 \begin{gather*}
 \dfrac{L}{r_\text{min}}=\dfrac{L}{r_y}=\dfrac{8000}{65.2}=\num{122.7}<\num{300},\qquad\text{OK.}
 \end{gather*}
-Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see, \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but it is heavier.
+Since $t_f=\SI{17.3}{\mm}>\SI{17}{\mm}$, the assumed yield stress $f_y=\SI{280}{\mpa}$ is correct, see \tabref{tab:ys}. Thus, a 250UC89.5 section works. Alternatively, the next section, 310UC96.8, also works but it is heavier.
 
 Note:
 \begin{itemize}
@@ -280,7 +280,7 @@ N^*\leqslant\min\left(0.9\times\SI{855.6}{\kn},~0.9\times\SI{886}{\kn}\right)=\S
 $N^*=\SI{770}{\kn}$
 \end{flushright}
 \end{solution}
-For connected members, both failure mechanisms need to be calculated. This applies to not only bolted connection with area reduction, but also other types of connections.
+For connected members, both failure mechanisms need to be calculated. This applies not only to bolted connections with area reduction but also to other types of connections.
 
 \begin{exmp}\href{run:./WORKSHEET/CH03/EX3.ATAC.sm}{Worksheet}
 Axial Tension Example --- Angle Connection
@@ -351,9 +351,9 @@ Since there are three bolts in a line and $b_f>\dfrac{2}{3}d$, from \figref{fig:
 \begin{gather*}
 \phi0.85k_{te}A_nf_y=0.9\times0.85\times0.9\times\SI{3033}{\mm^2}\times\SI{440}{\mpa}=\SI{919}{\kn}.
 \end{gather*}
-The difference is only \SI{0.5}{\percent}. Considering the ultimate strength would be greater, 150UC30.0 is OK.
+The difference is only \SI{0.5}{\percent}. Considering that the ultimate strength would be greater, 150UC30.0 is OK.
 
-Use case 2 in \tabref{fig:shear_lag} to recheck the example, from which,
+Use case 2 in \figref{fig:shear_lag} to recheck the example, from which,
 \begin{gather*}
 k_{te}=1-\dfrac{\bar{x}}{l}.
 \end{gather*}

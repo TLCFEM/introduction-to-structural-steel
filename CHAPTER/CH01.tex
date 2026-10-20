@@ -16,7 +16,7 @@ The ultimate requirement can be summarised by the following inequality:
 
 There are two common design methods for this strength requirement.
 \subsubsection{ASD}
-It stands for \textbf{Working Stress (or Allowable Stress) Design (ASD)} (e.g., NZ Steel Codes pre-1984).
+It stands for \textbf{Allowable Stress Design (ASD)}, also known as Working Stress Design (e.g., NZ Steel Codes pre-1984).
 \begin{align*}
 \sum\parbox{2cm}{\bfseries\centering{}WORKING\\FORCES}&\leqslant\parbox{3cm}{\bfseries\centering{}PERMISSIBLE\\STRENGTH},\\[4mm]
 \sum{}E_i&\leqslant\dfrac{\text{Ultimate Strength}}{\text{Safety Factor}}=\dfrac{R}{\text{SF}}.
@@ -88,7 +88,7 @@ The factor $\phi$ reflects the likely variation in
 \item structural deterioration due to corrosion or fatigue,
 \item consequences of reaching limit state.
 \end{itemize}
-For example, for steel members, $\phi=\mathbold{\num{0.9}}$ for tension, compression bending, shear and combined actions. The value of $\phi$ is different for bolts, pins or welded connections (\NZSSTEEL{Table 3.3(1)}).
+For example, for steel members, $\phi=\mathbold{\num{0.9}}$ for tension, compression, bending, shear and combined actions. The value of $\phi$ is different for bolts, pins or welded connections (\NZSSTEEL{Table 3.3(1)}).
 \begin{figure}[H]
 \centering
 \input{PIC/CH01/UNI}
@@ -138,9 +138,9 @@ The maximum combination will govern the design. The live load factor $\psi$ depe
 	\multicolumn{5}{l}{\textbf{roofs}}                                                                                                              \\ \midrule
 	roofs used for floor type activities       & 0.7      & 0.4      & 0.4                                                               & 0.3      \\
 	all other roofs                            & 0.7      & 0.0      & 0.0                                                               & 0.0      \\ \midrule
-	\multicolumn{5}{l}{\textbf{concentrated imposed actions (including balusrades), $Q$}}                                                           \\ \midrule
+	\multicolumn{5}{l}{\textbf{concentrated imposed actions (including balustrades), $Q$}}                                                           \\ \midrule
 	floors                                     & 1.0      & 0.6      & \multirow[c]{3}{2cm}{\centering{}as of distributed floor actions} & 0.3      \\
-	floors of domenstic housing                & 1.0      & 0.4      &                                                                   & 0.3      \\
+	floors of domestic housing                 & 1.0      & 0.4      &                                                                   & 0.3      \\
 	roofs used for floor type activities       & 1.0      & 0.6      &                                                                   & 0.3      \\
 	all other roofs                            & 1.0      & 0.0      & 0.0                                                               & 0.0      \\
 	balustrades                                & 1.0      & 0.0      & 0.0                                                               & 0.0      \\ \midrule
@@ -165,7 +165,7 @@ The methods are the same for Allowable Stress Design (ASD) and Limit State Desig
 	Roof members (trusses, rafters, etc.)                            & Sag                                   & Mid-span deflection               & $G+\psi_lQ$                 & Span/300                                      \\
 	Roof elements supporting brittle claddings                       & Cracking                              & Mid-span deflection               & $G+\psi_sQ$ or $W_s$        & Span/400                                      \\ \midrule
 	\multicolumn{5}{l}{\textbf{Ceiling and ceiling supports}}                                                                                                                                                                  \\ \midrule
-	Ceilings with matt or gloss paint finish                         & Ripple                                & Mid-span deflection               & $G$                         & Span/500 (seet Note 3)                        \\
+	Ceilings with matt or gloss paint finish                         & Ripple                                & Mid-span deflection               & $G$                         & Span/500 (see Note 3)                        \\
 	Ceilings with textured finish                                    & Ripple                                & Mid-span deflection               & $G$                         & Span/300                                      \\
 	Suspended ceilings                                               & Ripple                                & Mid-span deflection               & $G$                         & Span/360                                      \\
 	Ceiling support framing                                          & Sag                                   & Mid-span deflection               & $G$                         & Span/360                                      \\
@@ -188,7 +188,7 @@ The methods are the same for Allowable Stress Design (ASD) and Limit State Desig
 	Windows, facades, curtain walls                                  & Facade damage                         & Mid-span deflection               & $W_s$ or $E_s$              & Span/250                                      \\
 	Fixed glazing systems                                            & Glass damage                          & Deflection                        & $W_s$ or $E_s$              & 2\texttimes{}glass clearance (see Note 3)     \\ \midrule
 	\multicolumn{5}{l}{\textbf{Floors and floor supports}}                                                                                                                                                                     \\ \midrule
-	Beams where line-of-sight is along invert                        & Sag                                   & Mid-span deflection               & $G+\psi_lQ$                 & Span/500 (seet Notes 8 and 9)                 \\
+	Beams where line-of-sight is along invert                        & Sag                                   & Mid-span deflection               & $G+\psi_lQ$                 & Span/500 (see Notes 8 and 9)                 \\
 	Beams where line-of-sight is across soffit                       & Sag                                   & Mid-span deflection               & $G+\psi_lQ$                 & Span/250                                      \\
 	Flooring                                                         & Ripple                                & Mid-span deflection               & $G+\psi_lQ$                 & Span/300                                      \\
 	Floor joists/beams                                               & Sag                                   & Mid-span deflection               & $G+\psi_lQ$                 & Span/300                                      \\
@@ -207,7 +207,7 @@ The methods are the same for Allowable Stress Design (ASD) and Limit State Desig
 \begin{exmp}\href{run:./WORKSHEET/CH01/EX1.UTRD.sm}{Worksheet}
 Rod Under Tension
 
-Assume the safety factor is $\mathrm{SF}=\num{1.7}$, a rod in tension is required to carry dead and live loads of $G=\SI{25}{\kn}$ and $Q=\SI{30}{\kn}$ respectively. The steel yield stress is $f_y=\SI{300}{\mpa}$. What diameter $d$ should it have?
+A rod in tension is required to carry dead and live loads of $G=\SI{25}{\kn}$ and $Q=\SI{30}{\kn}$ respectively. Assume the safety factor is $\mathrm{SF}=\num{1.7}$ and the steel yield stress is $f_y=\SI{300}{\mpa}$. What diameter $d$ should it have?
 \begin{figure}[H]
 \input{PIC/CH01/RUT}
 \end{figure}
@@ -244,9 +244,9 @@ For handwritten homework, please follow the convention as shown in the example.
 \caption{Sample handwritten solution}
 \end{figure}
 \section{Calculation Accuracy}
-Estimates of likely maximum forces (or actions) and resistances are generally very approximate in design. Also, the load factors and resistance factors are not provided with great precision. For this reason, using more than three significant digits is seldom necessary and three significant digits is generally used. (Care must be taken though because in some cases, such as when similar size numbers are subtracted more accuracy is required.)
+Estimates of likely maximum forces (or actions) and resistances are generally very approximate in design. Also, the load factors and resistance factors are not provided with great precision. For this reason, using more than three significant digits is seldom necessary, and three significant digits are generally used. (Care must be taken though because in some cases, such as when similar size numbers are subtracted more accuracy is required.)
 
-Because the computed result contains a lot of uncertainty, it may not be necessary to follow the calculation results too rigidly. However, because we may need to defend our calculations in a court of law, we must make sure that our recommendations, based on our calculations are totally defensible.
+Because the computed result contains a lot of uncertainty, it may not be necessary to follow the calculation results too rigidly. However, because we may need to defend our calculations in a court of law, we must make sure that our recommendations, based on our calculations, are totally defensible.
 
 Gregory MacRae suggests the following guidelines:
 \begin{itemize}

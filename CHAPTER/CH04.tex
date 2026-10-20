@@ -1,5 +1,5 @@
 \chapter{Compression Members}
-Compression members include columns, truss members, braces, etc. Unlike tension members, their compressive strength is affected by multiple factors which are summarised below. They usually have more stocky sections than tension members to prevent premature strength loss due to buckling.
+Compression members include columns, truss members, braces, etc. Unlike tension members, their compressive strength is affected by multiple factors which are summarised below. They usually have stockier sections than tension members to prevent premature strength loss due to buckling.
 \begin{figure}[H]
 \centering\input{PIC/CH04/CM}
 \end{figure}
@@ -26,7 +26,7 @@ This is a homogeneous second order ODE. Techniques learnt in \textit{EMTH 210} a
 \begin{gather*}
 u(x)=A\cos\left(\eta{}x\right)+B\sin\left(\eta{}x\right)
 \end{gather*}
-where $\eta=\sqrt{\dfrac{P}{EI}}$ (the conventional $\lambda$ is retained to define other quantity), $A$ and $B$ are two constants.
+where $\eta=\sqrt{\dfrac{P}{EI}}$ (the conventional $\lambda$ is retained to define another quantity), $A$ and $B$ are two constants.
 
 For pinned--pinned member, $u(0)=u(L)=0$, $\eta$ can be found as
 \begin{gather*}
@@ -52,7 +52,7 @@ In general, the buckling strength $N_{om}$ of a column is expressed as
 \begin{gather*}
 N_{om}=P_{cr}=\dfrac{\pi^2EI}{\left(k_eL\right)^2}=\dfrac{\pi^2EI}{L_e^2},
 \end{gather*}
-where $k_e$ is the effective length factor with can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length. It is the distance between buckling points of inflection for a flexural member. The following are a few examples.
+where $k_e$ is the effective length factor which can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length. It is the distance between buckling points of inflection for a flexural member. The following are a few examples.
 \begin{figure}[H]
 \footnotesize\centering
 \input{PIC/CH04/KE}\caption{Illustration of effective length}
@@ -105,7 +105,7 @@ Using $u(0)=0$ and $\dfrac{\md{^2u}}{\md{x^2}}(0)=0$,
 u(0)=A+D=0,\qquad\longrightarrow\qquad{}A=-D,\\
 \dfrac{\md{^2u}}{\md{x^2}}(0)=-A\eta^2=0,\qquad\longrightarrow\qquad{}A=D=0.
 \end{gather*}
-Since $\eta\neq0$ for non-trivial solution. The general solution after apply two BCs can be expressed as
+Since $\eta\neq0$ for a non-trivial solution, the general solution after applying two BCs can be expressed as
 \begin{gather*}
 u(x)=B\sin\left(\eta{}x\right)+Cx.
 \end{gather*}
@@ -117,7 +117,7 @@ Apply the last BC,
 \begin{gather*}
 u(L)=B\sin\left(\eta{}L\right)+CL=0,\qquad\longrightarrow\qquad{}B\left(\sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)\right)=0.
 \end{gather*}
-In order to solve for non-trivial solution, $B$ cannot be zero otherwise all $A$, $B$, $C$ and $D$ would be zeros, leads to trivial solution. Thus,
+In order to solve for a non-trivial solution, $B$ cannot be zero; otherwise all $A$, $B$, $C$ and $D$ would be zero, leading to the trivial solution. Thus,
 \begin{gather*}
 \sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)=0,\qquad\longrightarrow\qquad{}
 \tan\left(\eta{}L\right)=\eta{}L.
@@ -140,13 +140,13 @@ For elastic material, the critical stress $f_{cr}$ is simply $f_{om}$, which app
 \caption{Theoretical governing region for $f_{cr}$ for elastic material}
 \end{figure}
 \subsection{Compressive Strength}
-However, for real life situations, no matter how small $\lambda$ is, a $f_{om}$ greater than yield strength $f_y$ is meaningless. The yield strength $f_y$ is often considered as a material property that does not vary with $\lambda$. The critical stress $f_{cr}$ shall be the minimum of $f_y$ and $f_{om}$. If one draws $f_{cr}$ against $\lambda$, the following graph can be obtained. It affects short members.
+However, for real life situations, no matter how small $\lambda$ is, an $f_{om}$ greater than the yield strength $f_y$ is meaningless. The yield strength $f_y$ is often considered as a material property that does not vary with $\lambda$. The critical stress $f_{cr}$ shall be the minimum of $f_y$ and $f_{om}$. If one draws $f_{cr}$ against $\lambda$, the following graph can be obtained. It affects short members.
 \begin{figure}[H]
 \centering\input{PIC/CH04/CS}
 \caption{Theoretical governing region for $f_{cr}$}
 \end{figure}
 \subsection{Local Buckling}
-Section can buckle under complex stress conditions. The buckling of web/flanges would further reduce section compression capacity. If often depends on flange/web slenderness ($b_f/t_f$ and $d/t_w$). It affects short members.
+A section can buckle under complex stress conditions. The buckling of web/flanges would further reduce section compression capacity. It often depends on flange/web slenderness ($b_f/t_f$ and $d/t_w$). It affects short members.
 %\begin{figure}[H]
 %\centering
 %\includegraphics[width=8cm]{PIC/CH04/LB}
@@ -160,7 +160,7 @@ Section can buckle under complex stress conditions. The buckling of web/flanges 
 All members contain residual stresses due to uneven cooling. These result in earlier yielding
 and a reduction in elastic modulus.
 
-Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$. Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$, when $E$ decreases, $f_{om}$ would decease accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
+Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$. Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$; when $E$ decreases, $f_{om}$ decreases accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
 \begin{figure}[H]
 \centering\input{PIC/CH04/RSS}
 \caption{Stress--strain curve considering residual stress}
@@ -170,8 +170,8 @@ The effect is most significant on members of moderate slenderness, where the str
 \centering\input{PIC/CH04/RS}
 \caption{Governing region considering residual stress}
 \end{figure}
-\subsection{Initial Out-of-Straightness and Eccentrical Loading}
-An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum out-of-straightness camber of $L/1000$. The eccentricity introduces non-zero section moment ever if the member is axially loaded. This additional moment would lower theoretical critical buckling force.For straight members, the loading behaviour follows $O\rightarrow{}A\rightarrow{}B$ but the actual behaviour due to eccentricity is the dashed line.
+\subsection{Initial Out-of-Straightness and Eccentric Loading}
+An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum out-of-straightness camber of $L/1000$. The eccentricity introduces non-zero section moment even if the member is axially loaded. This additional moment would lower the theoretical critical buckling force. For straight members, the loading behaviour follows $O\rightarrow{}A\rightarrow{}B$, but the actual behaviour due to eccentricity is the dashed line.
 
 \begin{figure}[H]
 \centering
@@ -181,9 +181,9 @@ An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum ou
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/EL}
-\caption{Eccentrical loading}
+\caption{Eccentric loading}
 \end{figure}
-The eccentrical loading has a similar effect to out-of-straightness and thus can be taken into account in a similar way. Both out-of-straightness and eccentrical loading affect slender members in a similar way.
+The eccentric loading has a similar effect to out-of-straightness and thus can be taken into account in a similar way. Both out-of-straightness and eccentric loading affect slender members in a similar way.
 \begin{figure}[H]
 \centering\input{PIC/CH04/OOS}
 \caption{Governing region considering initial OOS and eccentric loading}
@@ -293,7 +293,7 @@ N_s=k_fA_gf_y=0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{1195}{\kn}.
 \subsection{Member Capacity}\label{sec:n_c}
 Before we introduce how to calculate \textbf{member} capacity, the concept of modified slenderness ratio $\lambda_n$ shall be discussed.
 
-Since buckling plays a vital role in compression members, we can no more use the full length to compute slenderness ratio, instead, the effective length $L_e$ shall be used.
+Since buckling plays a vital role in compression members, we can no longer use the full length to compute the slenderness ratio; instead, the effective length $L_e$ shall be used.
 \begin{gather}
 L_e=k_eL,
 \end{gather}
@@ -308,7 +308,7 @@ If $f_y=\SI{250}{\mpa}$ and $k_f=1$, then
 \lambda_n=\lambda=\dfrac{L_e}{r}.
 \end{gather*}
 
-The nominal member capacity $N_s$ is associated with the nominal section capacity $N_c$ via a reduction factor $\alpha_c$:
+The nominal member capacity $N_c$ is associated with the nominal section capacity $N_s$ via a reduction factor $\alpha_c$:
 \begin{gather}
 N_c=\alpha_cN_s,
 \end{gather}
@@ -323,7 +323,7 @@ with
 \eta=\max\left(0.00326\left(\lambda'-13.5\right),~0\right),\qquad
 \alpha_a=\dfrac{2100\left(\lambda_n-13.5\right)}{\lambda_n^2-15.3\lambda_n+2050},
 \end{gather*}
-and $\alpha_b$ is the compression member section constant which are shown in \tabref{tab:alpha_b} that characterises sectional residual stress effects (also refer to \NZSSTEEL{Table 6.3.3(1)}).
+and $\alpha_b$ is the compression member section constant which is shown in \tabref{tab:alpha_b} and characterises sectional residual stress effects (also refer to \NZSSTEEL{Table 6.3.3(1)}).
 \begin{table}[htbp]
 \centering\footnotesize
 \caption{Values of $\alpha_b$}\label{tab:alpha_b}
@@ -347,14 +347,14 @@ and $\alpha_b$ is the compression member section constant which are shown in \ta
 \end{table}
 For a given $\alpha_b$, $\alpha_c$ is a function of $\lambda_n$, it can be plotted as shown in \figref{fig:alpha_c}.
 
-It can be inferred that since $\alpha_c$ accounts for buckling, residual stress, OOS, etc., it has a shape resembles the theoretical curve as seen previously.
+It can be inferred that since $\alpha_c$ accounts for buckling, residual stress, OOS, etc., it has a shape that resembles the theoretical curve seen previously.
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/ALPHAC}
 \caption{$\alpha_c$ as a function of $\lambda_n$}\label{fig:alpha_c}
 \end{figure}
 
-Performing such a computation is somehow tedious, in practice, engineers can refer to the pre-compiled table \NZSSTEEL{Table 6.3.3(2)}, as well as \tabref{tab:alpha_c}, to find the proper value to be used.
+Performing such a computation is somewhat tedious; in practice, engineers can refer to the pre-compiled table \NZSSTEEL{Table 6.3.3(2)}, as well as \tabref{tab:alpha_c}, to find the proper value to be used.
 \begin{table}[H]
 \centering\scriptsize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.03}
 \caption{Values of $\alpha_c$ as function of $\alpha_b$ and $\lambda_n$}\label{tab:alpha_c}
@@ -421,7 +421,7 @@ The most conservative curve is that with $\alpha_b=1$. The European codes, like 
 What is the maximum stress that can be applied to a hot-rolled compact Grade 300 column (no holes) with $t_f<\SI{11}{\mm}$ and $\dfrac{k_eL}{r}=100$?
 \end{exmp}
 \begin{solution}
-Since it is compact section, shear lag is often not a problem. It can be safely assumed that $k_f=1$. Since there are no holes, $A_n=A_g$. From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section. For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{320}{\mpa}$ for Grade 300 steel.
+Since it is a compact section, shear lag is often not a problem. It can be safely assumed that $k_f=1$. Since there are no holes, $A_n=A_g$. From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section. For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{320}{\mpa}$ for Grade 300 steel.
 
 The modified slenderness ratio
 \begin{gather*}
@@ -485,14 +485,14 @@ Any column that satisfies all strength and serviceability criteria will be a sat
 
 The most economical satisfactory design for a given situation will be dictated by fabrication costs for the whole frame and by architectural considerations. A rolled section will usually be cheaper than a fabricated section. A tubular section will usually require a smaller area than an I section, but a RHS will be more expensive to buy than an I section and more expensive to connect. Fabricated tubes are relatively expensive to make, but may be used for heavier loads.
 
-In general, for a column of the given cross section, the lightest column is likely to be the most economic because it uses the least steel material.
+In general, for a given cross section, the lightest column is likely to be the most economic because it uses the least steel material.
 
 Design of compression members may be carried out by the following approaches.
 \subsubsection{Trial and Error}
 A number of section sizes are chosen, and evaluated to determine the best (safe and economical) solution. The following steps may be useful for rolled shapes:
 \begin{enumerate}
 \item compute the factored compression force $N^*$
-\item assume flange yield stress $f_y$ (e.g., \SI{280}{\mpa}, \SI{300}{\mpa}.) and form factor $k_f=1$
+\item assume flange yield stress $f_y$ (e.g., \SI{280}{\mpa}, \SI{300}{\mpa}) and form factor $k_f=1$
 \item assume a proper gyration radius $r$ (around \SI{50}{\mm}) and compute the modified slenderness ratio $\lambda_n$
 \item compute $\alpha_c$
 \item compute the minimum net area $A_{n,min}=\dfrac{N^*}{\phi\alpha_ck_ff_y}$
@@ -718,7 +718,7 @@ The effective lengths are
 L_{e,y}=\SI{18}{\meter}/4=\SI{4.5}{\meter},\\
 L_{e,x}=\SI{18}{\meter}.
 \end{gather*}
-An efficient member shall have similar $L_{e}/r$ about both axes. This leads to $r_x/r_y\approx4$. UC sections often have $r_x/r_y\approx\numrange{1.6}{1.8}$. UB sections often have $r_x/r_y\approx\numrange{3.5}{5.5}$. Thus use UB sections will be more efficient. From \tabref{tab:ub_strong} and \tabref{tab:ub_weak},
+An efficient member shall have similar $L_{e}/r$ about both axes. This leads to $r_x/r_y\approx4$. UC sections often have $r_x/r_y\approx\numrange{1.6}{1.8}$. UB sections often have $r_x/r_y\approx\numrange{3.5}{5.5}$. Thus, UB sections will be more efficient. From \tabref{tab:ub_strong} and \tabref{tab:ub_weak},
 \begin{table}[H]
 \centering
 \begin{tabular}{rccc}
@@ -734,7 +734,7 @@ Thus the lightest section is 410UB53.7.
 \end{solution}
 \subsection{Consideration of Effective Length}
 \subsubsection{Individual Member}
-\NZSSTEEL{\S~4.8.3.2} recommends the following values for $k_e$ as shown in \figref{fig:k_e} for \textbf{individual} sway and braced members that are designed for load combinations that do \textbf{not} include earthquake loads. Those values are larger than the theoretical values because it is assumed that no connections are ideal, connections at member ends normally have some flexibility. It is worth noting that those values may be different in other codes.
+\NZSSTEEL{\S~4.8.3.2} recommends the following values for $k_e$ as shown in \figref{fig:k_e} for \textbf{individual} sway and braced members that are designed for load combinations that do \textbf{not} include earthquake loads. Those values are larger than the theoretical values because no connection is ideal; connections at member ends normally have some flexibility. It is worth noting that those values may be different in other codes.
 \begin{figure}[H]\centering
 \includegraphics{PIC/CH04/BS}
 \caption{Effective length factor $k_e$}\label{fig:k_e}
@@ -797,7 +797,7 @@ With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated b
 \left(\gamma_1\gamma_2\left(\dfrac{\pi}{k_e}\right)^2-36\right)\tan\left(\dfrac{\pi}{k_e}\right)=6\left(\gamma_1+\gamma_2\right)\dfrac{\pi}{k_e}
 \end{gather*}
 \end{itemize}
-\item US Alignment Charts. These charts used in \ANSI{} give the graphical solutions to the two equations above. They are shown in \figref{fig:a360_ke} in which $G_A$ and $G_B$ correspond to $\gamma_1$ and $\gamma_2$. Additional copies are provided at the end of this chapter.
+\item US Alignment Charts. These charts, used in \ANSI{}, give the graphical solutions to the two equations above. They are shown in \figref{fig:a360_ke} in which $G_A$ and $G_B$ correspond to $\gamma_1$ and $\gamma_2$. Additional copies are provided at the end of this chapter.
 \begin{figure}[htb!]
 \centering\footnotesize
 \begin{subfigure}{.5\linewidth}\centering
@@ -810,12 +810,12 @@ With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated b
 \end{subfigure}
 \caption{Alignment chart for $k_e$}\label{fig:a360_ke}
 \end{figure}
-\item AU/NZ Alignment Charts. These charts used in \NZSSTEEL{Fig. 4.8.3.3} are essentially identical to the ones used in the US code but presented in a different format. \figref{fig:kee} shows those charts.
+\item AU/NZ Alignment Charts. These charts, used in \NZSSTEEL{Fig. 4.8.3.3}, are essentially identical to the ones used in the US code but presented in a different format. \figref{fig:kee} shows those charts.
 \begin{figure}[H]
 \centering\includegraphics[width=.99\textwidth]{PIC/CH04/KEE}
 \caption{$k_e$ for braced and sway members \citep{Gorenc2015}}\label{fig:kee}
 \end{figure}
-\item French Equations. These are used in the French code and they are an approximation to the two equations above. They give answers to an accuracy of better than \SI{1}{\percent} to the true answer and any error results in a slightly conservative answer. This is better than the readability of the design charts.
+\item French Equations. These are used in the French code and they are an approximation to the two equations above. They give answers to an accuracy of better than \SI{1}{\percent} of the true answer, and any error results in a slightly conservative answer. This is better than the readability of the design charts.
 \begin{itemize}
 \item braced member
 \begin{gather}\color{cc0066}
@@ -873,7 +873,7 @@ From the chart, $k_e\approx1.05$. The French equation gives $k_e=1.0644$.
 \input{PIC/CH04/AC4}
 \end{figure}
 \subsubsection{Remark}
-The stiffness ratio $\gamma$ characterises the rotation ability of an end. A sufficiently large $\gamma\rightarrow\infty$ represents a pinned connection while a sufficiently small $\gamma\rightarrow0$ represents a fixed connection. \textbf{However, those are idealised assumptions, in real world those perfect connections do not exist. Thus, $\gamma$ is often taken as \num{1} for fully fixed connection and \num{10} for perfectly pinned connection.}
+The stiffness ratio $\gamma$ characterises the rotation ability of an end. A sufficiently large $\gamma\rightarrow\infty$ represents a pinned connection while a sufficiently small $\gamma\rightarrow0$ represents a fixed connection. \textbf{However, those are idealised assumptions; in the real world, such perfect connections do not exist. Thus, $\gamma$ is often taken as \num{1} for a fully fixed connection and \num{10} for a perfectly pinned connection.}
 
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACFM.sm}{Worksheet}
 Axial Compression Example --- Frame
@@ -991,7 +991,7 @@ Now consider the following two cases.
 \item The loads for columns 1 and 2 are given as $N^*_1=\SI{300}{\kn}$ and $N^*_2=\SI{300}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{300}{\kn}-\SI{300}{\kn}=\SI{500}{\kn}$. Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{500}{\kn},~\SI{400}{\kn}\right)=\SI{400}{\kn}$.
 \end{itemize}
 \subsubsection{Use of Effective Length Factor --- Practical Considerations}
-For columns in braced frames, it is always conservative to use $k_e=1$. This has been recommended by \citet{Yura1971}. Based on this, and the uncertainty in assessing some of these connection stiffness, we will use $k_e=1$ for the braced case consideration for columns in
+For columns in braced frames, it is always conservative to use $k_e=1$. This has been recommended by \citet{Yura1971}. Based on this, and the uncertainty in assessing some of these connection stiffnesses, we will use $k_e=1$ for the braced case consideration for columns in
 \begin{enumerate}
 \item sway frames, and
 \item braced frames, where there is loading along the beam length causing column moment.
@@ -1173,9 +1173,9 @@ Moment connections are expensive so frames often have two types of connections:
 \end{figure}
 \begin{figure}[H]
 \centering\input{PIC/CH04/LC}
-\caption{Destabilizaing effect of leaning columns}
+\caption{Destabilizing effect of leaning columns}
 \end{figure}
-The FR frame provides a stabilizing effect for all of the columns, \NZSSTEEL{} requires that destabilizing effect of `leaning columns' be accounted for. For `leaning columns', use $k_e=1$.
+The FR frame provides a stabilizing effect for all of the columns. \NZSSTEEL{} requires that the destabilizing effect of `leaning columns' be accounted for. For `leaning columns', use $k_e=1$.
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACLC.sm}{Worksheet}
 Use Grade 300 steel. For the following sway frame, assume axial rigidity and out-of-plane buckling restrained. Design columns using UC sections.
 \begin{figure}[H]
@@ -1271,7 +1271,7 @@ In the previous discussion it is assumed that the columns are axially stiff.
 \centering\input{PIC/CH04/CF2}
 \caption{Moment developed in columns due to horizontal loads}
 \end{figure}
-If moments occur in conjunction with axial force, then he member shall be designed for both moment and axial force. Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects). We will discuss this in design of bending members.
+If moments occur in conjunction with axial force, then the member shall be designed for both moment and axial force. Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects). We will discuss this in design of bending members.
 \begin{sidewaysfigure}[p]
 \centering\footnotesize
 \begin{subfigure}{.5\linewidth}\centering
