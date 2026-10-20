@@ -22,7 +22,11 @@ It stands for \textbf{Allowable Stress Design (ASD)}, also known as Working Stre
 \sum{}E_i&\leqslant\dfrac{\text{Ultimate Strength}}{\text{Safety Factor}}=\dfrac{R}{\text{SF}}.
 \end{align*}
 
-The safety factor, SF is approximately equal to \num{1.7} and it allows for variation in loading and material strength. ASD was popular in NZ until the mid 1980s. In the USA, and some other countries, it is still used, especially for timber, and for some steel structures. It assumes that all types of loading have the same weighting. It cannot handle unusual loads well.
+The safety factor, SF is approximately equal to \num{1.7} and it allows for variation in loading and material strength.
+ASD was popular in NZ until the mid 1980s.
+In the USA, and some other countries, it is still used, especially for timber, and for some steel structures.
+It assumes that all types of loading have the same weighting.
+It cannot handle unusual loads well.
 \subsubsection{LSD, LRFD}
 It stands for \textbf{Limit State Design, a.k.a., Load and Resistance Factor Design (LRFD)} (e.g., many NZ Steel Codes post-1984).
 
@@ -50,17 +54,30 @@ NZ limit state design codes are written in a LRFD format recognizing the probabi
 The many advantages of LRFD are well--expressed by Beedle, whose listing is the basis of the following:
 \begin{mdframed}[style=highlight]
 \begin{enumerate}
-\item LRFD is another `tool' for structural engineers to use in steel design. Why not have the same tools (variable overload factors and resistance factors) available for steel design as are available for concrete design?
-\item Adoption of LRFD is not mandatory but provides a flexibility of options to the designer. The marketplace will dictate whether or not LRFD will become the sole method.
-\item ASD is an approximate way to account for what LRFD does in a more rational way. The use of plastic design concepts in ASD has made ASD such that it no longer may be called an `elastic design' method.
-\item The rationality of LRFD has always been attractive, and becomes an incentive permitting the better and more economical use of material for some load combinations and structural configurations. It will also likely lead to having safer structures in view of the arbitrary practice under ASD of combining dead and live loads and treating them the same.
+\item LRFD is another `tool' for structural engineers to use in steel design.
+Why not have the same tools (variable overload factors and resistance factors) available for steel design as are available for concrete design?
+\item Adoption of LRFD is not mandatory but provides a flexibility of options to the designer.
+The marketplace will dictate whether or not LRFD will become the sole method.
+\item ASD is an approximate way to account for what LRFD does in a more rational way.
+The use of plastic design concepts in ASD has made ASD such that it no longer may be called an `elastic design' method.
+\item The rationality of LRFD has always been attractive, and becomes an incentive permitting the better and more economical use of material for some load combinations and structural configurations.
+It will also likely lead to having safer structures in view of the arbitrary practice under ASD of combining dead and live loads and treating them the same.
 \item Using multiple load factor combinations should lead to economy.
-\item LRFD will facilitate the input of new information on loads and load variations as such information becomes available. Considerable knowledge of the resistance of steel structures is available. On the other hand our knowledge of loads and their variation is much less. Separating the loading from the resistance allows one to be changed without the other if that should be desired.
+\item LRFD will facilitate the input of new information on loads and load variations as such information becomes available.
+Considerable knowledge of the resistance of steel structures is available.
+On the other hand our knowledge of loads and their variation is much less.
+Separating the loading from the resistance allows one to be changed without the other if that should be desired.
 \item Changes in overload factors and resistance factors $\phi$ are much easier to make than to change the allowable stress in ASD.
-\item LRFD makes design in all materials more compatible. The variability of loads is actually unrelated to the material used in the design. Future specifications not in the limit states format for any material will put that material at a disadvantage in design.
-\item LRFD provides the framework to handle unusual loads that may not be covered by the specification. The design may have uncertainty relating to the resistance of the structure, in which case the resistance factors may be modified. On the other hand, the uncertainty may relate to the loads and different overload factors may be used.
-\item Future adjustments in the calibration of the method can be made without much complication. Calibration for LRFD was done for an \textit{average} situation but might be adjusted in the future.
-\item Economy is likely to result for low live load to dead load ratios. For high live load to dead load ratios there will be diseconomy but a low amount.
+\item LRFD makes design in all materials more compatible.
+The variability of loads is actually unrelated to the material used in the design.
+Future specifications not in the limit states format for any material will put that material at a disadvantage in design.
+\item LRFD provides the framework to handle unusual loads that may not be covered by the specification.
+The design may have uncertainty relating to the resistance of the structure, in which case the resistance factors may be modified.
+On the other hand, the uncertainty may relate to the loads and different overload factors may be used.
+\item Future adjustments in the calibration of the method can be made without much complication.
+Calibration for LRFD was done for an \textit{average} situation but might be adjusted in the future.
+\item Economy is likely to result for low live load to dead load ratios.
+For high live load to dead load ratios there will be diseconomy but a low amount.
 \item Safer structures may result under LRFD because the method should lead to a better awareness of structural behaviour.
 \end{enumerate}
 \end{mdframed}
@@ -88,7 +105,8 @@ The factor $\phi$ reflects the likely variation in
 \item structural deterioration due to corrosion or fatigue,
 \item consequences of reaching limit state.
 \end{itemize}
-For example, for steel members, $\phi=\mathbold{\num{0.9}}$ for tension, compression, bending, shear and combined actions. The value of $\phi$ is different for bolts, pins or welded connections (\NZSSTEEL{Table 3.3(1)}).
+For example, for steel members, $\phi=\mathbold{\num{0.9}}$ for tension, compression, bending, shear and combined actions.
+The value of $\phi$ is different for bolts, pins or welded connections (\NZSSTEEL{Table 3.3(1)}).
 \begin{figure}[H]
 \centering
 \input{PIC/CH01/UNI}
@@ -120,7 +138,8 @@ The basic combinations for the ultimate limit states ($\displaystyle\sum\gamma_i
 \item $G+E_u+\psi_EQ$ --- permanent, earthquake and imposed action
 \item $1.2G+S_u+\psi_cQ$ --- permanent action, actions given in \ASNZSACTION{\S~4.2.3} and imposed action
 \end{itemize}
-The maximum combination will govern the design. The live load factor $\psi$ depends on the load duration as shown below (\ASNZSACTION{Table 4.1}).
+The maximum combination will govern the design.
+The live load factor $\psi$ depends on the load duration as shown below (\ASNZSACTION{Table 4.1}).
 \begin{table}[htbp]
 \centering\footnotesize
 \caption{Short-term $\psi_s$, long-term $\psi_l$, combination $\psi_c$ and earthquake $\psi_E$ factors}\label{table:load_factors}
@@ -150,7 +169,9 @@ The maximum combination will govern the design. The live load factor $\psi$ depe
 \subsection{Design for Serviceability}
 Serviceability checks are \textbf{always} carried out under service (or working) loads, ($\sum{}E_i$) using a combination of: $G$, $\psi_sQ$, $\psi_lQ$, $W_s$, $E_s$ and other appropriate values.
 
-The methods are the same for Allowable Stress Design (ASD) and Limit State Design (LRFD). Suggested serviceability limit state criteria are shown in \tabref{tab:serviceability_criteria}. For relevant notes, readers shall refer to \ASNZSACTION{Table C1}.
+The methods are the same for Allowable Stress Design (ASD) and Limit State Design (LRFD).
+Suggested serviceability limit state criteria are shown in \tabref{tab:serviceability_criteria}.
+For relevant notes, readers shall refer to \ASNZSACTION{Table C1}.
 \begin{sidewaystable}
 \centering\scriptsize
 \caption{Suggested serviceability limit state criteria}\label{tab:serviceability_criteria}\renewcommand{\arraystretch}{.85}
@@ -207,7 +228,9 @@ The methods are the same for Allowable Stress Design (ASD) and Limit State Desig
 \begin{exmp}\href{run:./WORKSHEET/CH01/EX1.UTRD.sm}{Worksheet}
 Rod Under Tension
 
-A rod in tension is required to carry dead and live loads of $G=\SI{25}{\kn}$ and $Q=\SI{30}{\kn}$ respectively. Assume the safety factor is $\mathrm{SF}=\num{1.7}$ and the steel yield stress is $f_y=\SI{300}{\mpa}$. What diameter $d$ should it have?
+A rod in tension is required to carry dead and live loads of $G=\SI{25}{\kn}$ and $Q=\SI{30}{\kn}$ respectively.
+Assume the safety factor is $\mathrm{SF}=\num{1.7}$ and the steel yield stress is $f_y=\SI{300}{\mpa}$.
+What diameter $d$ should it have?
 \begin{figure}[H]
 \input{PIC/CH01/RUT}
 \end{figure}
@@ -219,7 +242,8 @@ R=A_gf_y=\dfrac{\pi{}d^2}{4}f_y.
 \end{gather*}
 \begin{itemize}
 \item \textbf{ASD}\\
-Allowable force: $R/\mathrm{SF}=A_gf_y/\num{1.7}$. Working forces: $\sum{}E_i=G+Q=\SI{55}{\kn}$.\\
+Allowable force: $R/\mathrm{SF}=A_gf_y/\num{1.7}$.
+Working forces: $\sum{}E_i=G+Q=\SI{55}{\kn}$.\\
 ASD requires:
 \begin{align*}
 \sum{}E_i&\leqslant{}R/\mathrm{SF}\\
@@ -244,14 +268,20 @@ For handwritten homework, please follow the convention as shown in the example.
 \caption{Sample handwritten solution}
 \end{figure}
 \section{Calculation Accuracy}
-Estimates of likely maximum forces (or actions) and resistances are generally very approximate in design. Also, the load factors and resistance factors are not provided with great precision. For this reason, using more than three significant digits is seldom necessary, and three significant digits are generally used. (Care must be taken though because in some cases, such as when similar size numbers are subtracted more accuracy is required.)
+Estimates of likely maximum forces (or actions) and resistances are generally very approximate in design.
+Also, the load factors and resistance factors are not provided with great precision.
+For this reason, using more than three significant digits is seldom necessary, and three significant digits are generally used. (Care must be taken though because in some cases, such as when similar size numbers are subtracted more accuracy is required.)
 
-Because the computed result contains a lot of uncertainty, it may not be necessary to follow the calculation results too rigidly. However, because we may need to defend our calculations in a court of law, we must make sure that our recommendations, based on our calculations, are totally defensible.
+Because the computed result contains a lot of uncertainty, it may not be necessary to follow the calculation results too rigidly.
+However, because we may need to defend our calculations in a court of law, we must make sure that our recommendations, based on our calculations, are totally defensible.
 
 Gregory MacRae suggests the following guidelines:
 \begin{itemize}
-\item If the demand is greater than the capacity by \textbf{less than 1\%}, then the difference is usually within the range of usual round-off errors. It can usually be argued that greater than nominal material strengths and strain hardening will guarantee that the demand is greater than the capacity. A note of this sort should be made in the calculations.
-\item If the demand is greater than the capacity by \textbf{less than 5\%}, then the design should only be accepted if it can be argued that the design is satisfactory for some reason which is not considered in the calculations used in the design approach. The reason for accepting the design should be stated in the calculations, and the engineer should be able to produce more refined calculations to justify the decision if required at a later date.
+\item If the demand is greater than the capacity by \textbf{less than 1\%}, then the difference is usually within the range of usual round-off errors.
+It can usually be argued that greater than nominal material strengths and strain hardening will guarantee that the demand is greater than the capacity.
+A note of this sort should be made in the calculations.
+\item If the demand is greater than the capacity by \textbf{less than 5\%}, then the design should only be accepted if it can be argued that the design is satisfactory for some reason which is not considered in the calculations used in the design approach.
+The reason for accepting the design should be stated in the calculations, and the engineer should be able to produce more refined calculations to justify the decision if required at a later date.
 \item If the demand is greater than the capacity by \textbf{more than 5\%}, then the design should not be accepted, or a revised set of calculations should be carried out to show that the design works.
 \end{itemize}
 It should be noted that different groups have different approaches to accuracy and it is prudent to check the policy of the company you are working for.

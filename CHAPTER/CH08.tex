@@ -1,7 +1,8 @@
 \part{}
 \chapter{Eccentric Connections}
 \section{Types of Connections}
-Some of the principles of bolted steel connections are similar. We will treat them together in this section.
+Some of the principles of bolted steel connections are similar.
+We will treat them together in this section.
 \begin{figure}[H]
 \begin{tikzpicture}
 \node at(0,0){\includegraphics[height=6cm]{PIC/CH06/BBP2}};
@@ -180,7 +181,9 @@ Determine the size of Grade 8.8/N/S bolts in the bearing type connection below u
 \end{tabular}
 \end{center}
 
-The critical bolts are bolts 4 and 6. An M20/8.8N bolt has a capacity of $\SI{92.6}{\kn}$ (see \tabref{tab:bolt8.8}). Thus use six M20/8.8N bolts.
+The critical bolts are bolts 4 and 6.
+An M20/8.8N bolt has a capacity of $\SI{92.6}{\kn}$ (see \tabref{tab:bolt8.8}).
+Thus use six M20/8.8N bolts.
 \end{solution}
 \begin{exmp}
 Find the maximum factored load, $P^*$ and the maximum service load, $P$, that can be carried in the connection in the previous example.
@@ -196,7 +199,8 @@ P^*=\dfrac{\SI{92.6}{\kn}}{\SI{76.0}{\kn}}\times\SI{120}{\kn}=\SI{146.2}{\kn}.
 P=\dfrac{\SI{35.5}{\kn}}{\SI{76.0}{\kn}}\times\SI{120}{\kn}=\SI{56.1}{\kn}.
 \end{gather*}
 \end{itemize}
-This method is quite conservative to compute $P$, since it assumes that bolt force increases linearly with distance from the centroid. For friction bolts (/TF and /TB), all bolts may be at the proof force at the same time.
+This method is quite conservative to compute $P$, since it assumes that bolt force increases linearly with distance from the centroid.
+For friction bolts (/TF and /TB), all bolts may be at the proof force at the same time.
 \end{solution}
 \begin{exmp}
 Check the plate strength in bending and shear in the previous example.
@@ -237,20 +241,25 @@ It is necessary to check other possible failure modes, for example,
 \end{itemize}
 \end{solution}
 \subsection{Ultimate Strength Method}
-Many countries use the ultimate strength method to estimate the strength of a connection. This method uses the concept of the instantaneous centre of rotation (ICR).
+Many countries use the ultimate strength method to estimate the strength of a connection.
+This method uses the concept of the instantaneous centre of rotation (ICR).
 \begin{figure}[H]
 \centering\input{PIC/CH08/ICR}\caption{Illustration of ICR}
 \end{figure}
 
-According to this method, the deformation of each fastener (or part of a weld) is assumed to be proportional to its distance from the ICR. The connection fails when one of the fasteners reaches the maximum deformation $\Delta_{max}$. Accordingly, the maximum resistance is denoted as $R_{ult}$.
+According to this method, the deformation of each fastener (or part of a weld) is assumed to be proportional to its distance from the ICR.
+The connection fails when one of the fasteners reaches the maximum deformation $\Delta_{max}$.
+Accordingly, the maximum resistance is denoted as $R_{ult}$.
 
-It is also necessary to know the force deformation relationship for each bolt. A linear relationship can be expressed as
+It is also necessary to know the force deformation relationship for each bolt.
+A linear relationship can be expressed as
 \begin{gather}\label{eq:ri_linear}
 R_i=R_{ult}\dfrac{\Delta_i}{\Delta_{max}},
 \end{gather}
 where $R_{ult}$ is the ultimate dependable resistance of a bolt in shear.
 
-This relationship does not have to be linear. For example, according to AISC tables, the deformation relationship is given by the following exponential equation.
+This relationship does not have to be linear.
+For example, according to AISC tables, the deformation relationship is given by the following exponential equation.
 \begin{gather}\label{eq:ri}
 R_i=R_{ult}\left(1-e^{-0.394\Delta_i}\right)^{0.55}.
 \end{gather}
@@ -276,7 +285,8 @@ This assumes the farthest bolt(s) would reach the maximum deformation $\Delta_{m
 \item Iterate on $r_0$ until $P_{u1}=P_{u2}$\\Such iteration can be tedious so tables are often made for standard connections.
 \end{itemize}
 
-For friction--grip (slip critical) connections, the force $R_i$ may be assumed to be constant for all fasteners. It is the dependable friction resistance per bolt.
+For friction--grip (slip critical) connections, the force $R_i$ may be assumed to be constant for all fasteners.
+It is the dependable friction resistance per bolt.
 \begin{exmp}
 Ultimate Strength Method on Bolt Group
 
@@ -327,10 +337,12 @@ Try $r_0=\SI{62.76}{\mm}$, using \textbf{exponential} relationship \eqsref{eq:ri
 \end{tabular}
 \end{table}
 
-For exponential relationship, $P_u=\SI{164.61}{\kn}$ corresponds to $\SI{12}{\percent}$ increase in strength due to nonlinearity. Inelastic ICR method can be used for welds too.
+For exponential relationship, $P_u=\SI{164.61}{\kn}$ corresponds to $\SI{12}{\percent}$ increase in strength due to nonlinearity.
+Inelastic ICR method can be used for welds too.
 \end{solution}
 \section{Eccentric Bolted Tension Shear Connections}
-These connections have complex behaviour and several methods have been proposed for design as described by \citet{Smith1996}. We consider proof loaded high strength bolts here and we will use the method \citep{Salmon2009} where high strength bolt forces are used to prevent lift-off.
+These connections have complex behaviour and several methods have been proposed for design as described by \citet{Smith1996}.
+We consider proof loaded high strength bolts here and we will use the method \citep{Salmon2009} where high strength bolt forces are used to prevent lift-off.
 \begin{figure}[H]
 \centering\input{PIC/CH08/ECC}\caption{Stress components of eccentrically loaded bolted connection}
 \end{figure}
@@ -342,7 +354,8 @@ The tensile stress on the \textbf{top} bolt due to $M^*=V_u^*e$ can be computed 
 \begin{gather}
 f_{plate}=\dfrac{M^*}{I}y=\dfrac{V_u^*e}{bd^3/12}\left(\dfrac{d}{2}-\dfrac{p}{2}\right)=6V_u^*e\dfrac{d-p}{bd^3}.
 \end{gather}
-Bolt forces only increase significantly after the applied stress becomes greater than $f_{bolt}$ and lift-off occurs. The limit is
+Bolt forces only increase significantly after the applied stress becomes greater than $f_{bolt}$ and lift-off occurs.
+The limit is
 \begin{gather*}
 f_{bolt}\geqslant{}f_{plate}\qquad\longrightarrow\qquad
 \dfrac{\sum{}N^*_{tf}}{bd}\geqslant{}6V_u^*e\dfrac{d-p}{bd^3}.
@@ -355,7 +368,9 @@ M^*=V_u^*e\leqslant\dfrac{\sum{}N^*_{tf}}{6}\dfrac{d^2}{d-p}.
 Noting that due to the presence of shear force $V_u^*$, $N^*_{tf}$ shall be reduced by considering combined action (see \S~\ref{sec:bolt_combined} and \S~\ref{sec:bolt_combined_s}).
 \clearpage
 \begin{exmp}
-Find $P^*$ considering M20X/8.8/S bolts. Two 125\texttimes75\texttimes12UA angles are used in the connection with short leg connected to beam and long leg connected to plate. A vertical force $P^*$ is applied on bolt line connecting plate (\SI{75}{\mm} from column surface).
+Find $P^*$ considering M20X/8.8/S bolts.
+Two 125\texttimes75\texttimes12UA angles are used in the connection with short leg connected to beam and long leg connected to plate.
+A vertical force $P^*$ is applied on bolt line connecting plate (\SI{75}{\mm} from column surface).
 \begin{figure}[H]
 \includegraphics[height=6cm]{PIC/CH08/BTC}\hfill
 \includegraphics[height=5cm]{PIC/CH08/BTCD}
@@ -390,7 +405,8 @@ P^*&\leqslant\SI{207.5}{\kn}.
 \end{solution}
 \section{Welded Eccentric Shear Connections}
 \subsection{Elastic Method}
-It is assumed that the connector plate is rigid, the welds do not deform, the forces result from direct shear and torsion. Rotation is assumed to occur about the weld centroid.
+It is assumed that the connector plate is rigid, the welds do not deform, the forces result from direct shear and torsion.
+Rotation is assumed to occur about the weld centroid.
 \begin{figure}[H]\centering\input{PIC/CH08/SC}
 \caption{Stress components of weld element}
 \end{figure}
@@ -455,7 +471,9 @@ f_{u,max}^*\leqslant\left\{\begin{array}{ll}
 \end{itemize}
 \begin{exmp}\href{run:./WORKSHEET/CH08/EX8.ECLW.sm}{Worksheet} Eccentrically Loaded Weld
 
-A bracket is to be connected to both flanges of a 250UC89.5 Grade 300 column to transmit a vertical factored force of \SI{200}{\kn} that is \SI{200}{\mm} from the column. Assume plate satisfies all necessary requirements. Use E48XX GP electrodes and find weld size.
+A bracket is to be connected to both flanges of a 250UC89.5 Grade 300 column to transmit a vertical factored force of \SI{200}{\kn} that is \SI{200}{\mm} from the column.
+Assume plate satisfies all necessary requirements.
+Use E48XX GP electrodes and find weld size.
 \begin{figure}[H]\input{PIC/CH08/ECCW}
 \end{figure}
 \end{exmp}
@@ -505,10 +523,15 @@ t_t\geqslant\dfrac{\SI{1.056}{\kn\per\mm}}{0.6\times0.6\times\SI{480}{\mpa}}=\SI
 \dfrac{\SI{1.056}{\kn\per\mm}}{t_t}&\leqslant0.9\times0.85\times\dfrac{\SI{12}{\mm}}{t_t}\times0.6\times\SI{440}{\mpa}=\dfrac{\SI{2.424}{\kn\per\mm}}{t_t}.
 \end{align*}
 \end{itemize}
-Thus required weld size is $t_w=\sqrt{2}\times\SI{6.11}{\mm}=\SI{8.64}{\mm}$, try \SI{10}{\mm} weld. The minimum size is \SI{5}{\mm}. The maximum size is \SI{11}{\mm}. Use \SI{10}{\mm} E48XX GP fillet welds.
+Thus required weld size is $t_w=\sqrt{2}\times\SI{6.11}{\mm}=\SI{8.64}{\mm}$, try \SI{10}{\mm} weld.
+The minimum size is \SI{5}{\mm}.
+The maximum size is \SI{11}{\mm}.
+Use \SI{10}{\mm} E48XX GP fillet welds.
 \end{solution}
 \begin{exmp}
-Compute required size of W50X fillet weld. Assume that column and bracket do not govern. Assume the shear stress is uniform.
+Compute required size of W50X fillet weld.
+Assume that column and bracket do not govern.
+Assume the shear stress is uniform.
 \begin{figure}[H]
 \input{PIC/CH08/ECCW2}
 \end{figure}
@@ -535,5 +558,7 @@ Check capacity.
 \dfrac{\SI{0.486}{\kn\per\mm}}{t_t}\leqslant\phi_{weld}0.6f_{weld},\quad\longrightarrow\quad
 t_t\geqslant\dfrac{\SI{0.486}{\kn\per\mm}}{0.6\times0.6\times\SI{480}{\mpa}}=\SI{2.81}{\mm}.
 \end{gather*}
-Thus, $t_w=\sqrt{2}\times\SI{2.81}{\mm}=\SI{3.98}{\mm}$. The minimum size is \SI{5}{\mm}. Use \SI{5}{\mm} W50X GP fillet welds.
+Thus, $t_w=\sqrt{2}\times\SI{2.81}{\mm}=\SI{3.98}{\mm}$.
+The minimum size is \SI{5}{\mm}.
+Use \SI{5}{\mm} W50X GP fillet welds.
 \end{solution}

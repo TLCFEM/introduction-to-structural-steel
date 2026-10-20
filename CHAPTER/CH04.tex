@@ -1,5 +1,7 @@
 \chapter{Compression Members}
-Compression members include columns, truss members, braces, etc. Unlike tension members, their compressive strength is affected by multiple factors which are summarised below. They usually have stockier sections than tension members to prevent premature strength loss due to buckling.
+Compression members include columns, truss members, braces, etc.
+Unlike tension members, their compressive strength is affected by multiple factors which are summarised below.
+They usually have stockier sections than tension members to prevent premature strength loss due to buckling.
 \begin{figure}[H]
 \centering\input{PIC/CH04/CM}
 \end{figure}
@@ -22,7 +24,9 @@ From the free body diagram, the deflection $u(x)$ of an elastic column of length
 \begin{gather*}
 Pu=M\qquad\longrightarrow\qquad{}M=-EI\dfrac{\md{^2u}}{\md{x^2}}\qquad\longrightarrow\qquad{}EI\dfrac{\md{^2u}}{\md{x^2}}+Pu=0.
 \end{gather*}
-This is a homogeneous second order ODE. Techniques learnt in \textit{EMTH 210} and \textit{ENCN 304} can be applied to solve it subject to different boundary conditions. The general solution can be found as
+This is a homogeneous second order ODE.
+Techniques learnt in \textit{EMTH 210} and \textit{ENCN 304} can be applied to solve it subject to different boundary conditions.
+The general solution can be found as
 \begin{gather*}
 u(x)=A\cos\left(\eta{}x\right)+B\sin\left(\eta{}x\right)
 \end{gather*}
@@ -32,7 +36,8 @@ For pinned--pinned member, $u(0)=u(L)=0$, $\eta$ can be found as
 \begin{gather*}
 \eta=\dfrac{n\pi}{L}
 \end{gather*}
-with $n=0,1,2,3,\cdots$. Thus,
+with $n=0,1,2,3,\cdots$.
+Thus,
 \begin{gather*}
 P_n=\dfrac{n^2\pi^2EI}{L^2}.
 \end{gather*}
@@ -52,7 +57,9 @@ In general, the buckling strength $N_{om}$ of a column is expressed as
 \begin{gather*}
 N_{om}=P_{cr}=\dfrac{\pi^2EI}{\left(k_eL\right)^2}=\dfrac{\pi^2EI}{L_e^2},
 \end{gather*}
-where $k_e$ is the effective length factor which can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length. It is the distance between buckling points of inflection for a flexural member. The following are a few examples.
+where $k_e$ is the effective length factor which can be obtained by the above procedure for different boundary conditions, $L_e=k_eL$ is known as the effective length.
+It is the distance between buckling points of inflection for a flexural member.
+The following are a few examples.
 \begin{figure}[H]
 \footnotesize\centering
 \input{PIC/CH04/KE}\caption{Illustration of effective length}
@@ -76,7 +83,9 @@ f_{om}=\dfrac{\pi^2E}{\lambda^2}.
 \end{gather*}
 \begin{exmp}Theoretical Buckling
 
-Find the theoretical buckling load of a column with bottom end fixed and top end pinned. The length of column is $L$. The flexural rigidity is $EI$.
+Find the theoretical buckling load of a column with bottom end fixed and top end pinned.
+The length of column is $L$.
+The flexural rigidity is $EI$.
 \begin{figure}[H]
 \footnotesize
 \input{PIC/CH04/EB2}
@@ -117,16 +126,19 @@ Apply the last BC,
 \begin{gather*}
 u(L)=B\sin\left(\eta{}L\right)+CL=0,\qquad\longrightarrow\qquad{}B\left(\sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)\right)=0.
 \end{gather*}
-In order to solve for a non-trivial solution, $B$ cannot be zero; otherwise all $A$, $B$, $C$ and $D$ would be zero, leading to the trivial solution. Thus,
+In order to solve for a non-trivial solution, $B$ cannot be zero; otherwise all $A$, $B$, $C$ and $D$ would be zero, leading to the trivial solution.
+Thus,
 \begin{gather*}
 \sin\left(\eta{}L\right)-\eta{}L\cos\left(\eta{}L\right)=0,\qquad\longrightarrow\qquad{}
 \tan\left(\eta{}L\right)=\eta{}L.
 \end{gather*}
-This is a transcendental equation. The approximate solution can be found via numerical, analytical approximations, or graphical methods.
+This is a transcendental equation.
+The approximate solution can be found via numerical, analytical approximations, or graphical methods.
 \begin{figure}[H]
 \centering\input{PIC/CH04/EB3}
 \end{figure}
-The first non-trivial solution is $\eta{}L\approx4.4934$. This gives
+The first non-trivial solution is $\eta{}L\approx4.4934$.
+This gives
 \begin{gather*}
 P_{cr}=\dfrac{4.4934^2EI}{L^2}=\dfrac{\pi^2EI}{\left(0.699L\right)^2},\qquad\longrightarrow\qquad{}k_e=0.699.
 \end{gather*}
@@ -134,19 +146,27 @@ P_{cr}=\dfrac{4.4934^2EI}{L^2}=\dfrac{\pi^2EI}{\left(0.699L\right)^2},\qquad\lon
 For this case, $k_e$ is often taken as \num{0.7}.
 \end{solution}
 
-For elastic material, the critical stress $f_{cr}$ is simply $f_{om}$, which approaches infinity when $\lambda$ approaches zero (i.e., very short columns). If one plots $f_{cr}$ with regard to $\lambda$, the following graph can be obtained.
+For elastic material, the critical stress $f_{cr}$ is simply $f_{om}$, which approaches infinity when $\lambda$ approaches zero (i.e., very short columns).
+If one plots $f_{cr}$ with regard to $\lambda$, the following graph can be obtained.
 \begin{figure}[H]
 \centering\input{PIC/CH04/PC}
 \caption{Theoretical governing region for $f_{cr}$ for elastic material}
 \end{figure}
 \subsection{Compressive Strength}
-However, for real life situations, no matter how small $\lambda$ is, an $f_{om}$ greater than the yield strength $f_y$ is meaningless. The yield strength $f_y$ is often considered as a material property that does not vary with $\lambda$. The critical stress $f_{cr}$ shall be the minimum of $f_y$ and $f_{om}$. If one draws $f_{cr}$ against $\lambda$, the following graph can be obtained. It affects short members.
+However, for real life situations, no matter how small $\lambda$ is, an $f_{om}$ greater than the yield strength $f_y$ is meaningless.
+The yield strength $f_y$ is often considered as a material property that does not vary with $\lambda$.
+The critical stress $f_{cr}$ shall be the minimum of $f_y$ and $f_{om}$.
+If one draws $f_{cr}$ against $\lambda$, the following graph can be obtained.
+It affects short members.
 \begin{figure}[H]
 \centering\input{PIC/CH04/CS}
 \caption{Theoretical governing region for $f_{cr}$}
 \end{figure}
 \subsection{Local Buckling}
-A section can buckle under complex stress conditions. The buckling of web/flanges would further reduce section compression capacity. It often depends on flange/web slenderness ($b_f/t_f$ and $d/t_w$). It affects short members.
+A section can buckle under complex stress conditions.
+The buckling of web/flanges would further reduce section compression capacity.
+It often depends on flange/web slenderness ($b_f/t_f$ and $d/t_w$).
+It affects short members.
 %\begin{figure}[H]
 %\centering
 %\includegraphics[width=8cm]{PIC/CH04/LB}
@@ -157,10 +177,11 @@ A section can buckle under complex stress conditions. The buckling of web/flange
 \caption{Governing region considering local buckling}
 \end{figure}
 \subsection{Residual Stress}
-All members contain residual stresses due to uneven cooling. These result in earlier yielding
-and a reduction in elastic modulus.
+All members contain residual stresses due to uneven cooling.
+These result in earlier yielding and a reduction in elastic modulus.
 
-Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$. Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$; when $E$ decreases, $f_{om}$ decreases accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
+Due to residual stresses, the tangent stiffness $E_T$ decreases gradually so that $E_T<E$.
+Recall $f_{om}=\dfrac{\pi^2E}{\lambda^2}$; when $E$ decreases, $f_{om}$ decreases accordingly as $\dfrac{\pi^2E_T}{\lambda^2}<\dfrac{\pi^2E}{\lambda^2}$.
 \begin{figure}[H]
 \centering\input{PIC/CH04/RSS}
 \caption{Stress--strain curve considering residual stress}
@@ -171,7 +192,11 @@ The effect is most significant on members of moderate slenderness, where the str
 \caption{Governing region considering residual stress}
 \end{figure}
 \subsection{Initial Out-of-Straightness and Eccentric Loading}
-An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum out-of-straightness camber of $L/1000$. The eccentricity introduces non-zero section moment even if the member is axially loaded. This additional moment would lower the theoretical critical buckling force. For straight members, the loading behaviour follows $O\rightarrow{}A\rightarrow{}B$, but the actual behaviour due to eccentricity is the dashed line.
+An eccentricity $e=L/1500$ is commonly assumed.
+This is less than the maximum out-of-straightness camber of $L/1000$.
+The eccentricity introduces non-zero section moment even if the member is axially loaded.
+This additional moment would lower the theoretical critical buckling force.
+For straight members, the loading behaviour follows $O\rightarrow{}A\rightarrow{}B$, but the actual behaviour due to eccentricity is the dashed line.
 
 \begin{figure}[H]
 \centering
@@ -183,7 +208,8 @@ An eccentricity $e=L/1500$ is commonly assumed. This is less than the maximum ou
 \input{PIC/CH04/EL}
 \caption{Eccentric loading}
 \end{figure}
-The eccentric loading has a similar effect to out-of-straightness and thus can be taken into account in a similar way. Both out-of-straightness and eccentric loading affect slender members in a similar way.
+The eccentric loading has a similar effect to out-of-straightness and thus can be taken into account in a similar way.
+Both out-of-straightness and eccentric loading affect slender members in a similar way.
 \begin{figure}[H]
 \centering\input{PIC/CH04/OOS}
 \caption{Governing region considering initial OOS and eccentric loading}
@@ -212,25 +238,32 @@ A_n&net area\\
 f_y&yield stress
 \end{conditions}
 
-The form factor $k_f$ accounts for local buckling. It is defined to be the ratio between the effective area $A_e$ and gross area $A_g$.
+The form factor $k_f$ accounts for local buckling.
+It is defined to be the ratio between the effective area $A_e$ and gross area $A_g$.
 \begin{gather*}
 k_f=\dfrac{A_e}{A_g},
 \end{gather*}
-where $A_e=\sum{}b_{e,i}t_i$ and $b_{e,i}$ and $t_i$ are the effective width and thickness of each \textbf{individual} element. For a flat plate with thickness of $t$ and \textbf{clear} width of $b$ (outstand from the face of the supporting plate element,
-or between the faces of the supporting plate elements), the effective width $b_e$ can be computed as
+where $A_e=\sum{}b_{e,i}t_i$ and $b_{e,i}$ and $t_i$ are the effective width and thickness of each \textbf{individual} element.
+For a flat plate with thickness of $t$ and \textbf{clear} width of $b$ (outstand from the face of the supporting plate element, or between the faces of the supporting plate elements), the effective width $b_e$ can be computed as
 \begin{gather}
 b_e=\min\left(b,~\lambda_{ey}t\sqrt{\dfrac{\SI{250}{\mpa}}{f_y}}\right),
 \end{gather}
-in which $\lambda_{ey}$ is the yield slenderness limit. For an I-section, values of $b_i$ and $t_i$ are shown below. There are 7 elements in total, 4 belong to flange which are one-edge supported while 1 belongs to web which is both-edge supported. Note the corresponding $b_{e,i}$ may be smaller than the physical length $b_i$.
+in which $\lambda_{ey}$ is the yield slenderness limit.
+For an I-section, values of $b_i$ and $t_i$ are shown below.
+There are 7 elements in total, 4 belong to flange which are one-edge supported while 1 belongs to web which is both-edge supported.
+Note the corresponding $b_{e,i}$ may be smaller than the physical length $b_i$.
 \begin{figure}[H]
 \centering\input{PIC/CH04/BE}
 \caption{Five flat elements in a typical I section}
 \end{figure}
 
-If the slenderness for any element, $\lambda_{e,i}$, exceeds the yield limit $\lambda_{ey,i}$, the excess width is neglected when calculated the effective width $b_{e,i}$ for that element. Some universal beam sections have $k_f$ values slightly less than one. For flat plates, \NZSSTEEL{Table 6.2.4} gives the following limits shown in \figref{fig:flat_slenderness}.
+If the slenderness for any element, $\lambda_{e,i}$, exceeds the yield limit $\lambda_{ey,i}$, the excess width is neglected when calculated the effective width $b_{e,i}$ for that element.
+Some universal beam sections have $k_f$ values slightly less than one.
+For flat plates, \NZSSTEEL{Table 6.2.4} gives the following limits shown in \figref{fig:flat_slenderness}.
 
 
-An element, which has the same slenderness as the yield limit $\lambda_{ey}$, should just reach the yield stress before local buckling occurs. Elements which have higher levels of residual stresses from rolling and welding will reach the yield stress earlier and therefore have lower values of $\lambda_{ey}$.
+An element, which has the same slenderness as the yield limit $\lambda_{ey}$, should just reach the yield stress before local buckling occurs.
+Elements which have higher levels of residual stresses from rolling and welding will reach the yield stress earlier and therefore have lower values of $\lambda_{ey}$.
 
 The allowable slenderness of stiffened elements is much greater than that for unstiffened elements.
 \begin{figure}[H]
@@ -248,19 +281,24 @@ Assume Grade 300 steel, find the section capacity $N_s$ of a 310UB32.0 section.
 \begin{minipage}{5cm}\centering\input{PIC/CH04/IS}
 \end{minipage}
 \begin{minipage}{.99\linewidth-5cm}
-This is a hot-rolled section. Now compute the effective area $A_e$.
+This is a hot-rolled section.
+Now compute the effective area $A_e$.
 
-For flanges, only one side is supported. Thus, $\lambda_{ey,f}=16$.
+For flanges, only one side is supported.
+Thus, $\lambda_{ey,f}=16$.
 \begin{gather*}
 b_{e,f}=16\times\SI{8}{\mm}\times\sqrt{\dfrac{250}{320}}=\SI{113.14}{\mm}.
 \end{gather*}
-This is greater than the clear width $b=\dfrac{b_f-t_w}{2}=\SI{71.75}{\mm}$, hence $b_{e,f}=b=\SI{71.75}{\mm}$. Hence for flange alone, $k_f=1$.
+This is greater than the clear width $b=\dfrac{b_f-t_w}{2}=\SI{71.75}{\mm}$, hence $b_{e,f}=b=\SI{71.75}{\mm}$.
+Hence for flange alone, $k_f=1$.
 
-For web, both sides are supported. Thus, $\lambda_{ey,w}=45$.
+For web, both sides are supported.
+Thus, $\lambda_{ey,w}=45$.
 \begin{gather*}
 b_{e,w}=45\times\SI{5.5}{\mm}\times\sqrt{\dfrac{250}{320}}=\SI{218.76}{\mm}.
 \end{gather*}
-This is smaller than $d_1=\SI{282}{\mm}$. Hence for web alone, $k_f<1$.
+This is smaller than $d_1=\SI{282}{\mm}$.
+Hence for web alone, $k_f<1$.
 \end{minipage}
 
 The effective area is then
@@ -277,7 +315,8 @@ A_g=2\times{}b_f\times{}t_f+d_1\times{}t_w=\SI{3935}{\mm^2}.
 \end{gather*}
 This value is smaller than the value listed in Liberty catalogue (\SI{4080}{\mm^2}) because the transition radii are not considered in the computation here.
 
-The form factor $k_f=A_e/A_g=0.912$, which is smaller than but similar to the value listed (see the table in Liberty catalogue) of $0.915$. Since there is no area reduction, $A_n=A_g$.
+The form factor $k_f=A_e/A_g=0.912$, which is smaller than but similar to the value listed (see the table in Liberty catalogue) of $0.915$.
+Since there is no area reduction, $A_n=A_g$.
 
 *** If the area of transition regions is taken as the difference between two gross areas, that is $\SI{4080}{\mm^2}-\SI{3935}{\mm^2}=\SI{145}{\mm^2}$, adding it to both numerator and denominator, $k_f$ can be computed as
 \begin{gather*}
@@ -416,36 +455,46 @@ Performing such a computation is somewhat tedious; in practice, engineers can re
 \end{tabular}
 \end{table}
 
-The most conservative curve is that with $\alpha_b=1$. The European codes, like \NZSSTEEL{}, have five curves for $\alpha_b$. The Canadian code has 3 curves for different residual stress conditions, while the US code has just one curve for all residual stress conditions.
+The most conservative curve is that with $\alpha_b=1$.
+The European codes, like \NZSSTEEL{}, have five curves for $\alpha_b$.
+The Canadian code has 3 curves for different residual stress conditions, while the US code has just one curve for all residual stress conditions.
 \begin{exmp}
 What is the maximum stress that can be applied to a hot-rolled compact Grade 300 column (no holes) with $t_f<\SI{11}{\mm}$ and $\dfrac{k_eL}{r}=100$?
 \end{exmp}
 \begin{solution}
-Since it is a compact section, shear lag is often not a problem. It can be safely assumed that $k_f=1$. Since there are no holes, $A_n=A_g$. From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section. For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{320}{\mpa}$ for Grade 300 steel.
+Since it is a compact section, shear lag is often not a problem.
+It can be safely assumed that $k_f=1$.
+Since there are no holes, $A_n=A_g$.
+From \tabref{tab:alpha_b}, $\alpha_b=0$ for hot-rolled section.
+For $t_f<\SI{11}{\mm}$, assume $f_y=\SI{320}{\mpa}$ for Grade 300 steel.
 
 The modified slenderness ratio
 \begin{gather*}
 \lambda_n=\dfrac{k_eL}{r}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=100\times\sqrt{1}\times\sqrt{\dfrac{320}{250}}=113.1.
 \end{gather*}
 
-$\alpha_c$ can be computed (or found from \tabref{tab:alpha_c}, or \figref{fig:alpha_c}) as \num{0.459}. Thus, the maximum stress is
+$\alpha_c$ can be computed (or found from \tabref{tab:alpha_c}, or \figref{fig:alpha_c}) as \num{0.459}.
+Thus, the maximum stress is
 \begin{gather*}
 f_{max}=\dfrac{N^*}{A_n}\leqslant\dfrac{\phi{}N_c}{A_n}=\phi\alpha_ck_ff_y=0.9\times0.459\times1\times\SI{320}{\mpa}=\SI{132.2}{\mpa}.
 \end{gather*}
 \end{solution}
 
 \begin{exmp}
-A \SI{10}{\meter} long 310UB32.0 beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis. Find the maximum axial compressive force it can carry.
+A \SI{10}{\meter} long 310UB32.0 beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis.
+Find the maximum axial compressive force it can carry.
 \end{exmp}
 \begin{solution}
-Both strong axis and weak axis need to be considered. For a 310UB32 section, the following properties can be found: $\alpha_b=0$, $A_n=A_g=\SI{4080}{\mm^2}$, $f_y=\SI{320}{\mpa}$, $k_f=0.915$, $r_x=\SI{124}{\mm}$, $r_y=\SI{32.9}{\mm}$.
+Both strong axis and weak axis need to be considered.
+For a 310UB32 section, the following properties can be found: $\alpha_b=0$, $A_n=A_g=\SI{4080}{\mm^2}$, $f_y=\SI{320}{\mpa}$, $k_f=0.915$, $r_x=\SI{124}{\mm}$, $r_y=\SI{32.9}{\mm}$.
 \begin{itemize}
 \item strong axis ($x$-axis)\\
 Since it is pinned at both ends, $L_e=\SI{10}{\meter}$, the modified slenderness ratio is
 \begin{gather*}
 \lambda_n=\dfrac{L_e}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{\SI{10}{\meter}}{\SI{124}{\mm}}\times\sqrt{0.915}\times\sqrt{\dfrac{320}{250}}=87.3.
 \end{gather*}
-Then, $\alpha_c=0.629$. The maximum compressive force is then
+Then, $\alpha_c=0.629$.
+The maximum compressive force is then
 \begin{gather*}
 \phi{}N_{c,x}=\phi\alpha_ck_fA_nf_y=0.9\times0.629\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{676.6}{\kn}.
 \end{gather*}
@@ -456,19 +505,22 @@ Since it is pinned at quarter points, $L_e=0.25\times\SI{10}{\meter}=\SI{2.5}{\m
 \begin{gather*}
 \lambda_n=\dfrac{L_e}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{\SI{2.5}{\meter}}{\SI{32.9}{\mm}}\times\sqrt{0.915}\times\sqrt{\dfrac{320}{250}}=82.2.
 \end{gather*}
-Then, $\alpha_c=0.665$. The maximum compressive force is then
+Then, $\alpha_c=0.665$.
+The maximum compressive force is then
 \begin{gather*}
 \phi{}N_{c,y}=\phi\alpha_ck_fA_nf_y=0.9\times0.665\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{715.0}{\kn}.
 \end{gather*}
 
 This value is also given in \tabref{tab:ub_weak}.
 \end{itemize}
-The governing maximum compressive force shall be the minimum of two, thus $\phi{}N_c=\SI{676.6}{\kn}$. In practice, \textbf{always} check both axes for capacity.
+The governing maximum compressive force shall be the minimum of two, thus $\phi{}N_c=\SI{676.6}{\kn}$.
+In practice, \textbf{always} check both axes for capacity.
 
 Note, if $L_e=\SI{0}{\m}$, then $\phi{}N_c=\phi{}N_s=0.9\times0.915\times\SI{4080}{\mm^2}\times\SI{320}{\mpa}=\SI{1075.2}{\kn}$, which are given by both tables for strong- and weak-axis buckling.
 \end{solution}
 \subsection{Development and Use of Design Chart/Table}
-By varying the effective length $L_e$, for a typical section, the corresponding member section capacities can be computed and compiled into design charts/tables. A typical design chart may look like the following.
+By varying the effective length $L_e$, for a typical section, the corresponding member section capacities can be computed and compiled into design charts/tables.
+A typical design chart may look like the following.
 \begin{figure}[H]
 \footnotesize\centering
 \input{PIC/CH04/DESIGNCHART}
@@ -483,13 +535,17 @@ To use those charts, for a given $N^*$ and a given $L_e$, locate this point on t
 \section{Design Procedure}
 Any column that satisfies all strength and serviceability criteria will be a satisfactory design.
 
-The most economical satisfactory design for a given situation will be dictated by fabrication costs for the whole frame and by architectural considerations. A rolled section will usually be cheaper than a fabricated section. A tubular section will usually require a smaller area than an I section, but a RHS will be more expensive to buy than an I section and more expensive to connect. Fabricated tubes are relatively expensive to make, but may be used for heavier loads.
+The most economical satisfactory design for a given situation will be dictated by fabrication costs for the whole frame and by architectural considerations.
+A rolled section will usually be cheaper than a fabricated section.
+A tubular section will usually require a smaller area than an I section, but a RHS will be more expensive to buy than an I section and more expensive to connect.
+Fabricated tubes are relatively expensive to make, but may be used for heavier loads.
 
 In general, for a given cross section, the lightest column is likely to be the most economic because it uses the least steel material.
 
 Design of compression members may be carried out by the following approaches.
 \subsubsection{Trial and Error}
-A number of section sizes are chosen, and evaluated to determine the best (safe and economical) solution. The following steps may be useful for rolled shapes:
+A number of section sizes are chosen, and evaluated to determine the best (safe and economical) solution.
+The following steps may be useful for rolled shapes:
 \begin{enumerate}
 \item compute the factored compression force $N^*$
 \item assume flange yield stress $f_y$ (e.g., \SI{280}{\mpa}, \SI{300}{\mpa}) and form factor $k_f=1$
@@ -505,9 +561,13 @@ A number of section sizes are chosen, and evaluated to determine the best (safe 
 \end{enumerate}
 \end{enumerate}
 \subsubsection{Tables and Charts}
-Design capacity tables and charts may be developed for specific sections to speed up the design. Given that effective length $L_e$ may affect member capacity, for all designations, it is possible to calculate and compile the corresponding capacities under different $L_e$ values. \figref{fig:design_table} and \figref{fig:design_chart} are two examples. Similar charts/tables can be seen in design books and other references.
+Design capacity tables and charts may be developed for specific sections to speed up the design.
+Given that effective length $L_e$ may affect member capacity, for all designations, it is possible to calculate and compile the corresponding capacities under different $L_e$ values.
+\figref{fig:design_table} and \figref{fig:design_chart} are two examples.
+Similar charts/tables can be seen in design books and other references.
 
-Alternatively, by using property table, similar design tables can be generated. \tabref{tab:ub_strong}, \tabref{tab:ub_weak}, \tabref{tab:uc_strong} and \tabref{tab:uc_weak} are examples.
+Alternatively, by using property table, similar design tables can be generated.
+\tabref{tab:ub_strong}, \tabref{tab:ub_weak}, \tabref{tab:uc_strong} and \tabref{tab:uc_weak} are examples.
 \begin{sidewaysfigure}[p]
 \centering
 \includegraphics[width=\linewidth]{PIC/CH04/TABLE}
@@ -659,14 +719,16 @@ Axial Compression Example --- UC
 Using Grade 300 steel, find the lightest UC without holes for $G=\SI{400}{\kn}$ and $Q=\SI{700}{\kn}$ with $L_e=\SI{5}{\meter}$.
 \end{exmp}
 \begin{solution}
-For all hot-rolled UC sections, $t_f<\SI{40}{\mm}$, thus $k_f=1$ and $\alpha_b=0$. Assume $f_y=\SI{300}{\mpa}$.
+For all hot-rolled UC sections, $t_f<\SI{40}{\mm}$, thus $k_f=1$ and $\alpha_b=0$.
+Assume $f_y=\SI{300}{\mpa}$.
 
 Load combination gives
 \begin{gather*}
 N^*=1.2G+1.5Q=1.2\times\SI{400}{\kn}+1.5\times\SI{700}{\kn}=\SI{1530}{\kn}.
 \end{gather*}
 
-For the identical $L_e$ along both axes, clearly the weak axis governs. Assume a moderate $r_y\approx\SI{60}{\mm}$, this leads to
+For the identical $L_e$ along both axes, clearly the weak axis governs.
+Assume a moderate $r_y\approx\SI{60}{\mm}$, this leads to
 \begin{gather*}
 \lambda_n=\dfrac{L_e}{r_y}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{\SI{5}{\meter}}{\SI{50}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=91.3.
 \end{gather*}
@@ -706,11 +768,14 @@ A_{n,min}=\SI{11280}{\mm^2}.
 \end{gather*}
 Since $A_n=\SI{7620}{\mm^2}<\SI{11280}{\mm^2}$, 200UC59.5 does not work.
 
-The lightest designation would be 250UC72.9. By using $N^*=\SI{1530}{\kn}$, the optimal section is 250UC72.9 from \figref{fig:design_table}.
+The lightest designation would be 250UC72.9.
+By using $N^*=\SI{1530}{\kn}$, the optimal section is 250UC72.9 from \figref{fig:design_table}.
 \end{solution}
 
 \begin{exmp}
-A \SI{18}{\meter} long beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis. Find the lightest I section to carry $N^*=\SI{700}{\kn}$. Use Grade 300 steel.
+A \SI{18}{\meter} long beam is braced laterally (pinned) at its ends for buckling about its strong axis, and braced (pinned) at the ends and at the \textbf{quarter} points for buckling about its weak axis.
+Find the lightest I section to carry $N^*=\SI{700}{\kn}$.
+Use Grade 300 steel.
 \end{exmp}
 \begin{solution}
 The effective lengths are
@@ -718,7 +783,12 @@ The effective lengths are
 L_{e,y}=\SI{18}{\meter}/4=\SI{4.5}{\meter},\\
 L_{e,x}=\SI{18}{\meter}.
 \end{gather*}
-An efficient member shall have similar $L_{e}/r$ about both axes. This leads to $r_x/r_y\approx4$. UC sections often have $r_x/r_y\approx\numrange{1.6}{1.8}$. UB sections often have $r_x/r_y\approx\numrange{3.5}{5.5}$. Thus, UB sections will be more efficient. From \tabref{tab:ub_strong} and \tabref{tab:ub_weak},
+An efficient member shall have similar $L_{e}/r$ about both axes.
+This leads to $r_x/r_y\approx4$.
+UC sections often have $r_x/r_y\approx\numrange{1.6}{1.8}$.
+UB sections often have $r_x/r_y\approx\numrange{3.5}{5.5}$.
+Thus, UB sections will be more efficient.
+From \tabref{tab:ub_strong} and \tabref{tab:ub_weak},
 \begin{table}[H]
 \centering
 \begin{tabular}{rccc}
@@ -734,7 +804,9 @@ Thus the lightest section is 410UB53.7.
 \end{solution}
 \subsection{Consideration of Effective Length}
 \subsubsection{Individual Member}
-\NZSSTEEL{\S~4.8.3.2} recommends the following values for $k_e$ as shown in \figref{fig:k_e} for \textbf{individual} sway and braced members that are designed for load combinations that do \textbf{not} include earthquake loads. Those values are larger than the theoretical values because no connection is ideal; connections at member ends normally have some flexibility. It is worth noting that those values may be different in other codes.
+\NZSSTEEL{\S~4.8.3.2} recommends the following values for $k_e$ as shown in \figref{fig:k_e} for \textbf{individual} sway and braced members that are designed for load combinations that do \textbf{not} include earthquake loads.
+Those values are larger than the theoretical values because no connection is ideal; connections at member ends normally have some flexibility.
+It is worth noting that those values may be different in other codes.
 \begin{figure}[H]\centering
 \includegraphics{PIC/CH04/BS}
 \caption{Effective length factor $k_e$}\label{fig:k_e}
@@ -743,12 +815,18 @@ Thus the lightest section is 410UB53.7.
 There are two types of frame members.
 \begin{itemize}
 \item \textbf{Braced Frame Member}\\
-In these frames, lateral stability is provided by structural walls, diagonal bracing or other similar means within the storey considered. For braced members, $1.0\geqslant{}k_e\geqslant{}0.5$.
+In these frames, lateral stability is provided by structural walls, diagonal bracing or other similar means within the storey considered.
+For braced members, $1.0\geqslant{}k_e\geqslant{}0.5$.
 \item \textbf{Sway Frame Member}\\
-In these frames, lateral stability is provided by bending stiffness of rigidly connected beams or columns. The upper supports can also move down the same amount on each side. For sway members, $k_e\geqslant{}1.0$.
+In these frames, lateral stability is provided by bending stiffness of rigidly connected beams or columns.
+The upper supports can also move down the same amount on each side.
+For sway members, $k_e\geqslant{}1.0$.
 \end{itemize}
 
-Whether the beams are braced results in different rotation constraints on beam--column joints. Besides, the illustrations in \figref{fig:fm} only show the cases when the far ends of beams are pinned. The fixity condition of beam far end also has an impact on the degree of rotation constraint offered. This will be discussed later.
+Whether the beams are braced results in different rotation constraints on beam--column joints.
+Besides, the illustrations in \figref{fig:fm} only show the cases when the far ends of beams are pinned.
+The fixity condition of beam far end also has an impact on the degree of rotation constraint offered.
+This will be discussed later.
 \begin{figure}[ht!]
 \centering
 \input{PIC/CH04/ELBS}
@@ -757,9 +835,11 @@ Whether the beams are braced results in different rotation constraints on beam--
 
 In order to compute member capacities, two methods are available, namely the stability function and the $\gamma$-factor method.
 \paragraph{Stability Functions}
-In the general case of different $EI$ in the beams at the top and bottom of the frame, stability functions can be used to evaluate the buckling force in the member without needing to consider the effective lengths. These are included in computer programs but are not studied here.
+In the general case of different $EI$ in the beams at the top and bottom of the frame, stability functions can be used to evaluate the buckling force in the member without needing to consider the effective lengths.
+These are included in computer programs but are not studied here.
 \paragraph{The $\gamma$-Factor Method}
-Alternatively, for frame members, the effective length factor $k_e$ can be determined by a simplified method via stiffness ratios. The following assumptions of idealized conditions, which seldom exist in real structures, are adopted (\ANSI{\S~7.2}):
+Alternatively, for frame members, the effective length factor $k_e$ can be determined by a simplified method via stiffness ratios.
+The following assumptions of idealized conditions, which seldom exist in real structures, are adopted (\ANSI{\S~7.2}):
 \begin{itemize}
 \item all members have constant cross section,
 \item all joints are rigid,
@@ -780,13 +860,17 @@ For each compression member, it is possible to compute the stiffness ratios of t
 in which
 \begin{itemize}
 \item \NZSSTEEL{\S~4.8.3.4.2} $\displaystyle\sum_{\text{columns}}\dfrac{I}{L}$ shall be calculated from the sum of the stiffnesses, in the plane of bending, of all the compression members rigidly connected at the end of the member under consideration, including the member itself.
-\item \NZSSTEEL{\S~4.8.3.4.3} $\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}$ shall be calculated from the sum of the stiffnesses, in the plane of bending, of all the beams rigidly connected at the end of the member under consideration. The contributions of any beams pin-connected to the member shall be neglected.
-\item $\beta_e$ is a modification factor to account for different beam far end conditions. This will be introduced later. For the moment, assume $\beta_e=1$.
+\item \NZSSTEEL{\S~4.8.3.4.3} $\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}$ shall be calculated from the sum of the stiffnesses, in the plane of bending, of all the beams rigidly connected at the end of the member under consideration.
+The contributions of any beams pin-connected to the member shall be neglected.
+\item $\beta_e$ is a modification factor to account for different beam far end conditions.
+This will be introduced later.
+For the moment, assume $\beta_e=1$.
 \end{itemize}
 
 With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated by one of the following methods:
 \begin{enumerate}
-\item The exact solution for the assumptions above may be found using the following equations. These are transcendental functions that can be solved by numerical methods.
+\item The exact solution for the assumptions above may be found using the following equations.
+These are transcendental functions that can be solved by numerical methods.
 \begin{itemize}
 \item braced member
 \begin{gather*}
@@ -797,7 +881,10 @@ With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated b
 \left(\gamma_1\gamma_2\left(\dfrac{\pi}{k_e}\right)^2-36\right)\tan\left(\dfrac{\pi}{k_e}\right)=6\left(\gamma_1+\gamma_2\right)\dfrac{\pi}{k_e}
 \end{gather*}
 \end{itemize}
-\item US Alignment Charts. These charts, used in \ANSI{}, give the graphical solutions to the two equations above. They are shown in \figref{fig:a360_ke} in which $G_A$ and $G_B$ correspond to $\gamma_1$ and $\gamma_2$. Additional copies are provided at the end of this chapter.
+\item US Alignment Charts.
+These charts, used in \ANSI{}, give the graphical solutions to the two equations above.
+They are shown in \figref{fig:a360_ke} in which $G_A$ and $G_B$ correspond to $\gamma_1$ and $\gamma_2$.
+Additional copies are provided at the end of this chapter.
 \begin{figure}[htb!]
 \centering\footnotesize
 \begin{subfigure}{.5\linewidth}\centering
@@ -810,12 +897,17 @@ With $\gamma_1$ and $\gamma_2$ (for two ends) at hand, $k_e$ can be calculated b
 \end{subfigure}
 \caption{Alignment chart for $k_e$}\label{fig:a360_ke}
 \end{figure}
-\item AU/NZ Alignment Charts. These charts, used in \NZSSTEEL{Fig. 4.8.3.3}, are essentially identical to the ones used in the US code but presented in a different format. \figref{fig:kee} shows those charts.
+\item AU/NZ Alignment Charts.
+These charts, used in \NZSSTEEL{Fig. 4.8.3.3}, are essentially identical to the ones used in the US code but presented in a different format.
+\figref{fig:kee} shows those charts.
 \begin{figure}[H]
 \centering\includegraphics[width=.99\textwidth]{PIC/CH04/KEE}
 \caption{$k_e$ for braced and sway members \citep{Gorenc2015}}\label{fig:kee}
 \end{figure}
-\item French Equations. These are used in the French code and they are an approximation to the two equations above. They give answers to an accuracy of better than \SI{1}{\percent} of the true answer, and any error results in a slightly conservative answer. This is better than the readability of the design charts.
+\item French Equations.
+These are used in the French code and they are an approximation to the two equations above.
+They give answers to an accuracy of better than \SI{1}{\percent} of the true answer, and any error results in a slightly conservative answer.
+This is better than the readability of the design charts.
 \begin{itemize}
 \item braced member
 \begin{gather}\color{cc0066}
@@ -829,7 +921,8 @@ k_e=\sqrt{\dfrac{1.6\gamma_1\gamma_2+4\left(\gamma_1+\gamma_2\right)+7.5}{\gamma
 \end{enumerate}
 The French method is probably the best for practical usage, although any of the methods above would be acceptable.
 \subsubsection{Examples of Alignment Charts}
-To use the alignment charts, one shall calculate $\gamma_1$ and $\gamma_2$ first. Draw a straight line defined by $\gamma_1$ and $\gamma_2$, the intersection gives the value of $k_e$.
+To use the alignment charts, one shall calculate $\gamma_1$ and $\gamma_2$ first.
+Draw a straight line defined by $\gamma_1$ and $\gamma_2$, the intersection gives the value of $k_e$.
 \paragraph{Braced Individual Member}
 Since both ends are fixed,
 \begin{gather*}
@@ -846,7 +939,8 @@ The top end is connected to two beams,
 \gamma_{top}=\dfrac{1}{1.5/0.8+1.5/1.5}=0.348,\qquad
 \gamma_{bot}=0.
 \end{gather*}
-From the chart, $k_e\approx0.57$. The French equation gives $k_e=0.5704$.
+From the chart, $k_e\approx0.57$.
+The French equation gives $k_e=0.5704$.
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/AC2}
@@ -867,24 +961,31 @@ The top end is connected to two beams,
 \gamma_{top}=\dfrac{1}{1.5/0.8+1.5/1.5}=0.348,\qquad
 \gamma_{bot}=0.
 \end{gather*}
-From the chart, $k_e\approx1.05$. The French equation gives $k_e=1.0644$.
+From the chart, $k_e\approx1.05$.
+The French equation gives $k_e=1.0644$.
 \begin{figure}[H]
 \centering
 \input{PIC/CH04/AC4}
 \end{figure}
 \subsubsection{Remark}
-The stiffness ratio $\gamma$ characterises the rotation ability of an end. A sufficiently large $\gamma\rightarrow\infty$ represents a pinned connection while a sufficiently small $\gamma\rightarrow0$ represents a fixed connection. \textbf{However, those are idealised assumptions; in the real world, such perfect connections do not exist. Thus, $\gamma$ is often taken as \num{1} for a fully fixed connection and \num{10} for a perfectly pinned connection.}
+The stiffness ratio $\gamma$ characterises the rotation ability of an end.
+A sufficiently large $\gamma\rightarrow\infty$ represents a pinned connection while a sufficiently small $\gamma\rightarrow0$ represents a fixed connection.
+\textbf{However, those are idealised assumptions; in the real world, such perfect connections do not exist.
+Thus, $\gamma$ is often taken as \num{1} for a fully fixed connection and \num{10} for a perfectly pinned connection.}
 
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACFM.sm}{Worksheet}
 Axial Compression Example --- Frame
 
-For the frame shown, find axial compression capacity of column when the frame is a) braced and b) unbraced. Assume the out-of-plane buckling is fully prevented and in-plane deformations cause strong axis member bending. Use Grade 300 steel.
+For the frame shown, find axial compression capacity of column when the frame is a) braced and b) unbraced.
+Assume the out-of-plane buckling is fully prevented and in-plane deformations cause strong axis member bending.
+Use Grade 300 steel.
 \begin{figure}[H]
 \input{PIC/CH04/FRAME1}
 \end{figure}
 \end{exmp}
 \begin{solution}
-In this simple case, $\beta_e=1$. The stiffness ratios can be computed as
+In this simple case, $\beta_e=1$.
+The stiffness ratios can be computed as
 \begin{gather*}
 \gamma_1=\gamma_{top}=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=4.15,\qquad
 \gamma_2=\gamma_{bot}=10.
@@ -940,7 +1041,8 @@ Recall \figref{fig:fm} and \eqsref{eq:be},
 \gamma=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{EI}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eEI}{L}}=\dfrac{\displaystyle\sum_{\text{columns}}\dfrac{I}{L}}{\displaystyle\sum_{\text{beams}}\dfrac{\beta_eI}{L}}.
 \end{gather*}
 
-\NZSSTEEL{\S~4.8.3.4.3} uses a modifying factor $\beta_e$ to account for various conditions at the far ends of the beams, which may affect the magnitude of moment on the joint. This corresponds to \ANSI{Eq. C-A-7-4}.
+\NZSSTEEL{\S~4.8.3.4.3} uses a modifying factor $\beta_e$ to account for various conditions at the far ends of the beams, which may affect the magnitude of moment on the joint.
+This corresponds to \ANSI{Eq. C-A-7-4}.
 \begin{table}[H]
 \centering\footnotesize
 \caption{Modifying factor $\beta_e$}\label{tab:beta_e}
@@ -958,15 +1060,19 @@ Recall \figref{fig:fm} and \eqsref{eq:be},
 \caption{Far end of beam conditions}
 \end{figure}
 \subsubsection{Member Yielding}
-Stocky columns which are subject to high axial forces may yield as a result of the residual stress. This reduces the elastic modulus, so the column has a `close to' pinned connection at the yield end. This can lead to a saving of material.
+Stocky columns which are subject to high axial forces may yield as a result of the residual stress.
+This reduces the elastic modulus, so the column has a `close to' pinned connection at the yield end.
+This can lead to a saving of material.
 
 We will not study this in this class, and it is not important for $f<0.5f_y$.
 \subsubsection{Total Storey Sidesway}
 The design charts are based on the assumption that all columns buckle simultaneously and that the sidesway load for the storey can be obtained from the sidesway load of one column.
 
-In gravity frames the resistance of one column to sidesway may be greater than that of other columns due to its loading or stiffness. It is assumed columns are axially rigid.
+In gravity frames the resistance of one column to sidesway may be greater than that of other columns due to its loading or stiffness.
+It is assumed columns are axially rigid.
 
-For design against sidesway, the gravity load which a frame can support may be split up in any proportion. An example is shown as follows.
+For design against sidesway, the gravity load which a frame can support may be split up in any proportion.
+An example is shown as follows.
 \begin{figure}[H]
 \centering\input{PIC/CH04/SS}
 \caption{Transfer of vertical loads}
@@ -978,7 +1084,8 @@ For the following frame, assume the braced and sway capacities for each column a
 \begin{figure}[H]
 \centering\input{PIC/CH04/SS2}
 \end{figure}
-For the sway mechanism, $\sum_{i=1}^3N^*_i=N^*\leqslant\sum_{i=1}^3\phi{}N_{c,s}^i=\SI{1100}{\kn}$. For each column, the maximum load shall not exceed its braced capacity, that is
+For the sway mechanism, $\sum_{i=1}^3N^*_i=N^*\leqslant\sum_{i=1}^3\phi{}N_{c,s}^i=\SI{1100}{\kn}$.
+For each column, the maximum load shall not exceed its braced capacity, that is
 \begin{gather*}
 N^*_1\leqslant\phi{}N_{c,b}^1=\SI{500}{\kn},\qquad
 N^*_2\leqslant\phi{}N_{c,b}^2=\SI{600}{\kn},\qquad
@@ -987,11 +1094,15 @@ N^*_3\leqslant\phi{}N_{c,b}^3=\SI{400}{\kn}.
 
 Now consider the following two cases.
 \begin{itemize}
-\item The loads for columns 1 and 2 are given as $N^*_1=\SI{400}{\kn}$ and $N^*_2=\SI{500}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{400}{\kn}-\SI{500}{\kn}=\SI{200}{\kn}$. Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{200}{\kn},~\SI{400}{\kn}\right)=\SI{200}{\kn}$.
-\item The loads for columns 1 and 2 are given as $N^*_1=\SI{300}{\kn}$ and $N^*_2=\SI{300}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{300}{\kn}-\SI{300}{\kn}=\SI{500}{\kn}$. Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{500}{\kn},~\SI{400}{\kn}\right)=\SI{400}{\kn}$.
+\item The loads for columns 1 and 2 are given as $N^*_1=\SI{400}{\kn}$ and $N^*_2=\SI{500}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{400}{\kn}-\SI{500}{\kn}=\SI{200}{\kn}$.
+Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{200}{\kn},~\SI{400}{\kn}\right)=\SI{200}{\kn}$.
+\item The loads for columns 1 and 2 are given as $N^*_1=\SI{300}{\kn}$ and $N^*_2=\SI{300}{\kn}$, what is the maximum load of column 3?\\Knowing that $N^*\leqslant\SI{1100}{\kn}$ to prevent sway mechanism, $N^*_3\leqslant\SI{1100}{\kn}-\SI{300}{\kn}-\SI{300}{\kn}=\SI{500}{\kn}$.
+Thus the maximum load of column 3 should be $N^*_3=\min\left(\SI{500}{\kn},~\SI{400}{\kn}\right)=\SI{400}{\kn}$.
 \end{itemize}
 \subsubsection{Use of Effective Length Factor --- Practical Considerations}
-For columns in braced frames, it is always conservative to use $k_e=1$. This has been recommended by \citet{Yura1971}. Based on this, and the uncertainty in assessing some of these connection stiffnesses, we will use $k_e=1$ for the braced case consideration for columns in
+For columns in braced frames, it is always conservative to use $k_e=1$.
+This has been recommended by \citet{Yura1971}.
+Based on this, and the uncertainty in assessing some of these connection stiffnesses, we will use $k_e=1$ for the braced case consideration for columns in
 \begin{enumerate}
 \item sway frames, and
 \item braced frames, where there is loading along the beam length causing column moment.
@@ -1001,7 +1112,9 @@ For columns in braced frames with no moment from the beams, $k_e$ can be compute
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACSF.sm}{Worksheet}
 Axial Compression Example --- Sway Frame
 
-For the frame shown, the columns are supported out-of-plane at top, centre and bottom, find 1) the maximum value of axial load each column can carry and 2) the maximum value of $N^*_1+N^*_2$ the frame can carry. Note the out-of-plane (weak axis) buckling should be checked as well. Use Grade 300 steel.
+For the frame shown, the columns are supported out-of-plane at top, centre and bottom, find 1) the maximum value of axial load each column can carry and 2) the maximum value of $N^*_1+N^*_2$ the frame can carry.
+Note the out-of-plane (weak axis) buckling should be checked as well.
+Use Grade 300 steel.
 \begin{figure}[H]
 \input{PIC/CH04/FRAME2}
 \end{figure}
@@ -1016,7 +1129,8 @@ Find stiffness ratios. $\gamma_{bot}=\gamma_2=1$.
 \begin{gather*}
 \gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{143e6}{\mm^6}/\SI{5}{\meter}}{1\times\SI{188e6}{\mm^6}/\SI{7}{\meter}}=1.065.
 \end{gather*}
-From French equation, $k_e=1.351$. Thus, the modified slenderness ratio,
+From French equation, $k_e=1.351$.
+Thus, the modified slenderness ratio,
 \begin{gather*}
 \lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1.351\times\SI{5}{\meter}}{\SI{112}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=63.84.
 \end{gather*}
@@ -1031,7 +1145,8 @@ Find stiffness ratios. $\gamma_{bot}=\gamma_2=1$.
 \begin{gather*}
 \gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{114e6}{\mm^6}/\SI{5}{\meter}}{1\times\SI{188e6}{\mm^6}/\SI{7}{\meter}}=0.849.
 \end{gather*}
-From French equation, $k_e=1.319$. Thus, the modified slenderness ratio,
+From French equation, $k_e=1.319$.
+Thus, the modified slenderness ratio,
 \begin{gather*}
 \lambda_n=\dfrac{k_eL_x}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{1.319\times\SI{5}{\meter}}{\SI{111}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{300}{250}}=65.06.
 \end{gather*}
@@ -1045,7 +1160,8 @@ Alternatively, $L_e=k_eL_x=\SI{6.60}{\m}$ could be used to get \SI{1961}{\kn} by
 Thus the total $N^*=\sum{}N^*_i=\SI{2259}{\kn}+\SI{1961}{\kn}=\SI{4220}{\kn}$.
 \item For braced capacity.
 
-One can use French equation to find the corresponding $k_e$ as shown before. For braced columns in a sway frame, use $k_e=1$.
+One can use French equation to find the corresponding $k_e$ as shown before.
+For braced columns in a sway frame, use $k_e=1$.
 \begin{itemize}
 \item Left Column\\
 The modified slenderness ratio,
@@ -1069,7 +1185,8 @@ Thus, $\alpha_c=0.864$.
 From $\alpha_c$, one can tell the braced capacity shall be greater than the sway capacity.
 \item For weak axis buckling.
 
-Again, we choose $k_e=1$ for a conservative design. Since the columns are supported every half the length, $L_y=\SI{2.5}{\meter}$.
+Again, we choose $k_e=1$ for a conservative design.
+Since the columns are supported every half the length, $L_y=\SI{2.5}{\meter}$.
 \begin{itemize}
 \item Left Column\\
 The modified slenderness ratio,
@@ -1146,7 +1263,8 @@ Thus $\alpha_c=0.913$,
 \end{gather*}
 \end{itemize}
 
-The weak-axis buckling capacities are the same as in the previous example. The design criteria considering both strong and weak axis buckling are
+The weak-axis buckling capacities are the same as in the previous example.
+The design criteria considering both strong and weak axis buckling are
 \begin{gather*}
 N^*_1\leqslant\min\left(\SI{2635}{\kn},~\SI{2592}{\kn}\right)=\SI{2592}{\kn},\\
 N^*_2\leqslant\min\left(\SI{2298}{\kn},~\SI{2251}{\kn}\right)=\SI{2251}{\kn}.
@@ -1175,9 +1293,13 @@ Moment connections are expensive so frames often have two types of connections:
 \centering\input{PIC/CH04/LC}
 \caption{Destabilizing effect of leaning columns}
 \end{figure}
-The FR frame provides a stabilizing effect for all of the columns. \NZSSTEEL{} requires that the destabilizing effect of `leaning columns' be accounted for. For `leaning columns', use $k_e=1$.
+The FR frame provides a stabilizing effect for all of the columns.
+\NZSSTEEL{} requires that the destabilizing effect of `leaning columns' be accounted for.
+For `leaning columns', use $k_e=1$.
 \begin{exmp}\href{run:./WORKSHEET/CH04/EX4.ACLC.sm}{Worksheet}
-Use Grade 300 steel. For the following sway frame, assume axial rigidity and out-of-plane buckling restrained. Design columns using UC sections.
+Use Grade 300 steel.
+For the following sway frame, assume axial rigidity and out-of-plane buckling restrained.
+Design columns using UC sections.
 \begin{figure}[H]
 \input{PIC/CH04/FRAME4}
 \end{figure}
@@ -1192,7 +1314,9 @@ Try 310UC158, $f_y=\SI{280}{\mpa}$ and $r_x=\SI{139}{\mm}$,
 \gamma_{top}=\gamma_1=\dfrac{I_c/L_c}{\beta_eI_b/L_b}=\dfrac{\SI{388e6}{\mm^6}/\SI{5}{\meter}}{0.5\times\SI{761e6}{\mm^6}/\SI{10}{\meter}}=2.039,\\
 \gamma_{bot}=\gamma_2=10.
 \end{gather*}
-Note the far end of the beam is pinned and sway is allowed, from \tabref{tab:beta_e}, $\beta_e=0.5$. From French equation, $k_e=2.126$. Thus,
+Note the far end of the beam is pinned and sway is allowed, from \tabref{tab:beta_e}, $\beta_e=0.5$.
+From French equation, $k_e=2.126$.
+Thus,
 \begin{gather*}
 \lambda_n=\dfrac{k_eL}{r_x}\sqrt{k_f}\sqrt{\dfrac{f_y}{\SI{250}{\mpa}}}=\dfrac{2.126\times\SI{5}{\meter}}{\SI{139}{\mm}}\times\sqrt{1}\times\sqrt{\dfrac{280}{250}}=80.92.
 \end{gather*}
@@ -1212,19 +1336,25 @@ Thus $\alpha_c=0.846$,
 \begin{gather*}
 A_n\geqslant\dfrac{N^*}{\phi\alpha_ck_ff_y}=\dfrac{\SI{1900}{\kn}}{0.9\times0.846\times1\times\SI{280}{\mpa}}=\SI{8909}{\mm^2}.
 \end{gather*}
-Thus choose 250UC72.9 for interior columns. It can be checked 250UC72.9 satisfies the design criterion by updating all quantities while the next designation 200UC59.5 does not. The braced capacity is greater than the sway capacity.
+Thus choose 250UC72.9 for interior columns.
+It can be checked 250UC72.9 satisfies the design criterion by updating all quantities while the next designation 200UC59.5 does not.
+The braced capacity is greater than the sway capacity.
 
 In conclusion, choose 250UC72.9 for interior columns and 310UC158 for exterior columns.
 \end{solution}
 \begin{exmp}Loading Dock
 
-A loading dock is supported by four columns. It is braced in one direction and unbraced in the other. Find the column strength for different combinations of beam (310UB46.2 and 610UB125) and column (250UC89.5 and 310UC158) sections. The columns are oriented so that the weak axis direction is braced.
+A loading dock is supported by four columns.
+It is braced in one direction and unbraced in the other.
+Find the column strength for different combinations of beam (310UB46.2 and 610UB125) and column (250UC89.5 and 310UC158) sections.
+The columns are oriented so that the weak axis direction is braced.
 \begin{figure}[H]
 \input{PIC/CH04/FRAME5}
 \end{figure}
 \end{exmp}
 \begin{solution}
-For all cases, $\beta_e=1$. Using the French equations, the effective lengths for each combination can be found as follows.
+For all cases, $\beta_e=1$.
+Using the French equations, the effective lengths for each combination can be found as follows.
 \begin{table}[H]
 \centering\footnotesize
 \renewcommand{\arraystretch}{1.2}
@@ -1256,7 +1386,8 @@ By looking up the design tables, the critical loads can be found.
 \end{tabular}
 \end{table}
 
-Frame stiffness and therefore buckling capacity depend on stiffness of beams and columns. A proper combination shall be chosen to optimise the design (maximise load carried per weight).
+Frame stiffness and therefore buckling capacity depend on stiffness of beams and columns.
+A proper combination shall be chosen to optimise the design (maximise load carried per weight).
 \end{solution}
 \subsection{Design of Columns in Frames}
 In the previous discussion it is assumed that the columns are axially stiff.
@@ -1271,7 +1402,9 @@ In the previous discussion it is assumed that the columns are axially stiff.
 \centering\input{PIC/CH04/CF2}
 \caption{Moment developed in columns due to horizontal loads}
 \end{figure}
-If moments occur in conjunction with axial force, then the member shall be designed for both moment and axial force. Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects). We will discuss this in design of bending members.
+If moments occur in conjunction with axial force, then the member shall be designed for both moment and axial force.
+Furthermore, axial force will enhance moment ($P$-$\Delta$ and $P$-$\delta$ effects).
+We will discuss this in design of bending members.
 \begin{sidewaysfigure}[p]
 \centering\footnotesize
 \begin{subfigure}{.5\linewidth}\centering
