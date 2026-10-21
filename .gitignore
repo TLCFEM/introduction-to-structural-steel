@@ -15,5 +15,6 @@
 *.toc
 IMAGES*
 INTRO.pdf
+opencode.json
 PNG
 venv
